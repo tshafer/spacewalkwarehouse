@@ -19,9 +19,9 @@
       <thead>
         <tr>
           <th class="min">ID</th>
-          <th>{!! Html::sort('Name', 'first_name') !!}</th>
-          <th>{!! Html::sort('Email', 'email') !!}</th>
-          <th>{!! Html::sort('Joined At', 'created_at') !!}</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Joined At</th>
           <th>Actions</th>
         </tr>
       </thead>

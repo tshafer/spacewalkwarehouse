@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
 use App\User;
@@ -17,8 +18,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::sorted(Input::get('sort_by'),
-          Input::get('dir', 'asc'))->paginate();
+        $users = User::all();
 
         return view('admin.users.index', compact('users'));
     }
@@ -81,13 +81,14 @@ class UsersController extends Controller
         return redirect()->route('admin.users.show', [$user->id]);
     }
 
+
     /**
      * Update the specified resource in storage.
      *
-     * @param \App\User                          $user
-     * @param \Illuminate\Support\Facades\Request $request
+     * @param \App\User                $user
+     * @param \Illuminate\Http\Request $request
      *
-     * @return mixed
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(User $user, Request $request)
     {

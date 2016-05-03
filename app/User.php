@@ -1,6 +1,9 @@
 <?php
 namespace App;
 
+use App\Support\Traits\Attributes;
+use App\Support\Traits\Linkable;
+use App\Support\Traits\Sortable;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
@@ -9,9 +12,6 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Support\Facades\Hash;
-use App\Support\Traits\Attributes;
-use App\Support\Traits\Linkable;
-use App\Support\Traits\Sortable;
 
 class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract
 {
@@ -31,8 +31,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $fillable = [
-        'first_name',
-        'last_name',
+        'name',
         'email',
         'password',
     ];
@@ -43,15 +42,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
-
-
-    /**
-     * @return string
-     */
-    public function getNameAttribute()
-    {
-        return $this->first_name . ' ' . $this->last_name;
-    }
 
 
     /**

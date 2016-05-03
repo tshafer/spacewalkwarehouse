@@ -1,68 +1,136 @@
-
+<!doctype html>
+<!--[if IE 9 ]><html class="ie9" lang="en"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
 <head>
-    <meta charset="UTF-8">
-    <title> @yield('title') | Washingtonian</title>
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/apple-touch-icon-57x57-precomposed.png"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <meta http-equiv="cleartype" content="on">
-
-    <link rel="stylesheet" href="/assets/blogs.css">
-    <link rel="stylesheet" href="/assets/footer.css">
-    <link rel="stylesheet" href="/assets/bootstrap.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <meta name="robots" content="all" />
-    <meta name="google-site-verification" content="vvVTsFEd7-c5BCuE1p4P_yz2s99Ensy3QhC-odFrCjQ" />
-    <meta property="fb:admins" content="100002475007199" />
-    <!--[if lt IE 9]>
-    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <script src="{{ elixir("assets/js/vendor.js") }}"></script>
-    <script src="{{ elixir("assets/js/app.js") }}"></script>
-    <script src="/assets/js/jquery.inputmask.bundle.js"></script>
->
-    {{--<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=washaddthis" async="async"></script>--}}
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.2.1/jquery.form-validator.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-    @yield('styles')
-    <style type="text/css">
-        #content-container {
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        }
-        h1 {
-            font-size: 15px;
-            padding: 10px 0 20px 0;
-        }
-        .alert.alert-danger {
-            font-size: 15px;
-            padding: 20px;
-        }
-        .alert.alert-danger ul {
-            margin-left: 20px;
-            padding-left: 0;
-            padding-top: 20px;
-        }
-        #form-body h4 {
-            font-size: 17px;
-            padding:20px 0;
-        }
-        #content-container label {
-            font-size:13px;
-        }
-        #content-container h3 {
-            font-weight: 200;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            letter-spacing: -1px;
-            color: #343434;
-            margin: 3px 0;
-            font-size: 40px;
-            text-transform: capitalize;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-    </style>
+    <title>Patio Deck & Hearth Shop - Outdoor Furniture & Fireplaces - Cleveland, Ohio</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!--meta info-->
+    <meta name="description" content="Cleveland's largest selection of indoor and outdoor furniture and fireplaces">
+    <!--<link rel="icon" type="image/ico" href="images/fav.ico">-->
+    <!--stylesheet include-->
+    <link rel="stylesheet" type="text/css" media="all" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/css/settings.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/css/owl.transitions.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/css/jquery.custom-scrollbar.css">
+    <link rel="stylesheet" type="text/css" media="all" href="/css/style.css">
+    <!--font include-->
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <script src="/js/modernizr.js"></script>
 </head>
 <body>
+<!--boxed layout-->
+<div class="boxed_layout relative w_xs_auto">
+    <!--[if (lt IE 9) | IE 9]>
+    <div style="background:#fff;padding:8px 0 10px;">
+        <div class="container" style="width:1170px;">
+            <div class="row wrapper">
+                <div class="clearfix" style="padding:9px 0 0;float:left;width:83%;"><i
+                        class="fa fa-exclamation-triangle scheme_color f_left m_right_10"
+                        style="font-size:25px;color:#e74c3c;"></i><b style="color:#e74c3c;">Attention! This page may not
+                    display correctly.</b> <b>You are using an outdated version of Internet Explorer. For a faster, safer
+                    browsing experience.</b></div>
+                <div class="t_align_r" style="float:left;width:16%;"><a
+                        href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"
+                        class="button_type_4 r_corners bg_scheme_color color_light d_inline_b t_align_c" target="_blank"
+                        style="margin-bottom:2px;">Update Now!</a></div>
+            </div>
+        </div>
+    </div>
+    <![endif]-->
+    <!--markup header-->
+    <header role="banner">
+        <!--header top part-->
+        <section class="h_top_part">
+            <div class="container">
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12 t_xs_align_c">
+                        <p class="f_size_small"><b class="color_dark">(440) 564-2290 | Cleveland's largest selection of
+                                indoor and outdoor furniture and fireplaces.</b></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--header bottom part-->
+        <section class="h_bot_part container">
+            <div class="clearfix row">
+                <div class="col-lg-12 col-md-12 col-sm-12 t_xs_align_c">
+                    <span class="logotype">Patio, Deck & Hearth Shop</span>
+                </div>
+            </div>
+        </section>
+        <!--main menu container-->
+        <section class="menu_wrap relative">
+            <div class="container clearfix">
+                <!--button for responsive menu-->
+                <button id="menu_button" class="r_corners centered_db d_none tr_all_hover d_xs_block m_bottom_10">
+                    <span class="centered_db r_corners"></span>
+                    <span class="centered_db r_corners"></span>
+                    <span class="centered_db r_corners"></span>
+                </button>
+                <!--main menu-->
+                <nav role="navigation" class="f_left f_xs_none d_xs_none">
+                    <ul class="horizontal_list main_menu clearfix">
+                        <li class="current relative f_xs_none m_xs_bottom_5"><a href="index.html"
+                                                                                class="tr_delay_hover color_light tt_uppercase"><b>Home</b></a>
+                        </li>
+                        <li class="relative f_xs_none m_xs_bottom_5"><a href="index.html#"
+                                                                        class="tr_delay_hover color_light tt_uppercase"><b>Indoor</b></a>
+                            <!--sub menu-->
+                            <div class="sub_menu_wrap top_arrow d_xs_none type_2 tr_all_hover clearfix r_corners">
+                                <ul class="sub_menu">
+                                    <li><a class="color_dark tr_delay_hover" href="index.html#">Wicker & Rattan</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="relative f_xs_none m_xs_bottom_5"><a href="category.html"
+                                                                        class="tr_delay_hover color_light tt_uppercase"><b>Outdoor</b></a>
+                            <!--sub menu-->
+                            <div class="sub_menu_wrap top_arrow d_xs_none type_2 tr_all_hover clearfix r_corners">
+                                <ul class="sub_menu">
+                                    <li><a class="color_dark tr_delay_hover" href="subcategory.html">Aluminum</a></li>
+                                    <li><a class="color_dark tr_delay_hover" href="index.html#">Cast Aluminum</a></li>
+                                    <li><a class="color_dark tr_delay_hover" href="index.html#">Wrought Aluminum</a></li>
+                                    <li><a class="color_dark tr_delay_hover" href="index.html#">All-Weather Wicker</a></li>
+                                    <li><a class="color_dark tr_delay_hover" href="index.html#">Wood</a></li>
+                                    <li><a class="color_dark tr_delay_hover" href="index.html#">Marine Grade Polymer</a>
+                                    </li>
+                                    <li><a class="color_dark tr_delay_hover" href="index.html#">Miscellaneous &
+                                            Accessories</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="relative f_xs_none m_xs_bottom_5"><a href="index.html#"
+                                                                        class="tr_delay_hover color_light tt_uppercase"><b>Fireplace
+                                    & Hearth</b></a>
+                            <!--sub menu-->
+                            <div class="sub_menu_wrap top_arrow d_xs_none type_2 tr_all_hover clearfix r_corners">
+                                <ul class="sub_menu">
+                                    <li><a class="color_dark tr_delay_hover" href="index.html#">Fire Pits</a></li>
+                                    <li><a class="color_dark tr_delay_hover" href="index.html#">Gas Burning Fireplaces</a>
+                                    </li>
+                                    <li><a class="color_dark tr_delay_hover" href="index.html#">Wood Burning Fireplaces</a>
+                                    </li>
+                                    <li><a class="color_dark tr_delay_hover" href="index.html#">Electric Fireplaces</a></li>
+                                    <li><a class="color_dark tr_delay_hover" href="index.html#">Glass Doors & Screens</a>
+                                    </li>
+                                    <li><a class="color_dark tr_delay_hover" href="index.html#">Stainless Steel Outdoor
+                                            Burners</a></li>
+                                    <li><a class="color_dark tr_delay_hover" href="index.html#">Accessories</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="relative f_xs_none m_xs_bottom_5"><a href="index.html#"
+                                                                        class="tr_delay_hover color_light tt_uppercase"><b>Perfect
+                                    Patio Gallery</b></a>
+                        </li>
+                        <li class="relative f_xs_none m_xs_bottom_5"><a href="blog.html"
+                                                                        class="tr_delay_hover color_light tt_uppercase"><b>Visit
+                                    / Contact</b></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+    </header>

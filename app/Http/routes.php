@@ -11,22 +11,15 @@
 |
 */
 
-use Knp\Snappy\Pdf;
-use App\Attendee;
-
+$router->get('/', [
+  'as'   => 'home',
+  'uses' => 'HomeController@index',
+]);
 
 $router->get('loggies', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
 $router->model('users', App\User::class);
-$router->model('events', App\Event::class);
-$router->model('tickets', App\Ticket::class);
-$router->model('coupons', App\Coupon::class);
-$router->model('fitfests', App\FitFest::class);
-$router->model('attendees', App\Attendee::class);
-$router->model('fitclasses', App\FitClass::class);
-$router->model('classtimes', App\ClassTime::class);
-$router->model('tickettypes', App\TicketType::class);
-$router->model('asktheexperts', App\AskTheExpert::class);
+
 
 require 'Routes/AuthRoutes.php';
 require 'Routes/AdminRoutes.php';
