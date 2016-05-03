@@ -1,10 +1,10 @@
 <?php
-namespace Wash\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Input;
-use Wash\FitFest;
-use Wash\Http\Controllers\Controller;
+use App\FitFest;
+use App\Http\Controllers\Controller;
 
 class FitFestsController extends Controller
 {

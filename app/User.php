@@ -1,19 +1,17 @@
 <?php
-namespace Wash;
+namespace App;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
-use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\Access\Authorizable;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
-use Wash\Support\Traits\Attributes;
-use Wash\Support\Traits\Linkable;
-use Wash\Support\Traits\Sortable;
-
+use App\Support\Traits\Attributes;
+use App\Support\Traits\Linkable;
+use App\Support\Traits\Sortable;
 
 class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract
 {
@@ -33,10 +31,10 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $fillable = [
-      'first_name',
-      'last_name',
-      'email',
-      'password',
+        'first_name',
+        'last_name',
+        'email',
+        'password',
     ];
 
     /**
@@ -46,30 +44,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      */
     protected $hidden = ['password', 'remember_token'];
 
-    /**
-     * @param $value
-     */
-    public function setPhotoAttribute($value)
-    {
-        if (isset($this->attributes['photo']) && $this->attributes['photo'] != '') {
-            $filename = public_path() . '/uploads/' . $this->attributes['photo'];
-
-            if (File::exists($filename)) {
-                File::delete($filename);
-            }
-        }
-
-        if ($value == '') {
-            $this->attributes['photo'] = '';
-        } else {
-            $filename = time() . $value->getClientOriginalName();
-
-            $value->move(public_path() . '/uploads/', $filename);
-
-            $this->attributes['photo'] = $filename;
-        }
-    }
-
 
     /**
      * @return string
@@ -78,6 +52,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     {
         return $this->first_name . ' ' . $this->last_name;
     }
+
 
     /**
      * Hash the User's Password

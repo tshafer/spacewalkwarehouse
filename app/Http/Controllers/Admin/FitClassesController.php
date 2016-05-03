@@ -1,11 +1,11 @@
 <?php
 
-namespace Wash\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Input;
-use Wash\FitClass;
-use Wash\Http\Controllers\Controller;
+use App\FitClass;
+use App\Http\Controllers\Controller;
 
 class FitClassesController extends Controller
 {

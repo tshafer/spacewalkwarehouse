@@ -1,15 +1,15 @@
-<?php namespace Wash\Http\Controllers\Frontend;
+<?php namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
-use Wash\Attendee;
-use Wash\ClassTime;
-use Wash\FitClass;
-use Wash\FitFest;
-use Wash\Http\Controllers\Controller;
+use App\Attendee;
+use App\ClassTime;
+use App\FitClass;
+use App\FitFest;
+use App\Http\Controllers\Controller;
 
 /**
- * @package Wash\Http\Controllers
+ * @package App\Http\Controllers
  */
 class FitFestsController extends Controller
 {

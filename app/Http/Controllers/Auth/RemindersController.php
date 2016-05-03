@@ -1,12 +1,13 @@
 <?php
 
-namespace Wash\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth;
 
-use Wash\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class RemindersController extends Controller
 {
+
     /*
     |--------------------------------------------------------------------------
     | Password Reset Controller
@@ -19,6 +20,7 @@ class RemindersController extends Controller
     */
 
     use ResetsPasswords;
+
 
     /**
      * Create a new password controller instance.

@@ -1,11 +1,11 @@
-<?php namespace Wash\Http\Controllers\Frontend;
+<?php namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
-use Wash\AskTheExpert;
-use Wash\Http\Controllers\Controller;
+use App\AskTheExpert;
+use App\Http\Controllers\Controller;
 
 /**
- * @package Wash\Http\Controllers
+ * @package App\Http\Controllers
  */
 class AskTheExpertsController extends Controller
 {

@@ -1,11 +1,11 @@
-<?php namespace Wash\Http\Controllers\Admin;
+<?php namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Input;
-use Wash\Coupon;
-use Wash\Event;
-use Wash\Http\Controllers\Controller;
+use App\Coupon;
+use App\Event;
+use App\Http\Controllers\Controller;
 use Exception;
 
 

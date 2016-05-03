@@ -1,14 +1,14 @@
 <?php
 
-namespace Wash;
+namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Wash\Support\Traits\Attributes;
-use Wash\Support\Traits\Linkable;
-use Wash\Support\Traits\Sortable;
+use App\Support\Traits\Attributes;
+use App\Support\Traits\Linkable;
+use App\Support\Traits\Sortable;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMedia;
 
 class Event extends Model implements HasMedia

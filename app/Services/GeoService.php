@@ -1,5 +1,5 @@
 <?php
-    namespace Wash\Services;
+    namespace App\Services;
 
     use Illuminate\Support\Collection;
     use Illuminate\Support\Facades\Cache;

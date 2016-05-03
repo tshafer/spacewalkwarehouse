@@ -1,10 +1,10 @@
-<?php namespace Wash\Http\Controllers\Admin;
+<?php namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Wash\Event;
-use Wash\Http\Controllers\Controller;
-use Wash\TicketType;
+use App\Event;
+use App\Http\Controllers\Controller;
+use App\TicketType;
 
 
 class TicketTypesController extends Controller

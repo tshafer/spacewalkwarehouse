@@ -1,12 +1,12 @@
 <?php
-namespace Wash;
+namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use Wash\Support\Traits\Attributes;
-use Wash\Support\Traits\Imagable;
-use Wash\Support\Traits\Linkable;
-use Wash\Support\Traits\Sortable;
+use App\Support\Traits\Attributes;
+use App\Support\Traits\Imagable;
+use App\Support\Traits\Linkable;
+use App\Support\Traits\Sortable;
 
 /**
  * Class AskTheExpert

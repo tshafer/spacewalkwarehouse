@@ -1,13 +1,13 @@
-<?php namespace Wash\Http\Controllers\Admin;
+<?php namespace App\Http\Controllers\Admin;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Input;
-use Wash\Event;
-use Wash\Http\Controllers\Controller;
-use Wash\Ticket;
-use Wash\TicketType;
+use App\Event;
+use App\Http\Controllers\Controller;
+use App\Ticket;
+use App\TicketType;
 
 
 class EventsController extends Controller

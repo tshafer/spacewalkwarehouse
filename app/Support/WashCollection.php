@@ -1,12 +1,12 @@
 <?php
-    namespace Wash\Support;
+    namespace App\Support;
 
     use Illuminate\Database\Eloquent\Collection;
 
     /**
      * Class WashCollection
      *
-     * @package Wash\Support
+     * @package App\Support
      */
     class WashCollection extends Collection
     {

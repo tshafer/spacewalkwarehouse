@@ -1,10 +1,10 @@
-<?php namespace Wash\Http\Controllers\Admin;
+<?php namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Input;
-use Wash\AskTheExpert;
-use Wash\Http\Controllers\Controller;
+use App\AskTheExpert;
+use App\Http\Controllers\Controller;
 
 
 class AskTheExpertsController extends Controller

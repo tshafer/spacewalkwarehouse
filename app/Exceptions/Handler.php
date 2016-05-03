@@ -1,8 +1,14 @@
-<?php namespace Wash\Exceptions;
+<?php
+
+namespace App\Exceptions;
 
 use Exception;
-//use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Bugsnag\BugsnagLaravel\BugsnagExceptionHandler as ExceptionHandler;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
+
 class Handler extends ExceptionHandler
 {
 
@@ -12,21 +18,27 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontReport = [
-        'Symfony\Component\HttpKernel\Exception\HttpException'
+        AuthorizationException::class,
+        HttpException::class,
+        ModelNotFoundException::class,
+        ValidationException::class,
     ];
+
 
     /**
      * Report or log an exception.
+     *
      * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
      *
      * @param  \Exception $e
      *
      * @return void
      */
-    public function report( Exception $e )
+    public function report(Exception $e)
     {
-        return parent::report( $e );
+        parent::report($e);
     }
+
 
     /**
      * Render an exception into an HTTP response.
@@ -36,8 +48,8 @@ class Handler extends ExceptionHandler
      *
      * @return \Illuminate\Http\Response
      */
-    public function render( $request, Exception $e )
+    public function render($request, Exception $e)
     {
-        return parent::render( $request, $e );
+        return parent::render($request, $e);
     }
 }

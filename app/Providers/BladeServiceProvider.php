@@ -1,6 +1,6 @@
 <?php
 
-namespace Wash\Providers;
+namespace App\Providers;
 
 
 use Illuminate\Support\Facades\Blade;

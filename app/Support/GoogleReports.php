@@ -1,6 +1,6 @@
 <?php
 
-namespace Wash\Support;
+namespace App\Support;
 
 use Carbon\Carbon;
 use Illuminate\Support\Collection;

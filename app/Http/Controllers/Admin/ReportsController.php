@@ -1,11 +1,11 @@
 <?php
-namespace Wash\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
 use Tshafer\Flash\Facades\FlashFacade;
-use Wash\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 
 class ReportsController extends Controller
 {

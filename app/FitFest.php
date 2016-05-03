@@ -1,9 +1,9 @@
-<?php namespace Wash;
+<?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Wash\Support\Traits\Attributes;
-use Wash\Support\Traits\Linkable;
-use Wash\Support\Traits\Sortable;
+use App\Support\Traits\Attributes;
+use App\Support\Traits\Linkable;
+use App\Support\Traits\Sortable;
 
 class FitFest extends Model
 {
@@ -43,6 +43,6 @@ class FitFest extends Model
      */
     public function classes()
     {
-        return $this->belongsToMany( 'Wash\FitClass' );
+        return $this->belongsToMany( 'App\FitClass' );
     }
 }

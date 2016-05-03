@@ -1,8 +1,8 @@
 <?php
-namespace Wash;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Wash\Support\Traits\Attributes;
+use App\Support\Traits\Attributes;
 
 class ClassTime extends Model
 {
@@ -27,6 +27,6 @@ class ClassTime extends Model
      */
     public function fitClass()
     {
-        return $this->hasMany('Wash\FitClass');
+        return $this->hasMany('App\FitClass');
     }
 }

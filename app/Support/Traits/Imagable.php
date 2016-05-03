@@ -1,5 +1,5 @@
 <?php
-    namespace Wash\Support\Traits;
+    namespace App\Support\Traits;
 
     use Illuminate\Support\Facades\File;
 

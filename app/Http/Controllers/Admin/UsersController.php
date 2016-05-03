@@ -1,10 +1,10 @@
 <?php
-namespace Wash\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
-use Wash\Http\Controllers\Controller;
-use Wash\User;
+use App\Http\Controllers\Controller;
+use App\User;
 
 class UsersController extends Controller
 {
@@ -84,7 +84,7 @@ class UsersController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Wash\User                          $user
+     * @param \App\User                          $user
      * @param \Illuminate\Support\Facades\Request $request
      *
      * @return mixed

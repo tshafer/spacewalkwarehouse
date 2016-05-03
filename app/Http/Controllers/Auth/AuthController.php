@@ -1,11 +1,11 @@
 <?php
-namespace Wash\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth;
 
-use Illuminate\Support\Facades\Validator;
-use Wash\User;
-use Wash\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
+use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -24,15 +24,15 @@ class AuthController extends Controller
 
     protected $redirectPath = 'admin';
 
+
     /**
      * Create a new authentication controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'getLogout']);
     }
+
 
     /**
      * Get a validator for an incoming registration request.
@@ -44,11 +44,12 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-          'name'     => 'required|max:255',
-          'email'    => 'required|email|max:255|unique:users',
-          'password' => 'required|confirmed|min:6',
+            'name'     => 'required|max:255',
+            'email'    => 'required|email|max:255|unique:users',
+            'password' => 'required|confirmed|min:6',
         ]);
     }
+
 
     /**
      * Create a new user instance after a valid registration.
@@ -60,9 +61,9 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         return User::create([
-          'name'     => $data['name'],
-          'email'    => $data['email'],
-          'password' => bcrypt($data['password']),
+            'name'     => $data['name'],
+            'email'    => $data['email'],
+            'password' => bcrypt($data['password']),
         ]);
     }
 }

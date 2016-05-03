@@ -1,5 +1,5 @@
 <?php
-    namespace Wash\Support\Traits;
+    namespace App\Support\Traits;
 
     use Collective\Html\FormFacade as Form;
     use Illuminate\Support\Facades\Request;

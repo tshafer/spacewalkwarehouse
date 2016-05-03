@@ -1,4 +1,4 @@
-<?php namespace Wash\Commands;
+<?php namespace App\Commands;
 
 abstract class Command
 {

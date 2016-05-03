@@ -1,5 +1,5 @@
 <?php
-    namespace Wash\Providers;
+    namespace App\Providers;
 
     use Collective\Html\FormFacade as Form;
     use Collective\Html\HtmlFacade as Html;
@@ -12,7 +12,7 @@
     /**
      * Class HtmlServiceProvider
      *
-     * @package Wash\Providers
+     * @package App\Providers
      */
     class HtmlServiceProvider extends ServiceProvider
     {

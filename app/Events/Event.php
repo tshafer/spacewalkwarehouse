@@ -1,4 +1,4 @@
-<?php namespace Wash\Events;
+<?php namespace App\Events;
 
 abstract class Event
 {

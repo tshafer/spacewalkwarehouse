@@ -1,10 +1,10 @@
-<?php namespace Wash;
+<?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Wash\Support\Traits\Attributes;
-use Wash\Support\Traits\Linkable;
-use Wash\Support\Traits\Sortable;
-use Wash\Support\WashCollection;
+use App\Support\Traits\Attributes;
+use App\Support\Traits\Linkable;
+use App\Support\Traits\Sortable;
+use App\Support\WashCollection;
 
 /**
  * @package Wash
@@ -29,7 +29,7 @@ class FitClass extends Model
      */
     public function classTime()
     {
-        return $this->belongsTo( 'Wash\ClassTime' );
+        return $this->belongsTo( 'App\ClassTime' );
     }
 
     /**
@@ -37,13 +37,13 @@ class FitClass extends Model
      */
     public function students()
     {
-        return $this->belongsToMany( 'Wash\FitFest' );
+        return $this->belongsToMany( 'App\FitFest' );
     }
 
     /**
      * @param array $models
      *
-     * @return \Wash\Support\WashCollection
+     * @return \App\Support\WashCollection
      */
     public function newCollection( array $models = [ ] )
     {

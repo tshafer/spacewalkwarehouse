@@ -1,7 +1,7 @@
 <?php
-    namespace Wash\Services;
+    namespace App\Services;
 
-    use Wash\Attendee;
+    use App\Attendee;
 
 
     class GenerateTicket

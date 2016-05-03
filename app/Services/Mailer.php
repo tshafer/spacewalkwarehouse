@@ -1,7 +1,7 @@
 <?php
-    namespace Wash\Services;
+    namespace App\Services;
 
-    use Wash\User;
+    use App\User;
     use Illuminate\Contracts\Mail\MailQueue as IlluminateMailer;
 
     class Mailer

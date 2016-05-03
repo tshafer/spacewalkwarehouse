@@ -1,11 +1,11 @@
 <?php
-namespace Wash;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Wash\Support\Traits\Attributes;
-use Wash\Support\Traits\Linkable;
-use Wash\Support\Traits\Sortable;
+use App\Support\Traits\Attributes;
+use App\Support\Traits\Linkable;
+use App\Support\Traits\Sortable;
 use Cartalyst\Stripe\Billing\Laravel\Billable;
 use Cartalyst\Stripe\Billing\Laravel\BillableContract;
 
