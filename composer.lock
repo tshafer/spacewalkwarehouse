@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3c1a998d535bc03a070307261ecbf456",
-    "content-hash": "407152deb20f29838754dac0a81a19dd",
+    "hash": "c92e96ae0f733ca1a6587c5d31368022",
+    "content-hash": "faeb8bab4f5ca797c722469a81218d70",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -19,13 +19,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/Anahkiasen/underscore-php/zipball/48f97b295c82d99c1fe10d8b0684c43f051b5580",
                 "reference": "48f97b295c82d99c1fe10d8b0684c43f051b5580",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "http://toran.tjshafer.com/repo/packagist/dists/%package%/%version%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "shasum": ""
             },
             "require": {
                 "doctrine/inflector": "^1.0",
@@ -176,62 +170,6 @@
                 "preload"
             ],
             "time": "2015-11-09 22:51:51"
-        },
-        {
-            "name": "danielstjules/stringy",
-            "version": "2.3.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/danielstjules/Stringy.git",
-                "reference": "4e214a5195fae3fb558e81b1c6010678f7600643"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/danielstjules/Stringy/zipball/4e214a5195fae3fb558e81b1c6010678f7600643",
-                "reference": "4e214a5195fae3fb558e81b1c6010678f7600643",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0",
-                "symfony/polyfill-mbstring": "~1.1"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Stringy\\": "src/"
-                },
-                "files": [
-                    "src/Create.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Daniel St. Jules",
-                    "email": "danielst.jules@gmail.com",
-                    "homepage": "http://www.danielstjules.com"
-                }
-            ],
-            "description": "A string manipulation library with multibyte support",
-            "homepage": "https://github.com/danielstjules/Stringy",
-            "keywords": [
-                "UTF",
-                "helpers",
-                "manipulation",
-                "methods",
-                "multibyte",
-                "string",
-                "utf-8",
-                "utility",
-                "utils"
-            ],
-            "time": "2016-05-02 15:18:10"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -874,121 +812,6 @@
             "time": "2016-04-29 12:21:54"
         },
         {
-            "name": "gabrielelana/byte-units",
-            "version": "0.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/gabrielelana/byte-units.git",
-                "reference": "ee1d99ae4374a76847e8366a8ea5464226ebcc01"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/gabrielelana/byte-units/zipball/ee1d99ae4374a76847e8366a8ea5464226ebcc01",
-                "reference": "ee1d99ae4374a76847e8366a8ea5464226ebcc01",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "ByteUnits\\": "src/ByteUnits"
-                },
-                "files": [
-                    "src/ByteUnits/functions.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Gabriele Lana",
-                    "email": "gabriele.lana@gmail.com"
-                }
-            ],
-            "description": "Library to parse, format and convert byte units",
-            "homepage": "https://github.com/gabrielelana/byte-units",
-            "keywords": [
-                "byte",
-                "convert",
-                "format",
-                "parse",
-                "size",
-                "units"
-            ],
-            "time": "2015-03-11 15:46:37"
-        },
-        {
-            "name": "guzzlehttp/guzzle",
-            "version": "5.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "f3c8c22471cb55475105c14769644a49c3262b93"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/f3c8c22471cb55475105c14769644a49c3262b93",
-                "reference": "f3c8c22471cb55475105c14769644a49c3262b93",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "http://toran.tjshafer.com/repo/packagist/dists/%package%/%version%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "guzzlehttp/ringphp": "^1.1",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "ext-curl": "*",
-                "phpunit/phpunit": "^4.0",
-                "psr/log": "^1.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "5.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                }
-            ],
-            "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
-            "homepage": "http://guzzlephp.org/",
-            "keywords": [
-                "client",
-                "curl",
-                "framework",
-                "http",
-                "http client",
-                "rest",
-                "web service"
-            ],
-            "time": "2015-05-20 03:47:55"
-        },
-        {
             "name": "guzzlehttp/psr7",
             "version": "1.3.0",
             "source": {
@@ -1045,119 +868,6 @@
                 "uri"
             ],
             "time": "2016-04-13 19:56:01"
-        },
-        {
-            "name": "guzzlehttp/ringphp",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guzzle/RingPHP.git",
-                "reference": "dbbb91d7f6c191e5e405e900e3102ac7f261bc0b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/RingPHP/zipball/dbbb91d7f6c191e5e405e900e3102ac7f261bc0b",
-                "reference": "dbbb91d7f6c191e5e405e900e3102ac7f261bc0b",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "http://toran.tjshafer.com/repo/packagist/dists/%package%/%version%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "guzzlehttp/streams": "~3.0",
-                "php": ">=5.4.0",
-                "react/promise": "~2.0"
-            },
-            "require-dev": {
-                "ext-curl": "*",
-                "phpunit/phpunit": "~4.0"
-            },
-            "suggest": {
-                "ext-curl": "Guzzle will use specific adapters if cURL is present"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Ring\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                }
-            ],
-            "description": "Provides a simple API and specification that abstracts away the details of HTTP into a single PHP function.",
-            "time": "2015-05-20 03:37:09"
-        },
-        {
-            "name": "guzzlehttp/streams",
-            "version": "3.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guzzle/streams.git",
-                "reference": "47aaa48e27dae43d39fc1cea0ccf0d84ac1a2ba5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/streams/zipball/47aaa48e27dae43d39fc1cea0ccf0d84ac1a2ba5",
-                "reference": "47aaa48e27dae43d39fc1cea0ccf0d84ac1a2ba5",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "http://toran.tjshafer.com/repo/packagist/dists/%package%/%version%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Stream\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                }
-            ],
-            "description": "Provides a simple abstraction over streams of data",
-            "homepage": "http://guzzlephp.org/",
-            "keywords": [
-                "Guzzle",
-                "stream"
-            ],
-            "time": "2014-10-12 19:18:40"
         },
         {
             "name": "hamcrest/hamcrest-php",
@@ -1838,34 +1548,33 @@
         },
         {
             "name": "league/glide",
-            "version": "0.3.6",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/glide.git",
-                "reference": "e45a4b536924956e1b20f5d023800557d466eda7"
+                "reference": "0dd3e4ec976ab7a38fc42196d03014f9fb82cc94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/glide/zipball/e45a4b536924956e1b20f5d023800557d466eda7",
-                "reference": "e45a4b536924956e1b20f5d023800557d466eda7",
+                "url": "https://api.github.com/repos/thephpleague/glide/zipball/0dd3e4ec976ab7a38fc42196d03014f9fb82cc94",
+                "reference": "0dd3e4ec976ab7a38fc42196d03014f9fb82cc94",
                 "shasum": ""
             },
             "require": {
-                "intervention/image": "~2.1",
-                "league/flysystem": "~1.0",
-                "php": ">=5.4",
-                "symfony/http-foundation": "~2.3|~3.0",
-                "symfony/http-kernel": "~2.3|~3.0"
+                "intervention/image": "^2.1",
+                "league/flysystem": "^1.0",
+                "php": "^5.4 | ^7.0",
+                "psr/http-message": "^1.0"
             },
             "require-dev": {
                 "mockery/mockery": "~0.9",
-                "phpunit/php-token-stream": ">=1.3.0",
+                "phpunit/php-token-stream": "^1.4",
                 "phpunit/phpunit": "~4.4"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.3-dev"
+                    "dev-master": "1.0-dev"
                 }
             },
             "autoload": {
@@ -1885,7 +1594,7 @@
                 }
             ],
             "description": "Wonderfully easy on-demand image manipulation library with an HTTP based API.",
-            "homepage": "https://github.com/thephpleague/glide",
+            "homepage": "http://glide.thephpleague.com",
             "keywords": [
                 "ImageMagick",
                 "editing",
@@ -1896,7 +1605,7 @@
                 "manipulation",
                 "processing"
             ],
-            "time": "2016-01-25 13:35:12"
+            "time": "2015-12-26 15:20:39"
         },
         {
             "name": "maximebf/debugbar",
@@ -3069,13 +2778,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/php-fig/http-message/zipball/85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
                 "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "http://toran.tjshafer.com/repo/packagist/dists/%package%/%version%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
@@ -3229,74 +2932,6 @@
             "time": "2016-03-09 05:03:14"
         },
         {
-            "name": "radic/blade-extensions",
-            "version": "6.2.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/RobinRadic/blade-extensions.git",
-                "reference": "273ce8f3c7e12234970e3f951493885fea3efb13"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/RobinRadic/blade-extensions/zipball/273ce8f3c7e12234970e3f951493885fea3efb13",
-                "reference": "273ce8f3c7e12234970e3f951493885fea3efb13",
-                "shasum": ""
-            },
-            "require": {
-                "anahkiasen/underscore-php": "2.0.*",
-                "danielstjules/stringy": "~1.8|~2.0",
-                "illuminate/filesystem": "~5.0",
-                "illuminate/support": "~5.0",
-                "illuminate/view": "~5.0",
-                "php": ">=5.5.9",
-                "sebwite/support": "~1.0|2.0.*"
-            },
-            "require-dev": {
-                "erusev/parsedown": "~1.5",
-                "kzykhys/ciconia": "~1.0.0",
-                "matthiasmullie/minify": "~1.3",
-                "mockery/mockery": "0.9.*",
-                "orchestra/testing": "~3.2",
-                "sebwite/testing": "1.0.*"
-            },
-            "suggest": {
-                "erusev/parsedown": "Enables the use of @markdown directives (~1.5)",
-                "matthiasmullie/minify": "Enables the use of @minify directives (~1.3)",
-                "raveren/kint": "Improved @debug output (1.0.*)"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "6.3.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Radic\\BladeExtensions\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Robin Radic",
-                    "email": "robin@radic.nl",
-                    "role": "Package Author/Developer"
-                }
-            ],
-            "description": "Laravel package providing additional Blade extensions: foreach (with $loop data like twig), break, continue, set,array (multiline), etc",
-            "homepage": "https://github.com/RobinRadic/blade-extensions",
-            "keywords": [
-                "blade",
-                "extensions",
-                "laravel",
-                "loop"
-            ],
-            "time": "2016-04-27 14:24:26"
-        },
-        {
             "name": "rap2hpoutre/laravel-log-viewer",
             "version": "v0.4.3",
             "source": {
@@ -3347,50 +2982,6 @@
                 "logging"
             ],
             "time": "2015-10-13 08:18:50"
-        },
-        {
-            "name": "react/promise",
-            "version": "v2.4.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/reactphp/promise.git",
-                "reference": "8025426794f1944de806618671d4fa476dc7626f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/promise/zipball/8025426794f1944de806618671d4fa476dc7626f",
-                "reference": "8025426794f1944de806618671d4fa476dc7626f",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "React\\Promise\\": "src/"
-                },
-                "files": [
-                    "src/functions_include.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jan Sorgalla",
-                    "email": "jsorgalla@gmail.com"
-                }
-            ],
-            "description": "A lightweight implementation of CommonJS Promises/A for PHP",
-            "time": "2016-05-03 17:50:52"
         },
         {
             "name": "sebastian/comparator",
@@ -3788,219 +3379,32 @@
             "time": "2015-06-21 13:59:46"
         },
         {
-            "name": "sebwite/contracts",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://bitbucket.org/sebwitepackages/sebwite-contracts.git",
-                "reference": "e944439fc77028419ffa30bd29408282a7de8ea0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://bitbucket.org/sebwitepackages/sebwite-contracts/get/e944439fc77028419ffa30bd29408282a7de8ea0.zip",
-                "reference": "e944439fc77028419ffa30bd29408282a7de8ea0",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.9"
-            },
-            "require-dev": {
-                "sebwite/phing": "1.0.*",
-                "sebwite/testing": "1.0.*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-develop": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Sebwite\\Contracts\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "proprietary"
-            ],
-            "authors": [
-                {
-                    "name": "Sebwite",
-                    "email": "info@sebwite.nl",
-                    "homepage": "https://sebwite.nl"
-                },
-                {
-                    "name": "Robin Radic",
-                    "email": "robin@sebwite.nl",
-                    "homepage": "https://github.com/robinradic",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A theme framwork for your next web application. Theme inheritence, powered by Laravel and Assetic, can be used in any application!",
-            "keywords": [
-                "bootstrap",
-                "ecommerce",
-                "laravel",
-                "platform"
-            ],
-            "time": "2016-04-24 17:32:00"
-        },
-        {
-            "name": "sebwite/support",
-            "version": "2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://bitbucket.org/sebwitepackages/sebwite-support.git",
-                "reference": "380e36ab5aa2dc41900cda369f91bbd2fc1000a7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://bitbucket.org/sebwitepackages/sebwite-support/get/380e36ab5aa2dc41900cda369f91bbd2fc1000a7.zip",
-                "reference": "380e36ab5aa2dc41900cda369f91bbd2fc1000a7",
-                "shasum": ""
-            },
-            "require": {
-                "gabrielelana/byte-units": "0.2.*",
-                "illuminate/support": ">5.0.0 <5.3.0",
-                "php": ">=5.5.9",
-                "sebwite/contracts": "1.0.*"
-            },
-            "require-dev": {
-                "anahkiasen/underscore-php": "2.0.*",
-                "danielstjules/stringy": "~1.8|~2.0",
-                "orchestra/testbench": "~3.2",
-                "sebwite/phing": "1.0.*",
-                "sebwite/testing": "1.0.*"
-            },
-            "suggest": {
-                "anahkiasen/underscore-php": "Incorperates more string and array manipulation functionality into the Str and Arr helpers (2.0.*)",
-                "danielstjules/stringy": "Incorperates more string manipulation functionality into the Str helper. (~1.8|~2.0)"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-develop": "2.0.x-dev"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/helpers.php"
-                ],
-                "psr-4": {
-                    "Sebwite\\Support\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Sebwite",
-                    "email": "info@sebwite.nl",
-                    "homepage": "http://sebwite.nl"
-                },
-                {
-                    "name": "Robin Radic",
-                    "email": "robin@sebwite.nl",
-                    "homepage": "https://github.com/robinradic",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Laravel 5 support package",
-            "keywords": [
-                "laravel",
-                "repositories",
-                "sebwite",
-                "structure",
-                "support"
-            ],
-            "time": "2016-04-24 15:34:34"
-        },
-        {
-            "name": "spatie/laravel-backup",
-            "version": "2.10.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-backup.git",
-                "reference": "f62f211dca9e506069e43586cc362da9cba446b6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/f62f211dca9e506069e43586cc362da9cba446b6",
-                "reference": "f62f211dca9e506069e43586cc362da9cba446b6",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/console": "5.*",
-                "illuminate/support": "5.*",
-                "php": "^5.4.0|^7.0",
-                "symfony/finder": "^2.6|^3.0"
-            },
-            "require-dev": {
-                "laravel/framework": "5.*",
-                "mockery/mockery": "0.9.*",
-                "orchestra/testbench": "~3.0",
-                "phpunit/phpunit": "4.*",
-                "scrutinizer/ocular": "~1.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\Backup\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://murze.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Backup command for Laravel 5 applications",
-            "homepage": "https://github.com/spatie/laravel-backup",
-            "keywords": [
-                "backup",
-                "database",
-                "laravel 5",
-                "laravel-backup",
-                "mysql",
-                "spatie"
-            ],
-            "time": "2016-02-25 20:33:38"
-        },
-        {
             "name": "spatie/laravel-glide",
-            "version": "2.2.8",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-glide.git",
-                "reference": "b2cf5eff4717155cbbf157f3c8eb6ad971e848b7"
+                "reference": "f3a5d4ee48a93c322a0bc63ebd5183bd2d09aa1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-glide/zipball/b2cf5eff4717155cbbf157f3c8eb6ad971e848b7",
-                "reference": "b2cf5eff4717155cbbf157f3c8eb6ad971e848b7",
+                "url": "https://api.github.com/repos/spatie/laravel-glide/zipball/f3a5d4ee48a93c322a0bc63ebd5183bd2d09aa1f",
+                "reference": "f3a5d4ee48a93c322a0bc63ebd5183bd2d09aa1f",
                 "shasum": ""
             },
             "require": {
                 "illuminate/support": "5.*",
-                "league/glide": "0.3.*",
-                "php": ">=5.4.0"
+                "league/glide": "^1.0",
+                "php": "^7.0"
             },
             "require-dev": {
-                "codeception/codeception": "2.*",
-                "mockery/mockery": "~0.9.3"
+                "orchestra/testbench": "^3.2",
+                "phpunit/phpunit": "5.*"
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
-                    "Spatie\\Glide": "src/"
+                "psr-4": {
+                    "Spatie\\Glide\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -4013,22 +3417,22 @@
                     "email": "freek@spatie.be"
                 }
             ],
-            "description": "A Glide Service Provider for Laravel",
+            "description": "Easily convert images with Glide",
             "homepage": "https://github.com/spatie/laravel-glide",
-            "time": "2015-12-18 16:04:32"
+            "time": "2015-12-29 09:16:28"
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "3.17.4",
+            "version": "4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "7f96cd3c709643ab0dde977936b98a7f75396d31"
+                "reference": "a931e7082b52f08bc2e42db034b01e3dba619014"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/7f96cd3c709643ab0dde977936b98a7f75396d31",
-                "reference": "7f96cd3c709643ab0dde977936b98a7f75396d31",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/a931e7082b52f08bc2e42db034b01e3dba619014",
+                "reference": "a931e7082b52f08bc2e42db034b01e3dba619014",
                 "shasum": ""
             },
             "require": {
@@ -4036,16 +3440,16 @@
                 "illuminate/console": "~5.1.16|~5.2.0",
                 "illuminate/database": "~5.1.16|~5.2.0",
                 "illuminate/support": "~5.1.16|~5.2.0",
-                "php": "^5.5|^7.0",
-                "spatie/laravel-glide": "^2.2.4",
+                "php": "^7.0",
+                "spatie/laravel-glide": "^3.0.0",
                 "spatie/pdf-to-image": "^1.0.1",
-                "spatie/string": "^2.0"
+                "spatie/string": "^2.0.0"
             },
             "require-dev": {
                 "doctrine/dbal": "^2.5.2",
                 "mockery/mockery": "^0.9.4",
                 "orchestra/testbench": "^3.0",
-                "phpunit/phpunit": "^4.0",
+                "phpunit/phpunit": "^5.0.0",
                 "scrutinizer/ocular": "^1.1"
             },
             "type": "library",
@@ -4075,7 +3479,7 @@
                 "media",
                 "spatie"
             ],
-            "time": "2016-04-12 09:57:52"
+            "time": "2016-04-24 22:19:00"
         },
         {
             "name": "spatie/pdf-to-image",
@@ -4139,13 +3543,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/spatie/string/zipball/1843189c711be4dcf62b655824f2f17120c2dc7d",
                 "reference": "1843189c711be4dcf62b655824f2f17120c2dc7d",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "http://toran.tjshafer.com/repo/packagist/dists/%package%/%version%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "shasum": ""
             },
             "require": {
                 "anahkiasen/underscore-php": "^2.0",
@@ -5457,6 +4855,8 @@
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=5.5.9"
+    },
     "platform-dev": []
 }

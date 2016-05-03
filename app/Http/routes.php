@@ -28,8 +28,6 @@ $router->model('classtimes', App\ClassTime::class);
 $router->model('tickettypes', App\TicketType::class);
 $router->model('asktheexperts', App\AskTheExpert::class);
 
-
-
 require 'Routes/AuthRoutes.php';
 require 'Routes/AdminRoutes.php';
 

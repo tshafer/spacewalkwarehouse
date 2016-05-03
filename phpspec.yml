@@ -1,5 +1,0 @@
-suites:
-    main:
-        namespace: Wash
-        psr4_prefix: Wash
-        src_path: app
