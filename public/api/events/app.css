@@ -1,0 +1,80 @@
+
+.event-container {
+    line-height: inherit !important;
+    max-width: 500px !important;
+}
+
+.event-container .event-error {
+    background: #ff7a7a !important;
+}
+
+.event-container .event-error:focus {
+    background: none !important;
+}
+
+.event-container .event-content h1 {
+    font-weight: normal !important;
+    margin: 0 !important;
+    text-align: center !important;
+    font-size: 1.2em !important;
+}
+.event-container .pure-control-group input,
+.event-container .pure-control-group select {
+    line-height: 20px;
+}
+.event-container .pure-control-group select[name=num_tickets],
+.event-container .pure-control-group select[name=num_tickets_vip],
+.event-container .pure-control-group input[type=text],
+.event-container .pure-control-group input[type=email],
+.event-container .pure-control-group input[type=tel] {
+    width: 100% !important;
+    line-height: 20px;
+}
+
+.event-container #event-form .details:not(:first-of-type) {
+    display: none !important;
+}
+
+.event-container .paymentInput.identified {
+    border-color: #2ecc71 !important;
+}
+
+.event-container .paymentInput.identified:focus {
+    border-color: #2ecc71 !important;
+    box-shadow: 0 0 .1875em #2ecc71 !important;
+}
+
+.event-container .payment-errors {
+    font-size: 22px !important;
+    color: red !important;
+    display: block !important;
+    padding: 10px;
+    text-align: center;
+}
+
+.event-container .event-content .price {
+    margin-bottom: 10px !important;
+}
+
+.event-container .event-content .info .price .priceNum {
+    display: inline-block !important;
+}
+
+.event-container input.parsley-success,
+.event-container select.parsley-success,
+.event-container textarea.parsley-success {
+    color: #468847;
+    background-color: #DFF0D8;
+    border: 1px solid #D6E9C6;
+}
+
+.event-container label.error {
+    color: red;
+    text-indent: 10px;
+    padding: 10px 0;
+}
+
+.event-container .pure-control-group select {
+    width: 100%;
+
+}

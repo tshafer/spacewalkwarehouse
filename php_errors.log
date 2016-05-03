@@ -1,0 +1,14 @@
+[13-Oct-2015 01:47:41 UTC] PHP Fatal error:  Call to undefined method Illuminate\Database\Schema\Blueprint::int() in /home/vagrant/Sites/washingtonian/database/migrations/2015_10_13_014355_coupons.php on line 23
+[13-Oct-2015 01:48:15 UTC] PHP Fatal error:  Call to undefined method Illuminate\Database\Schema\Blueprint::varchar() in /home/vagrant/Sites/washingtonian/database/migrations/2015_10_13_014355_coupons.php on line 23
+[14-Oct-2015 03:40:24 UTC] PHP Fatal error:  Allowed memory size of 536870912 bytes exhausted (tried to allocate 156 bytes) in /home/vagrant/Sites/washingtonian/vendor/spatie/laravel-backup/src/BackupHandlers/Files/FilesBackupHandler.php on line 81
+[06-Nov-2015 23:40:51 UTC] PHP Fatal error:  Class 'Tshafer\Common\CommonServiceProvider' not found in /home/vagrant/Sites/washingtonian/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php on line 146
+[06-Nov-2015 23:40:51 UTC] PHP Fatal error:  Uncaught exception 'ReflectionException' with message 'Class bugsnag does not exist' in /home/vagrant/Sites/washingtonian/vendor/laravel/framework/src/Illuminate/Container/Container.php:737
+Stack trace:
+#0 /home/vagrant/Sites/washingtonian/vendor/laravel/framework/src/Illuminate/Container/Container.php(737): ReflectionClass->__construct('bugsnag')
+#1 /home/vagrant/Sites/washingtonian/vendor/laravel/framework/src/Illuminate/Container/Container.php(627): Illuminate\Container\Container->build('bugsnag', Array)
+#2 /home/vagrant/Sites/washingtonian/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(674): Illuminate\Container\Container->make('bugsnag', Array)
+#3 /home/vagrant/Sites/washingtonian/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(54): Illuminate\Foundation\Application->make('bugsnag', Array)
+#4 /home/vagrant/Sites/washingtonian/vendor/bugsnag/bugsnag-laravel/src/Bugsnag/BugsnagLaravel/BugsnagExceptionHandler.php(23): app('bugsnag')
+#5 /home/vagrant/Sites/washingtonian/app in /home/vagrant/Sites/washingtonian/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 737
+[12-Nov-2015 00:51:31 UTC] PHP Fatal error:  Class 'CreateEventTicketTypePivotTable' not found in /home/vagrant/Sites/washingtonian/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php on line 324
+[12-Nov-2015 04:05:42 UTC] PHP Fatal error:  Class 'AddTicketTypeToTicketsTables' not found in /home/vagrant/Sites/washingtonian/vendor/laravel/framework/src/Illuminate/Database/Migrations/Migrator.php on line 324

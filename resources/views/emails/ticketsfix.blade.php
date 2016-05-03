@@ -1,0 +1,1 @@
+"Thank you for purchasing a ticket to Washingtonian Bride & Groom Unveiled. The ticket(s) you purchased had incorrect information on them. Please use these new tickets, attached below, for admission to the event. Thank you again."

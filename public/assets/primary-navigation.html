@@ -1,0 +1,331 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Responsive Primary Navigation | Washingtonian</title>
+    <script>
+      $(document).ready(function() {
+        $('li.m a').click(function() {
+          if( $(this).parent().hasClass('open') ) {
+            $(this).parent().children('ul').slideUp(200);
+            $(this).parent().removeClass('open');
+          } else {
+            $(this).parent().children('ul').slideDown(200);
+            $(this).parent().addClass('open');
+          }
+        });
+      
+        //close nav in mobile devices
+        $('#nav-close').click(function() {
+          var container = $('#flyout-menu');
+          container.animate({'left':'-310px'}, 300, function() {
+            container.fadeOut(100);
+            container.removeClass('open');
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="primary-nav">
+
+<header class="mobile"><i id="nav-close" class="fa fa-times-circle"></i></header>
+<h2 class="mobile">Connect With Us</h2>
+<ul class="mobile">
+  <li><a href="http://www.facebook.com/washingtonian"><i class="fa fa-facebook"></i></a></li>
+  <li><a href="http://www.twitter.com/washingtonian"><i class="fa fa-twitter"></i></a></li>
+  <li><a href="http://instagram.com/washingtonianmag"><i class="fa fa-instagram"></i></a></li>
+  <li><a href="http://www.pinterest.com/washingtonians"><i class="fa fa-pinterest"></i></a></li>
+</ul>
+
+<ul>
+  <li class="m"><a>Food &amp; Drink</a>
+    <ul>
+      <li><a href="http://www.washingtonian.com/sections/food-drink/">Food &amp; Drink</a></li>
+      <li class="m"><a>Best Bites Blog</a>
+        <ul>
+          
+            
+              <li><a href="http://www.washingtonian.com/blogs/bestbites/">Best Bites Blog Home</a></li>
+            
+            <li><a href="http://www.washingtonian.com/blogs/bestbites/washingtonian-recommends/where-to-eat-and-drink-around-the-verizon-center.php">Where to Eat and Drink Around the Verizon Center </a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/bestbites/food-restaurant-news/exclusive-takoda-restaurant-and-rooftop-beer-garden-will-open-in-shaw.php">Exclusive: Takoda Restaurant and Rooftop Beer Garden Will Open in Shaw </a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/bestbites/food-restaurant-news/indian-restaurant-chutney-will-make-you-forget-youre-in-a-strip-mall.php">This Restaurant Will Make You Forget You're In a Strip Mall</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/bestbites/food-trucks/dc-food-truck-locations-april-15.php">DC Food Truck Locations: April 15</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/bestbites/food-restaurant-news/tax-day-2015-food-and-drink-specials.php">Tax Day 2015 Food and Drink Specials </a></li>
+          
+        </ul>
+      </li>
+      <li><a href="http://www.washingtonian.com/articles/food-dining/washingtonians-100-very-best-restaurants-2015-list-is-now-online/">100 Very Best Restaurants</a></li>
+      <li><a href="http://www.washingtonian.com/projects/cheapeats2014/index.html">Cheap Eats</a></li>
+      <li><a href="http://www.washingtonian.com/chats/kliman/index.php">Kliman Online</a></li>
+      <li><a href="http://www.washingtonian.com/restaurantreviews/index.php">Restaurant Finder</a></li>
+      <li><a href="http://www.washingtonian.com/happyhours/index.php">Bar Finder</a></li>
+      <li><a href="http://www.washingtonian.com/articles/food-dining/chef-recipes/">Chef Recipes</a></li>
+    </ul>
+  </li>
+  <li class="m"><a>Health</a>
+    <ul>
+      <li><a href="http://www.washingtonian.com/sections/health/">Health</a></li>
+      <li class="m"><a>Well+Being Blog</a>
+        <ul>
+          
+            
+              <li><a href="http://www.washingtonian.com/blogs/wellbeing/">Well+Being Blog Home</a></li>
+            
+            <li><a href="http://www.washingtonian.com/blogs/wellbeing/fitness/hashing-in-dc--what-you-need-to-know.php">A Guide to Hashing in DC</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/wellbeing/healthy-recipes/make-your-own-starbucks-inspired-kale-smoothie.php">Make Your Own Starbucks-Inspired Kale Smoothie</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/wellbeing/fitness-classes/which-spinning-studio-is-right-for-you.php">Which Spinning Studio is Right For You?</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/wellbeing/fitness-classes/free-yoga-classes-at-citycenterdc.php">Free Yoga Classes at CityCenterDC </a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/wellbeing/health/i-lost-my-hearing-in-my-forties-heres-how-i-handled-it.php">I Lost My Hearing in My Forties. Here's How I Handled It.</a></li>
+          
+        </ul>
+      </li>
+      <li><a href="http://www.washingtonian.com/healthcare/finder.php?type=doctor">Top Doctors</a></li>
+      <li><a href="http://www.washingtonian.com/healthcare/finder.php?type=dentist">Top Dentists</a></li>
+      <li><a href="http://www.washingtonian.com/sections/style/great-day-spas-2013/">Spas</a></li>
+    </ul> 
+  </li>
+  <li class="m"><a>Homes</a>
+    <ul>
+      <li><a href="http://www.washingtonian.com/sections/homes/">Homes</a></li>
+      <li><a href="http://www.washingtonian.com/blogs/openhouse/remodeling/">Home Design</a></li>
+      <li><a href="http://www.washingtonian.com/homerepair/index.php">Home &amp; Garden Database</a></li>
+      <li class="m"><a>Open House Blog</a>
+        <ul>
+          
+            
+              <li><a href="http://www.washingtonian.com/blogs/openhouse/">Open House Blog Home</a></li>
+            
+            <li><a href="http://www.washingtonian.com/blogs/openhouse/luxury-homes/see-inside-this-4995-million-bethesda-mansion.php">See Inside This $4.995 Million Mansion in Bethesda</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/openhouse/home-design/my-favorite-room-homewood-interiorss-stacia-smith-shares-her-top-project-pick.php">My Favorite Room: Homewood Interiors' Stacia Smith Shares Her Top Project Pick</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/openhouse/the-real-estate-market/heres-your-chance-to-live-on-unicorn-lane.php">Here&#8217;s Your Chance to Live on Unicorn Lane</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/openhouse/home-design/how-to-make-the-most-out-of-your-closet.php">How to Make the Most Out of Your Closet</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/openhouse/home-design-shopping/the-10-best-finds-at-west-elm-right-now.php">The 10 Best Decor Finds at West Elm Right Now</a></li>
+          
+        </ul>
+      </li>
+      <li><a href="http://www.washingtonian.com/sections/homegarden/automotive/car-talk/">Automotive</a></li>
+    </ul>
+  </li>
+  <li class="m"><a>People &amp; Politics</a>
+    <ul>
+      <li><a href="http://www.washingtonian.com/sections/politics-personalities/">People &amp; Politics</a></li>
+      <li class="m"><a>Capital Comment Blog</a>
+        <ul>
+          
+            
+              <li><a href="http://www.washingtonian.com/blogs/capitalcomment/">Capital Comment Blog Home</a></li>
+            
+            <li><a href="http://www.washingtonian.com/blogs/capitalcomment/history/it-wasnt-always-illegal-to-fly-an-autogyro-near-the-capitol.php">It Wasn't Always Illegal to Fly a Gyrocopter Near the Capitol</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/capitalcomment/local-news/dc-taxpayers-get-average-refunds-of-more-than-3900.php">DC Taxpayers Get Average Refunds of More Than $3,900</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/capitalcomment/history/150th-anniversary-of-lincolns-assassination-a-washingtonian-guide-to-events-and-more.php">A Guide to the 150th Anniversary of Lincoln's Assassination</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/capitalcomment/transportation/report-uber-accounts-for-nearly-half-of-all-business-related-travel-in-dc.php">Report: Uber Accounts for Nearly Half of All Business-Related Car Travel in DC</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/capitalcomment/photos/your-terrific-2015-cherry-blossom-photos.php">Your Terrific 2015 Cherry Blossom Instagram Photos</a></li>
+          
+        </ul>
+      </li>
+      <li class="m"><a>Washington Voices</a>
+        <ul>
+          
+            
+              <li><a href="http://www.washingtonian.com/washingtonvoices/">Washington Voices Home</a></li>
+            
+            <li><a href="http://www.washingtonian.com/washingtonvoices/vignettes/25-years-ago-the-fall-of-the-berlin-wall.php">25 Years Ago: The Fall of the Berlin Wall</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/washingtonvoices/vignettes/la-belle-indifference.php">La Belle Indifference </a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/washingtonvoices/dc/ruby-the-rest-of-the-story.php">Ruby: The Rest of the Story</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/washingtonvoices/dc/why-the-civil-rights-act-of-1964-really-mattered.php">Why the Civil Rights Act of 1964 Really Mattered </a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/washingtonvoices/anecdotes/the-last-marathon-running-in-antarctica.php">The Last Marathon: Running in Antarctica</a></li>
+          
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li class="m"><a>Style</a>
+    <ul>
+      <li><a href="http://www.washingtonian.com/sections/style/">Style</a></li>
+      <li class="m"><a href="#">Shop Around Blog</a>
+        <ul>
+          
+            
+              <li><a href="http://www.washingtonian.com/blogs/shoparound/">Shop Around Blog Home</a></li>
+            
+            <li><a href="http://www.washingtonian.com/blogs/shoparound/shops-stores/5-reasons-to-be-excited-about-uniqlo-coming-to-tysons.php">5 Reasons to be Excited About Uniqlo Coming to Tysons Corner</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/shoparound/jewelry-accessories/only-two-local-apple-stores-are-selling-the-10000-apple-watch.php">Only Two Local Apple Stores Are Selling the $10,000 Apple Watch</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/shoparound/interviews/meet-the-designer-who-dresses-claire-underwood.php">Did This Designer Actually Dress Claire Underwood?</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/shoparound/mens-style/washingtons-most-fashionable-man-has-a-mustache.php">Washington's Most Fashionable Man Has a Mustache</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/shoparound/events/trunk-show-night-out-with-carl-ray-and-two-sales-you-dont-want-to-miss-this-week.php">Trunk Show, Night Out with Carl Ray, and Two Sales You Don&#8217;t Want to Miss This Week </a></li>
+          
+        </ul>
+      </li>
+      <li><a href="http://www.washingtonian.com/sections/style/great-day-spas-2013/">Great Spas</a></li>
+      <li><a href="http://www.washingtonian.com/spareviews/index.php">Find a Spa</a></li>
+    </ul>
+  </li>
+  <li class="m"><a>Travel</a>
+    <ul>
+      <li><a href="http://www.washingtonian.com/sections/travel/">Travel</a></li>
+      <li class="m"><a href="http://www.washingtonian.com/blogs/getaways/">Great Getaways Blog</a>
+        <ul>
+          
+            
+              <li><a href="http://www.washingtonian.com/blogs/getaways/">Great Getaways Blog Home</a></li>
+            
+            <li><a href="http://www.washingtonian.com/blogs/getaways/destinations/great-eating-vacations-in-charleston-new-orleans-richmond-and-asheville.php">Great Eating Vacations in Charleston, New Orleans, Richmond, and Asheville</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/getaways/neighborhood-guides/best-of-friendship-heights.php">Best of Friendship Heights</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/getaways/exclusive-travel-deals-for-april.php">Exclusive Travel Deals for April</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/getaways/day-trips/maryland-day-2015-activities-weekend-things-to-do.php">Maryland Day Activities Offer Fun at a Discount This Weekend</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/getaways/the-great-washington-bucket-list/50-things-every-local-needs-to-do.php">The Great Washington Bucket List: 50 Things Every Local Needs to Do</a></li>
+          
+        </ul>
+      </li>
+      <li><a href="#">Weekend Getaways</a></li>
+      <li><a href="http://www.washingtonian.com/hotelreviews/index.php">Hotel Finder</a></li>
+    </ul>   
+  </li>
+  <li class="m"><a>Entertainment</a>
+    <ul>
+      <li><a href="http://www.washingtonian.com/sections/where-when/">Entertainment</a></li>
+      <li class="m"><a>After Hours Blog</a>
+        <ul>
+          
+            
+              <li><a href="http://www.washingtonian.com/blogs/afterhours/">After Hours Blog Home</a></li>
+            
+            <li><a href="http://www.washingtonian.com/blogs/afterhours/theater/heres-what-you-missed-at-the-ford-theatres-round-the-clock-lincoln-events.php">Here's What You Missed at Ford's Theatre's Round-the-Clock Lincoln Programming</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/afterhours/film/sean-penn-documentary-human-experiment.php">Sean Penn's Documentary Says Household Cleaners Are Making You Sick</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/afterhours/film/no-american-president-has-ever.php">"Living with Lincoln" Tells the Story of One Family's Obsession with the 16th President's Portraits</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/afterhours/festivals/check-out-the-amazing-explosion-of-color-that-is-holi-dc.php">Check Out the Amazing Explosion of Color That is Holi DC</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/afterhours/where-when-picks/things-to-do-in-dc-this-week-april-13-15-candice-bergen.php">Things to Do in DC This Week April 13-15: Candice Bergen, Free Cupcakes, and $2 Beers</a></li>
+          
+        </ul>
+      </li>
+      <li><a href="http://www.washingtonian.com/blogs/afterhours/tv-recap/">TV Recaps</a></li>
+      <li><a href="http://www.washingtonian.com/events/index.php">Local Events Calendar</a></li>
+      <li><a href="http://www.washingtonian.com/locations/finder.php?&type=bar">Happy Hour Finder</a></li>
+      <li><a href="http://www.washingtonian.com/badges/great-bars-2011.php">Great Bars</a></li>
+    </ul>
+  </li>
+  <li class="m"><a>Weddings</a>
+    <ul>
+      <li><a href="/weddings/">Weddings</a></li>
+      <li class="m"><a>Bride &amp; Groom Blog</a>
+        <ul>
+          
+            
+              <li><a href="http://www.washingtonian.com/blogs/bridalparty/">Bride & Groom Blog Home</a></li>
+            
+            <li><a href="http://www.washingtonian.com/blogs/bridalparty/ask-the-experts/must-have-registry-items-and-other-pro-tips-from-macys-registry-team.php">Must-Have Registry Items and Other Pro Tips from Macy's Registry Team</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/bridalparty/news/sarah-zlotnick-is-the-editor-of-washingtonian-bride-groom.php">Sarah Zlotnick Is the New Editor of Washingtonian Bride & Groom</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/bridalparty/real-weddings/elegant-spring-wedding-at-the-congressional-country-club.php">Elegant Spring Wedding at the Congressional Country Club</a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/bridalparty/fashion/10-little-white-dresses-under-250.php">10 Little White Dresses Under $250 </a></li>
+          
+            
+            <li><a href="http://www.washingtonian.com/blogs/bridalparty/real-weddings/see-photos-from-our-cover-wedding-at-the-hay-adams.php">See Photos from Our Cover Wedding at The Hay-Adams</a></li>
+          
+        </ul>
+      </li>
+      <li><a href="http://www.washingtonian.com/weddings/vendors/">Wedding Vendors</a></li>
+    </ul>
+  </li>
+  <li class="m"><a>Work &amp; Family</a>
+    <ul>
+      <li><a href="http://www.washingtonian.com/work-family/">Work &amp; Family</a></li>
+      <li><a href="http://www.washingtonian.com/mom">MOM</a></li>
+      <li><a href="http://www.washingtonian.com/packages/work-family/washingtons-top-money-advisers-2014/index.php">Financial Planners</a></li>
+      <li><a href="http://www.washingtonian.com/packages/work-family/2010-guide-to-private-schools/index.php">Private Schools Guide</a></li>
+      <li><a href="http://www.washingtonian.com/packages/work-family/great-places-to-work-2011/index.php">Great Places to Work</a></li>
+    </ul>
+  </li> 
+</ul>
+
+<h2>Find Local</h2>
+<ul class="finder-list">
+  <li><a href="http://www.washingtonian.com/restaurantreviews/">Restaurants</a></li>
+  <li><a href="http://www.washingtonian.com/locations/finder.php?&type=bar">Bars &amp; Clubs</a></li>
+  <li><a href="http://www.washingtonian.com/events/index.php">Events</a></li>
+  <li><a href="http://www.washingtonian.com/healthcare/">Doctors</a></li>
+  <li><a href="http://www.washingtonian.com/healthcare/finder.php?type=dentist">Dentists</a></li>
+  <li><a href="http://www.washingtonian.com/sections/neighborhood-guides/index.php">Neighborhoods</a></li>
+  <li><a href="http://www.washingtonian.com/locations/finder.php?&type=spa">Spas</a></li>
+  <li><a href="http://www.washingtonian.com/weddings/vendors/">Wedding Vendor</a></li>
+  <li><a href="http://www.washingtonian.com/packages/politics-personalities/top-lawyers-2013-2014/index.php">Lawyers</a></li>
+  <li><a href="http://www.washingtonian.com/packages/work-family/washingtons-top-money-advisers-2014/index.php">Financial Planner</a></li>
+  <li><a href="http://www.washingtonian.com/articles/style/great-hair-2012-60-good-salons-in-washington/">Salon</a></li>
+  <li><a href="http://www.washingtonian.com/homerepair/">Home/Garden Contractor</a></li>
+  <li><a href="http://www.washingtonian.com/petvendors/">Pet Care &amp; Supplies</a></li>
+</ul>
+
+    </div><!-- #primary-nav -->
+  </body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "Washingtonian Package",
+  "version": "1.0.0",
+  "authors": [
+    "Tom Shafer <tshafer@washingtonian.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass-official": "~3.3.3",
+    "eonasdan-bootstrap-datetimepicker": "~4.17.37"
+  }
+}
