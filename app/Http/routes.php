@@ -12,13 +12,14 @@
 */
 
 $router->get('/', [
-  'as'   => 'home',
-  'uses' => 'HomeController@index',
+    'as'   => 'home',
+    'uses' => 'HomeController@index',
 ]);
 
 $router->get('loggies', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
 $router->model('users', App\User::class);
+$router->model('categories', App\Category::class);
 
 
 require 'Routes/AuthRoutes.php';

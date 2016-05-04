@@ -144,6 +144,8 @@ return [
         Tshafer\Flash\ServiceProvider::class,
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
+        Lookitsatravis\Listify\ListifyServiceProvider::class,
+        Baum\Providers\BaumServiceProvider::class,
     ],
     /*
     |--------------------------------------------------------------------------
@@ -189,8 +191,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
 
-        'Form' => Collective\Html\FormFacade::class,
-        'Html' => Collective\Html\HtmlFacade::class,
+        'Form'    => Collective\Html\FormFacade::class,
+        'Html'    => Collective\Html\HtmlFacade::class,
+        'Listify' => Lookitsatravis\Listify\Listify::class,
     ],
 
 ];

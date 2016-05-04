@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c92e96ae0f733ca1a6587c5d31368022",
-    "content-hash": "faeb8bab4f5ca797c722469a81218d70",
+    "hash": "5ed808dfefa5823ef2d381006e62366c",
+    "content-hash": "815a2916d67070912d92d3a60fe54540",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -110,6 +110,61 @@
                 "webprofiler"
             ],
             "time": "2016-02-17 08:32:21"
+        },
+        {
+            "name": "baum/baum",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/etrepat/baum.git",
+                "reference": "9290bed862d329aaaef666a71e0a2734afc28286"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/etrepat/baum/zipball/9290bed862d329aaaef666a71e0a2734afc28286",
+                "reference": "9290bed862d329aaaef666a71e0a2734afc28286",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "5.*",
+                "illuminate/database": "5.*",
+                "illuminate/events": "5.*",
+                "illuminate/filesystem": "5.*",
+                "illuminate/support": "5.*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "d11wtq/boris": "~1.0.10",
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Baum": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Estanislau Trepat",
+                    "email": "estanis@etrepat.com",
+                    "homepage": "http://etrepat.com"
+                }
+            ],
+            "description": "Baum is an implementation of the Nested Set pattern for Eloquent models.",
+            "keywords": [
+                "Laravel 4",
+                "database",
+                "eloquent",
+                "laravel",
+                "laravel 5",
+                "nested set"
+            ],
+            "time": "2015-03-04 12:07:54"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -810,6 +865,53 @@
                 "fixtures"
             ],
             "time": "2016-04-29 12:21:54"
+        },
+        {
+            "name": "gurzhii/laravel-sluggable-trait",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Gurzhii/laravel-sluggable-trait.git",
+                "reference": "6907f58355259e5c9e78e76925653ffd3b19efd0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Gurzhii/laravel-sluggable-trait/zipball/6907f58355259e5c9e78e76925653ffd3b19efd0",
+                "reference": "6907f58355259e5c9e78e76925653ffd3b19efd0",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": ">=4.0",
+                "illuminate/support": ">=4.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MartinBean\\Database\\Eloquent\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Martin Bean",
+                    "email": "martin@martinbean.co.uk"
+                },
+                {
+                    "name": "Gurzhii Dmitriy",
+                    "email": "gurzhii.dmitriy@gmail.com"
+                }
+            ],
+            "description": "A trait you can apply to Eloquent models to have slugs automatically generated on save.",
+            "keywords": [
+                "eloquent",
+                "laravel",
+                "sluggable"
+            ],
+            "time": "2016-04-22 13:08:23"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -1606,6 +1708,62 @@
                 "processing"
             ],
             "time": "2015-12-26 15:20:39"
+        },
+        {
+            "name": "lookitsatravis/listify",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lookitsatravis/listify.git",
+                "reference": "3c119e7a4d83108a8eb3c812ee1e1ab2122b6b6d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lookitsatravis/listify/zipball/3c119e7a4d83108a8eb3c812ee1e1ab2122b6b6d",
+                "reference": "3c119e7a4d83108a8eb3c812ee1e1ab2122b6b6d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "~5.0",
+                "illuminate/database": "~5.0",
+                "illuminate/events": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "satooshi/php-coveralls": "dev-master",
+                "way/phpunit-wrappers": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Lookitsatravis\\Listify": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Travis Vignon",
+                    "email": "travis@lookitsatravis.com",
+                    "homepage": "http://lookitsatravis.com"
+                }
+            ],
+            "description": "Turn any Eloquent model into a list! http://lookitsatravis.github.io/listify",
+            "keywords": [
+                "acts_as_list",
+                "eloquent",
+                "laravel",
+                "list",
+                "model",
+                "order",
+                "position",
+                "rails"
+            ],
+            "time": "2016-02-11 16:01:47"
         },
         {
             "name": "maximebf/debugbar",
