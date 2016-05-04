@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="row">
-        {!!open(['route' => 'admin.categories.store', 'id' => 'category-form'])!!}
+        {!!open(['route' => 'admin.categories.store', 'id' => 'category-form', 'files' => true])!!}
 
         @include('admin.categories.form')
 

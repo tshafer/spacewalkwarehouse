@@ -7,10 +7,13 @@ use App\Support\Traits\Sortable;
 use Baum\Node;
 use MartinBean\Database\Eloquent\Sluggable;
 
-class Category extends Node
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
+
+class Category extends Node implements HasMediaConversions
 {
 
-    use Linkable, Sortable, Attributes, Sluggable;
+    use Linkable, Sortable, Attributes, Sluggable, HasMediaTrait;
 
     /**
      * The database table used by the model.
@@ -26,8 +29,9 @@ class Category extends Node
      */
     protected $fillable = [
         'name',
-        'email',
-        'password',
+        'intro_text',
+        'enabled',
+        'title'
     ];
 
     /**
@@ -45,4 +49,27 @@ class Category extends Node
      */
     protected $scoped = [];
 
+
+    /**
+     * Convert Images
+     */
+    public function registerMediaConversions()
+    {
+
+        $this->addMediaConversion('thumb')
+            ->setManipulations(['w' => 240, 'h' => 160])
+            ->performOnCollections('categories');
+
+        $this->addMediaConversion('adminThumb')
+            ->setManipulations(['w' => 100, 'h' => 100, 'sharp'=> 15])
+            ->performOnCollections('*');
+    }
+
+    /**
+     * @return string
+     */
+    public function getIsEnabledAttribute()
+    {
+        return ($this->attributes['enabled'] == 0) ? 'No' : 'Yes';
+    }
 }

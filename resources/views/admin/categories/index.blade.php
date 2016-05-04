@@ -16,6 +16,9 @@
             <tr>
                 <th class="min">ID</th>
                 <th>Name</th>
+                <th>Enabled</th>
+                <th># SubCategories</th>
+                <th>Image</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -25,17 +28,28 @@
                     <tr>
                         <td>{{$category->id}}</td>
                         <td>{{$category->name}}</td>
+                        <td>{{$category->is_enabled}}</td>
+                        <td>{{$category->children()->count()}}</td>
+                        <td>
+                            @if($category->getMedia()->count() > 0)
+                                <img src="{!! $category->getMedia('categories')->first()->getUrl('adminThumb')!!}"/>
+                            @endif
+                        </td>
                         <td class="min">
                             {!!$category->getTableLinks()!!}
-                            <a href="{{route('admin.categories.moveup', $category->id)}}"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
-                            <a href="{{route('admin.categories.movedown', $category->id)}}"><i class="fa fa-arrow-down" aria-hidden="true"></i></a>
+                            @if($categories->count() > 1)
+                                <a href="{{route('admin.categories.moveup', $category->id)}}"><i class="fa fa-arrow-up"
+                                                                                                 aria-hidden="true"></i></a>
+                                <a href="{{route('admin.categories.movedown', $category->id)}}"><i
+                                            class="fa fa-arrow-down" aria-hidden="true"></i></a>
+                            @endif
                         </td>
 
                     </tr>
                 @endforeach
             @else
                 <tr>
-                    <td colspan="4">
+                    <td colspan="5">
                         There are no Categories Available
                     </td>
                 </tr>

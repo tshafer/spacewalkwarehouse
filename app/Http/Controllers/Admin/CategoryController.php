@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class CategoryController extends Controller
 {
@@ -45,20 +46,30 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('admin.categories.edit', compact('category'));
+        $nestedList = Category::getNestedList('name', null, '  > ');
+
+        if ($parentId = $category->parent()->first()) {
+            $parentId = $parentId->id;
+        }
+
+        return view('admin.categories.edit', compact('category', 'nestedList', 'parentId'));
     }
 
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function create()
+    public function create(Request $request)
     {
         $nestedList = Category::getNestedList('name', null, '  > ');
 
-        return view('admin.categories.create', compact('nestedList'));
+        $parentId = $request->has('cat') ? $request->get('cat') : null;
+
+        return view('admin.categories.create', compact('nestedList', 'parentId'));
     }
 
 
@@ -71,25 +82,53 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-
-        $this->validate($request, [
-            'name'       => 'required',
-            'intro_text' => 'required',
-        ]);
-
-        if ($request->get('parent_category') == 0) {
-            $category = Category::create($request->all());
-            $category->makeRoot();
-            $category->save();
-        } else {
-            $root     = Category::find($request->get('parent_category'));
-            $category = $root->children()->create($request->all());
-            $category->save();
-        }
+        $rules    = [
+            'name' => 'bail|required|unique:categories',
+        ];
+        $category = $this->runSave($request, $rules);
 
         flash('Category Added!');
 
         return redirect()->route('admin.categories.show', [$category->id]);
+    }
+
+
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @param array                    $rules
+     *
+     * @return static
+     */
+    protected function runSave(Request $request, array $rules)
+    {
+
+        $this->validate($request, array_merge([
+            'title' => 'required',
+        ], $rules));
+
+        if ($request->get('parent_category') == 0) {
+            $category = Category::create($request->all());
+            $category->makeRoot();
+        } else {
+            $root     = Category::whereId($request->get('parent_category'))->first();
+            $category = $root->children()->create($request->all());
+        }
+
+        if ($request->has('enabled')) {
+            $category->enabled = true;
+        } else {
+            $category->enabled = false;
+        }
+
+        if ($request->hasFile('image')) {
+            $category->addMediaFromRequest('image')->preservingOriginal()->toCollection('categories');
+        }
+
+        $category->save();
+
+        $this->clearMenuCache();
+
+        return $category;
     }
 
 
@@ -103,13 +142,67 @@ class CategoryController extends Controller
      */
     public function update(Category $category, Request $request)
     {
-        $category->fill($request->all());
+        $rules = [
+            'name' => 'bail|required|unique:categories,id,:id',
+        ];
 
-        $category->save();
+        if ($request->get('parent_category') == $category->id) {
+            flash('You cant make a category a child of itself.');
+
+            return redirect()->back()->withInput();
+        }
+
+        if ($request->get('parent_category') == 0 && $category->children()->count() > 0) {
+            flash('You cant make a category that has children into a child. Please remove this categories children and try again.');
+
+            return redirect()->back()->withInput();
+        }
+
+        $this->runUpdate($request, $rules, $category);
 
         flash('Category updated!');
 
         return redirect()->route('admin.categories.show', $category->id);
+    }
+
+
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @param array                    $rules
+     * @param \App\Category            $category
+     *
+     * @return \App\Category|static
+     */
+    protected function runUpdate(Request $request, array $rules, Category $category)
+    {
+        $this->validate($request, array_merge([
+            'title' => 'required',
+        ], $rules));
+
+        if ($request->get('parent_category') == 0) {
+            $category->makeRoot();
+        } else {
+            $root = Category::find($request->get('parent_category'));
+            $category->makeChildOf($root);
+        }
+
+        $category->fill($request->except('parent_category', 'enabled'));
+
+        if ($request->has('enabled')) {
+            $category->enabled = true;
+        } else {
+            $category->enabled = false;
+        }
+
+        if ($request->hasFile('image')) {
+            $category->addMediaFromRequest('image')->preservingOriginal()->toCollection('categories');
+        }
+
+        $category->save();
+
+        $this->clearMenuCache();
+
+        return $category;
     }
 
 
@@ -129,6 +222,21 @@ class CategoryController extends Controller
         flash('Category deleted!');
 
         return redirect()->route('admin.categories.index');
+    }
+
+
+    /**
+     * @param \App\Category $category
+     * @param               $imageId
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function removeImage(Category $category, $imageId)
+    {
+        //$image = $category->getMedia()->whereLoose('id', $imageId)->first();
+        $category->deleteMedia($imageId);
+
+        return redirect()->back();
     }
 
 
@@ -159,5 +267,11 @@ class CategoryController extends Controller
         flash("Category $category->name moved!");
 
         return redirect()->back();
+    }
+
+
+    protected function clearMenuCache()
+    {
+        Cache::forget('menu');
     }
 }

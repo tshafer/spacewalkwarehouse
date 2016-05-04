@@ -29,7 +29,9 @@ class CreateCategoriesTable extends Migration
             $table->string('name', 255);
             $table->string('slug', 255)->unique();
             $table->integer('position')->nullable();
+            $table->integer('enabled')->nullable();
             $table->longText('intro_text');
+            $table->text('title');
             $table->timestamps();
         });
     }

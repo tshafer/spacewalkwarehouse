@@ -1,8 +1,10 @@
 <!doctype html>
-<!--[if IE 9 ]><html class="ie9" lang="en"><![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<!--[if IE 9 ]>
+<html class="ie9" lang="en"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en"><!--<![endif]-->
 <head>
-    <title>Patio Deck & Hearth Shop - Outdoor Furniture & Fireplaces - Cleveland, Ohio</title>
+    <title>Patio Deck & Hearth Shop - Outdoor Furniture & Fireplaces - Cleveland, Ohio @yield('title')</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!--meta info-->
@@ -29,7 +31,8 @@
                 <div class="clearfix" style="padding:9px 0 0;float:left;width:83%;"><i
                         class="fa fa-exclamation-triangle scheme_color f_left m_right_10"
                         style="font-size:25px;color:#e74c3c;"></i><b style="color:#e74c3c;">Attention! This page may not
-                    display correctly.</b> <b>You are using an outdated version of Internet Explorer. For a faster, safer
+                    display correctly.</b> <b>You are using an outdated version of Internet Explorer. For a faster,
+                    safer
                     browsing experience.</b></div>
                 <div class="t_align_r" style="float:left;width:16%;"><a
                         href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"
@@ -72,62 +75,29 @@
                 <!--main menu-->
                 <nav role="navigation" class="f_left f_xs_none d_xs_none">
                     <ul class="horizontal_list main_menu clearfix">
-                        <li class="current relative f_xs_none m_xs_bottom_5"><a href="index.html"
-                                                                                class="tr_delay_hover color_light tt_uppercase"><b>Home</b></a>
+                        <li class="{{active_class('/')}}" relative f_xs_none m_xs_bottom_5">
+                            <a href="/" class="tr_delay_hover color_light tt_uppercase"><b>Home</b></a>
                         </li>
-                        <li class="relative f_xs_none m_xs_bottom_5"><a href="index.html#"
-                                                                        class="tr_delay_hover color_light tt_uppercase"><b>Indoor</b></a>
-                            <!--sub menu-->
-                            <div class="sub_menu_wrap top_arrow d_xs_none type_2 tr_all_hover clearfix r_corners">
-                                <ul class="sub_menu">
-                                    <li><a class="color_dark tr_delay_hover" href="index.html#">Wicker & Rattan</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="relative f_xs_none m_xs_bottom_5"><a href="category.html"
-                                                                        class="tr_delay_hover color_light tt_uppercase"><b>Outdoor</b></a>
-                            <!--sub menu-->
-                            <div class="sub_menu_wrap top_arrow d_xs_none type_2 tr_all_hover clearfix r_corners">
-                                <ul class="sub_menu">
-                                    <li><a class="color_dark tr_delay_hover" href="subcategory.html">Aluminum</a></li>
-                                    <li><a class="color_dark tr_delay_hover" href="index.html#">Cast Aluminum</a></li>
-                                    <li><a class="color_dark tr_delay_hover" href="index.html#">Wrought Aluminum</a></li>
-                                    <li><a class="color_dark tr_delay_hover" href="index.html#">All-Weather Wicker</a></li>
-                                    <li><a class="color_dark tr_delay_hover" href="index.html#">Wood</a></li>
-                                    <li><a class="color_dark tr_delay_hover" href="index.html#">Marine Grade Polymer</a>
-                                    </li>
-                                    <li><a class="color_dark tr_delay_hover" href="index.html#">Miscellaneous &
-                                            Accessories</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="relative f_xs_none m_xs_bottom_5"><a href="index.html#"
-                                                                        class="tr_delay_hover color_light tt_uppercase"><b>Fireplace
-                                    & Hearth</b></a>
-                            <!--sub menu-->
-                            <div class="sub_menu_wrap top_arrow d_xs_none type_2 tr_all_hover clearfix r_corners">
-                                <ul class="sub_menu">
-                                    <li><a class="color_dark tr_delay_hover" href="index.html#">Fire Pits</a></li>
-                                    <li><a class="color_dark tr_delay_hover" href="index.html#">Gas Burning Fireplaces</a>
-                                    </li>
-                                    <li><a class="color_dark tr_delay_hover" href="index.html#">Wood Burning Fireplaces</a>
-                                    </li>
-                                    <li><a class="color_dark tr_delay_hover" href="index.html#">Electric Fireplaces</a></li>
-                                    <li><a class="color_dark tr_delay_hover" href="index.html#">Glass Doors & Screens</a>
-                                    </li>
-                                    <li><a class="color_dark tr_delay_hover" href="index.html#">Stainless Steel Outdoor
-                                            Burners</a></li>
-                                    <li><a class="color_dark tr_delay_hover" href="index.html#">Accessories</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="relative f_xs_none m_xs_bottom_5"><a href="index.html#"
-                                                                        class="tr_delay_hover color_light tt_uppercase"><b>Perfect
-                                    Patio Gallery</b></a>
-                        </li>
-                        <li class="relative f_xs_none m_xs_bottom_5"><a href="blog.html"
-                                                                        class="tr_delay_hover color_light tt_uppercase"><b>Visit
-                                    / Contact</b></a>
+                        @foreach($categories as $category)
+                            <li class="relative f_xs_none m_xs_bottom_5">
+                                <a href="{{route('category', $category->slug)}}" class=" tr_delay_hover color_light tt_uppercase"><b> {{$category->name}}</b></a>
+                                <!--sub menu-->
+                                @if($category->children()->whereEnabled(1)->count() > 0)
+                                    <div class="sub_menu_wrap top_arrow d_xs_none type_2 tr_all_hover clearfix r_corners">
+                                        <ul class="sub_menu">
+                                            @foreach($category->children()->whereEnabled(1)->get() as $child)
+                                                <li><a class="color_dark tr_delay_hover" href="{{$child->slug}}">{{$child->name}}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+                            </li>
+                        @endforeach
+                        <li class="relative f_xs_none m_xs_bottom_5">
+                            <a href="/contact" class="tr_delay_hover color_light tt_uppercase">
+                                <b>Visit/Contact</b>
+                            </a>
                         </li>
                     </ul>
                 </nav>

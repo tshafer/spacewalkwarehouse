@@ -21,7 +21,8 @@
     "spatie/laravel-medialibrary": "^4.0",
     "lookitsatravis/listify": "^1.2",
     "gurzhii/laravel-sluggable-trait": "^1.0",
-    "baum/baum": "^1.1"
+    "baum/baum": "^1.1",
+    "iatstuti/laravel-cascade-soft-deletes": "1.0.*"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",

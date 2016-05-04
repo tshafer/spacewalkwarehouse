@@ -11,9 +11,21 @@
 |
 */
 
+use App\Category;
+
 $router->get('/', [
     'as'   => 'home',
     'uses' => 'HomeController@index',
+]);
+
+$router->get('/category/{category}', [
+    'as'   => 'category',
+    'uses' => 'CategoryController@index',
+]);
+
+$router->get('/category/{category}/{subcategory}', [
+    'as'   => 'subcategory',
+    'uses' => 'CategoryController@subCategory',
 ]);
 
 $router->get('loggies', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
@@ -21,6 +33,16 @@ $router->get('loggies', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index
 $router->model('users', App\User::class);
 $router->model('categories', App\Category::class);
 
+$router->bind('category', function($value){
+    return Category::whereSlug($value)->first();
+});
+
+$router->bind('subcategory', function($value){
+    return Category::whereSlug($value)->first();
+});
+
+
+$router->model('manufacturers', App\Manufacturer::class);
 
 require 'Routes/AuthRoutes.php';
 require 'Routes/AdminRoutes.php';

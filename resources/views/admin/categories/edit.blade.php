@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="row">
-        {!!model($category, ['route' => ['admin.categories.update', $category->id], 'method' => 'patch', 'id' => 'category-form'])!!}
+        {!!model($category, ['route' => ['admin.categories.update', $category->id], 'method' => 'patch', 'id' => 'category-form','files' => true])!!}
 
         @include('admin.categories.form')
 

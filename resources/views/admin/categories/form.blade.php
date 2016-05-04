@@ -8,7 +8,7 @@
 
             <div class="form-group">
                 {!! label('parent_category') !!}
-                {!! select('parent_category', [''] + $nestedList, null, ['class' => 'form-control']) !!}
+                {!! select('parent_category', [''] + $nestedList, $parentId, ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">
@@ -17,10 +17,27 @@
             </div>
 
             <div class="form-group">
+                {!! label('title') !!}
+                {!! text('title', null, ['class' => 'form-control']) !!}
+            </div>
+
+
+            <div class="form-group">
                 {!! label('intro_text') !!}
                 {!! textarea('intro_text', null, ['class' => 'form-control']) !!}
             </div>
+            <div class="form-group">
+                @if(isset($category) &&  $category->getMedia('categories')->first())
+                    <img src="{!! $category->getMedia('categories')->first()->getUrl('adminThumb')!!}"/><br/>
+                @endif
+                {!! label('image') !!}
+                {!! file_input('image',['class' => 'form-control']) !!}
+            </div>
 
+            <div class="form-group">
+                {!! label('enabled') !!}
+                {!! checkbox('enabled', true) !!}
+            </div>
         </div>
 
     </div>
