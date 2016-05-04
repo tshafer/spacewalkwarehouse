@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c3eb609531c1ae4a0bfbc727d2d7a8fd",
-    "content-hash": "2565aa3d87a7f2d8fd1e164f843f3623",
+    "hash": "679032d48049b8261ffb3ca3b4a80e52",
+    "content-hash": "8d329057da93a31386c3457c105d018f",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -225,6 +225,62 @@
                 "preload"
             ],
             "time": "2015-11-09 22:51:51"
+        },
+        {
+            "name": "danielstjules/stringy",
+            "version": "2.3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/danielstjules/Stringy.git",
+                "reference": "4e214a5195fae3fb558e81b1c6010678f7600643"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/danielstjules/Stringy/zipball/4e214a5195fae3fb558e81b1c6010678f7600643",
+                "reference": "4e214a5195fae3fb558e81b1c6010678f7600643",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "symfony/polyfill-mbstring": "~1.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Stringy\\": "src/"
+                },
+                "files": [
+                    "src/Create.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel St. Jules",
+                    "email": "danielst.jules@gmail.com",
+                    "homepage": "http://www.danielstjules.com"
+                }
+            ],
+            "description": "A string manipulation library with multibyte support",
+            "homepage": "https://github.com/danielstjules/Stringy",
+            "keywords": [
+                "UTF",
+                "helpers",
+                "manipulation",
+                "methods",
+                "multibyte",
+                "string",
+                "utf-8",
+                "utility",
+                "utils"
+            ],
+            "time": "2016-05-02 15:18:10"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -865,6 +921,57 @@
                 "fixtures"
             ],
             "time": "2016-04-29 12:21:54"
+        },
+        {
+            "name": "gabrielelana/byte-units",
+            "version": "0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gabrielelana/byte-units.git",
+                "reference": "ee1d99ae4374a76847e8366a8ea5464226ebcc01"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gabrielelana/byte-units/zipball/ee1d99ae4374a76847e8366a8ea5464226ebcc01",
+                "reference": "ee1d99ae4374a76847e8366a8ea5464226ebcc01",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ByteUnits\\": "src/ByteUnits"
+                },
+                "files": [
+                    "src/ByteUnits/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gabriele Lana",
+                    "email": "gabriele.lana@gmail.com"
+                }
+            ],
+            "description": "Library to parse, format and convert byte units",
+            "homepage": "https://github.com/gabrielelana/byte-units",
+            "keywords": [
+                "byte",
+                "convert",
+                "format",
+                "parse",
+                "size",
+                "units"
+            ],
+            "time": "2015-03-11 15:46:37"
         },
         {
             "name": "gurzhii/laravel-sluggable-trait",
@@ -3132,6 +3239,74 @@
             "time": "2016-03-09 05:03:14"
         },
         {
+            "name": "radic/blade-extensions",
+            "version": "6.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RobinRadic/blade-extensions.git",
+                "reference": "273ce8f3c7e12234970e3f951493885fea3efb13"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/RobinRadic/blade-extensions/zipball/273ce8f3c7e12234970e3f951493885fea3efb13",
+                "reference": "273ce8f3c7e12234970e3f951493885fea3efb13",
+                "shasum": ""
+            },
+            "require": {
+                "anahkiasen/underscore-php": "2.0.*",
+                "danielstjules/stringy": "~1.8|~2.0",
+                "illuminate/filesystem": "~5.0",
+                "illuminate/support": "~5.0",
+                "illuminate/view": "~5.0",
+                "php": ">=5.5.9",
+                "sebwite/support": "~1.0|2.0.*"
+            },
+            "require-dev": {
+                "erusev/parsedown": "~1.5",
+                "kzykhys/ciconia": "~1.0.0",
+                "matthiasmullie/minify": "~1.3",
+                "mockery/mockery": "0.9.*",
+                "orchestra/testing": "~3.2",
+                "sebwite/testing": "1.0.*"
+            },
+            "suggest": {
+                "erusev/parsedown": "Enables the use of @markdown directives (~1.5)",
+                "matthiasmullie/minify": "Enables the use of @minify directives (~1.3)",
+                "raveren/kint": "Improved @debug output (1.0.*)"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Radic\\BladeExtensions\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Robin Radic",
+                    "email": "robin@radic.nl",
+                    "role": "Package Author/Developer"
+                }
+            ],
+            "description": "Laravel package providing additional Blade extensions: foreach (with $loop data like twig), break, continue, set,array (multiline), etc",
+            "homepage": "https://github.com/RobinRadic/blade-extensions",
+            "keywords": [
+                "blade",
+                "extensions",
+                "laravel",
+                "loop"
+            ],
+            "time": "2016-04-27 14:24:26"
+        },
+        {
             "name": "rap2hpoutre/laravel-log-viewer",
             "version": "v0.4.3",
             "source": {
@@ -3577,6 +3752,136 @@
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
             "time": "2015-06-21 13:59:46"
+        },
+        {
+            "name": "sebwite/contracts",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://bitbucket.org/sebwitepackages/sebwite-contracts.git",
+                "reference": "e944439fc77028419ffa30bd29408282a7de8ea0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://bitbucket.org/sebwitepackages/sebwite-contracts/get/e944439fc77028419ffa30bd29408282a7de8ea0.zip",
+                "reference": "e944439fc77028419ffa30bd29408282a7de8ea0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "sebwite/phing": "1.0.*",
+                "sebwite/testing": "1.0.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sebwite\\Contracts\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Sebwite",
+                    "email": "info@sebwite.nl",
+                    "homepage": "https://sebwite.nl"
+                },
+                {
+                    "name": "Robin Radic",
+                    "email": "robin@sebwite.nl",
+                    "homepage": "https://github.com/robinradic",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A theme framwork for your next web application. Theme inheritence, powered by Laravel and Assetic, can be used in any application!",
+            "keywords": [
+                "bootstrap",
+                "ecommerce",
+                "laravel",
+                "platform"
+            ],
+            "time": "2016-04-24 17:32:00"
+        },
+        {
+            "name": "sebwite/support",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://bitbucket.org/sebwitepackages/sebwite-support.git",
+                "reference": "380e36ab5aa2dc41900cda369f91bbd2fc1000a7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://bitbucket.org/sebwitepackages/sebwite-support/get/380e36ab5aa2dc41900cda369f91bbd2fc1000a7.zip",
+                "reference": "380e36ab5aa2dc41900cda369f91bbd2fc1000a7",
+                "shasum": ""
+            },
+            "require": {
+                "gabrielelana/byte-units": "0.2.*",
+                "illuminate/support": ">5.0.0 <5.3.0",
+                "php": ">=5.5.9",
+                "sebwite/contracts": "1.0.*"
+            },
+            "require-dev": {
+                "anahkiasen/underscore-php": "2.0.*",
+                "danielstjules/stringy": "~1.8|~2.0",
+                "orchestra/testbench": "~3.2",
+                "sebwite/phing": "1.0.*",
+                "sebwite/testing": "1.0.*"
+            },
+            "suggest": {
+                "anahkiasen/underscore-php": "Incorperates more string and array manipulation functionality into the Str and Arr helpers (2.0.*)",
+                "danielstjules/stringy": "Incorperates more string manipulation functionality into the Str helper. (~1.8|~2.0)"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Sebwite\\Support\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sebwite",
+                    "email": "info@sebwite.nl",
+                    "homepage": "http://sebwite.nl"
+                },
+                {
+                    "name": "Robin Radic",
+                    "email": "robin@sebwite.nl",
+                    "homepage": "https://github.com/robinradic",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel 5 support package",
+            "keywords": [
+                "laravel",
+                "repositories",
+                "sebwite",
+                "structure",
+                "support"
+            ],
+            "time": "2016-04-24 15:34:34"
         },
         {
             "name": "spatie/laravel-glide",

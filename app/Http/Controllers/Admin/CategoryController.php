@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Http\Controllers\Controller;
+use App\Manufacturer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
@@ -48,11 +49,15 @@ class CategoryController extends Controller
     {
         $nestedList = Category::getNestedList('name', null, '  > ');
 
+        $manufacturers = Manufacturer::orderBy('name')->pluck('name', 'id')->toArray();
+
         if ($parentId = $category->parent()->first()) {
             $parentId = $parentId->id;
         }
 
-        return view('admin.categories.edit', compact('category', 'nestedList', 'parentId'));
+        $manufacturerId = null;
+
+        return view('admin.categories.edit', compact('category', 'nestedList', 'parentId', 'manufacturers', 'manufacturerId'));
     }
 
 
@@ -69,7 +74,9 @@ class CategoryController extends Controller
 
         $parentId = $request->has('cat') ? $request->get('cat') : null;
 
-        return view('admin.categories.create', compact('nestedList', 'parentId'));
+        $manufacturers = Manufacturer::orderBy('name')->pluck('name', 'id')->toArray();
+
+        return view('admin.categories.create', compact('nestedList', 'parentId', 'manufacturers'));
     }
 
 
@@ -82,9 +89,16 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $rules    = [
+        $rules = [
             'name' => 'bail|required|unique:categories',
         ];
+
+        if ($request->has('manufacturers') && $request->get('parent_category') == 0) {
+            flash('A main category can\'t have any manufacturers.');
+
+            return redirect()->back()->withInput();
+
+        }
         $category = $this->runSave($request, $rules);
 
         flash('Category Added!');
@@ -114,6 +128,14 @@ class CategoryController extends Controller
             $category = $root->children()->create($request->all());
         }
 
+        if ($request->has('manufacturers')) {
+            $category->manufacturers()->detach();
+            foreach ($request->get('manufacturers') as $manufacturer) {
+                $manufacturerModel = Manufacturer::whereId($manufacturer);
+                $category->manufacturers()->attach($manufacturerModel);
+            }
+        }
+
         if ($request->has('enabled')) {
             $category->enabled = true;
         } else {
@@ -129,6 +151,15 @@ class CategoryController extends Controller
         $this->clearMenuCache();
 
         return $category;
+    }
+
+
+    /**
+     *
+     */
+    protected function clearMenuCache()
+    {
+        Cache::forget('menu');
     }
 
 
@@ -187,6 +218,14 @@ class CategoryController extends Controller
         }
 
         $category->fill($request->except('parent_category', 'enabled'));
+
+        if ($request->has('manufacturers')) {
+            $category->manufacturers()->detach();
+            foreach ($request->get('manufacturers') as $manufacturer) {
+                $manufacturerModel = Manufacturer::whereId($manufacturer)->first();
+                $category->manufacturers()->attach($manufacturerModel);
+            }
+        }
 
         if ($request->has('enabled')) {
             $category->enabled = true;
@@ -267,11 +306,5 @@ class CategoryController extends Controller
         flash("Category $category->name moved!");
 
         return redirect()->back();
-    }
-
-
-    protected function clearMenuCache()
-    {
-        Cache::forget('menu');
     }
 }

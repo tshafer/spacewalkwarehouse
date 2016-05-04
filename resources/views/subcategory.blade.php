@@ -19,10 +19,14 @@
                     {{$subcategory->intro_text}}
                 </section>
             @endif
-            <aside class="col-lg-4 col-md-4 col-sm-4 m_xs_bottom_30">
-                <h5 class="fw_medium m_bottom_10">Featured Manufacturers</h5>
-                <p class="m_bottom_10"><i class="fa fa-angle-double-right"></i> Tropitone & Telescope Casual</p>
-            </aside>
+            @if($subcategory->manufacturers()->count())
+                <aside class="col-lg-4 col-md-4 col-sm-4 m_xs_bottom_30">
+                    <h5 class="fw_medium m_bottom_10">Featured Manufacturers</h5>
+                    @foreach($subcategory->manufacturers()->get() as $manufacturer)
+                        <p class="m_bottom_10"><i class="fa fa-angle-double-right"></i> {{$manufacturer->name}}</p>
+                    @endforeach
+                </aside>
+            @endif
         </div>
 
         <!--products-->

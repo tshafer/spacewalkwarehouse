@@ -147,6 +147,7 @@ return [
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
         Lookitsatravis\Listify\ListifyServiceProvider::class,
         Baum\Providers\BaumServiceProvider::class,
+        Radic\BladeExtensions\BladeExtensionsServiceProvider::class
     ],
     /*
     |--------------------------------------------------------------------------

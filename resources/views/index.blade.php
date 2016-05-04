@@ -35,7 +35,7 @@
                     <div class="product_item {{$category->slug}}">
                         <figure class="r_corners photoframe shadow relative hit animate_ftb long">
                             <!--product preview-->
-                            <a href="{{route('category', $child->slug)}}" class="d_block relative pp_wrap">
+                            <a href="{{route('subcategory',[$category->slug, $child->slug])}}" class="d_block relative pp_wrap">
                                 <img src="{{$child->getMedia('categories')->first()->getUrl('thumb')}}"
                                      class="tr_all_hover"
                                      alt=""/>
@@ -43,9 +43,9 @@
                             <!--description and price of product-->
                             <figcaption>
                                 <h5 class="m_bottom_10">
-                                    <a href="{{$child->slug}}" class="color_dark">{{$child->name}}</a>
+                                    <a href="{{route('subcategory',[$category->slug, $child->slug])}}" class="color_dark">{{$child->name}}</a>
                                 </h5>
-                                <a href="{{route('category', $child->slug)}}">
+                                <a href="{{route('subcategory',[$category->slug, $child->slug])}}">
                                     <button class="button_type_4 bg_scheme_color r_corners tr_all_hover color_light mw_0">
                                         see more styles
                                     </button>

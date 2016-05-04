@@ -51,6 +51,15 @@ class Manufacturer extends Model implements HasMediaConversions
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
+
+
+    /**
      * @return string
      */
     public function getIsEnabledAttribute()

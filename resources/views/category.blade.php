@@ -55,5 +55,4 @@
             <!--banners-->
             @include('partials.banners')
     </div>
-
 @stop

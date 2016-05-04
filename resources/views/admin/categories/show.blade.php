@@ -46,6 +46,20 @@
                         <td>Enabled</td>
                         <td colspan=2">{!! $category->is_enabled!!}</td>
                     </tr>
+                    @if($category->manufacturers()->count() > 0)
+                        <tr>
+                            <td>Manufacturers</td>
+                            <td colspan=2">
+                                @foreach($category->manufacturers()->get() as $manufacturer)
+                                    <a href="{{route('admin.manufacturers.show', $manufacturer->id)}}">{{ $manufacturer->name }}</a>
+                                    @if(!$loop->last)
+                                        |
+                                    @endif
+                                @endforeach
+                            </td>
+
+                        </tr>
+                    @endif
                     @if($category->getMedia()->count() > 0)
                         <tr>
                             <td>Image</td>
@@ -55,7 +69,8 @@
                             </td>
                             <td>
                                 <a href="{{ route('admin.categories.removeimage',[$category->id, $category->getMedia('categories')->first()->id]) }}"
-                                   class="btn btn-warning btn-sm">Remove </a></td>
+                                   class="btn btn-warning btn-sm">Remove </a>
+                            </td>
                         </tr>
                     @endif
                 </table>

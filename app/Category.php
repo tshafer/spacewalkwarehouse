@@ -6,7 +6,6 @@ use App\Support\Traits\Linkable;
 use App\Support\Traits\Sortable;
 use Baum\Node;
 use MartinBean\Database\Eloquent\Sluggable;
-
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 
@@ -31,7 +30,7 @@ class Category extends Node implements HasMediaConversions
         'name',
         'intro_text',
         'enabled',
-        'title'
+        'title',
     ];
 
     /**
@@ -56,14 +55,20 @@ class Category extends Node implements HasMediaConversions
     public function registerMediaConversions()
     {
 
-        $this->addMediaConversion('thumb')
-            ->setManipulations(['w' => 240, 'h' => 160])
-            ->performOnCollections('categories');
+        $this->addMediaConversion('thumb')->setManipulations(['w' => 240, 'h' => 160])->performOnCollections('categories');
 
-        $this->addMediaConversion('adminThumb')
-            ->setManipulations(['w' => 100, 'h' => 100, 'sharp'=> 15])
-            ->performOnCollections('*');
+        $this->addMediaConversion('adminThumb')->setManipulations(['w' => 100, 'h' => 100, 'sharp' => 15])->performOnCollections('*');
     }
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function manufacturers()
+    {
+        return $this->belongsToMany(Manufacturer::class);
+    }
+
 
     /**
      * @return string
