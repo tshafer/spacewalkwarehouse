@@ -86,7 +86,8 @@
                                     <div class="sub_menu_wrap top_arrow d_xs_none type_2 tr_all_hover clearfix r_corners">
                                         <ul class="sub_menu">
                                             @foreach($category->children()->whereEnabled(1)->get() as $child)
-                                                <li><a class="color_dark tr_delay_hover" href="{{$child->slug}}">{{$child->name}}</a>
+                                                <li>
+                                                    <a class="color_dark tr_delay_hover" href="{{route('subcategory',[ $category->slug, $child->slug])}}">{{$child->name}}</a>
                                                 </li>
                                             @endforeach
                                         </ul>
