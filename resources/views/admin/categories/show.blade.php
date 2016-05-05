@@ -119,12 +119,16 @@
                                     <td class="min">
                                         {!!$child->getTableLinks()!!}
                                         @if($category->children()->count() > 1)
-                                            <a class="btn btn-xs btn-warning"
-                                               href="{{route('admin.categories.moveup', $child->id)}}"><i
-                                                        class="fa fa-arrow-up" aria-hidden="true"></i></a>
-                                            <a class="btn btn-xs btn-warning"
-                                               href="{{route('admin.categories.movedown', $child->id)}}"><i
-                                                        class="fa fa-arrow-down" aria-hidden="true"></i></a>
+                                            @if(!$loop->first)
+                                                <a class="btn btn-xs btn-warning"
+                                                   href="{{route('admin.categories.moveup', $child->id)}}"><i
+                                                            class="fa fa-arrow-up" aria-hidden="true"></i></a>
+                                            @endif
+                                            @if(!$loop->last)
+                                                <a class="btn btn-xs btn-warning"
+                                                   href="{{route('admin.categories.movedown', $child->id)}}"><i
+                                                            class="fa fa-arrow-down" aria-hidden="true"></i></a>
+                                            @endif
                                         @endif
                                         <a class="btn btn-xs btn-warning"
                                            href="{{route('subcategory', [$category->slug, $child->slug])}}"

@@ -143,7 +143,7 @@ class CategoryController extends Controller
         }
 
         if ($request->hasFile('image')) {
-            $category->addMediaFromRequest('image')->preservingOriginal()->toCollection('categories');
+            $category->addMedia($request->file('image'))->preservingOriginal()->toCollection('categories');
         }
 
         $category->save();
@@ -234,7 +234,7 @@ class CategoryController extends Controller
         }
 
         if ($request->hasFile('image')) {
-            $category->addMediaFromRequest('image')->preservingOriginal()->toCollection('categories');
+            $category->addMedia($request->file('image'))->preservingOriginal()->toCollection('categories');
         }
 
         $category->save();
@@ -255,8 +255,9 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-
         $category->delete();
+
+        $this->clearMenuCache();
 
         flash('Category deleted!');
 
@@ -272,7 +273,6 @@ class CategoryController extends Controller
      */
     public function removeImage(Category $category, $imageId)
     {
-        //$image = $category->getMedia()->whereLoose('id', $imageId)->first();
         $category->deleteMedia($imageId);
 
         return redirect()->back();
@@ -288,6 +288,8 @@ class CategoryController extends Controller
     {
         $category->moveLeft();
 
+        $this->clearMenuCache();
+
         flash("Category $category->name moved!");
 
         return redirect()->back();
@@ -302,6 +304,8 @@ class CategoryController extends Controller
     public function moveDown($category)
     {
         $category->moveRight();
+
+        $this->clearMenuCache();
 
         flash("Category $category->name moved!");
 

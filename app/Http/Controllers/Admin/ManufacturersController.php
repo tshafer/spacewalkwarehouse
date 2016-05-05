@@ -97,7 +97,7 @@ class ManufacturersController extends Controller
         }
 
         if ($request->hasFile('image')) {
-            $manufacturer->addMediaFromRequest('image')->preservingOriginal()->toCollection('manufacturers');
+            $manufacturer->addMedia($request->file('image'))->preservingOriginal()->toCollection('manufacturers');
         }
 
         $manufacturer->save();
@@ -150,7 +150,7 @@ class ManufacturersController extends Controller
         }
 
         if ($request->hasFile('image')) {
-            $manufacturer->addMediaFromRequest('image')->preservingOriginal()->toCollection('manufacturers');
+            $manufacturer->addMedia($request->file('image'))->preservingOriginal()->toCollection('manufacturers');
         }
 
         $manufacturer->save();

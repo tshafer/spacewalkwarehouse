@@ -127,7 +127,7 @@ class ProductController extends Controller
         }
 
         if ($request->hasFile('image')) {
-            $product->addMediaFromRequest('image')->preservingOriginal()->toCollection('products');
+            $product->addMedia($request->file('image'))->preservingOriginal()->toCollection('products');
         }
 
         $product->save();
@@ -196,7 +196,7 @@ class ProductController extends Controller
         }
 
         if ($request->hasFile('image')) {
-            $product->addMediaFromRequest('image')->preservingOriginal()->toCollection('products');
+            $product->addMedia($request->file('image'))->preservingOriginal()->toCollection('products');
         }
 
         $product->save();
