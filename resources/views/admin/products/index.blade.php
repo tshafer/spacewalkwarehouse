@@ -38,7 +38,7 @@
                         </td>
                         <td>
                             @if($product->getMedia()->count() > 0)
-                                <img src="{!! $product->getMedia('products')->first()->getUrl('adminThumb')!!}"/>
+                                <img src="{{url('/')}}{!! $product->getMedia('products')->first()->getUrl('adminThumb')!!}"/>
                             @endif
                         </td>
                         <td class="min">

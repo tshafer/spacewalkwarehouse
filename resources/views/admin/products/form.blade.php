@@ -31,7 +31,7 @@
 
             <div class="form-group">
                 @if(isset($product) &&  $product->getMedia('products')->first())
-                    <img src="{!! $product->getMedia('products')->first()->getUrl('adminThumb')!!}"/><br/>
+                    <img src="{{url('/')}}{!! $product->getMedia('products')->first()->getUrl('adminThumb')!!}"/><br/>
                 @endif
                 {!! label('image') !!}
                 {!! file_input('image',['class' => 'form-control']) !!}

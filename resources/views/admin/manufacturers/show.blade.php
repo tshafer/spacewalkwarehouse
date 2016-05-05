@@ -35,7 +35,7 @@
                         <tr>
                             <td>Image</td>
                             <td>
-                                <img src="{!! $manufacturer->getMedia('manufacturers')->first()->getUrl('adminThumb')!!}"/><br/>
+                                <img src="{{url('/')}}{!! $manufacturer->getMedia('manufacturers')->first()->getUrl('adminThumb')!!}"/><br/>
 
                             </td>
                             <td>

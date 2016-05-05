@@ -46,7 +46,7 @@
 
             <div class="form-group">
                 @if(isset($category) &&  $category->getMedia('categories')->first())
-                    <img src="{!! $category->getMedia('categories')->first()->getUrl('adminThumb')!!}"/><br/>
+                    <img src="{{url('/')}}{!! $category->getMedia('categories')->first()->getUrl('adminThumb')!!}"/><br/>
                 @endif
                 {!! label('image') !!}
                 {!! file_input('image',['class' => 'form-control']) !!}

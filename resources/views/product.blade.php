@@ -16,7 +16,7 @@
             <section class="col-lg-8 col-md-8 col-sm-8 m_bottom_25">
                 <div class="photoframe r_corners shadow wrapper m_bottom_30">
                     @if($product->getMedia('products')->count())
-                        <img src="{{$product->getMedia('products')->first()->getUrl('full')}}" alt="{{$product->name}}"
+                        <img src="{{url('/')}}{{$product->getMedia('products')->first()->getUrl('full')}}" alt="{{$product->name}}"
                              class="tr_all_long_hover">
                     @endif
                 </div>

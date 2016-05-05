@@ -11,15 +11,15 @@
     <meta name="description" content="Cleveland's largest selection of indoor and outdoor furniture and fireplaces">
     <!--<link rel="icon" type="image/ico" href="images/fav.ico">-->
     <!--stylesheet include-->
-    <link rel="stylesheet" type="text/css" media="all" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" media="all" href="/css/settings.css">
-    <link rel="stylesheet" type="text/css" media="all" href="/css/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" media="all" href="/css/owl.transitions.css">
-    <link rel="stylesheet" type="text/css" media="all" href="/css/jquery.custom-scrollbar.css">
-    <link rel="stylesheet" type="text/css" media="all" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" media="all" href="{{url('/')}}/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="all" href="{{url('/')}}/css/settings.css">
+    <link rel="stylesheet" type="text/css" media="all" href="{{url('/')}}/css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" media="all" href="{{url('/')}}/css/owl.transitions.css">
+    <link rel="stylesheet" type="text/css" media="all" href="{{url('/')}}/css/jquery.custom-scrollbar.css">
+    <link rel="stylesheet" type="text/css" media="all" href="{{url('/')}}/css/style.css">
     <!--font include-->
-    <link href="/css/font-awesome.min.css" rel="stylesheet">
-    <script src="/js/modernizr.js"></script>
+    <link href="{{url('/')}}/css/font-awesome.min.css" rel="stylesheet">
+    <script src="{{url('/')}}/js/modernizr.js"></script>
 </head>
 <body>
 <!--boxed layout-->
@@ -76,18 +76,20 @@
                 <nav role="navigation" class="f_left f_xs_none d_xs_none">
                     <ul class="horizontal_list main_menu clearfix">
                         <li class="{{active_class('/')}}" relative f_xs_none m_xs_bottom_5">
-                            <a href="/" class="tr_delay_hover color_light tt_uppercase"><b>Home</b></a>
+                        <a href="{{url('/')}}" class="tr_delay_hover color_light tt_uppercase"><b>Home</b></a>
                         </li>
                         @foreach($categories as $category)
                             <li class="relative f_xs_none m_xs_bottom_5">
-                                <a href="{{route('category', $category->slug)}}" class=" tr_delay_hover color_light tt_uppercase"><b> {{$category->name}}</b></a>
+                                <a href="{{route('category', $category->slug)}}"
+                                   class=" tr_delay_hover color_light tt_uppercase"><b> {{$category->name}}</b></a>
                                 <!--sub menu-->
                                 @if($category->children()->whereEnabled(1)->count() > 0)
                                     <div class="sub_menu_wrap top_arrow d_xs_none type_2 tr_all_hover clearfix r_corners">
                                         <ul class="sub_menu">
                                             @foreach($category->children()->whereEnabled(1)->get() as $child)
                                                 <li>
-                                                    <a class="color_dark tr_delay_hover" href="{{route('subcategory',[ $category->slug, $child->slug])}}">{{$child->name}}</a>
+                                                    <a class="color_dark tr_delay_hover"
+                                                       href="{{route('subcategory',[ $category->slug, $child->slug])}}">{{$child->name}}</a>
                                                 </li>
                                             @endforeach
                                         </ul>

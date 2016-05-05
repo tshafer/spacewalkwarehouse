@@ -30,7 +30,7 @@
                         <td>{{$manufacturer->is_enabled}}</td>
                         <td>
                             @if($manufacturer->getMedia()->count() > 0)
-                                <img src="{!! $manufacturer->getMedia('manufacturers')->first()->getUrl('adminThumb')!!}"/>
+                                <img src="{{url('/')}}{!! $manufacturer->getMedia('manufacturers')->first()->getUrl('adminThumb')!!}"/>
                             @endif
                         </td>
                         <td class="min">

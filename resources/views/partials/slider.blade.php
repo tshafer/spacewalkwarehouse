@@ -4,7 +4,7 @@
         <ul>
             <li class="f_left" data-transition="curtain-1" data-slotamount="7"
             ">
-            <img src="/images/pdh/home-slider-3.jpg" alt="" data-bgrepeat="no-repeat" data-bgfit="cover"
+            <img src="{{url('/')}}/images/pdh/home-slider-3.jpg" alt="" data-bgrepeat="no-repeat" data-bgfit="cover"
                  data-bgposition="center center">
             <div class="caption lft stb color_green slider_title tt_uppercase t_align_c" data-x="428" data-y="270"
                  data-speed="1500" data-easing="easeOutBounce"><b><span
@@ -18,7 +18,7 @@
             </li>
             <li class="f_left" data-transition="curtain-1" data-slotamount="7"
             ">
-            <img src="/images/pdh/home-slider-1.jpg" alt="" data-bgrepeat="no-repeat" data-bgfit="cover"
+            <img src="{{url('/')}}/images/pdh/home-slider-1.jpg" alt="" data-bgrepeat="no-repeat" data-bgfit="cover"
                  data-bgposition="center center">
             <div class="caption lft stb color_green slider_title tt_uppercase t_align_c" data-x="388" data-y="270"
                  data-speed="1500" data-easing="easeOutBounce"><b><span
@@ -31,7 +31,7 @@
             </li>
             <li class="f_left" data-transition="curtain-1" data-slotamount="7"
             ">
-            <img src="/images/pdh/home-slider-2.jpg" alt="" data-bgrepeat="no-repeat" data-bgfit="cover"
+            <img src="{{url('/')}}/images/pdh/home-slider-2.jpg" alt="" data-bgrepeat="no-repeat" data-bgfit="cover"
                  data-bgposition="center center">
             <div class="caption lft stb color_green slider_title tt_uppercase t_align_c" data-x="428" data-y="270"
                  data-speed="1500" data-easing="easeOutBounce"><b><span

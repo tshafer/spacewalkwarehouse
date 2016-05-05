@@ -36,9 +36,9 @@
                         <figure class="r_corners photoframe shadow relative hit animate_ftb long">
                             <!--product preview-->
                             <a href="{{route('subcategory',[$category->slug, $child->slug])}}" class="d_block relative pp_wrap">
-                                <img src="{{$child->getMedia('categories')->first()->getUrl('thumb')}}"
+                                <img src="{{url('/')}}{{$child->getMedia('categories')->first()->getUrl('thumb')}}"
                                      class="tr_all_hover"
-                                     alt=""/>
+                                     alt="{{$category->name}}"/>
                             </a>
                             <!--description and price of product-->
                             <figcaption>
@@ -71,7 +71,7 @@
         <div class="product_brands m_bottom_45 m_sm_bottom_35">
             @foreach($manufacturers as $manufacturer)
                 <a href="{{$manufacturer->slug}}" class="d_block t_align_c animate_fade">
-                    <img src="{{$manufacturer->getMedia('manufacturers')->first()->getUrl('thumb')}}"
+                    <img src="{{url('/')}}{{$manufacturer->getMedia('manufacturers')->first()->getUrl('thumb')}}"
                          alt="{{$manufacturer->name}}">
                 </a>
             @endforeach

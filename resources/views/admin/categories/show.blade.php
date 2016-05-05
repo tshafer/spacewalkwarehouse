@@ -64,7 +64,7 @@
                         <tr>
                             <td>Image</td>
                             <td>
-                                <img src="{!! $category->getMedia('categories')->first()->getUrl('adminThumb')!!}"/><br/>
+                                <img src="{{url('/')}}{!! $category->getMedia('categories')->first()->getUrl('adminThumb')!!}"/><br/>
 
                             </td>
                             <td>
@@ -109,7 +109,7 @@
                                     </td>
                                     <td>
                                         @if($child->getMedia()->count() > 0)
-                                            <img src="{!! $child->getMedia('categories')->first()->getUrl('adminThumb')!!}"/>
+                                            <img src="{{url('/')}}{!! $child->getMedia('categories')->first()->getUrl('adminThumb')!!}"/>
                                         @endif
                                     </td>
                                     <td class="min">
@@ -170,7 +170,7 @@
                                         <td>{{$product->is_enabled}}</td>
                                         <td>
                                             @if($product->getMedia()->count() > 0)
-                                                <img src="{!! $product->getMedia('products')->first()->getUrl('adminThumb')!!}"/>
+                                                <img src="{{url('/')}}{!! $product->getMedia('products')->first()->getUrl('adminThumb')!!}"/>
                                             @endif
                                         </td>
                                         <td class="min">

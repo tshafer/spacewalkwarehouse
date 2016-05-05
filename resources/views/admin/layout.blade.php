@@ -12,9 +12,8 @@
 
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
-    <link rel="stylesheet" href="/assets/dashboard/css/styles.css"/>
+    <link rel="stylesheet" href="{{url('/')}}/assets/dashboard/css/styles.css"/>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/dashboard/css/bootstrap-datetimepicker.min.css"/>
 
     @yield('styles')
     @yield('scripts-top')
@@ -57,13 +56,13 @@
 
     <!-- Bootstrap.js, Jquery plugins and Custom JS code -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script>!window.jQuery && document.write(decodeURI('%3Cscript src="/assets/dashboard/js/vendor/jquery-1.11.1.min.js"%3E%3C/script%3E'));</script>
+    <script>!window.jQuery && document.write(decodeURI('%3Cscript src="{{url('/')}}/assets/dashboard/js/vendor/jquery-1.11.1.min.js"%3E%3C/script%3E'));</script>
 
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
-    <script src="/assets/dashboard/js/plugins.js"></script>
-    <script src="/assets/dashboard/js/vendor/tablesort.js"></script>
-    <script src="/assets/dashboard/js/app.js"></script>
+    <script src="{{url('/')}}/assets/dashboard/js/plugins.js"></script>
+    <script src="{{url('/')}}/assets/dashboard/js/vendor/tablesort.js"></script>
+    <script src="{{url('/')}}/assets/dashboard/js/app.js"></script>
 
     @stack('scripts')
 </body>

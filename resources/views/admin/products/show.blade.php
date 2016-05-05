@@ -61,7 +61,7 @@
                         <tr>
                             <td>Image</td>
                             <td>
-                                <img src="{!! $product->getMedia('products')->first()->getUrl('adminThumb')!!}"/><br/>
+                                <img src="{{url('/')}}{!! $product->getMedia('products')->first()->getUrl('adminThumb')!!}"/><br/>
                             </td>
                             <td>
                                 <a href="{{ route('admin.products.removeimage',[$product->id, $product->getMedia('products')->first()->id]) }}"

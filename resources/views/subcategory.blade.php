@@ -38,7 +38,7 @@
                             <!--product preview-->
                             <a href="{{route('product', [$category->slug, $subcategory->slug, $product->slug])}}" class="d_block relative pp_wrap">
                                 @if($product->getMedia('products')->count() > 0)
-                                    <img src="{{$product->getMedia('products')->first()->getUrl('thumb')}}"
+                                    <img src="{{url('/')}}{{$product->getMedia('products')->first()->getUrl('thumb')}}"
                                          class="tr_all_hover" alt="{{ $product->name }}">
                                 @endif
                             </a>

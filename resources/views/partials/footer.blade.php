@@ -35,10 +35,10 @@
                 All Rights Reserved. <a href="http://www.pavlishgroup.com">Web Design by PavlishGroup – Cleveland
                     Ohio</a></p>
             <ul class="f_right horizontal_list clearfix f_mxs_none d_mxs_inline_b">
-                <li><img src="/images/payment_img_2.png" alt=""></li>
-                <li class="m_left_5"><img src="/images/payment_img_3.png" alt=""></li>
-                <li class="m_left_5"><img src="/images/payment_img_4.png" alt=""></li>
-                <li class="m_left_5"><img src="/images/payment_img_5.png" alt=""></li>
+                <li><img src="{{url('/')}}/images/payment_img_2.png" alt=""></li>
+                <li class="m_left_5"><img src="{{url('/')}}/images/payment_img_3.png" alt=""></li>
+                <li class="m_left_5"><img src="{{url('/')}}/images/payment_img_4.png" alt=""></li>
+                <li class="m_left_5"><img src="{{url('/')}}/images/payment_img_5.png" alt=""></li>
             </ul>
         </div>
     </div>
@@ -46,17 +46,16 @@
 </div>
 <button class="t_align_c r_corners tr_all_hover animate_ftl" id="go_to_top"><i class="fa fa-angle-up"></i></button>
 <!--scripts include-->
-<script src="/js/jquery-2.1.0.min.js"></script>
-<script src="/js/jquery-migrate-1.2.1.min.js"></script>
-<script src="/js/retina.js"></script>
-<script src="/js/jquery.themepunch.plugins.min.js"></script>
-<script src="/js/jquery.themepunch.revolution.min.js"></script>
-<script src="/js/jquery.easing.1.3.js"></script>
-<script src="/js/waypoints.min.js"></script>
-<script src="/js/jquery.isotope.min.js"></script>
-<script src="/js/owl.carousel.min.js"></script>
-<script src="/js/jquery.tweet.min.js"></script>
-<script src="/js/jquery.custom-scrollbar.js"></script>
-<script src="/js/scripts.js"></script>
-</body>
-</html>
+<script src="{{url('/')}}/js/jquery-2.1.0.min.js"></script>
+<script src="{{url('/')}}/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="{{url('/')}}/js/retina.js"></script>
+<script src="{{url('/')}}/js/jquery.themepunch.plugins.min.js"></script>
+<script src="{{url('/')}}/js/jquery.themepunch.revolution.min.js"></script>
+<script src="{{url('/')}}/js/jquery.easing.1.3.js"></script>
+<script src="{{url('/')}}/js/waypoints.min.js"></script>
+<script src="{{url('/')}}/js/jquery.isotope.min.js"></script>
+<script src="{{url('/')}}/js/owl.carousel.min.js"></script>
+<script src="{{url('/')}}/js/jquery.tweet.min.js"></script>
+<script src="{{url('/')}}/js/jquery.custom-scrollbar.js"></script>
+<script src="{{url('/')}}/js/scripts.js"></script>
+</body></html>
