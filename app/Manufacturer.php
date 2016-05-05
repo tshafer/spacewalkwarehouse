@@ -58,6 +58,13 @@ class Manufacturer extends Model implements HasMediaConversions
         return $this->belongsToMany(Category::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
+    }
 
     /**
      * @return string

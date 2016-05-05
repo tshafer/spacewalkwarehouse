@@ -5,11 +5,13 @@ use App\Support\Traits\Attributes;
 use App\Support\Traits\Linkable;
 use App\Support\Traits\Sortable;
 use Baum\Node;
+use Illuminate\Database\Eloquent\Model;
 use MartinBean\Database\Eloquent\Sluggable;
+
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 
-class Category extends Node implements HasMediaConversions
+class Product extends Model implements HasMediaConversions
 {
 
     use Linkable, Sortable, Attributes, Sluggable, HasMediaTrait;
@@ -19,7 +21,7 @@ class Category extends Node implements HasMediaConversions
      *
      * @var string
      */
-    protected $table = 'categories';
+    protected $table = 'products';
 
     /**
      * The attributes that are mass assignable.
@@ -28,26 +30,10 @@ class Category extends Node implements HasMediaConversions
      */
     protected $fillable = [
         'name',
-        'intro_text',
+        'description',
         'enabled',
-        'title',
+        'slug'
     ];
-
-    /**
-     * With Baum, all NestedSet-related fields are guarded from mass-assignment
-     * by default.
-     *
-     * @var array
-     */
-    protected $guarded = ['id', 'parent_id', 'lft', 'rgt', 'depth'];
-
-    /**
-     * Columns which restrict what we consider our Nested Set list
-     *
-     * @var array
-     */
-    protected $scoped = [];
-
 
     /**
      * Convert Images
@@ -55,9 +41,25 @@ class Category extends Node implements HasMediaConversions
     public function registerMediaConversions()
     {
 
-        $this->addMediaConversion('thumb')->setManipulations(['w' => 240, 'h' => 160])->performOnCollections('categories');
+        $this->addMediaConversion('thumb')
+            ->setManipulations(['w' => 240, 'h' => 160])
+            ->performOnCollections('products');
 
-        $this->addMediaConversion('adminThumb')->setManipulations(['w' => 100, 'h' => 100, 'sharp' => 15])->performOnCollections('*');
+        $this->addMediaConversion('full')
+            ->setManipulations(['w' => 730, 'h' => 486])
+            ->performOnCollections('products');
+
+        $this->addMediaConversion('adminThumb')
+            ->setManipulations(['w' => 100, 'h' => 100, 'sharp'=> 15])
+            ->performOnCollections('*');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
     }
 
 
@@ -68,16 +70,6 @@ class Category extends Node implements HasMediaConversions
     {
         return $this->belongsToMany(Manufacturer::class);
     }
-
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function products()
-    {
-        return $this->belongsToMany(Product::class);
-    }
-
 
     /**
      * @return string

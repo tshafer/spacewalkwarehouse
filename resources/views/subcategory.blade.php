@@ -4,7 +4,6 @@
 
 @section('content')
 
-        <!--breadcrumbs-->
 @include('partials.breadcrumb', ['category' => $subcategory])
 
 <div class="page_content_offset">
@@ -32,45 +31,39 @@
         <!--products-->
         <section class="products_container clearfix m_bottom_25 m_sm_bottom_15">
             <!--product item-->
-            <div class="product_item">
-                <figure class="r_corners photoframe shadow relative hit animate_ftb long">
-                    <!--product preview-->
-                    <a href="subcategory.html#" class="d_block relative pp_wrap">
-                        <img src="images/pdh/subcategory-outdoor-aluminum-tropitone-ur-comfort.jpg"
-                             class="tr_all_hover" alt="">
-                    </a>
-                    <!--description of product-->
-                    <figcaption>
-                        <h4>Tropitone</h4>
-                        <h5 class="m_bottom_10"><a href="product.html" class="color_dark">URComfort Montreux
-                                Cushion</br>Seating</a></h5>
-                        <a href="product.html">
-                            <button class="button_type_4 bg_scheme_color r_corners tr_all_hover color_light mw_0">
-                                view details
-                            </button>
-                        </a>
-                    </figcaption>
-                </figure>
-            </div>
-            <!--product item-->
-            <div class="product_item">
-                <figure class="r_corners photoframe shadow relative hit animate_ftb long">
-                    <!--product preview-->
-                    <a href="subcategory.html#" class="d_block relative pp_wrap">
-                        <img src="images/pdh/subcategory-outdoor-aluminum-tropitone-radiance-sling-dining.jpg"
-                             class="tr_all_hover" alt="">
-                    </a>
-                    <!--description of product-->
-                    <figcaption>
-                        <h4>Tropitone</h4>
-                        <h5 class="m_bottom_10"><a href="subcategory.html#" class="color_dark">Radiance Sling
-                                Dining</a></h5>
-                        <button class="button_type_4 bg_scheme_color r_corners tr_all_hover color_light mw_0">view
-                            details
-                        </button>
-                    </figcaption>
-                </figure>
-            </div>
+            @if($subcategory->products()->count() > 0)
+                @foreach($subcategory->products()->get() as $product)
+                    <div class="product_item">
+                        <figure class="r_corners photoframe shadow relative hit animate_ftb long">
+                            <!--product preview-->
+                            <a href="{{route('product', [$category->slug, $subcategory->slug, $product->slug])}}" class="d_block relative pp_wrap">
+                                @if($product->getMedia('products')->count() > 0)
+                                    <img src="{{$product->getMedia('products')->first()->getUrl('thumb')}}"
+                                         class="tr_all_hover" alt="{{ $product->name }}">
+                                @endif
+                            </a>
+                            <!--description of product-->
+                            <figcaption>
+                                <h4>
+                                    @if($product->manufacturers->count() > 0)
+                                        @foreach($product->manufacturers as $manufacturer)
+                                            {{$manufacturer->name}}<br/>
+                                        @endforeach
+                                    @endif
+                                </h4>
+                                <h5 class="m_bottom_10"><a href="{{route('product', [$category->slug, $subcategory->slug, $product->slug])}}" class="color_dark">
+                                        {{ $product->name }}
+                                    </a></h5>
+                                <a href="{{route('product', [$category->slug, $subcategory->slug, $product->slug])}}">
+                                    <button class="button_type_4 bg_scheme_color r_corners tr_all_hover color_light mw_0">
+                                        view details
+                                    </button>
+                                </a>
+                            </figcaption>
+                        </figure>
+                    </div>
+                @endforeach
+            @endif
 
         </section>
         @include('partials.banners')

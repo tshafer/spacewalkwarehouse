@@ -12,7 +12,11 @@
 */
 
 use App\Category;
+use App\Product;
 
+/**
+ * Site Routes
+ */
 $router->get('/', [
     'as'   => 'home',
     'uses' => 'HomeController@index',
@@ -28,11 +32,24 @@ $router->get('/category/{category}/{subcategory}', [
     'uses' => 'CategoryController@subCategory',
 ]);
 
+$router->get('/category/{category}/{subcategory}/{product}', [
+    'as'   => 'product',
+    'uses' => 'ProductController@show',
+]);
+
 $router->get('loggies', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
+/**
+ * Generic Model Binding
+ */
 $router->model('users', App\User::class);
+$router->model('products', App\Product::class);
 $router->model('categories', App\Category::class);
+$router->model('manufacturers', App\Manufacturer::class);
 
+/**
+ * Frontend Model Binding
+ */
 $router->bind('category', function($value){
     return Category::whereSlug($value)->first();
 });
@@ -41,9 +58,14 @@ $router->bind('subcategory', function($value){
     return Category::whereSlug($value)->first();
 });
 
+$router->bind('product', function($value){
+    return Product::whereSlug($value)->first();
+});
 
-$router->model('manufacturers', App\Manufacturer::class);
 
+/**
+ * Admin and Auth Routes
+ */
 require 'Routes/AuthRoutes.php';
 require 'Routes/AdminRoutes.php';
 

@@ -16,13 +16,18 @@
                         <i class="sidebar-nav-icon"></i>Manufacturers
                     </a>
                 </li>
+                <li class="{{active_class('admin/products*')}}">
+                    <a href="{{route('admin.products.index')}}">
+                        <i class="sidebar-nav-icon"></i>Products
+                    </a>
+                </li>
                 <li class="{{active_class('admin/users*')}}">
                     <a href="{{route('admin.users.index')}}">
                         <i class="sidebar-nav-icon"></i>Users
                     </a>
                 </li>
                 <li>
-                    <a href="'admin/refreshmedia">
+                    <a href="admin/refreshmedia">
                         <i class="sidebar-nav-icon"></i>Refresh Media
                     </a>
                 </li>

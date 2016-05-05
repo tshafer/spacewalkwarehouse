@@ -15,13 +15,14 @@ $router->group(['middleware' => ['auth'], 'prefix' => 'admin'], function () use 
     $router->resource('manufacturers', 'Admin\ManufacturersController');
     $router->get('manufacturers/removeimage/{manufacturers}/{imageid}', ['uses' => 'Admin\ManufacturersController@removeImage', 'as' => 'admin.manufacturers.removeimage']);
 
+    $router->resource('products', 'Admin\ProductController');
+    $router->get('products/removeimage/{products}/{imageid}', ['uses' => 'Admin\ProductController@removeImage', 'as' => 'admin.products.removeimage']);
+
     $router->get('/', function () {
         return redirect()->route('admin.users.index');
     });
 
-    $router->get('refreshmedia', function ()
-    {
-
+    $router->get('refreshmedia', function () {
         Artisan::call('medialibrary:regenerate');
 
         return redirect()->back();

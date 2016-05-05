@@ -19,8 +19,10 @@ class CategoryController extends Controller
         return view('category', compact('category'));
     }
 
+
     /**
      * @param \App\Category $category
+     * @param \App\Category $subcategory
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */

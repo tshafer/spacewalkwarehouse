@@ -131,7 +131,7 @@ class CategoryController extends Controller
         if ($request->has('manufacturers')) {
             $category->manufacturers()->detach();
             foreach ($request->get('manufacturers') as $manufacturer) {
-                $manufacturerModel = Manufacturer::whereId($manufacturer);
+                $manufacturerModel = Manufacturer::whereId($manufacturer)->first();
                 $category->manufacturers()->attach($manufacturerModel);
             }
         }

@@ -17,8 +17,8 @@
                 <th class="min">ID</th>
                 <th>Name</th>
                 <th>Enabled</th>
-                <th># SubCategories</th>
-                <th>Image</th>
+                <th># Sub Categories</th>
+                {{--<th>Image</th>--}}
                 <th>Action</th>
             </tr>
             </thead>
@@ -30,19 +30,23 @@
                         <td>{{$category->name}}</td>
                         <td>{{$category->is_enabled}}</td>
                         <td>{{$category->children()->count()}}</td>
-                        <td>
-                            @if($category->getMedia()->count() > 0)
-                                <img src="{!! $category->getMedia('categories')->first()->getUrl('adminThumb')!!}"/>
-                            @endif
-                        </td>
+                        {{--<td>--}}
+                            {{--@if($category->getMedia()->count() > 0)--}}
+                                {{--<img src="{!! $category->getMedia('categories')->first()->getUrl('adminThumb')!!}"/>--}}
+                            {{--@endif--}}
+                        {{--</td>--}}
                         <td class="min">
                             {!!$category->getTableLinks()!!}
                             @if($categories->count() > 1)
-                                <a href="{{route('admin.categories.moveup', $category->id)}}"><i class="fa fa-arrow-up"
-                                                                                                 aria-hidden="true"></i></a>
-                                <a href="{{route('admin.categories.movedown', $category->id)}}"><i
+                                <a class="btn btn-xs btn-warning" href="{{route('admin.categories.moveup', $category->id)}}">
+                                    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                                </a>
+                                <a class="btn btn-xs btn-warning" href="{{route('admin.categories.movedown', $category->id)}}"><i
                                             class="fa fa-arrow-down" aria-hidden="true"></i></a>
                             @endif
+                            <a class="btn btn-xs btn-warning" href="{{route('category', $category->slug)}}" target="_blank">
+                                <i class="fa fa-external-link" aria-hidden="true" ></i>
+                            </a>
                         </td>
 
                     </tr>
