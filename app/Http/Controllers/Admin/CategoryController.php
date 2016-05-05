@@ -183,8 +183,8 @@ class CategoryController extends Controller
             return redirect()->back()->withInput();
         }
 
-        if ($request->get('parent_category') == 0 && $category->children()->count() > 0) {
-            flash('You cant make a category that has children into a child. Please remove this categories children and try again.');
+        if ($request->get('parent_category') != 0 && $category->children()->count() > 0) {
+            flash('Sorry, this category isn\'t allowed to have any subcategories. It is already a subcategory');
 
             return redirect()->back()->withInput();
         }

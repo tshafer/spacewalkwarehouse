@@ -27,11 +27,6 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{url('/')}}/admin/refreshmedia">
-                        <i class="sidebar-nav-icon"></i>Refresh Media
-                    </a>
-                </li>
-                <li>
                     <a href="{{route('auth.logout')}}">
                         <i class="sidebar-nav-icon"></i>Logout
                     </a>

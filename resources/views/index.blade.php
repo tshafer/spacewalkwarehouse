@@ -3,6 +3,8 @@
 @section('title')  @stop
 
 @section('content')
+
+@include('partials.slider')
         <!--content-->
 <div class="page_content_offset">
     <div class="container">

@@ -43,6 +43,10 @@
                         <td colspan=2">{!! $category->intro_text!!}</td>
                     </tr>
                     <tr>
+                        <td> Title</td>
+                        <td colspan=2">{!! $category->title!!}</td>
+                    </tr>
+                    <tr>
                         <td>Enabled</td>
                         <td colspan=2">{!! $category->is_enabled!!}</td>
                     </tr>
@@ -115,13 +119,17 @@
                                     <td class="min">
                                         {!!$child->getTableLinks()!!}
                                         @if($category->children()->count() > 1)
-                                            <a class="btn btn-xs btn-warning" href="{{route('admin.categories.moveup', $child->id)}}"><i
+                                            <a class="btn btn-xs btn-warning"
+                                               href="{{route('admin.categories.moveup', $child->id)}}"><i
                                                         class="fa fa-arrow-up" aria-hidden="true"></i></a>
-                                            <a class="btn btn-xs btn-warning" href="{{route('admin.categories.movedown', $child->id)}}"><i
+                                            <a class="btn btn-xs btn-warning"
+                                               href="{{route('admin.categories.movedown', $child->id)}}"><i
                                                         class="fa fa-arrow-down" aria-hidden="true"></i></a>
                                         @endif
-                                        <a class="btn btn-xs btn-warning" href="{{route('subcategory', [$category->slug, $child->slug])}}" target="_blank">
-                                            <i class="fa fa-external-link" aria-hidden="true" ></i>
+                                        <a class="btn btn-xs btn-warning"
+                                           href="{{route('subcategory', [$category->slug, $child->slug])}}"
+                                           target="_blank">
+                                            <i class="fa fa-external-link" aria-hidden="true"></i>
                                         </a>
                                     </td>
 
@@ -175,8 +183,10 @@
                                         </td>
                                         <td class="min">
                                             {!!$product->getTableLinks()!!}
-                                            <a class="btn btn-xs btn-warning" href="{{route('product', [$category->parent()->first()->slug, $category->slug, $product->slug])}}" target="_blank">
-                                                <i class="fa fa-external-link" aria-hidden="true" ></i>
+                                            <a class="btn btn-xs btn-warning"
+                                               href="{{route('product', [$category->parent()->first()->slug, $category->slug, $product->slug])}}"
+                                               target="_blank">
+                                                <i class="fa fa-external-link" aria-hidden="true"></i>
                                             </a>
                                         </td>
 

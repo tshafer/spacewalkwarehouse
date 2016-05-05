@@ -8,7 +8,7 @@
 
             <div class="form-group">
                 {!! label('parent_category') !!}
-                {!! select('parent_category', [''] + $nestedList, $parentId, ['class' => 'form-control']) !!}
+                {!! select('parent_category', ['None'] + $nestedList, $parentId, ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">
