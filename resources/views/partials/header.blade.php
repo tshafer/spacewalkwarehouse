@@ -103,7 +103,7 @@
                             </li>
                         @endforeach
                         <li class="relative f_xs_none m_xs_bottom_5">
-                            <a href="/contact" class="tr_delay_hover color_light tt_uppercase">
+                            <a href="{{route('contact')}}" class="tr_delay_hover color_light tt_uppercase">
                                 <b>Visit/Contact</b>
                             </a>
                         </li>

@@ -1,11 +1,13 @@
 <?php namespace App\Http\Controllers;
 
 use App\Manufacturer;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 /**
  * @package App\Http\Controllers
  */
-class HomeController extends Controller
+class SiteController extends Controller
 {
 
     /**
@@ -60,6 +62,45 @@ class HomeController extends Controller
         }
 
         return view('cleveland-patio-deck-furniture', compact('galleryTitle', 'galleryDescription', 'galleryPhotos', 'data', 'page'));
+    }
+
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function contact()
+    {
+        return view('contact');
+    }
+
+
+    /**
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return mixed
+     */
+    public function contactPost(Request $request)
+    {
+        $this->validate($request, [
+            'name'    => 'required',
+            'email'   => 'required|email',
+            'subject' => 'required',
+            'message' => 'required',
+        ]);
+
+        $data = $request->all();
+
+        Mail::send('emails.send', ['data' => $data], function ($message) {
+            
+            $message->subject('Patio Deck & Hearth Contact Form');
+            $message->from('admin@patiodeckhearth.com', 'Patio Deck & Hearth Contact Form');
+
+            $message->to('tj@tjshafer.com');
+            $message->cc('dpavlish@gmail.com');
+
+        });
+
+        return redirect()->route('contact')->withMessage('Thank you for contacting us. We will be in touch soon.');
     }
 
 }

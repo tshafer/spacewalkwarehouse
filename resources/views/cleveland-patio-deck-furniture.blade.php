@@ -57,7 +57,7 @@
                     knowledgeable staff, our unique and extensive selection, and our reputation for standing behind the
                     quality furniture we sell. Please stop by and see our showroom today.
                     <br><br>
-                    <b><a href="{{ config('app.public_url') }}/visit-patio-deck-hearth-furniture">Click here</a> for
+                    <b><a href="{{route('contact')}}">Click here</a> for
                         hours and directions to our showroom or call (440) 564-2290.</b>
                 </div>
             </div>

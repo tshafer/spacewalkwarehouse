@@ -3661,7 +3661,6 @@ aside .addthis_widget_container {
 
 input:not([type="submit"]), textarea {
     background: #f5f7f8;
-    height: 40px;
     padding: 9px 10px;
     color: #696e6e;
     border: 2px solid #e4e4e2;

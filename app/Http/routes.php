@@ -19,15 +19,25 @@ use App\Product;
  */
 $router->get('/', [
     'as'   => 'home',
-    'uses' => 'HomeController@index',
+    'uses' => 'SiteController@index',
+]);
+
+$router->get('/contact', [
+    'as'   => 'contact',
+    'uses' => 'SiteController@contact',
+]);
+
+$router->post('/contact', [
+    'as'   => 'contact.post',
+    'uses' => 'SiteController@contactPost',
 ]);
 
 $router->get('/outdoor-furniture-cleveland', [
-    'uses' => 'HomeController@outdoorFurnitureCleveland',
+    'uses' => 'SiteController@outdoorFurnitureCleveland',
 ]);
 
 $router->get('/cleveland-patio-deck-furniture/{id}/{slug}', [
-    'uses' => 'HomeController@outdoorFurnitureClevelandIndividual',
+    'uses' => 'SiteController@outdoorFurnitureClevelandIndividual',
     'as' => 'cleveland-patio-deck-furniture'
 ]);
 
