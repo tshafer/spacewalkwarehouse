@@ -28,7 +28,11 @@ class HomeController extends Controller
 
         $xml = simplexml_load_file($xmlFile);
 
-        return view('outdoor-furniture-cleveland', compact('xml'));
+        // Hack to convert to array, its a lot easier to chunk with arrays
+        $json = json_encode($xml);
+        $data = json_decode($json, true);
+
+        return view('outdoor-furniture-cleveland', compact('data'));
     }
 
 
@@ -44,15 +48,18 @@ class HomeController extends Controller
 
         $xml = simplexml_load_file($xmlFile);
 
-        foreach ($xml->Gallery as $gallery) {
-            if ($gallery->ID == $page) {
-                $galleryTitle       = $gallery->Title;
-                $galleryDescription = $gallery->Description;
-                $galleryPhotos      = $gallery->Photos->Photo;
+        // Hack to convert to array, its a lot easier to chunk with arrays
+        $json = json_encode($xml);
+        $data = json_decode($json, true);
+        foreach ($data['Gallery'] as $gallery) {
+            if ($gallery['ID'] == $page) {
+                $galleryTitle       = $gallery['Title'];
+                $galleryDescription = $gallery['Description'];
+                $galleryPhotos      = $gallery['Photos']['Photo'];
             }
         }
 
-        return view('cleveland-patio-deck-furniture', compact('galleryTitle', 'galleryDescription', 'galleryPhotos', 'xml', 'page'));
+        return view('cleveland-patio-deck-furniture', compact('galleryTitle', 'galleryDescription', 'galleryPhotos', 'data', 'page'));
     }
 
 }

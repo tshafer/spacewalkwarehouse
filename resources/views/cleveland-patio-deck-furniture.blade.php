@@ -17,7 +17,7 @@
             </div>
             <div class="row clearfix">
                 <div class="col-md-12">
-                    <b>{{ $galleryDescription }}</b>
+                    <span class="description">{{ $galleryDescription }}</span>
                     @if($galleryPhotos)
 
                         <ul id="imageGallery">
@@ -29,30 +29,27 @@
                             @endforeach
                         </ul>
                     @endif
+                </div>
+            </div>
+            <div class="row clearfix view-more">
+                <div class="col-md-12">
 
-                    <br/><br/>
-                    <b>View more Perfect Patios & Decks:</b>
-                    <?php $count = 0;?>
-                    <table>
-                        @foreach ($xml->Gallery as $gallery)
-                            @if ($count % 2 == 0)
-                                <tr>@endif
-                                    <td>
-                        <span style="font-family: Georgia,Arial,Verdana,Helvetica,sans-serif; font-size: 13px;">
-                @if ($gallery->ID != $page)
-                                <a href="{{ config('app.public_url') }}/cleveland-patio-deck-furniture/{{$gallery->ID}}/{{$gallery->KeywordsForURL}}"> {{$gallery->Title}}</a>
-                            @else
-                                {{ $gallery->Title }}
-                            @endif
-                </span></td>
-                                    @if ($count % 2 == 1) </tr> @endif
+                    <h2>View more Perfect Patios & Decks:</h2>
+                    <ul class="other-list">
+                        @foreach ($data['Gallery'] as $gallery)
+                            <li>
+                                @if ($gallery['ID'] != $page)
+                                    <a href=" {{ route('cleveland-patio-deck-furniture', [$gallery['ID'], $gallery['KeywordsForURL']]) }}"> {{$gallery['Title']}}</a>
+                                @else
+                                    {{ $gallery['Title'] }}
+                                @endif
+                            </li>
                         @endforeach
-                    </table>
-                    <br><br>
+                    </ul>
                 </div>
             </div>
 
-            <div class="row clearfix">
+            <div class="row clearfix more-styles">
                 <div class="col-md-12">
                     <h2>MORE STYLES ON DISPLAY IN OUR SHOWROOM</h2>
                     Patio, Deck & Hearth Shop is one of the leading outdoor furniture and fireplace stores in Cleveland,
@@ -60,7 +57,8 @@
                     knowledgeable staff, our unique and extensive selection, and our reputation for standing behind the
                     quality furniture we sell. Please stop by and see our showroom today.
                     <br><br>
-                    <b><a href="{{ config('app.public_url') }}/visit-patio-deck-hearth-furniture">Click here</a> for hours and directions to our showroom or call (440) 564-2290.</b>
+                    <b><a href="{{ config('app.public_url') }}/visit-patio-deck-hearth-furniture">Click here</a> for
+                        hours and directions to our showroom or call (440) 564-2290.</b>
                 </div>
             </div>
 

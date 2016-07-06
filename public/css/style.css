@@ -5137,14 +5137,58 @@ fieldset legend .close_fieldset {
     display: block;
 }
 
+.outdoor-cleveland .title a {
+    font-size: 22px;
+    padding-bottom: 10px;
+    display: block;
+}
+
+.outdoor-cleveland .title a:hover {
+    text-decoration: none;
+}
+
 .outdoor-cleveland .images {
     margin-bottom: 10px;
+}
+
+.outdoor-cleveland p {
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 .outdoor-cleveland .description {
     margin-bottom: 10px;
 }
 
+.outdoor-cleveland .description a {
+    font-size: 15px;
+}
+
+.outdoor-cleveland .description a:hover {
+    text-decoration: none;
+}
+
 .cleveland-patio-deck-furniture h2 {
     margin-bottom: 20px;
+}
+
+.cleveland-patio-deck-furniture h1 {
+    font-size: 1.5em;
+    padding-bottom: 20px;
+    font-weight: 500;
+}
+
+.cleveland-patio-deck-furniture .description {
+    font-size: 1.2em;
+    padding-bottom: 20px;
+    display: block;
+}
+
+.cleveland-patio-deck-furniture .other-list {
+
+}
+
+
+.cleveland-patio-deck-furniture .view-more, .cleveland-patio-deck-furniture .more-styles {
+    margin-top: 20px;
 }

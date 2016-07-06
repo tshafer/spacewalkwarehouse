@@ -28,6 +28,7 @@ $router->get('/outdoor-furniture-cleveland', [
 
 $router->get('/cleveland-patio-deck-furniture/{id}/{slug}', [
     'uses' => 'HomeController@outdoorFurnitureClevelandIndividual',
+    'as' => 'cleveland-patio-deck-furniture'
 ]);
 
 $router->get('/category/{category}', [
