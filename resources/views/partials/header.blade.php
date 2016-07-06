@@ -17,6 +17,11 @@
     <link rel="stylesheet" type="text/css" media="all" href="{{url('/')}}/css/owl.transitions.css">
     <link rel="stylesheet" type="text/css" media="all" href="{{url('/')}}/css/jquery.custom-scrollbar.css">
     <link rel="stylesheet" type="text/css" media="all" href="{{url('/')}}/css/style.css">
+    <link rel="stylesheet" type="text/css" media="all" href="{{url('/')}}/css/lightslider.min.css">
+    <link rel="stylesheet" type="text/css" media="all" href="{{url('/')}}/css/lightgallery.min.css">
+
+
+
     <!--font include-->
     <link href="{{url('/')}}/css/font-awesome.min.css" rel="stylesheet">
     <script src="{{url('/')}}/js/modernizr.js"></script>

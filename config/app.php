@@ -1,5 +1,7 @@
 <?php
 return [
+
+    'public_url' => 'http://pavlishgroup.com/projects/pdh2016/dev/public',
     /*
     |--------------------------------------------------------------------------
     | Application Environment

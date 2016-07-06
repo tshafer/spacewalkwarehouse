@@ -16,14 +16,14 @@ class ComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
-        $menu = Cache::rememberForever('menu', function () {
-            return Category::roots()->whereEnabled(1)->get();
-        });
+        //Cache::forget('categories');
+        //$categories = Cache::remember('categories', 10080, function () {
+        $categories = Category::roots()->with('media')->whereEnabled(1)->get();
+        //});
 
         // Using Closure based composers...
-        view()->composer('*', function ($view) use ($menu) {
-            $view->with('categories', $menu);
+        view()->composer('*', function ($view) use ($categories) {
+            $view->with('categories', $categories);
         });
     }
 

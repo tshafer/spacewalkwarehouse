@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index(Category $category)
     {
-
+        
         return view('category', compact('category'));
     }
 

@@ -49,6 +49,17 @@
 <script src="{{url('/')}}/js/jquery-2.1.0.min.js"></script>
 <script src="{{url('/')}}/js/jquery-migrate-1.2.1.min.js"></script>
 <script src="{{url('/')}}/js/retina.js"></script>
+<script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
+<script src="{{url('/')}}/js/lightgallery.js"></script>
+<script src="{{url('/')}}/js/lg-fullscreen.js"></script>
+<script src="{{url('/')}}/js/lg-thumbnail.js"></script>
+<script src="{{url('/')}}/js/lg-video.js"></script>
+<script src="{{url('/')}}/js/lg-autoplay.js"></script>
+<script src="{{url('/')}}//js/lg-zoom.js"></script>
+<script src="{{url('/')}}//js/lg-hash.js"></script>
+<script src="{{url('/')}}/js/lg-pager.js"></script>
+<script src="{{url('/')}}/js/jquery.mousewheel.min.js"></script>
+<script src="{{url('/')}}/js/lightslider.min.js"></script>
 <script src="{{url('/')}}/js/jquery.themepunch.plugins.min.js"></script>
 <script src="{{url('/')}}/js/jquery.themepunch.revolution.min.js"></script>
 <script src="{{url('/')}}/js/jquery.easing.1.3.js"></script>

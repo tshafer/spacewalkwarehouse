@@ -31,8 +31,8 @@
                         <td>{{$category->is_enabled}}</td>
                         <td>{{$category->children()->count()}}</td>
                         {{--<td>--}}
-                        {{--@if($category->getMedia()->count() > 0)--}}
-                        {{--<img src="{!! $category->getMedia('categories')->first()->getUrl('adminThumb')!!}"/>--}}
+                        {{--@if($category->media->count() > 0)--}}
+                        {{--<img src="{!! $category->media->first()->getUrl('adminThumb')!!}"/>--}}
                         {{--@endif--}}
                         {{--</td>--}}
                         <td class="min">

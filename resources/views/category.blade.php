@@ -31,7 +31,7 @@
                         <figure class="r_corners photoframe shadow relative hit animate_ftb long">
                             <!--product preview-->
                             <a href="{{route('subcategory',[$category->slug, $child->slug])}}" class="d_block relative pp_wrap">
-                                <img src="{{url('/')}}{{$child->getMedia('categories')->first()->getUrl('thumb')}}"
+                                <img src="{{url('/')}}{{$child->media->first()->getUrl('thumb')}}"
                                      class="tr_all_hover"
                                      alt="{{$child->name}}">
                             </a>

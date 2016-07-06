@@ -22,6 +22,14 @@ $router->get('/', [
     'uses' => 'HomeController@index',
 ]);
 
+$router->get('/outdoor-furniture-cleveland', [
+    'uses' => 'HomeController@outdoorFurnitureCleveland',
+]);
+
+$router->get('/cleveland-patio-deck-furniture/{id}/{slug}', [
+    'uses' => 'HomeController@outdoorFurnitureClevelandIndividual',
+]);
+
 $router->get('/category/{category}', [
     'as'   => 'category',
     'uses' => 'CategoryController@index',
@@ -37,6 +45,8 @@ $router->get('/category/{category}/{subcategory}/{product}', [
     'uses' => 'ProductController@show',
 ]);
 
+
+
 $router->get('loggies', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
 /**
@@ -51,15 +61,15 @@ $router->model('manufacturers', App\Manufacturer::class);
  * Frontend Model Binding
  */
 $router->bind('category', function($value){
-    return Category::whereSlug($value)->first();
+    return Category::whereSlug($value)->with('media')->first();
 });
 
 $router->bind('subcategory', function($value){
-    return Category::whereSlug($value)->first();
+    return Category::whereSlug($value)->with('media')->first();
 });
 
 $router->bind('product', function($value){
-    return Product::whereSlug($value)->first();
+    return Product::whereSlug($value)->with('media')->first();
 });
 
 
