@@ -11,7 +11,7 @@ $router->post('auth/login', 'Auth\AuthController@postLogin');
 
 $router->get('auth/logout', [
     'as'   => 'auth.logout',
-    'uses' => 'Auth\AuthController@getLogout',
+    'uses' => 'Auth\AuthController@logout',
 ]);
 
 // Registration routes...
