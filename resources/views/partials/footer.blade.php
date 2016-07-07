@@ -18,11 +18,11 @@
                     </p>
                     <p class="m_bottom_25">
                         <b>15 minutes east of Chagrin Falls on Route 87</b><br/>
-                        10359 Kinsman Rd. (Route 87) | Newbury, Ohio 44065 | <a href="index.html#">Driving
+                        10359 Kinsman Rd. (Route 87) | Newbury, Ohio 44065 | <a href="{{route('contact')}}">Driving
                             Directions</a>
                     </p>
                     <p class="m_bottom_25">
-                        <b>phone:</b> (440) 564-2290 | <b>fax:</b> (440) 564-2295 | <a href="index.html#">Email Us</a>
+                        <b>phone:</b> (440) 564-2290 | <b>fax:</b> (440) 564-2295 | <a href="{{route('contact')}}">Email Us</a>
                     </p>
                 </div>
             </div>

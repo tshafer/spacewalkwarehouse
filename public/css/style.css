@@ -5187,7 +5187,20 @@ fieldset legend .close_fieldset {
 
 }
 
-
 .cleveland-patio-deck-furniture .view-more, .cleveland-patio-deck-furniture .more-styles {
     margin-top: 20px;
+}
+
+.google-maps {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+}
+
+.google-maps iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
 }

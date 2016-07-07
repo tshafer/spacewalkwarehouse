@@ -15,7 +15,7 @@ class SiteController extends Controller
      */
     public function index()
     {
-        $manufacturers = Manufacturer::whereEnabled(1)->with('media')->get();
+        $manufacturers = Manufacturer::whereEnabled(1)->get();
 
         return view('index', compact('manufacturers'));
     }
@@ -96,7 +96,7 @@ class SiteController extends Controller
             $message->from('admin@patiodeckhearth.com', 'Patio Deck & Hearth Contact Form');
 
             $message->to('tj@tjshafer.com');
-            $message->cc('dpavlish@gmail.com');
+            //$message->cc('dpavlish@gmail.com');
 
         });
 

@@ -18,8 +18,8 @@
                     <!--left content column-->
                     <section class="col-md-12">
                         <h2 class="tt_uppercase color_dark m_bottom_25">Contact Us</h2>
-                        <div class="r_corners photoframe map_container shadow m_bottom_45">
-                            <div style="min-height:100%;max-width:100%;list-style:none; transition: none;overflow:hidden;"><div id="embed-map-canvas" style="height:100%; width:100%;max-width:100%;"><iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=10359+Kinsman+Rd.+(Route+87)+Newbury,+Ohio+44065&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe></div><a class="embedded-map-html" href="https://www.dog-checks.com" id="enable-maps-data">dog checks</a><style>#embed-map-canvas img{max-width:none!important;background:none!important;font-size: inherit;}</style></div><script src="https://www.dog-checks.com/google-maps-authorization.js?id=9df8c80b-92bb-61e3-a25a-986817d1cb8b&c=embedded-map-html&u=1467837060" defer="defer" async="async"></script>
+                        <div class="r_corners photoframe map_container shadow m_bottom_45 google-maps">
+                            <iframe src="http://www.maps.ie/create-google-map/map.php?width=100%&amp;height=600&amp;hl=en&amp;q=10359%20Kinsman%20Rd.%20Newbury%2C%20Ohio%2044065+(Patio%2C%20Deck%20%26%20Hearth%20Shop)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=A&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>
                         </div>
                         <div class="row clearfix">
                             <div class="col-lg-4 col-md-4 col-sm-12 m_xs_bottom_30" style="margin-bottom: 30px;">

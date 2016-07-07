@@ -72,15 +72,15 @@ $router->model('manufacturers', App\Manufacturer::class);
  * Frontend Model Binding
  */
 $router->bind('category', function($value){
-    return Category::whereSlug($value)->with('media')->first();
+    return Category::whereSlug($value)->first();
 });
 
 $router->bind('subcategory', function($value){
-    return Category::whereSlug($value)->with('media')->first();
+    return Category::whereSlug($value)->first();
 });
 
 $router->bind('product', function($value){
-    return Product::whereSlug($value)->with('media')->first();
+    return Product::whereSlug($value)->first();
 });
 
 

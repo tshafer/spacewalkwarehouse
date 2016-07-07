@@ -24,6 +24,13 @@ class Manufacturer extends Model implements HasMediaConversions
     protected $table = 'manufacturers';
 
     /**
+     * Autoload Relationships
+     *
+     * @var array
+     */
+    protected $with = ['media'];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array

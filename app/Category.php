@@ -22,6 +22,13 @@ class Category extends Node implements HasMediaConversions
     protected $table = 'categories';
 
     /**
+     * Autoload Relationships
+     *
+     * @var array
+     */
+    protected $with = ['media'];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array

@@ -24,6 +24,13 @@ class Product extends Model implements HasMediaConversions
     protected $table = 'products';
 
     /**
+     * Autoload Relationships
+     *
+     * @var array
+     */
+    protected $with = ['media'];
+    
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
