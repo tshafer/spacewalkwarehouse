@@ -84,7 +84,6 @@ class SiteController extends Controller
         $this->validate($request, [
             'name'    => 'required',
             'email'   => 'required|email',
-            'subject' => 'required',
             'message' => 'required',
         ]);
 
@@ -96,7 +95,7 @@ class SiteController extends Controller
             $message->from('admin@patiodeckhearth.com', 'Patio Deck & Hearth Contact Form');
 
             $message->to('tj@tjshafer.com');
-            //$message->cc('dpavlish@gmail.com');
+            $message->cc('dpavlish@gmail.com');
 
         });
 
