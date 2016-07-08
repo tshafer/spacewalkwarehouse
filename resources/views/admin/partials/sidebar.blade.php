@@ -2,7 +2,7 @@
     <div class="sidebar-scroll">
         <div class="sidebar-content">
             <a href="/" class="sidebar-brand">
-                <strong>PDH Shop</strong>
+                <strong>PDH Admin</strong>
             </a>
             <ul class="sidebar-nav">
 

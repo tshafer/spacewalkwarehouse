@@ -50,6 +50,10 @@
                         <td>Enabled</td>
                         <td colspan=2">{!! $category->is_enabled!!}</td>
                     </tr>
+                    <tr>
+                        <td>Meta Description</td>
+                        <td colspan="2">{!! $category->meta_description!!}</td>
+                    </tr>
                     @if($category->manufacturers()->count() > 0)
                         <tr>
                             <td>Manufacturers</td>

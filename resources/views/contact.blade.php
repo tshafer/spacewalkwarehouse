@@ -1,8 +1,8 @@
 @extends('layout')
 
-@section('keywords') furniture, patio, deck, hearth, cleveland, ohio, northeast, ohio, cuyahoga, geauga, lake, portage, akron, outdoor furniture, wicker furniture, wicker, outdoor, chairs, ratton @stop
+@section('title', 'Visit / Contact Patio Deck & Hearth Shop')
 
-@section('title') Visit / Contact Patio Deck & Hearth Shop @stop
+@section('meta_description', '')
 
 @section('content')
     @if(Session::has('message'))

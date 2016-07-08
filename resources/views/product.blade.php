@@ -1,12 +1,13 @@
 @extends('layout')
 
-@section('title')  @stop
+@section('title', $product->manufacturers()->first()->name.' - '.$product->name.' - Cleveland Ohio')
+
+@section('meta_description', $product->meta_description)
 
 @section('content')
 
-        <!--breadcrumbs-->
 @include('partials.breadcrumb', ['product' => $product])
-        <!--content-->
+
 <div class="page_content_offset">
     <div class="container">
         <h2 class="tt_uppercase m_bottom_20 color_dark heading1 animate_ftr">{{$product->manufacturers()->first()->name}}
@@ -30,8 +31,6 @@
         </div>
         @include('partials.banners')
     </div>
-
-
 </div>
 
 @stop

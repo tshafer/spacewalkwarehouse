@@ -38,6 +38,7 @@ class Category extends Node implements HasMediaConversions
         'intro_text',
         'enabled',
         'title',
+        'meta_description'
     ];
 
     /**

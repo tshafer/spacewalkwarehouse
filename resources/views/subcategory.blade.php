@@ -1,6 +1,8 @@
 @extends('layout')
 
-@section('title')  @stop
+@section('title', $subcategory->name.' - '. $category->name .'- Patio Deck & Hearth Shop - Cleveland, Ohio')
+
+@section('meta_description', $subcategory->meta_description)
 
 @section('content')
 

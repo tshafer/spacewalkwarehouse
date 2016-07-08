@@ -1,8 +1,8 @@
 @extends('layout')
 
-@section('keywords') furniture, patio, deck, hearth, cleveland, ohio, northeast, ohio, cuyahoga, geauga, lake, portage, akron, outdoor furniture, wicker furniture, wicker, outdoor, chairs, ratton @stop
+@section('title','Patio, Deck & Hearth Shop:  Perfect Patios and Decks near Cleveland')
 
-@section('title') Patio, Deck & Hearth Shop:  Perfect Patios and Decks near Cleveland" @stop
+@section('meta_description', '')
 
 @section('content')
 

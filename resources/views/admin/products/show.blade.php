@@ -33,6 +33,10 @@
                         <td>Enabled</td>
                         <td colspan="2">{!! $product->is_enabled!!}</td>
                     </tr>
+                    <tr>
+                        <td>Meta Description</td>
+                        <td colspan="2">{!! $product->meta_description!!}</td>
+                    </tr>
                     @if($product->categories()->count() > 0)
                         <tr>
                             <td>Categories</td>

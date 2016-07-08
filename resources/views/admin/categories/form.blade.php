@@ -38,10 +38,14 @@
                 @endif
             @endif
 
-
             <div class="form-group">
                 {!! label('intro_text') !!}
                 {!! textarea('intro_text', null, ['class' => 'form-control']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! label('meta_description') !!}
+                {!! textarea('meta_description', null, ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">

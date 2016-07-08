@@ -8,7 +8,7 @@
 
             <div class="form-group">
                 {!! label('category') !!}
-                {!! select('categories[]', $nestedList, $parentId, ['class' => 'form-control']) !!}
+                {!! select('categories[]', $nestedList, $parentId->id, ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">
@@ -23,10 +23,14 @@
                 </div>
             @endif
 
-
             <div class="form-group">
                 {!! label('description') !!}
                 {!! textarea('description', null, ['class' => 'form-control']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! label('meta_description') !!}
+                {!! textarea('meta_description', null, ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">

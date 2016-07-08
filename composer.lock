@@ -5005,16 +5005,16 @@
         },
         {
             "name": "tshafer/laravel-flash",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tshafer/laravel-flash.git",
-                "reference": "231c5c80d2a3d4820b147fac042677015732973a"
+                "reference": "a6b036173827a65ebcbbe09760c401ddd2318d5f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tshafer/laravel-flash/zipball/231c5c80d2a3d4820b147fac042677015732973a",
-                "reference": "231c5c80d2a3d4820b147fac042677015732973a",
+                "url": "https://api.github.com/repos/tshafer/laravel-flash/zipball/a6b036173827a65ebcbbe09760c401ddd2318d5f",
+                "reference": "a6b036173827a65ebcbbe09760c401ddd2318d5f",
                 "shasum": ""
             },
             "require": {
@@ -5035,7 +5035,7 @@
                 "MIT"
             ],
             "description": "Flash messages for Laravel 5.",
-            "time": "2016-05-04 13:36:18"
+            "time": "2016-07-08 02:28:15"
         },
         {
             "name": "tshafer/laravel-service-provider",

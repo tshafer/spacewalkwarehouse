@@ -48,7 +48,10 @@ class ProductController extends Controller
 
         $nestedList = Category::allLeaves()->orderBy('name')->get()->pluck('name', 'id')->toArray();
 
+        asort($nestedList);
+
         $parentId = $product->categories()->first();
+
 
         return view('admin.products.edit', compact('product', 'manufacturers', 'nestedList', 'parentId'));
     }
@@ -65,6 +68,8 @@ class ProductController extends Controller
 
         $nestedList = Category::allLeaves()->orderBy('name')->get()->pluck('name', 'id')->toArray();
 
+        asort($nestedList);
+        
         $parentId = $request->has('cat') ? $request->get('cat') : null;
 
         return view('admin.products.create', compact('manufacturers', 'nestedList', 'parentId'));

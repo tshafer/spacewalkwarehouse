@@ -1,12 +1,13 @@
 @extends('layout')
 
-@section('title')  @stop
+@section('title', $category->name .' - Patio Deck & Hearth Shop - Cleveland, Ohio')
+
+@section('meta_description', $category->meta_description)
 
 @section('content')
-        <!--breadcrumbs-->
+
 @include('partials.breadcrumb', ['category' => $category])
 
-        <!--content-->
 <div class="page_content_offset">
     <div class="container">
         @if($category->title)
@@ -20,38 +21,34 @@
                 <section class="col-lg-8 col-md-8 col-sm-8 m_bottom_25">
                     <p class="m_bottom_10">{{$category->intro_text}}</p>
                 </section>
-            </div>@endif
+            </div>
+        @endif
 
-                    <!--products-->
-            <section class="products_container clearfix m_bottom_25 m_sm_bottom_15">
-                <!--product item-->
+        <section class="products_container clearfix m_bottom_25 m_sm_bottom_15">
 
-                @foreach($category->children()->whereEnabled(1)->get() as $child)
-                    <div class="product_item">
-                        <figure class="r_corners photoframe shadow relative hit animate_ftb long">
-                            <!--product preview-->
-                            <a href="{{route('subcategory',[$category->slug, $child->slug])}}" class="d_block relative pp_wrap">
-                                <img src="{{url('/')}}{{$child->media->first()->getUrl('thumb')}}"
-                                     class="tr_all_hover"
-                                     alt="{{$child->name}}">
+            @foreach($category->children()->whereEnabled(1)->get() as $child)
+                <div class="product_item">
+                    <figure class="r_corners photoframe shadow relative hit animate_ftb long">
+
+                        <a href="{{route('subcategory',[$category->slug, $child->slug])}}" class="d_block relative pp_wrap">
+                            <img src="{{url('/')}}{{$child->media->first()->getUrl('thumb')}}" class="tr_all_hover" alt="{{$child->name}}">
+                        </a>
+
+                        <figcaption>
+                            <h5 class="m_bottom_10">
+                                <a href="{{route('subcategory',[$category->slug, $child->slug])}}" class="color_dark">{{$child->name}}</a>
+                            </h5>
+                            <a href="{{route('subcategory',[$category->slug, $child->slug])}}">
+                                <button class="button_type_4 bg_scheme_color r_corners tr_all_hover color_light mw_0">
+                                    see more styles
+                                </button>
                             </a>
-                            <!--description and price of product-->
-                            <figcaption>
-                                <h5 class="m_bottom_10">
-                                    <a href="{{route('subcategory',[$category->slug, $child->slug])}}" class="color_dark">{{$child->name}}</a>
-                                </h5>
-                                <a href="{{route('subcategory',[$category->slug, $child->slug])}}">
-                                    <button class="button_type_4 bg_scheme_color r_corners tr_all_hover color_light mw_0">
-                                        see more styles
-                                    </button>
-                                </a>
-                            </figcaption>
-                        </figure>
-                    </div>
-                @endforeach
+                        </figcaption>
+                    </figure>
+                </div>
+            @endforeach
+        </section>
 
-            </section>
-            <!--banners-->
-            @include('partials.banners')
+        @include('partials.banners')
     </div>
 @stop

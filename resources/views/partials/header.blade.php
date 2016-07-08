@@ -4,11 +4,12 @@
 <!--[if (gt IE 9)|!(IE)]><!-->
 <html lang="en"><!--<![endif]-->
 <head>
-    <title>Patio Deck & Hearth Shop - Outdoor Furniture & Fireplaces - Cleveland, Ohio @yield('title')</title>
+    <title>@yield('title')</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!--meta info-->
-    <meta name="description" content="Cleveland's largest selection of indoor and outdoor furniture and fireplaces">
+    <meta name="keywords" content="furniture, patio, deck, hearth, cleveland, ohio, northeast, ohio, cuyahoga, geauga, lake, portage, akron, outdoor furniture, wicker furniture, wicker, outdoor, chairs, ratton"/>
+    <meta name="description" content="@yield('meta_description')">
     <!--<link rel="icon" type="image/ico" href="images/fav.ico">-->
     <!--stylesheet include-->
     <link rel="stylesheet" type="text/css" media="all" href="{{url('/')}}/css/bootstrap.min.css">
@@ -80,7 +81,7 @@
                 <!--main menu-->
                 <nav role="navigation" class="f_left f_xs_none d_xs_none">
                     <ul class="horizontal_list main_menu clearfix">
-                        <li class="{{active_class('/')}}" relative f_xs_none m_xs_bottom_5">
+                        <li class="{{active_class('/')}} relative f_xs_none m_xs_bottom_5">
                         <a href="{{url('/')}}" class="tr_delay_hover color_light tt_uppercase"><b>Home</b></a>
                         </li>
                         @foreach($categories as $category)
