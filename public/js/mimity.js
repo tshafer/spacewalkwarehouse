@@ -18,7 +18,7 @@ $(function(){
 		$('.have-sub .panel-title a').not(this).next('i').addClass('fa-caret-right');
 		$(this).next('i').toggleClass('fa-caret-right fa-caret-down');
 	});
-	
+
 	if ($('.bxslider').exist()) {
 	    $('.bxslider').bxSlider({
 	        auto: true,
@@ -26,5 +26,22 @@ $(function(){
 	        pager: false
 	    });
 	}
+
+	$('#imageGallery').lightSlider({
+		gallery: true,
+		item: 1,
+		loop: true,
+		controls: false,
+		thumbItem: 9,
+		slideMargin: 0,
+		enableDrag: false,
+		adaptiveHeight: true,
+		currentPagerPosition: 'left',
+		onSliderLoad: function (el) {
+			el.lightGallery({
+				selector: '#imageGallery .lslide'
+			});
+		}
+	});
 
 })

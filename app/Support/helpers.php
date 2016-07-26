@@ -19,3 +19,5 @@ if ( ! function_exists('toolbar_link')) {
         return '<a href="' . $href . '" class="btn btn-alt btn-sm btn-default" data-toggle="tooltip" title="' . $tooltip . '"><i class="fa ' . $icon . '"></i></a>';
     }
 }
+
+

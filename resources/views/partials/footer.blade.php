@@ -42,7 +42,8 @@
 <script src="{{url('/')}}/js/jquery.js"></script>
 <script src="{{url('/')}}/js/bootstrap.js"></script>
 <script src="{{url('/')}}/js/jquery.bxslider.min.js"></script>
-<script src="{{url('/')}}/js/jquery.blImageCenter.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.19/js/lightgallery-all.min.js"></script>
+<script src="{{url('/')}}/js/lightslider.min.js"></script>
 <script src="{{url('/')}}/js/mimity.js"></script>
 <script src="{{url('/')}}/js/scripts.js"></script>
 </body></html>

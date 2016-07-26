@@ -34,9 +34,7 @@
                                     <p>{{$product->description}}</p>
                                     <p>
                                     <div class="btn-group">
-                                        <a href="catalogue.html#" class="btn btn-default">{{$product->price}}</a>
-                                        <a href="catalogue.html#" class="btn btn-primary"><i
-                                                    class="fa fa-shopping-cart"></i>Buy</a>
+                                        <a href="{{route('product', [$category->slug, $product->slug])}}" class="btn btn-primary">View</a>
                                     </div>
                                     </p>
                                 </div>

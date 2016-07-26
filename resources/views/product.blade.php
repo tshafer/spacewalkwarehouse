@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', $product->name.' - Cleveland Ohio')
+@section('title', $product->name)
 
 @section('meta_description', $product->meta_description)
 
@@ -18,37 +18,13 @@
 
                     <div class="row">
                         <div class="col-md-8">
-                            <!-- Main Image -->
-                            <div class="product-main-image-container">
-                                <img src="images/loader.gif" alt="" class="product-loader">
-								<span class="thumbnail product-main-image">
-									<img src="images/detail1.jpg" alt="">
-								</span>
-                            </div>
-                            <!-- End Main Image -->
 
-                            <!-- Thumbnail Image -->
-                            <div class="col-xs-3 product-thumb-image">
-                                <a href="images/detail1.jpg" class="thumbnail">
-                                    <img src="images/detail1.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="col-xs-3 product-thumb-image">
-                                <a href="images/detail2.jpg" class="thumbnail">
-                                    <img src="images/detail2.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="col-xs-3 product-thumb-image">
-                                <a href="images/detail3.jpg" class="thumbnail">
-                                    <img src="images/detail3.jpg" alt="">
-                                </a>
-                            </div>
-                            <div class="col-xs-3 product-thumb-image">
-                                <a href="images/detail1.jpg" class="thumbnail">
-                                    <img src="images/detail1.jpg" alt="">
-                                </a>
-                            </div>
-                            <!-- End Thumbnail Image -->
+                            <ul id="imageGallery">
+                                @foreach ($product->media as $photo)
+                                    <li data-thumb="{{$photo->getUrl('thumb') }}" data-src="{{$photo->getUrl('full') }}"><img
+                                            src="{{$photo->getUrl('thumb') }}"/></li>
+                                @endforeach
+                            </ul>
                         </div>
 
                         <div class="visible-xs">

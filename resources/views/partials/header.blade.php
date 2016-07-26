@@ -15,6 +15,8 @@
     <link rel="stylesheet" type="text/css" media="all" href="{{url('/')}}/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" media="all" href="{{url('/')}}/css/jquery.bxslider.css">
     <link rel="stylesheet" type="text/css" media="all" href="{{url('/')}}/css/style.css">
+    <link rel="stylesheet" type="text/css" media="all" href="{{url('/')}}/css/lightslider.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.19/css/lightgallery.min.css" />
 
 </head>
 <body>
@@ -24,19 +26,12 @@
         <div class="row">
 
             <!-- Logo -->
-            <div class="col-lg-4 col-md-3 hidden-sm hidden-xs">
+            <div class="col-md-3 hidden-sm hidden-xs">
                 <div class="well logo">
                     <img src="/images/swlogo.png" class="img-responsive">
                 </div>
             </div>
-            <!-- End Logo -->
-
-            <!-- Search Form -->
-            <div class="col-lg-5 col-md-5 col-sm-7 col-xs-12">
-            </div>
-
-            <div class="col-lg-3 col-md-4 col-sm-5">
-            </div>
+            <div class="col-md-9"></div>
         </div>
     </div>
 </header>
@@ -52,19 +47,19 @@
                 <span class="icon-bar"></span>
             </button>
             <!-- text logo on mobile view -->
-            <a class="navbar-brand visible-xs" href="index.html">Mimity Online Shop</a>
+            <a class="navbar-brand visible-xs" href={{route('home')}}>Space Walk</a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="index.html" class="active"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
+                <li><a href="{{route('home')}}" class="{{active_class('home')}}"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
                 <li class="nav-dropdown">
-                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown">
+                    <a href="#" class="{{active_class('category/*')}} dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-list" aria-hidden="true"></i>&nbsp;Categories <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         @foreach($categories as $category)
                             <li>
-                                <a href="{{ route('category', $category->slug) }}" class="">
+                                <a href="{{ route('category', $category->slug) }}" class="{{active_class('category/'.$category->slug.'/*')}}">
                                     @if($category->getMedia('categories')->first())
                                         <img src=" {{$category->getMedia('categories')->first()->getUrl('adminThumb')}}"
                                              class="menu-icon">

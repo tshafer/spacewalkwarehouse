@@ -17,7 +17,6 @@ class ProductController extends Controller
      */
     public function show(Category $category, Product $product)
     {
-
         return view('product', compact('category', 'product'));
     }
 }
