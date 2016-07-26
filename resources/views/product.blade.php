@@ -19,8 +19,9 @@
 
                             <ul id="imageGallery">
                                 @foreach ($product->media as $photo)
-                                    <li data-thumb="{{$photo->getUrl('thumb') }}" data-src="{{$photo->getUrl('full') }}"><img
-                                            src="{{$photo->getUrl('thumb') }}"/></li>
+                                    <li data-thumb="{{$photo->getUrl('thumb') }}"
+                                        data-src="{{$photo->getUrl('full') }}"><img
+                                                src="{{$photo->getUrl('thumb') }}"/></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -32,57 +33,36 @@
                         <div class="col-md-4 col-sm-4">
                             <div class="well product-short-detail">
                                 <div class="row">
-                                    <form>
                                         <div class="the-list">
-                                            <h3 class="col-xs-12">
-                                                {{$product->price}}
-                                            </h3>
+                                            <table class="table">
+                                                <thead>
+                                                <tr>
+                                                    <th>W x L x H</th>
+                                                    <th>UNIT LB</th>
+                                                    <th>PRICE</th>
+                                                    <th>BUY</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @foreach ($product->units as $unit)
+                                                    <tr>
+                                                        <td>{{$unit->width}} x {{$unit->length}}
+                                                            x {{$unit->height}}</td>
+                                                        <td>{{$unit->weight}}</td>
+                                                        <td>{{$unit->price}}</td>
+                                                        <td>
+                                                            {{open(['route' => 'cart.store'])}}
+                                                            {{ hidden('unit', $unit->id) }}
+                                                            <button type="submit" class="btn btn-primary btn-xs pull-left"><i
+                                                                        class="fa fa-shopping-cart"></i> Add to Cart
+                                                            </button>
+                                                            {{close()}}
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                                </tbody>
+                                            </table>
                                         </div>
-
-                                        <div class="the-list">
-                                            <div class="col-xs-4">Select</div>
-                                            <div class="col-xs-8">
-                                                <select class="form-control">
-                                                    <option value="">Select Option</option>
-                                                    <option value="option1">Option 1</option>
-                                                    <option value="option2">Option 2</option>
-                                                    <option value="option3">Option 3</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="the-list">
-                                            <div class="col-xs-4">Checkbox</div>
-                                            <div class="col-xs-8">
-                                                <label>
-                                                    <input type="checkbox" value="check1"> Check 1
-                                                </label>&nbsp;
-                                                <label>
-                                                    <input type="checkbox" value="check2" checked> Check 2
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="the-list">
-                                            <div class="col-xs-4">Radio</div>
-                                            <div class="col-xs-8">
-                                                <label>
-                                                    <input type="radio" name="radio" value="radio1" checked> Radio 1
-                                                </label>&nbsp;
-                                                <label>
-                                                    <input type="radio" name="radio" value="radio2"> Radio 2
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                        <hr/>
-                                        <div class="col-xs-12 input-qty-detail">
-                                            <input type="text" class="form-control input-qty text-center" value="1">
-                                            <button class="btn btn-default pull-left"><i
-                                                        class="fa fa-shopping-cart"></i> Add to Cart
-                                            </button>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                        <br/>
-                                    </form>
                                 </div>
                             </div>
                         </div>

@@ -13,7 +13,7 @@ use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 class Unit extends Model implements Buyable
 {
 
-    use Linkable, Sortable, Attributes, Sluggable;
+    use Linkable, Sortable, Attributes;
 
     /**
      * The database table used by the model.
@@ -31,9 +31,10 @@ class Unit extends Model implements Buyable
     protected $fillable = [
         'name',
         'description',
-        'slug',
         'height',
         'width',
+        'length',
+        'weight',
         'price',
     ];
 
@@ -78,5 +79,26 @@ class Unit extends Model implements Buyable
     public function getBuyablePrice()
     {
         return $this->price;
+    }
+
+
+    /**
+     * @param $price
+     *
+     * @return mixed
+     */
+    public function setPriceAttribute($price)
+    {
+        $this->attributes['price'] = number_format($price, 2);
+    }
+
+    /**
+     * @param $price
+     *
+     * @return mixed
+     */
+    public function getPriceAttribute($price)
+    {
+        return number_format((float) $price, 2);
     }
 }

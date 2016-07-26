@@ -33,6 +33,16 @@
             </div>
 
             <div class="form-group">
+                {!! label('length') !!}
+                {!! text('length', null, ['class' => 'form-control']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! label('weight') !!}
+                {!! text('weight', null, ['class' => 'form-control']) !!}
+            </div>
+
+            <div class="form-group">
                 {!! label('price') !!}
                 {!! text('price', null, ['class' => 'form-control']) !!}
             </div>

@@ -59,10 +59,7 @@ $router->get('/category/{category}/{product}', [
     'uses' => 'ProductController@show',
 ]);
 
-$router->post('cart/add', [
-    'as'   => 'cart.add',
-    'uses' => 'cartController@add',
-]);
+$router->resource('cart', 'CartController');
 
 
 

@@ -15,9 +15,6 @@ class AddFieldsToProductsTable extends Migration
         Schema::table('products', function (Blueprint $table) {
             $table->text('accessories');
             $table->text('season');
-            $table->text('height');
-            $table->text('width');
-            $table->text('price');
         });
     }
 

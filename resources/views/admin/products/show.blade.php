@@ -12,7 +12,7 @@
 
             <div class="block">
                 <div class="block-title">
-                    <h2>Product Content</h2>
+                    <h2>Unit Content</h2>
                     <div class="block-options pull-right">
 
                         {!! toolbar_link(['admin.products.edit', $product->id], 'fa-edit', 'Edit Product') !!}
@@ -42,18 +42,6 @@
                     <tr>
                         <td>Season</td>
                         <td>{!! $product->season!!}</td>
-                    </tr>
-                    <tr>
-                        <td>Height</td>
-                        <td>{!! $product->height!!}</td>
-                    </tr>
-                    <tr>
-                        <td>Width</td>
-                        <td>{!! $product->width!!}</td>
-                    </tr>
-                    <tr>
-                        <td>Price</td>
-                        <td>{!! $product->price!!}</td>
                     </tr>
 
                     @if($product->categories()->count() > 0)

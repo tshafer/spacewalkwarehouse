@@ -1,7 +1,6 @@
 <?php
 namespace App\Http\Controllers\Admin;
 
-use App\Category;
 use App\Http\Controllers\Controller;
 use App\Product;
 use App\Unit;
@@ -65,6 +64,7 @@ class UnitController extends Controller
         asort($products);
 
         $productId = null;
+
         return view('admin.units.create', compact('products', 'productId'));
     }
 
@@ -81,6 +81,7 @@ class UnitController extends Controller
         $rules = [
             'name'    => 'bail|required|unique:units',
             'product' => 'required',
+            'price'   => ['required', 'regex:/^\d*(\.\d{2})?$/'],
         ];
         $unit  = $this->runSave($request, $rules);
 
@@ -126,7 +127,8 @@ class UnitController extends Controller
     public function update(Unit $unit, Request $request)
     {
         $rules = [
-            'name' => 'bail|required|unique:units,id,:id',
+            'name'  => 'bail|required|unique:units,id,:id',
+            'price' => ['required', 'regex:/^\d*(\.\d{2})?$/'],
         ];
         $this->runUpdate($request, $rules, $unit);
 
@@ -153,6 +155,8 @@ class UnitController extends Controller
             $product = Product::find($request->get('product'));
             $unit->product()->associate($product);
         }
+
+        $unit->fill($request->all());
 
         $unit->save();
 

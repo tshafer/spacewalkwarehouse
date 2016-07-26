@@ -33,20 +33,6 @@
                 {!! radio('season', 'dry', null) !!}
             </div>
 
-            <div class="form-group">
-                {!! label('height') !!}
-                {!! text('height', null, ['class' => 'form-control']) !!}
-            </div>
-
-            <div class="form-group">
-                {!! label('width') !!}
-                {!! text('width', null, ['class' => 'form-control']) !!}
-            </div>
-
-            <div class="form-group">
-                {!! label('price') !!}
-                {!! text('price', null, ['class' => 'form-control']) !!}
-            </div>
 
 
             <div class="form-group">

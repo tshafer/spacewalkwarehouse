@@ -35,6 +35,14 @@
                         <td>{!! $unit->width!!}</td>
                     </tr>
                     <tr>
+                        <td>Length</td>
+                        <td>{!! $unit->length!!}</td>
+                    </tr>
+                    <tr>
+                        <td>Weight</td>
+                        <td>{!! $unit->weight!!}</td>
+                    </tr>
+                    <tr>
                         <td>Price</td>
                         <td>{!! $unit->price!!}</td>
                     </tr>

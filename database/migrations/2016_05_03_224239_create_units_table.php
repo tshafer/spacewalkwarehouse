@@ -16,13 +16,12 @@ class CreateUnitsTable extends Migration
         Schema::create('units', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 255);
-            $table->string('slug', 255)->unique();
-            $table->integer('position')->nullable();
             $table->integer('product_id')->nullable();
             $table->longText('description');
             $table->text('height');
+            $table->text('length');
             $table->text('width');
-            $table->text('price');
+            $table->decimal('price', 10, 2);
             $table->timestamps();
             $table->softDeletes();
         });

@@ -40,9 +40,6 @@ class Product extends Model implements HasMediaConversions
         'slug',
         'accessories',
         'season',
-        'height',
-        'width',
-        'price',
     ];
 
 
