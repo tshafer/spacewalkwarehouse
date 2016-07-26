@@ -4,13 +4,12 @@ namespace App;
 use App\Support\Traits\Attributes;
 use App\Support\Traits\Linkable;
 use App\Support\Traits\Sortable;
-use Gloudemans\Shoppingcart\Contracts\Buyable;
 use Illuminate\Database\Eloquent\Model;
 use MartinBean\Database\Eloquent\Sluggable;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 
-class Product extends Model implements HasMediaConversions, Buyable
+class Product extends Model implements HasMediaConversions
 {
 
     use Linkable, Sortable, Attributes, Sluggable, HasMediaTrait;
@@ -72,6 +71,15 @@ class Product extends Model implements HasMediaConversions, Buyable
 
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function units()
+    {
+        return $this->hasMany(Unit::class);
+    }
+
+
+    /**
      * @return string
      */
     public function getIsEnabledAttribute()
@@ -79,36 +87,4 @@ class Product extends Model implements HasMediaConversions, Buyable
         return ($this->attributes['enabled'] == 0) ? 'No' : 'Yes';
     }
 
-
-    /**
-     * Get the identifier of the Buyable item.
-     *
-     * @return int|string
-     */
-    public function getBuyableIdentifier()
-    {
-        return $this->id;
-    }
-
-
-    /**
-     * Get the description or title of the Buyable item.
-     *
-     * @return string
-     */
-    public function getBuyableDescription()
-    {
-        return $this->description;
-    }
-
-
-    /**
-     * Get the price of the Buyable item.
-     *
-     * @return float
-     */
-    public function getBuyablePrice()
-    {
-        return $this->price;
-    }
 }

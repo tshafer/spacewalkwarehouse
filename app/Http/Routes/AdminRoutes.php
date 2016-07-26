@@ -8,6 +8,8 @@ $router->group(['middleware' => ['auth'], 'prefix' => 'admin'], function () use 
 
     $router->resource('categories', 'Admin\CategoryController');
 
+    $router->resource('units', 'Admin\UnitController');
+
     $router->get('categories/moveup/{categories}', ['uses' => 'Admin\CategoryController@moveUp', 'as' => 'admin.categories.moveup']);
     $router->get('categories/movedown/{categories}', ['uses' => 'Admin\CategoryController@moveDown', 'as' => 'admin.categories.movedown']);
     $router->get('categories/removeimage/{categories}/{imageid}', ['uses' => 'Admin\CategoryController@removeImage', 'as' => 'admin.categories.removeimage']);

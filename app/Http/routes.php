@@ -71,6 +71,7 @@ $router->get('loggies', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index
 /**
  * Generic Model Binding
  */
+$router->model('units', App\Unit::class);
 $router->model('users', App\User::class);
 $router->model('products', App\Product::class);
 $router->model('categories', App\Category::class);
