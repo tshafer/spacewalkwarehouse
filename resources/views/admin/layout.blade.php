@@ -8,12 +8,14 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Patio, Deck & Hearth Shop | Admin</title>
+    <title>Space Walk | Admin</title>
 
     <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
     <link rel="stylesheet" href="{{url('/')}}/assets/dashboard/css/styles.css"/>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url('/')}}/assets/dashboard/jquery.fine-uploader/fine-uploader-gallery.min.css" />
+    <link rel="stylesheet" href="{{url('/')}}/assets/dashboard/jquery.fine-uploader/fine-uploader-new.min.css" />
 
     @yield('styles')
     @yield('scripts-top')
@@ -63,6 +65,8 @@
     <script src="{{url('/')}}/assets/dashboard/js/plugins.js"></script>
     <script src="{{url('/')}}/assets/dashboard/js/vendor/tablesort.js"></script>
     <script src="{{url('/')}}/assets/dashboard/js/app.js"></script>
+    <script src="{{url('/')}}/assets/dashboard/jquery.fine-uploader/jquery.fine-uploader.min.js"></script>
+    <script src="{{url('/')}}/assets/dashboard/js/imageupload.js"></script>
 
     @stack('scripts')
 </body>

@@ -11,59 +11,39 @@ class SiteController extends Controller
 {
 
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return mixed
      */
     public function index()
     {
-        $manufacturers = Manufacturer::whereEnabled(1)->get();
-
-        return view('index', compact('manufacturers'));
+        return view('index');
     }
 
 
     /**
      * @return mixed
      */
-    public function outdoorFurnitureCleveland()
+    public function about()
     {
-        $xmlFile = app_path() . '/xml/perfect-patios-decks.xml';
-
-        $xml = simplexml_load_file($xmlFile);
-
-        // Hack to convert to array, its a lot easier to chunk with arrays
-        $json = json_encode($xml);
-        $data = json_decode($json, true);
-
-        return view('outdoor-furniture-cleveland', compact('data'));
+        return view('about');
     }
 
 
     /**
-     * @param $page
-     * @param $slug
-     *
      * @return mixed
      */
-    public function outdoorFurnitureClevelandIndividual($page, $slug)
+    public function privacy()
     {
-        $xmlFile = app_path() . '/xml/perfect-patios-decks.xml';
-
-        $xml = simplexml_load_file($xmlFile);
-
-        // Hack to convert to array, its a lot easier to chunk with arrays
-        $json = json_encode($xml);
-        $data = json_decode($json, true);
-        foreach ($data['Gallery'] as $gallery) {
-            if ($gallery['ID'] == $page) {
-                $galleryTitle       = $gallery['Title'];
-                $galleryDescription = $gallery['Description'];
-                $galleryPhotos      = $gallery['Photos']['Photo'];
-            }
-        }
-
-        return view('cleveland-patio-deck-furniture', compact('galleryTitle', 'galleryDescription', 'galleryPhotos', 'data', 'page'));
+        return view('privacy');
     }
 
+    /**
+     * @return mixed
+     */
+    public function termsConditions()
+    {
+        return view('terms_conditions');
+    }
+    
 
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View

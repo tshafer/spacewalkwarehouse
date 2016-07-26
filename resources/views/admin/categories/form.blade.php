@@ -6,37 +6,11 @@
 
         <div class="form-bordered">
 
-            <div class="form-group">
-                {!! label('parent_category') !!}
-                {!! select('parent_category', ['None'] + $nestedList, $parentId, ['class' => 'form-control']) !!}
-            </div>
 
             <div class="form-group">
                 {!! label('name') !!}
                 {!! text('name', null, ['class' => 'form-control']) !!}
             </div>
-
-            <div class="form-group">
-                {!! label('title') !!}
-                {!! text('title', null, ['class' => 'form-control']) !!}
-            </div>
-
-            @if(isset($category) && !$category->isRoot())
-                @if(count($manufacturers)> 0)
-                    <div class="form-group">
-                        {!! label('manufacturers') !!}
-                        {!! select('manufacturers[]', $manufacturers, $category->manufacturers->pluck('id')->toArray(), ['class' => 'form-control', 'style' => 'height:200px','multiple']) !!}
-                    </div>
-                @endif
-
-            @elseif(!isset($category))
-                @if(count($manufacturers)> 0)
-                    <div class="form-group">
-                        {!! label('manufacturers') !!}
-                        {!! select('manufacturers[]', $manufacturers, null, ['class' => 'form-control', 'style' => 'height:200px','multiple']) !!}
-                    </div>
-                @endif
-            @endif
 
             <div class="form-group">
                 {!! label('intro_text') !!}

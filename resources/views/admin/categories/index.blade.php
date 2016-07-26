@@ -17,8 +17,8 @@
                 <th class="min">ID</th>
                 <th>Name</th>
                 <th>Enabled</th>
-                <th># Sub Categories</th>
-                {{--<th>Image</th>--}}
+                {{--<th># Sub Categories</th>--}}
+                <th>Image</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -29,12 +29,12 @@
                         <td>{{$category->id}}</td>
                         <td>{{$category->name}}</td>
                         <td>{{$category->is_enabled}}</td>
-                        <td>{{$category->children()->count()}}</td>
-                        {{--<td>--}}
-                        {{--@if($category->media->count() > 0)--}}
-                        {{--<img src="{!! $category->media->first()->getUrl('adminThumb')!!}"/>--}}
-                        {{--@endif--}}
-                        {{--</td>--}}
+                        {{--<td>{{$category->children()->count()}}</td>--}}
+                        <td>
+                            @if($category->media->count() > 0)
+                                <img src="{!! $category->media->first()->getUrl('adminThumb')!!}"/>
+                            @endif
+                        </td>
                         <td class="min">
                             {!!$category->getTableLinks()!!}
                             @if($categories->count() > 1)

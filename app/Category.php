@@ -38,7 +38,7 @@ class Category extends Node implements HasMediaConversions
         'intro_text',
         'enabled',
         'title',
-        'meta_description'
+        'meta_description',
     ];
 
     /**
@@ -67,16 +67,7 @@ class Category extends Node implements HasMediaConversions
 
         $this->addMediaConversion('adminThumb')->setManipulations(['w' => 100, 'h' => 100, 'sharp' => 15])->performOnCollections('*');
     }
-
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function manufacturers()
-    {
-        return $this->belongsToMany(Manufacturer::class);
-    }
-
+    
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany

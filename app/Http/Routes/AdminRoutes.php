@@ -12,14 +12,14 @@ $router->group(['middleware' => ['auth'], 'prefix' => 'admin'], function () use 
     $router->get('categories/movedown/{categories}', ['uses' => 'Admin\CategoryController@moveDown', 'as' => 'admin.categories.movedown']);
     $router->get('categories/removeimage/{categories}/{imageid}', ['uses' => 'Admin\CategoryController@removeImage', 'as' => 'admin.categories.removeimage']);
 
-    $router->resource('manufacturers', 'Admin\ManufacturersController');
-    $router->get('manufacturers/removeimage/{manufacturers}/{imageid}', ['uses' => 'Admin\ManufacturersController@removeImage', 'as' => 'admin.manufacturers.removeimage']);
 
+    $router->get('products/{products}/images', ['uses' => 'Admin\ProductController@loadImages', 'as' => 'admin.products.images.show']);
+    $router->delete('products/{products}/deleteImage', ['uses' => 'Admin\ProductController@deleteImage', 'as' => 'admin.products.images.delete']);
     $router->resource('products', 'Admin\ProductController');
-    $router->get('products/removeimage/{products}/{imageid}', ['uses' => 'Admin\ProductController@removeImage', 'as' => 'admin.products.removeimage']);
+    $router->post('products/images/add', ['uses' => 'Admin\ProductController@addImage', 'as' => 'admin.products.images.add']);
 
     $router->get('/', function () {
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.products.index');
     });
 
     $router->get('refreshmedia', function () {

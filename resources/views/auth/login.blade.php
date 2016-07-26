@@ -1,12 +1,12 @@
 @extends('layout')
 
-@section('title') Sign into Sign into Patio, Deck & Hearth Shop @stop
+@section('title') Sign Space Walk Online @stop
 
 @section('content')
     <div class="page_content_offset">
         <div class="container">
 
-                    <h1 class="center">Sign into Patio, Deck & Hearth Shop</h1>
+                    <h1 class="center">Sign into Space Walk Online</h1>
                     <br/>
                     {!! open(['route' => 'auth.login', 'method' => 'post']) !!}
                     <div class="form-group">

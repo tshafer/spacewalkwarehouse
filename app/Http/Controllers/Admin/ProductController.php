@@ -3,9 +3,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Http\Controllers\Controller;
-use App\Manufacturer;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use League\Fractal;
+use League\Fractal\Manager;
 
 class ProductController extends Controller
 {
@@ -44,16 +46,15 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $manufacturers = Manufacturer::orderBy('name')->pluck('name', 'id')->toArray();
 
         $nestedList = Category::allLeaves()->orderBy('name')->get()->pluck('name', 'id')->toArray();
 
         asort($nestedList);
 
         $parentId = $product->categories()->first();
+        $parentId = isset($parentId) ? $parentId->id : null;
 
-
-        return view('admin.products.edit', compact('product', 'manufacturers', 'nestedList', 'parentId'));
+        return view('admin.products.edit', compact('product', 'nestedList', 'parentId'));
     }
 
 
@@ -64,15 +65,13 @@ class ProductController extends Controller
      */
     public function create(Request $request)
     {
-        $manufacturers = Manufacturer::orderBy('name')->pluck('name', 'id')->toArray();
-
         $nestedList = Category::allLeaves()->orderBy('name')->get()->pluck('name', 'id')->toArray();
 
         asort($nestedList);
-        
+
         $parentId = $request->has('cat') ? $request->get('cat') : null;
 
-        return view('admin.products.create', compact('manufacturers', 'nestedList', 'parentId'));
+        return view('admin.products.create', compact('nestedList', 'parentId'));
     }
 
 
@@ -104,6 +103,7 @@ class ProductController extends Controller
      */
     protected function runSave(Request $request, array $rules)
     {
+
         $this->validate($request, array_merge([
             //'intro_text' => 'required',
         ], $rules));
@@ -121,18 +121,6 @@ class ProductController extends Controller
                 $categoryModel = Category::whereId($category)->first();
                 $product->categories()->attach($categoryModel);
             }
-        }
-
-        if ($request->has('manufacturers')) {
-            $product->manufacturers()->detach();
-            foreach ($request->get('manufacturers') as $manufacturer) {
-                $manufacturerModel = Manufacturer::whereId($manufacturer)->first();
-                $product->manufacturers()->attach($manufacturerModel);
-            }
-        }
-
-        if ($request->hasFile('image')) {
-            $product->addMedia($request->file('image'))->preservingOriginal()->toCollection('products');
         }
 
         $product->save();
@@ -154,7 +142,7 @@ class ProductController extends Controller
         $rules = [
             'name' => 'bail|required|unique:products,id,:id',
         ];
-
+        dd($request->all());
         $this->runUpdate($request, $rules, $product);
 
         flash('Product updated!');
@@ -168,7 +156,7 @@ class ProductController extends Controller
      * @param array                    $rules
      * @param \App\Product             $product
      *
-     * @return \App\Manufacturer|static
+     * @return static
      */
     protected function runUpdate(Request $request, array $rules, Product $product)
     {
@@ -190,18 +178,6 @@ class ProductController extends Controller
                 $categoryModel = Category::whereId($category)->first();
                 $product->categories()->attach($categoryModel);
             }
-        }
-
-        if ($request->has('manufacturers')) {
-            $product->manufacturers()->detach();
-            foreach ($request->get('manufacturers') as $manufacturer) {
-                $manufacturerModel = Manufacturer::whereId($manufacturer)->first();
-                $product->manufacturers()->attach($manufacturerModel);
-            }
-        }
-
-        if ($request->hasFile('image')) {
-            $product->addMedia($request->file('image'))->preservingOriginal()->toCollection('products');
         }
 
         $product->save();
@@ -235,11 +211,54 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function removeImage(Product $product, $imageId)
+    public function deleteImage(Product $product, Request $request)
     {
-        $product->deleteMedia($imageId);
+        dd($request->all());
+        //$product->deleteMedia($imageId);
 
-        return redirect()->back();
+        return response()->json(['success' => 'true']);
     }
 
+
+
+    /**
+     * @param \Illuminate\Http\Request $request
+     */
+    public function addImage(Request $request)
+    {
+        $product = Product::find(Input::get('productId'));
+
+        if ($request->hasFile('qqfile')) {
+            $product->addMedia($request->file('qqfile'))->preservingOriginal()->toCollection('products');
+        }
+
+        return response()->json(['success' => 'true']);
+    }
+
+
+    /**
+     * @param \App\Product $product
+     *
+     * @return \Illuminate\Support\Collection
+     */
+    public function loadImages(Product $product)
+    {
+        $images = $product->getMedia('products');
+
+        $fractal = new Manager();
+
+        $resource = new Fractal\Resource\Collection($images, function ($image) use ($product, $images) {
+            return [
+                'uuid'               => (int)$image->id,
+                'name'               => $image->file_name,
+                'size'               => $image->size,
+                'deleteFileEndpoint ' => route('admin.products.images.delete', [$product->id]),
+                'thumbnailUrl'       => $image->getUrl(),
+            ];
+        });
+
+        $array = $fractal->createData($resource)->toArray();
+
+        return json_encode($array['data']);
+    }
 }

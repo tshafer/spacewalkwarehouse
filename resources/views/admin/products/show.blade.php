@@ -17,9 +17,11 @@
 
                         {!! toolbar_link(['admin.products.edit', $product->id], 'fa-edit', 'Edit Product') !!}
                         {!! toolbar_link('admin.products.create', 'fa-plus', 'New Product') !!}
-                        <a class="btn btn-alt btn-sm btn-default" href="{{route('product', [$product->categories()->first()->slug, $product->categories()->first()->parent()->first()->slug, $product->slug])}}" target="_blank">
-                            <i class="fa fa-external-link" aria-hidden="true" ></i>
-                            </a>
+                        <a class="btn btn-alt btn-sm btn-default"
+                           href="{{route('product', [$product->categories()->first()->slug, $product->slug])}}"
+                           target="_blank">
+                            <i class="fa fa-external-link" aria-hidden="true"></i>
+                        </a>
                     </div>
                 </div>
                 <h3>{{$product->name}}</h3>
@@ -27,51 +29,66 @@
 
                     <tr>
                         <td> Description</td>
-                        <td colspan="2">{!! $product->description!!}</td>
+                        <td>{!! $product->description!!}</td>
                     </tr>
                     <tr>
                         <td>Enabled</td>
-                        <td colspan="2">{!! $product->is_enabled!!}</td>
+                        <td>{!! $product->is_enabled!!}</td>
+                    </tr>
+                    <tr>
+                        <td>Accessories</td>
+                        <td>{!! $product->accessories!!}</td>
+                    </tr>
+                    <tr>
+                        <td>Season</td>
+                        <td>{!! $product->season!!}</td>
+                    </tr>
+                    <tr>
+                        <td>Height</td>
+                        <td>{!! $product->height!!}</td>
+                    </tr>
+                    <tr>
+                        <td>Width</td>
+                        <td>{!! $product->width!!}</td>
+                    </tr>
+                    <tr>
+                        <td>Price</td>
+                        <td>{!! $product->price!!}</td>
                     </tr>
                     <tr>
                         <td>Meta Description</td>
-                        <td colspan="2">{!! $product->meta_description!!}</td>
+                        <td>{!! $product->meta_description!!}</td>
                     </tr>
                     @if($product->categories()->count() > 0)
                         <tr>
                             <td>Categories</td>
-                            <td colspan="2">
+                            <td>
                                 @foreach($product->categories()->get() as $category)
                                     <a href="{{route('admin.categories.show', $category->id)}}">{{ $category->name }}</a>
                                 @endforeach
                             </td>
                         </tr>
                     @endif
-                    @if($product->manufacturers()->count() > 0)
+
+                    {!! label('image') !!}
+
+
+                    {{--@if($product->getMedia()->count() > 0)--}}
                         <tr>
-                            <td>Manufacturers</td>
+                            <td colspan="2">Images</td>
+                        </tr>
+                        <tr>
                             <td colspan="2">
-                                @foreach($product->manufacturers()->get() as $manufacturer)
-                                    <a href="{{route('admin.manufacturers.show', $manufacturer->id)}}">{{ $manufacturer->name }}</a>
-                                    @if(!$loop->last)
-                                        |
-                                    @endif
-                                @endforeach
+                                {!!open(['route' => 'admin.products.images.add', 'id' => 'qq-form', 'data-endpoint' => route('admin.products.images.show', $product->id), 'data-deletepoint' => route('admin.products.images.delete', $product->id), 'files' => true])!!}
+                                {{ hidden('productId', $product->id) }}
+                                <div id="fine-uploader-gallery"></div>
+{{--                                <img src="{{url('/')}}{!! $product->getMedia('products')->first()->getUrl('adminThumb')!!}"/><br/>--}}
+                                {!!submit('Save Images', ['class' => 'btn btn-block btn-primary'])!!}
+                                {!! close() !!}
                             </td>
 
                         </tr>
-                    @endif
-                    @if($product->getMedia()->count() > 0)
-                        <tr>
-                            <td>Image</td>
-                            <td>
-                                <img src="{{url('/')}}{!! $product->getMedia('products')->first()->getUrl('adminThumb')!!}"/><br/>
-                            </td>
-                            <td>
-                                <a href="{{ route('admin.products.removeimage',[$product->id, $product->getMedia('products')->first()->id]) }}"
-                                   class="btn btn-warning btn-sm">Remove </a></td>
-                        </tr>
-                    @endif
+                    {{--@endif--}}
                 </table>
             </div>
 
@@ -91,4 +108,86 @@
             </div>
         </div>
     </div>
+    <script type="text/template" id="qq-template-gallery">
+        <div class="qq-uploader-selector qq-uploader qq-gallery" qq-drop-area-text="Drop files here">
+            <div class="qq-total-progress-bar-container-selector qq-total-progress-bar-container">
+                <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+                     class="qq-total-progress-bar-selector qq-progress-bar qq-total-progress-bar"></div>
+            </div>
+            <div class="qq-upload-drop-area-selector qq-upload-drop-area" qq-hide-dropzone>
+                <span class="qq-upload-drop-area-text-selector"></span>
+            </div>
+            <div class="qq-upload-button-selector qq-upload-button">
+                <div>Upload a file</div>
+            </div>
+            <span class="qq-drop-processing-selector qq-drop-processing">
+                <span>Processing dropped files...</span>
+                <span class="qq-drop-processing-spinner-selector qq-drop-processing-spinner"></span>
+            </span>
+            <ul class="qq-upload-list-selector qq-upload-list" role="region" aria-live="polite"
+                aria-relevant="additions removals">
+                <li>
+                    <span role="status" class="qq-upload-status-text-selector qq-upload-status-text"></span>
+                    <div class="qq-progress-bar-container-selector qq-progress-bar-container">
+                        <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+                             class="qq-progress-bar-selector qq-progress-bar"></div>
+                    </div>
+                    <span class="qq-upload-spinner-selector qq-upload-spinner"></span>
+                    <div class="qq-thumbnail-wrapper">
+                        <img class="qq-thumbnail-selector" qq-max-size="120" qq-server-scale>
+                        <input type="checkbox">
+                    </div>
+                    <button type="button" class="qq-upload-cancel-selector qq-upload-cancel">X</button>
+                    <button type="button" class="qq-upload-retry-selector qq-upload-retry">
+                        <span class="qq-btn qq-retry-icon" aria-label="Retry"></span>
+                        Retry
+                    </button>
+
+                    <div class="qq-file-info">
+                        <div class="qq-file-name">
+                            <span class="qq-upload-file-selector qq-upload-file"></span>
+                            <span class="qq-edit-filename-icon-selector qq-edit-filename-icon"
+                                  aria-label="Edit filename"></span>
+                        </div>
+                        <input class="qq-edit-filename-selector qq-edit-filename" tabindex="0" type="text">
+                        <span class="qq-upload-size-selector qq-upload-size"></span>
+                        <button type="button" class="qq-btn qq-upload-delete-selector qq-upload-delete">
+                            <span class="qq-btn qq-delete-icon" aria-label="Delete"></span>
+                        </button>
+                        <button type="button" class="qq-btn qq-upload-pause-selector qq-upload-pause">
+                            <span class="qq-btn qq-pause-icon" aria-label="Pause"></span>
+                        </button>
+                        <button type="button" class="qq-btn qq-upload-continue-selector qq-upload-continue">
+                            <span class="qq-btn qq-continue-icon" aria-label="Continue"></span>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+
+            <dialog class="qq-alert-dialog-selector">
+                <div class="qq-dialog-message-selector"></div>
+                <div class="qq-dialog-buttons">
+                    <button type="button" class="qq-cancel-button-selector">Close</button>
+                </div>
+            </dialog>
+
+            <dialog class="qq-confirm-dialog-selector">
+                <div class="qq-dialog-message-selector"></div>
+                <div class="qq-dialog-buttons">
+                    <button type="button" class="qq-cancel-button-selector">No</button>
+                    <button type="button" class="qq-ok-button-selector">Yes</button>
+                </div>
+            </dialog>
+
+            <dialog class="qq-prompt-dialog-selector">
+                <div class="qq-dialog-message-selector"></div>
+                <input type="text">
+                <div class="qq-dialog-buttons">
+                    <button type="button" class="qq-cancel-button-selector">Cancel</button>
+                    <button type="button" class="qq-ok-button-selector">Ok</button>
+                </div>
+            </dialog>
+        </div>
+    </script>
+
 @stop

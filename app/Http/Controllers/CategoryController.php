@@ -15,20 +15,9 @@ class CategoryController extends Controller
      */
     public function index(Category $category)
     {
-        
-        return view('category', compact('category'));
-    }
 
+        $products = $category->products()->paginate(1);
 
-    /**
-     * @param \App\Category $category
-     * @param \App\Category $subcategory
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function subCategory(Category $category, Category $subcategory)
-    {
-
-        return view('subcategory', compact('category', 'subcategory'));
+        return view('category', compact('category', 'products'));
     }
 }

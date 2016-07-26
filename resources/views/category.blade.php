@@ -1,54 +1,59 @@
 @extends('layout')
 
-@section('title', $category->name .' - Patio Deck & Hearth Shop - Cleveland, Ohio')
+@section('title', $category->name .' - Space Walk Online')
 
 @section('meta_description', $category->meta_description)
 
 @section('content')
 
-@include('partials.breadcrumb', ['category' => $category])
+    <div class="container main-container">
+        <div class="row">
 
-<div class="page_content_offset">
-    <div class="container">
-        @if($category->title)
-            <h2 class="tt_uppercase m_bottom_20 color_dark heading1 animate_ftr">
-                {{$category->title}}
-            </h2>
-        @endif
-
-        @if($category->intro_text)
-            <div class="row clearfix">
-                <section class="col-lg-8 col-md-8 col-sm-8 m_bottom_25">
-                    <p class="m_bottom_10">{{$category->intro_text}}</p>
-                </section>
-            </div>
-        @endif
-
-        <section class="products_container clearfix m_bottom_25 m_sm_bottom_15">
-
-            @foreach($category->children()->whereEnabled(1)->get() as $child)
-                <div class="product_item">
-                    <figure class="r_corners photoframe shadow relative hit animate_ftb long">
-
-                        <a href="{{route('subcategory',[$category->slug, $child->slug])}}" class="d_block relative pp_wrap">
-                            <img src="{{url('/')}}{{$child->media->first()->getUrl('thumb')}}" class="tr_all_hover" alt="{{$child->name}}">
-                        </a>
-
-                        <figcaption>
-                            <h5 class="m_bottom_10">
-                                <a href="{{route('subcategory',[$category->slug, $child->slug])}}" class="color_dark">{{$child->name}}</a>
-                            </h5>
-                            <a href="{{route('subcategory',[$category->slug, $child->slug])}}">
-                                <button class="button_type_4 bg_scheme_color r_corners tr_all_hover color_light mw_0">
-                                    see more styles
-                                </button>
-                            </a>
-                        </figcaption>
-                    </figure>
+            <div class="col-md-12">
+                <div class="col-lg-12 col-sm-12">
+                    <span class="title">{{ $category->title }}</span>
                 </div>
-            @endforeach
-        </section>
 
-        @include('partials.banners')
+                @if($products->count() > 0)
+                    @foreach($products as $product)
+                        <div class="col-lg-4 col-sm-4 hero-feature text-center">
+                            <div class="thumbnail">
+                                <a href="{{route('product', [$category->slug, $product->slug])}}">
+                                    @if($product->getMedia('products')->count() > 0)
+                                        <img src="{{url('/')}}{{$product->media->first()->getUrl('thumb')}}"
+                                             alt="{{ $product->name }}"/>
+                                    @endif
+                                </a>
+
+                                <div class="caption prod-caption">
+                                    <h4><a href="{{route('product', [$category->slug, $product->slug])}}"
+                                           class="color_dark">
+                                            {{ $product->name }}
+                                        </a>
+                                    </h4>
+                                    <p>{{$product->description}}</p>
+                                    <p>
+                                    <div class="btn-group">
+                                        <a href="catalogue.html#" class="btn btn-default">{{$product->price}}</a>
+                                        <a href="catalogue.html#" class="btn btn-primary"><i
+                                                    class="fa fa-shopping-cart"></i>Buy</a>
+                                    </div>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
+
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="paginate">
+                        {{$products->render()}}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
 @stop

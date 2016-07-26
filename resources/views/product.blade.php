@@ -1,36 +1,139 @@
 @extends('layout')
 
-@section('title', $product->manufacturers()->first()->name.' - '.$product->name.' - Cleveland Ohio')
+@section('title', $product->name.' - Cleveland Ohio')
 
 @section('meta_description', $product->meta_description)
 
 @section('content')
 
-@include('partials.breadcrumb', ['product' => $product])
+    <div class="container main-container">
+        <div class="row">
 
-<div class="page_content_offset">
-    <div class="container">
-        <h2 class="tt_uppercase m_bottom_20 color_dark heading1 animate_ftr">{{$product->manufacturers()->first()->name}}
-            : {{ $product->name }}
-            Seating</h2>
-        <div class="row clearfix">
-            <section class="col-lg-8 col-md-8 col-sm-8 m_bottom_25">
-                <div class="photoframe r_corners shadow wrapper m_bottom_30">
-                    @if($product->media->count())
-                        <img src="{{url('/')}}{{$product->media->first()->getUrl('full')}}" alt="{{$product->name}}"
-                             class="tr_all_long_hover">
-                    @endif
+            <!-- Product Detail -->
+            <div class="col-md-12">
+                <div class="col-lg-12 col-sm-12">
+                    <span class="title">{{$product->name}}</span>
                 </div>
-            </section>
-            <section class="col-lg-4 col-md-4 col-sm-4 m_xs_bottom_30">
-               {{$product->description }}<br/><br/>
-                    <a href="{{route('contact')}}" class="button_type_4 bg_scheme_color r_corners tr_all_hover color_light mw_0">store hours
-                        and directions
-                    </a>
-            </section>
-        </div>
-        @include('partials.banners')
-    </div>
-</div>
+                <div class="col-lg-12 col-sm-12 hero-feature">
 
+                    <div class="row">
+                        <div class="col-md-8">
+                            <!-- Main Image -->
+                            <div class="product-main-image-container">
+                                <img src="images/loader.gif" alt="" class="product-loader">
+								<span class="thumbnail product-main-image">
+									<img src="images/detail1.jpg" alt="">
+								</span>
+                            </div>
+                            <!-- End Main Image -->
+
+                            <!-- Thumbnail Image -->
+                            <div class="col-xs-3 product-thumb-image">
+                                <a href="images/detail1.jpg" class="thumbnail">
+                                    <img src="images/detail1.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="col-xs-3 product-thumb-image">
+                                <a href="images/detail2.jpg" class="thumbnail">
+                                    <img src="images/detail2.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="col-xs-3 product-thumb-image">
+                                <a href="images/detail3.jpg" class="thumbnail">
+                                    <img src="images/detail3.jpg" alt="">
+                                </a>
+                            </div>
+                            <div class="col-xs-3 product-thumb-image">
+                                <a href="images/detail1.jpg" class="thumbnail">
+                                    <img src="images/detail1.jpg" alt="">
+                                </a>
+                            </div>
+                            <!-- End Thumbnail Image -->
+                        </div>
+
+                        <div class="visible-xs">
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4">
+                            <div class="well product-short-detail">
+                                <div class="row">
+                                    <form>
+                                        <div class="the-list">
+                                            <h3 class="col-xs-12">
+                                                {{$product->price}}
+                                            </h3>
+                                        </div>
+
+                                        <div class="the-list">
+                                            <div class="col-xs-4">Select</div>
+                                            <div class="col-xs-8">
+                                                <select class="form-control">
+                                                    <option value="">Select Option</option>
+                                                    <option value="option1">Option 1</option>
+                                                    <option value="option2">Option 2</option>
+                                                    <option value="option3">Option 3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="the-list">
+                                            <div class="col-xs-4">Checkbox</div>
+                                            <div class="col-xs-8">
+                                                <label>
+                                                    <input type="checkbox" value="check1"> Check 1
+                                                </label>&nbsp;
+                                                <label>
+                                                    <input type="checkbox" value="check2" checked> Check 2
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="the-list">
+                                            <div class="col-xs-4">Radio</div>
+                                            <div class="col-xs-8">
+                                                <label>
+                                                    <input type="radio" name="radio" value="radio1" checked> Radio 1
+                                                </label>&nbsp;
+                                                <label>
+                                                    <input type="radio" name="radio" value="radio2"> Radio 2
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <hr/>
+                                        <div class="col-xs-12 input-qty-detail">
+                                            <input type="text" class="form-control input-qty text-center" value="1">
+                                            <button class="btn btn-default pull-left"><i
+                                                        class="fa fa-shopping-cart"></i> Add to Cart
+                                            </button>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <br/>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                        <br clear="all"/>
+
+                        <div class="col-xs-12 product-detail-tab">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="detail.html#desc" data-toggle="tab">Description</a></li>
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="desc">
+                                    <div class="well">
+                                        <p>{{$product->description}} </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @stop

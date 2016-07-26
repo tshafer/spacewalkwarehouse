@@ -1,7 +1,7 @@
 <?php
 return [
 
-    'public_url' => 'http://pavlishgroup.com/projects/pdh2016/dev/public',
+    'public_url'      => '',
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -149,7 +149,8 @@ return [
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
         Lookitsatravis\Listify\ListifyServiceProvider::class,
         Baum\Providers\BaumServiceProvider::class,
-        Radic\BladeExtensions\BladeExtensionsServiceProvider::class
+        Radic\BladeExtensions\BladeExtensionsServiceProvider::class,
+        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
     ],
     /*
     |--------------------------------------------------------------------------
@@ -198,6 +199,7 @@ return [
         'Form'    => Collective\Html\FormFacade::class,
         'Html'    => Collective\Html\HtmlFacade::class,
         'Listify' => Lookitsatravis\Listify\Listify::class,
+        'Cart'    => \Gloudemans\Shoppingcart\Facades\Cart::class,
     ],
 
 ];

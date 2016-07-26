@@ -4,10 +4,8 @@ namespace App;
 use App\Support\Traits\Attributes;
 use App\Support\Traits\Linkable;
 use App\Support\Traits\Sortable;
-use Baum\Node;
 use Illuminate\Database\Eloquent\Model;
 use MartinBean\Database\Eloquent\Sluggable;
-
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 
@@ -29,7 +27,7 @@ class Product extends Model implements HasMediaConversions
      * @var array
      */
     protected $with = ['media'];
-    
+
     /**
      * The attributes that are mass assignable.
      *
@@ -40,8 +38,14 @@ class Product extends Model implements HasMediaConversions
         'description',
         'enabled',
         'slug',
-        'meta_description'
+        'meta_description',
+        'accessories',
+        'season',
+        'height',
+        'width',
+        'price',
     ];
+
 
     /**
      * Convert Images
@@ -49,18 +53,13 @@ class Product extends Model implements HasMediaConversions
     public function registerMediaConversions()
     {
 
-        $this->addMediaConversion('thumb')
-            ->setManipulations(['w' => 240, 'h' => 160])
-            ->performOnCollections('products');
+        $this->addMediaConversion('thumb')->setManipulations(['w' => 240, 'h' => 160])->performOnCollections('products');
 
-        $this->addMediaConversion('full')
-            ->setManipulations(['w' => 730, 'h' => 486])
-            ->performOnCollections('products');
+        $this->addMediaConversion('full')->setManipulations(['w' => 730, 'h' => 486])->performOnCollections('products');
 
-        $this->addMediaConversion('adminThumb')
-            ->setManipulations(['w' => 100, 'h' => 100, 'sharp'=> 15])
-            ->performOnCollections('*');
+        $this->addMediaConversion('adminThumb')->setManipulations(['w' => 100, 'h' => 100, 'sharp' => 15])->performOnCollections('*');
     }
+
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
@@ -69,15 +68,7 @@ class Product extends Model implements HasMediaConversions
     {
         return $this->belongsToMany(Category::class);
     }
-
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
-    public function manufacturers()
-    {
-        return $this->belongsToMany(Manufacturer::class);
-    }
+    
 
     /**
      * @return string

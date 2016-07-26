@@ -22,6 +22,22 @@ $router->get('/', [
     'uses' => 'SiteController@index',
 ]);
 
+$router->get('about', [
+    'as'   => 'about',
+    'uses' => 'SiteController@about',
+]);
+
+$router->get('privacy', [
+    'as'   => 'privacy',
+    'uses' => 'SiteController@privacy',
+]);
+
+$router->get('terms', [
+    'as'   => 'terms',
+    'uses' => 'SiteController@termsConditions',
+]);
+
+
 $router->get('/contact', [
     'as'   => 'contact',
     'uses' => 'SiteController@contact',
@@ -32,26 +48,13 @@ $router->post('/contact', [
     'uses' => 'SiteController@contactPost',
 ]);
 
-$router->get('/outdoor-furniture-cleveland', [
-    'uses' => 'SiteController@outdoorFurnitureCleveland',
-]);
-
-$router->get('/cleveland-patio-deck-furniture/{id}/{slug}', [
-    'uses' => 'SiteController@outdoorFurnitureClevelandIndividual',
-    'as' => 'cleveland-patio-deck-furniture'
-]);
-
 $router->get('/category/{category}', [
     'as'   => 'category',
     'uses' => 'CategoryController@index',
 ]);
 
-$router->get('/category/{category}/{subcategory}', [
-    'as'   => 'subcategory',
-    'uses' => 'CategoryController@subCategory',
-]);
 
-$router->get('/category/{category}/{subcategory}/{product}', [
+$router->get('/category/{category}/{product}', [
     'as'   => 'product',
     'uses' => 'ProductController@show',
 ]);
@@ -66,7 +69,6 @@ $router->get('loggies', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index
 $router->model('users', App\User::class);
 $router->model('products', App\Product::class);
 $router->model('categories', App\Category::class);
-$router->model('manufacturers', App\Manufacturer::class);
 
 /**
  * Frontend Model Binding

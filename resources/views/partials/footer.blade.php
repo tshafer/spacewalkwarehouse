@@ -1,72 +1,48 @@
-<!--markup footer-->
-<footer id="footer">
-    <div class="footer_top_part">
-        <div class="container">
-            <div class="row clearfix">
-                <div class="col-lg-6 col-md-6 col-sm-6 m_xs_bottom_30">
-                    <h3 class="color_light_2 m_bottom_20">Cleveland's Outdoor Furniture & Fireplace Superstore</h3>
-                    <p class="m_bottom_25">Patio, Deck & Hearth Shop is one of the leading outdoor furniture and
-                        fireplace stores in Cleveland, Ohio. We take pride in our highly experienced and knowledgeable
-                        staff, our unique and extensive selection, and our reputation for standing behind the quality
-                        furniture we sell. Delivery and set up available from our staff. Please stop by and see our
-                        showroom today.</p>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 m_xs_bottom_30">
-                    <h3 class="color_light_2 m_bottom_20">Visit Our 20,000 Square Foot Retail Showroom</h3>
-                    <p class="m_bottom_25">
-                        <b>Monday through Saturday:</b> 10 AM - 5 PM | <b>Sunday:</b> Noon - 5 PM
-                    </p>
-                    <p class="m_bottom_25">
-                        <b>15 minutes east of Chagrin Falls on Route 87</b><br/>
-                        10359 Kinsman Rd. (Route 87) | Newbury, Ohio 44065 | <a href="{{route('contact')}}">Driving
-                            Directions</a>
-                    </p>
-                    <p class="m_bottom_25">
-                        <b>phone:</b> (440) 564-2290 | <b>fax:</b> (440) 564-2295 | <a href="{{route('contact')}}">Email Us</a>
-                    </p>
-                </div>
+<footer>
+    <div class="container">
+        <div class="col-md-4">
+            <div class="column">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="{{ route('about') }}">About Us</a></li>
+                    <li><a href="{{ route('privacy') }}">Policy Privacy</a></li>
+                    <li><a href="{{ route('terms') }}">Terms and Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="column">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="{{ route('contact') }}">Contact Us</a></li>
+                    <li><a>Phone: 111-111-1111</a></li>
+                    <li><a href="{{ route('contact') }}">Email: space@spacewalkonline.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="column">
+                <h4>Follow Us</h4>
+                <ul class="social">
+                    <li><a href="index.html#">Google Plus</a></li>
+                    <li><a href="index.html#">Facebook</a></li>
+                    <li><a href="index.html#">Twitter</a></li>
+                </ul>
             </div>
         </div>
     </div>
-    <!--copyright part-->
-    <div class="footer_bottom_part">
-        <div class="container clearfix t_mxs_align_c">
-            <p class="f_left f_mxs_none m_mxs_bottom_10">&copy; {{ date('Y') }} <span class="color_light">Patio, Deck & Hearth Store</span>.
-                All Rights Reserved. <a href="http://www.pavlishgroup.com">Web Design by PavlishGroup – Cleveland
-                    Ohio</a></p>
-            <ul class="f_right horizontal_list clearfix f_mxs_none d_mxs_inline_b">
-                <li><img src="{{url('/')}}/images/payment_img_2.png" alt=""></li>
-                <li class="m_left_5"><img src="{{url('/')}}/images/payment_img_3.png" alt=""></li>
-                <li class="m_left_5"><img src="{{url('/')}}/images/payment_img_4.png" alt=""></li>
-                <li class="m_left_5"><img src="{{url('/')}}/images/payment_img_5.png" alt=""></li>
-            </ul>
-        </div>
+    <div class="navbar-inverse text-center copyright">
+        Copyright &copy; {{ date('Y') }} Space Walk Sales All right reserved
     </div>
 </footer>
-</div>
-<button class="t_align_c r_corners tr_all_hover animate_ftl" id="go_to_top"><i class="fa fa-angle-up"></i></button>
+
+
 <!--scripts include-->
-<script src="{{url('/')}}/js/jquery-2.1.0.min.js"></script>
-<script src="{{url('/')}}/js/jquery-migrate-1.2.1.min.js"></script>
-<script src="{{url('/')}}/js/retina.js"></script>
-<script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
-<script src="{{url('/')}}/js/lightgallery.js"></script>
-<script src="{{url('/')}}/js/lg-fullscreen.js"></script>
-<script src="{{url('/')}}/js/lg-thumbnail.js"></script>
-<script src="{{url('/')}}/js/lg-video.js"></script>
-<script src="{{url('/')}}/js/lg-autoplay.js"></script>
-<script src="{{url('/')}}//js/lg-zoom.js"></script>
-<script src="{{url('/')}}//js/lg-hash.js"></script>
-<script src="{{url('/')}}/js/lg-pager.js"></script>
-<script src="{{url('/')}}/js/jquery.mousewheel.min.js"></script>
-<script src="{{url('/')}}/js/lightslider.min.js"></script>
-<script src="{{url('/')}}/js/jquery.themepunch.plugins.min.js"></script>
-<script src="{{url('/')}}/js/jquery.themepunch.revolution.min.js"></script>
-<script src="{{url('/')}}/js/jquery.easing.1.3.js"></script>
-<script src="{{url('/')}}/js/waypoints.min.js"></script>
-<script src="{{url('/')}}/js/jquery.isotope.min.js"></script>
-<script src="{{url('/')}}/js/owl.carousel.min.js"></script>
-<script src="{{url('/')}}/js/jquery.tweet.min.js"></script>
-<script src="{{url('/')}}/js/jquery.custom-scrollbar.js"></script>
+<script src="{{url('/')}}/js/jquery.js"></script>
+<script src="{{url('/')}}/js/bootstrap.js"></script>
+<script src="{{url('/')}}/js/jquery.bxslider.min.js"></script>
+<script src="{{url('/')}}/js/jquery.blImageCenter.js"></script>
+<script src="{{url('/')}}/js/mimity.js"></script>
 <script src="{{url('/')}}/js/scripts.js"></script>
 </body></html>
