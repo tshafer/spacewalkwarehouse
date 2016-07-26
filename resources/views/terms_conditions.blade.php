@@ -2,8 +2,6 @@
 
 @section('title', 'Terms &amp; Conditions;')
 
-@section('meta_description', '')
-
 @section('content')
     <div class="container main-container">
         <div class="row">

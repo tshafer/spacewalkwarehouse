@@ -1,6 +1,5 @@
 <?php namespace App\Http\Controllers;
 
-use App\Manufacturer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -71,11 +70,10 @@ class SiteController extends Controller
 
         Mail::send('emails.send', ['data' => $data], function ($message) {
             
-            $message->subject('Patio Deck & Hearth Contact Form');
-            $message->from('admin@patiodeckhearth.com', 'Patio Deck & Hearth Contact Form');
+            $message->subject('Space Walk Sales Contact Form');
+            $message->from('admin@patiodeckhearth.com', 'pace Walk Sales  Contact Form');
 
             $message->to('tj@tjshafer.com');
-            $message->cc('dpavlish@gmail.com');
 
         });
 

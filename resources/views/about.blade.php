@@ -1,8 +1,6 @@
 @extends('layout')
 
-@section('title', 'Visit / Contact Patio Deck & Hearth Shop')
-
-@section('meta_description', '')
+@section('title', 'Visit / Contact SpaceWalk Online')
 
 @section('content')
     @if(Session::has('message'))

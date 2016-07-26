@@ -18,11 +18,6 @@
             </div>
 
             <div class="form-group">
-                {!! label('meta_description') !!}
-                {!! textarea('meta_description', null, ['class' => 'form-control']) !!}
-            </div>
-
-            <div class="form-group">
                 @if(isset($category) &&  $category->getMedia('categories')->first())
                     <img src="{{url('/')}}{!! $category->getMedia('categories')->first()->getUrl('adminThumb')!!}"/><br/>
                 @endif

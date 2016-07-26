@@ -2,8 +2,6 @@
 
 @section('title', 'Contact Space Walk Online')
 
-@section('meta_description', '')
-
 @section('content')
     @if(Session::has('message'))
         <div class="alert alert-info">
@@ -14,7 +12,6 @@
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-12">
 
-                <!-- OUR LOCATION -->
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="no-padding">
                         <span class="title">OUR LOCATION</span>
@@ -31,55 +28,43 @@
 
             <div class="clearfix visible-sm"></div>
 
-            <!-- Cart -->
+
             <div class="col-lg-9 col-md-9 col-sm-12">
                 <div class="col-lg-12 col-sm-12">
                     <span class="title">CONTACT US</span>
                 </div>
                 <div class="col-lg-12 col-sm-12 hero-feature">
                     <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    {{ open(['route' => 'contact.post']) }}
                     <table class="table table-bordered tbl-checkout">
                         <tbody>
                         <tr>
-                            <td>First Name</td>
+                            <td>{{ label('name', 'Your Name') }}</td>
                             <td>
-                                <input type="text" name="" class="form-control" />
+                                {{ input('text','name', old('name'), ['class' => 'form-control', 'required']) }}
                             </td>
                         </tr>
+
                         <tr>
-                            <td>Last Name</td>
+                            <td>{{ label('email', 'Email') }}</td>
                             <td>
-                                <input type="text" name="" class="form-control" />
+                                {{ input('email','email', old('email'), ['class' => 'form-control', 'required']) }}
                             </td>
                         </tr>
+
                         <tr>
-                            <td>Email</td>
-                            <td>
-                                <input type="text" name="" class="form-control" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Telephone</td>
-                            <td>
-                                <input type="text" name="" class="form-control" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Message</td>
+                            {{ label('message', 'Message')}}
                             <td colspan="3">
-                                <textarea name="" class="form-control" rows="5"></textarea>
+                                {{ textarea('message', old('message'), ['class' => 'form-control', 'rows' => 10, 'required']) }}
                             </td>
                         </tr>
                         </tbody>
                     </table>
                     <div class="btn-group btns-cart">
-                        <button type="button" class="btn btn-primary">Send</button>
+                        <button type="submit" class="btn btn-primary">Send</button>
                     </div>
                 </div>
             </div>
-            <!-- End Cart -->
-
-
         </div>
     </div>
 

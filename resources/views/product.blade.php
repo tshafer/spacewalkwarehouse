@@ -2,8 +2,6 @@
 
 @section('title', $product->name)
 
-@section('meta_description', $product->meta_description)
-
 @section('content')
 
     <div class="container main-container">

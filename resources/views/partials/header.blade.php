@@ -8,7 +8,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="keywords" content=""/>
-    <meta name="description" content="@yield('meta_description')">
     <!--<link rel="icon" type="image/ico" href="images/fav.ico">-->
 
     <link rel="stylesheet" type="text/css" media="all" href="{{url('/')}}/css/bootstrap.css">

@@ -2,8 +2,6 @@
 
 @section('title', 'Privacy')
 
-@section('meta_description', '')
-
 @section('content')
     <div class="container main-container">
         <div class="row">

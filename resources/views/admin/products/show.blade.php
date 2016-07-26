@@ -55,10 +55,7 @@
                         <td>Price</td>
                         <td>{!! $product->price!!}</td>
                     </tr>
-                    <tr>
-                        <td>Meta Description</td>
-                        <td>{!! $product->meta_description!!}</td>
-                    </tr>
+
                     @if($product->categories()->count() > 0)
                         <tr>
                             <td>Categories</td>

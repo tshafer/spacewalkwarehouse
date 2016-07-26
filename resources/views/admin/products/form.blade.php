@@ -22,11 +22,6 @@
             </div>
 
             <div class="form-group">
-                {!! label('meta_description') !!}
-                {!! textarea('meta_description', null, ['class' => 'form-control']) !!}
-            </div>
-
-            <div class="form-group">
                 {!! label('accessories') !!}
                 {!! textarea('accessories', null, ['class' => 'form-control']) !!}
             </div>

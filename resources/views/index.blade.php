@@ -2,8 +2,6 @@
 
 @section('title') Space Walk Sales @stop
 
-@section('meta_description', '')
-
 @section('content')
 
 

@@ -2,8 +2,6 @@
 
 @section('title', $category->name .' - Space Walk Online')
 
-@section('meta_description', $category->meta_description)
-
 @section('content')
 
     <div class="container main-container">

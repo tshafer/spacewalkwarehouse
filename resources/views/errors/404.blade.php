@@ -2,8 +2,6 @@
 
 @section('title', ' Patio Deck & Hearth Shop')
 
-@section('meta_description', '')
-
 @section('content')
 
 	<div class="page_content_offset">

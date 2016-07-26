@@ -38,7 +38,6 @@ class Product extends Model implements HasMediaConversions
         'description',
         'enabled',
         'slug',
-        'meta_description',
         'accessories',
         'season',
         'height',
