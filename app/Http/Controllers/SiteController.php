@@ -52,6 +52,15 @@ class SiteController extends Controller
         return view('contact');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function thanks()
+    {
+        return view('thanks');
+    }
+
+
 
     /**
      * @param \Illuminate\Http\Request $request
@@ -71,7 +80,7 @@ class SiteController extends Controller
         Mail::send('emails.send', ['data' => $data], function ($message) {
             
             $message->subject('Space Walk Sales Contact Form');
-            $message->from('admin@patiodeckhearth.com', 'pace Walk Sales  Contact Form');
+            $message->from('sales@spacewalk.com', 'Space Walk Sales Contact Form');
 
             $message->to('tj@tjshafer.com');
 

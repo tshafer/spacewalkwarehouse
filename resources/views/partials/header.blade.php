@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" media="all" href="{{url('/')}}/css/jquery.bxslider.css">
     <link rel="stylesheet" type="text/css" media="all" href="{{url('/')}}/css/style.css">
     <link rel="stylesheet" type="text/css" media="all" href="{{url('/')}}/css/lightslider.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.19/css/lightgallery.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.19/css/lightgallery.min.css"/>
 
 </head>
 <body>
@@ -50,7 +50,9 @@
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="{{route('home')}}" class="{{active_class('home')}}"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a></li>
+                <li><a href="{{route('home')}}" class="{{active_class('home')}}"><i class="fa fa-home"
+                                                                                    aria-hidden="true"></i>&nbsp;Home</a>
+                </li>
                 <li class="nav-dropdown">
                     <a href="#" class="{{active_class('category/*')}} dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-list" aria-hidden="true"></i>&nbsp;Categories <span class="caret"></span>
@@ -58,7 +60,8 @@
                     <ul class="dropdown-menu">
                         @foreach($categories as $category)
                             <li>
-                                <a href="{{ route('category', $category->slug) }}" class="{{active_class('category/'.$category->slug.'/*')}}">
+                                <a href="{{ route('category', $category->slug) }}"
+                                   class="{{active_class('category/'.$category->slug.'/*')}}">
                                     @if($category->getMedia('categories')->first())
                                         <img src=" {{$category->getMedia('categories')->first()->getUrl('adminThumb')}}"
                                              class="menu-icon">
@@ -78,26 +81,29 @@
                 <div class="btn-group btn-group-cart">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                         <span class="pull-left"><i class="fa fa-shopping-cart icon-cart"></i></span>
-                        <span class="pull-left">Shopping Cart: 2 item(s)</span>
+                        <span class="pull-left">Shopping Cart: {{Cart::count()}} item(s)</span>
                         <span class="pull-right"><i class="fa fa-caret-down"></i></span>
                     </button>
                     <ul class="dropdown-menu cart-content" role="menu">
-                        <li>
-                            <a href="detail.html">
-                                <IMG SRC="http://res.cloudinary.com/spacewalk/image/upload/e_trim,w_80/7090c33058c01488dd52e717e943b8fe.jpg"><b>3
-                                    Lane Mega Thrillt</b>
-                                <span>x1 $528.96</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="detail.html">
-                                <IMG SRC="http://res.cloudinary.com/spacewalk/image/upload/e_trim,w_80/7090c33058c01488dd52e717e943b8fe.jpg"><b>3
-                                    Lane Mega Thrillt</b>
-                                <span>x1 $528.96</span>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="cart.html">Total: $957.92</a></li>
+                        @if(Cart::count() > 0)
+                            @foreach(Cart::content() as $unit)
+                                <li>
+                                    <a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">
+                                        @if($unit->options->image)
+                                            <img src="{{$unit->options->image}}" alt="{{$unit->options->product_name}}"
+                                                 title="" width="47" height="47"/>
+                                        @endif
+                                        <b>{{$unit->options->product_name}}</b>
+                                        <span>${{$unit->price}}</span>
+                                    </a>
+                                </li>
+                            @endforeach
+
+                            <li class="divider"></li>
+                            <li><a href="{{route('cart.index')}}">Total: ${{Cart::total()}}</a></li>
+                        @else
+                            &nbsp;&nbsp;Your cart seems to be empty.
+                        @endif
                     </ul>
                 </div>
             </div>

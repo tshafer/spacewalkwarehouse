@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "23c9e97749ca706e6f9560030bf396c5",
-    "content-hash": "750715078d9338d19cf3e17a69638429",
+    "hash": "6e092ddea2b1545eeedfe9ad510794c0",
+    "content-hash": "b9c9e937ff2303e9e1cff03f84ed856e",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -2263,6 +2263,52 @@
                 "time"
             ],
             "time": "2015-11-04 20:07:17"
+        },
+        {
+            "name": "nicolaslopezj/searchable",
+            "version": "1.9.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nicolaslopezj/searchable.git",
+                "reference": "eee7c3ae94d8d0e98b397f0cf2dcb127bfddc555"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nicolaslopezj/searchable/zipball/eee7c3ae94d8d0e98b397f0cf2dcb127bfddc555",
+                "reference": "eee7c3ae94d8d0e98b397f0cf2dcb127bfddc555",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "illuminate/database": "4.2.x|~5.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nicolaslopezj\\Searchable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Lopez",
+                    "email": "nicolaslopezj@me.com"
+                }
+            ],
+            "description": "Eloquent model search trait.",
+            "keywords": [
+                "database",
+                "eloquent",
+                "laravel",
+                "model",
+                "search",
+                "searchable"
+            ],
+            "time": "2016-06-28 21:40:28"
         },
         {
             "name": "nikic/php-parser",
@@ -5188,12 +5234,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tshafer/laravel-support.git",
-                "reference": "46bee04f6eac0498ee5c0a531216772393ba7586"
+                "reference": "ed9f691972fb8e29ed1b9ecee3f4a9e80d292bb4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tshafer/laravel-support/zipball/46bee04f6eac0498ee5c0a531216772393ba7586",
-                "reference": "46bee04f6eac0498ee5c0a531216772393ba7586",
+                "url": "https://api.github.com/repos/tshafer/laravel-support/zipball/ed9f691972fb8e29ed1b9ecee3f4a9e80d292bb4",
+                "reference": "ed9f691972fb8e29ed1b9ecee3f4a9e80d292bb4",
                 "shasum": ""
             },
             "require": {
@@ -5234,7 +5280,7 @@
                 "MIT"
             ],
             "description": "A collection of helper functions",
-            "time": "2015-12-29 03:07:14"
+            "time": "2016-07-27 02:26:51"
         },
         {
             "name": "vlucas/phpdotenv",

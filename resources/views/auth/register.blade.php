@@ -4,9 +4,8 @@
 
 @section('content')
 
-    <div class="page_content_offset">
         <div class="container">
-
+            @include('flash::messages')
             <h1 class="center">Register with Us.</h1>
             <br/>
             {!! open(['route' => 'auth.register']) !!}
@@ -33,5 +32,4 @@
             {!! submit('Join',['class' => 'btn btn-primary']) !!}
             {!! close() !!}
         </div>
-    </div>
 @endsection

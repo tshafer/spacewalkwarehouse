@@ -25,14 +25,16 @@
     "iatstuti/laravel-cascade-soft-deletes": "1.0.*",
     "radic/blade-extensions": "^6.2",
     "gloudemans/shoppingcart": "^2.1",
-    "league/fractal": "^0.13.0"
+    "league/fractal": "^0.13.0",
+    "nicolaslopezj/searchable": "1.*"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",
     "mockery/mockery": "0.9.*",
     "phpunit/phpunit": "~4.0",
     "symfony/css-selector": "2.8.*|3.0.*",
-    "symfony/dom-crawler": "2.8.*|3.0.*"
+    "symfony/dom-crawler": "2.8.*|3.0.*",
+    "laracasts/generators": "^1.1"
   },
   "autoload": {
     "classmap": [

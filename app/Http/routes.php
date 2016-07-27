@@ -37,18 +37,22 @@ $router->get('terms', [
     'uses' => 'SiteController@termsConditions',
 ]);
 
+$router->get('thanks', [
+    'as'   => 'thanks',
+    'uses' => 'SiteController@thanks',
+]);
 
-$router->get('/contact', [
+$router->get('contact', [
     'as'   => 'contact',
     'uses' => 'SiteController@contact',
 ]);
 
-$router->post('/contact', [
+$router->post('contact', [
     'as'   => 'contact.post',
     'uses' => 'SiteController@contactPost',
 ]);
 
-$router->get('/category/{category}', [
+$router->get('category/{category}', [
     'as'   => 'category',
     'uses' => 'CategoryController@index',
 ]);
@@ -59,9 +63,9 @@ $router->get('/category/{category}/{product}', [
     'uses' => 'ProductController@show',
 ]);
 
-$router->resource('cart', 'CartController');
+$router->resource('cart', 'CartController',  ['except' => ['create','edit', 'show','update']]);
 
-
+$router->resource('checkout', 'CheckoutController',['except' => ['create','edit', 'update', 'show']]);
 
 $router->get('loggies', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
@@ -72,6 +76,8 @@ $router->model('units', App\Unit::class);
 $router->model('users', App\User::class);
 $router->model('products', App\Product::class);
 $router->model('categories', App\Category::class);
+$router->model('unitrequests', App\UnitRequest::class);
+
 
 /**
  * Frontend Model Binding

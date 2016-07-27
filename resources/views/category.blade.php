@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', $category->name .' - Space Walk Online')
+@section('title', $category->name )
 
 @section('content')
 
@@ -32,15 +32,19 @@
                                     <p>{{$product->description}}</p>
                                     <p>
                                     <div class="btn-group">
-                                        <a href="{{route('product', [$category->slug, $product->slug])}}" class="btn btn-primary">View</a>
+                                        <a href="{{route('product', [$category->slug, $product->slug])}}"
+                                           class="btn btn-primary">View</a>
                                     </div>
                                     </p>
                                 </div>
                             </div>
                         </div>
                     @endforeach
+                @else
+                    <div class="col-md-12">
+                        Sorry, we have no products in this category.
+                    </div>
                 @endif
-
             </div>
             <div class="row">
                 <div class="col-md-12">

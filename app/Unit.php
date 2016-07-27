@@ -48,6 +48,14 @@ class Unit extends Model implements Buyable
     }
 
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function unitRequests()
+    {
+        return $this->belongsToMany(Product::class);
+    }
+
 
     /**
      * Get the identifier of the Buyable item.

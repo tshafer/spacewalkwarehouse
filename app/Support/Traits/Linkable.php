@@ -50,7 +50,6 @@
         public function getEditLInk()
         {
             $route = $this->getPrefix() . $this->getResourceName() . '.edit';
-
             if (Route::has( $route )) {
                 return link_to_route( $route, 'Edit', $this->id,
                     [ 'class' => 'btn btn-xs btn-info' ] );

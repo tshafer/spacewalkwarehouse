@@ -7,7 +7,6 @@
     <div class="container main-container">
         <div class="row">
 
-            <!-- Product Detail -->
             <div class="col-md-12">
                 <div class="col-lg-12 col-sm-12">
                     <span class="title">{{$product->name}}</span>

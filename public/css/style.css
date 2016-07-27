@@ -392,6 +392,7 @@ body {
 .main-container {
     background: #fff;
     padding-top: 20px;
+    margin-bottom: 20px;
     /*box-shadow: 0 0 7px #384248*/
 }
 

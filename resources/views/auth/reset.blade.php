@@ -4,6 +4,8 @@
 
 @section('content')
 
+    @include('flash::messages')
+
     <div class="col-md-6 col-md-offset-3">
         <h1 class="center">Reset Password</h1>
         {!! open(['route' => 'auth.reset', 'method' => 'post']) !!}
