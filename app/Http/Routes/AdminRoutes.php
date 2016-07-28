@@ -6,12 +6,14 @@ $router->group(['middleware' => ['auth'], 'prefix' => 'admin'], function () use 
 
     $router->resource('users', 'Admin\UsersController');
 
-    $router->resource('categories', 'Admin\CategoryController');
+    $router->resource('specials', 'Admin\SpecialsController');
+    $router->get('specials/removeimage/{specials}/{imageid}', ['uses' => 'Admin\SpecialsController@removeImage', 'as' => 'admin.specials.removeimage']);
 
     $router->resource('units', 'Admin\UnitController');
 
     $router->resource('unitrequests', 'Admin\RequestsController',  ['except' => ['create', 'edit', 'store', 'update']]);
 
+    $router->resource('categories', 'Admin\CategoryController');
     $router->get('categories/moveup/{categories}', ['uses' => 'Admin\CategoryController@moveUp', 'as' => 'admin.categories.moveup']);
     $router->get('categories/movedown/{categories}', ['uses' => 'Admin\CategoryController@moveDown', 'as' => 'admin.categories.movedown']);
     $router->get('categories/removeimage/{categories}/{imageid}', ['uses' => 'Admin\CategoryController@removeImage', 'as' => 'admin.categories.removeimage']);

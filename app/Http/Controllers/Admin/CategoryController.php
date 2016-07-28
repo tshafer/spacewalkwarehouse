@@ -205,6 +205,7 @@ class CategoryController extends Controller
             $category->enabled = false;
         }
 
+        $category->clearMediaCollection();
         if ($request->hasFile('image')) {
             $category->addMedia($request->file('image'))->preservingOriginal()->toCollection('categories');
         }

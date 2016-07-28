@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Special;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -42,7 +43,16 @@ class SiteController extends Controller
     {
         return view('terms_conditions');
     }
-    
+
+    /**
+     * @return mixed
+     */
+    public function special()
+    {
+        $specials = Special::all();
+
+        return view('specials', compact('specials'));
+    }
 
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View

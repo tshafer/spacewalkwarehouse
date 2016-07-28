@@ -29,7 +29,11 @@
                         <i class="sidebar-nav-icon"></i>Requests
                     </a>
                 </li>
-
+                <li class="{{active_class('admin/specials*')}}">
+                    <a href="{{route('admin.specials.index')}}">
+                        <i class="sidebar-nav-icon"></i>Specials
+                    </a>
+                </li>
                 <li class="{{active_class('admin/users*')}}">
                     <a href="{{route('admin.users.index')}}">
                         <i class="sidebar-nav-icon"></i>Users

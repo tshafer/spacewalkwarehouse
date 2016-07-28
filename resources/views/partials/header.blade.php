@@ -71,7 +71,7 @@
                         @endforeach
                     </ul>
                 </li>
-                <li><a href="cart.html"><i class="fa fa-gift" aria-hidden="true"></i>&nbsp;Specials</a></li>
+                <li><a href="{{route('special')}}"><i class="fa fa-gift" aria-hidden="true"></i>&nbsp;Specials</a></li>
                 <li><a href="{{route('cart.index')}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;Checkout</a>
                 </li>
                 <li><a href="{{ route('contact') }}"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;Contact</a>

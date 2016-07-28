@@ -47,6 +47,11 @@ $router->get('contact', [
     'uses' => 'SiteController@contact',
 ]);
 
+$router->get('specials', [
+    'as'   => 'special',
+    'uses' => 'SiteController@special',
+]);
+
 $router->post('contact', [
     'as'   => 'contact.post',
     'uses' => 'SiteController@contactPost',
@@ -75,6 +80,7 @@ $router->get('loggies', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index
 $router->model('units', App\Unit::class);
 $router->model('users', App\User::class);
 $router->model('products', App\Product::class);
+$router->model('specials', App\Special::class);
 $router->model('categories', App\Category::class);
 $router->model('unitrequests', App\UnitRequest::class);
 
