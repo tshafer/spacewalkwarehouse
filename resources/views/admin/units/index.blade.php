@@ -8,7 +8,7 @@
             <div class="block-options pull-right">
                 {!! toolbar_link('admin.units.create', 'fa-plus', 'New Unit') !!}
             </div>
-            <h2>Products</h2>
+            <h2>Units</h2>
         </div>
 
         <table class="table table-striped table-hover">

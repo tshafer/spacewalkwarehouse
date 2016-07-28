@@ -96,7 +96,9 @@ class SiteController extends Controller
 
         });
 
-        return redirect()->route('contact')->withMessage('Thank you for contacting us. We will be in touch soon.');
+        flash('Thank you for contacting us. We will be in touch soon.');
+
+        return redirect()->route('contact');
     }
 
 }

@@ -7,32 +7,20 @@
     <div class="container main-container">
         <div class="row">
             @include('flash::messages')
-            @if(Session::has('message'))
-                <div class="alert alert-info">
-                    {{ Session::get('message') }}
-                </div>
-            @endif
+
             <div class="col-lg-3 col-md-3 col-sm-12">
 
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="no-padding">
                         <span class="title">OUR LOCATION</span>
                     </div>
-                    Online Shop<br/>
-                    Street address<br/>
-                    Store Town<br/>
-                    ZIP
-                    <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-                            src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=cihanjuang&amp;sll=37.0625,-95.677068&amp;sspn=56.637293,79.013672&amp;ie=UTF8&amp;hq=&amp;hnear=Cihanjuang.,+Cimahi+Utara,+Cimahi,+Jawa+Barat,+Indonesia&amp;t=m&amp;z=14&amp;ll=-6.858623,107.5664&amp;output=embed"></iframe>
-                    <br/>
-                    <small>
-                        <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=cihanjuang&amp;sll=37.0625,-95.677068&amp;sspn=56.637293,79.013672&amp;ie=UTF8&amp;hq=&amp;hnear=Cihanjuang.,+Cimahi+Utara,+Cimahi,+Jawa+Barat,+Indonesia&amp;t=m&amp;z=14&amp;ll=-6.858623,107.5664"
-                           style="color:#0000FF;text-align:left">View Larger Map</a></small>
+                    Space Walk Sales<br/>
+                    450 31st St.<br/>
+                    Kenner, LA 70065<br/>
+                    Phone:<br/>
+                    Email: {{ mailto('sales@herecomesfun.com', 'sales@herecomesfun.com') }}<br/>
                 </div>
-                <!-- End OUR LOCATION -->
-
             </div>
-
             <div class="clearfix visible-sm"></div>
 
 

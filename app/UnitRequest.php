@@ -26,13 +26,11 @@ class UnitRequest extends Model
     protected $fillable = [
         'first_name',
         'last_name',
-        'email',
+        'company_name',
+        'company_website',
         'phone',
-        'address',
-        'city',
-        'state',
-        'zip',
-        'comment',
+        'email',
+        'message',
     ];
 
 

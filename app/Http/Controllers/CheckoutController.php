@@ -27,14 +27,11 @@ class CheckoutController extends Controller
     {
 
         $this->validate($request, [
-            'first_name' => 'required',
-            'last_name'  => 'required',
-            'email'      => 'required',
-            'phone'      => 'required',
-            'address'    => 'required',
-            'city'       => 'required',
-            'state'      => 'required',
-            'zip'        => 'required',
+            'first_name'      => 'required',
+            'last_name'       => 'required',
+            'email'           => 'required|email',
+            'phone'           => 'required|regex:/^\+?[^a-zA-Z]{5,}$/',
+            'company_website' => 'url',
         ]);
         $unitRequest = UnitRequest::create($request->all());
 
@@ -52,7 +49,6 @@ class CheckoutController extends Controller
             $message->to('tj@tjshafer.com');
 
         });
-
 
         Cart::destroy();
 

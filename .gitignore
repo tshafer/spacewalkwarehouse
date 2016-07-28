@@ -3,3 +3,4 @@
 .env
 /.idea
 /public/uploads
+public/.DS_Store

@@ -20,6 +20,7 @@ class CreateUnitsTable extends Migration
             $table->longText('description');
             $table->text('height');
             $table->text('length');
+            $table->text('model');
             $table->text('width');
             $table->decimal('price', 10, 2);
             $table->timestamps();

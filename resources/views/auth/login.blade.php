@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title') Sign Space Walk Online @stop
+@section('title') Sign in to Space Walk Online @stop
 
 @section('content')
     <div class="container">

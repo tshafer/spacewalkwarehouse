@@ -22,7 +22,15 @@
                 <table class="table table-striped table-hover">
 
                     <tr>
-                        <td> Email</td>
+                        <td>Company Name</td>
+                        <td>{!! $unitRequest->company_name!!}</td>
+                    </tr>
+                    <tr>
+                        <td>Company Website</td>
+                        <td>{!! $unitRequest->company_website!!}</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
                         <td>{!! $unitRequest->email!!}</td>
                     </tr>
                     <tr>
@@ -30,24 +38,8 @@
                         <td>{!! $unitRequest->phone!!}</td>
                     </tr>
                     <tr>
-                        <td>Adddress</td>
-                        <td>{!! $unitRequest->address!!}</td>
-                    </tr>
-                    <tr>
-                        <td>City</td>
-                        <td>{!! $unitRequest->city!!}</td>
-                    </tr>
-                    <tr>
-                        <td>State</td>
-                        <td>{!! $unitRequest->state!!}</td>
-                    </tr>
-                    <tr>
-                        <td>Zip</td>
-                        <td>{!! $unitRequest->zip!!}</td>
-                    </tr>
-                    <tr>
-                        <td>Comment</td>
-                        <td>{!! $unitRequest->comment!!}</td>
+                        <td>Message</td>
+                        <td>{!! $unitRequest->message!!}</td>
                     </tr>
                     @if($unitRequest->units->count() > 0)
                         <tr>

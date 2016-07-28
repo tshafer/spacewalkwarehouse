@@ -8,11 +8,6 @@
     <div class="container main-container">
         <div class="row">
             @include('flash::messages')
-            @if(Session::has('message'))
-                <div class="alert alert-info">
-                    {{ Session::get('message') }}
-                </div>
-            @endif
             <div class="col-md-12">
                 <div class="col-lg-12 col-sm-12">
                     <span class="title">CHECKOUT</span>
@@ -22,12 +17,24 @@
 
                     <div class="row form-group">
                         <div class="col-md-6">
-                            {{ label('First Name')}}
+                            {{ label('first_name')}}
                             {{ input('first_name','first_name', old('first_name'), ['class' => 'form-control', 'required']) }}
                         </div>
                         <div class="col-md-6">
-                            {{ label('Last Name')}}
-                            {{ input('last_name','last_name', old('last_name'), ['class' => 'form-control', 'required']) }}
+                            {{ label('last_name')}}
+                            {{ input('last_name','last_name', old('company_website'), ['class' => 'form-control','required']) }}
+                        </div>
+                    </div>
+
+
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            {{ label('company_name')}}
+                            {{ input('company_name','company_name', old('company_name'), ['class' => 'form-control']) }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ label('company_website')}}
+                            {{ input('company_website','company_website', old('company_website'), ['class' => 'form-control']) }}
                         </div>
                     </div>
 
@@ -37,37 +44,16 @@
                             {{ input('email','email', old('email'), ['class' => 'form-control', 'required']) }}
                         </div>
                         <div class="col-md-6">
-                            {{ label('Telephone')}}
+                            {{ label('Phone')}}
                             {{ input('phone','phone', old('telephone'), ['class' => 'form-control', 'required']) }}
                         </div>
                     </div>
 
-                    <div class="row form-group">
-                        <div class="col-md-12">
-                            {{ label('address') }}
-                            {{ textarea('address', old('address'), ['class' => 'form-control', 'rows' => 5, 'required']) }}
-                        </div>
-                    </div>
-
-                    <div class="row form-group">
-                        <div class="col-md-4">
-                            {{ label('city')}}
-                            {{ input('city','city', old('city'), ['class' => 'form-control', 'required']) }}
-                        </div>
-                        <div class="col-md-4">
-                            {{ label('state')}}
-                            {{ state_select('state', old('state'), ['class' => 'form-control', 'required']) }}
-                        </div>
-                        <div class="col-md-4">
-                            {{ label('zip')}}
-                            {{ input('zip','zip', old('zip'), ['class' => 'form-control', 'required']) }}
-                        </div>
-                    </div>
 
                     <div class="row form-group">
                         <div class="col-md-12">
-                            {{ label('comment') }}
-                            {{ textarea('comment', old('comment'), ['class' => 'form-control', 'rows' => 5, 'required']) }}
+                            {{ label('message') }}
+                            {{ textarea('message', old('message'), ['class' => 'form-control', 'rows' => 5, 'max-length' => 1000]) }}
                         </div>
                     </div>
 
@@ -95,7 +81,9 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">{{$unit->options->product_name}}</a> - ({{$unit->options->width}} x {{$unit->options->length}} x {{$unit->options->height}}) - ({{$unit->options->weight}} LBS)
+                                        <a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">{{$unit->options->product_name}}</a>
+                                        - ({{$unit->options->width}} x {{$unit->options->length}}
+                                        x {{$unit->options->height}}) - ({{$unit->options->weight}} LBS)
                                     </td>
                                     <td>${{$unit->price}}</td>
                                 </tr>

@@ -7,12 +7,6 @@
     <div class="container main-container">
         <div class="row">
             @include('flash::messages')
-            @if(Session::has('message'))
-                <div class="alert alert-info">
-                    {{ Session::get('message') }}
-                </div>
-            @endif
-
             <div class="col-md-12">
                 <div class="col-lg-12 col-sm-12">
                     <span class="title">SHOPPING CART</span>

@@ -47,6 +47,10 @@
                         <td>{!! $unit->price!!}</td>
                     </tr>
                     <tr>
+                        <td>Model</td>
+                        <td>{!! $unit->model!!}</td>
+                    </tr>
+                    <tr>
                         <td>Product</td>
                         <td>
                             <a href="{{route('admin.products.show', $unit->product->id)}}">{{ $unit->product->name  }}</a>

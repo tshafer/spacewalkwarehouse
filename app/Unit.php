@@ -36,6 +36,7 @@ class Unit extends Model implements Buyable
         'length',
         'weight',
         'price',
+        'model'
     ];
 
 
