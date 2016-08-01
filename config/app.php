@@ -1,4 +1,5 @@
 <?php
+
 return [
 
     'public_url'      => '',
@@ -151,6 +152,7 @@ return [
         Baum\Providers\BaumServiceProvider::class,
         Radic\BladeExtensions\BladeExtensionsServiceProvider::class,
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
+        Sofa\Eloquence\ServiceProvider::class,
     ],
     /*
     |--------------------------------------------------------------------------
@@ -200,6 +202,7 @@ return [
         'Html'    => Collective\Html\HtmlFacade::class,
         'Listify' => Lookitsatravis\Listify\Listify::class,
         'Cart'    => \Gloudemans\Shoppingcart\Facades\Cart::class,
+
     ],
 
 ];

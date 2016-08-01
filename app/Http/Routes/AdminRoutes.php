@@ -6,8 +6,12 @@ $router->group(['middleware' => ['auth'], 'prefix' => 'admin'], function () use 
 
     $router->resource('users', 'Admin\UsersController');
 
-    $router->resource('specials', 'Admin\SpecialsController');
     $router->get('specials/removeimage/{specials}/{imageid}', ['uses' => 'Admin\SpecialsController@removeImage', 'as' => 'admin.specials.removeimage']);
+    $router->resource('specials', 'Admin\SpecialsController');
+    
+    $router->get('sliders/removeimage/{sliders}/{imageid}', ['uses' => 'Admin\SlidersController@removeImage', 'as' => 'admin.sliders.removeimage']);
+    $router->resource('sliders', 'Admin\SlidersController');
+
 
     $router->resource('units', 'Admin\UnitController');
 

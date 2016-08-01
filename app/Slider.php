@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 
-class Special extends Model implements HasMediaConversions
+class Slider extends Model implements HasMediaConversions
 {
 
     use Linkable, Sortable, Attributes, HasMediaTrait;
@@ -18,7 +18,7 @@ class Special extends Model implements HasMediaConversions
      *
      * @var string
      */
-    protected $table = 'specials';
+    protected $table = 'sliders';
 
     /**
      * Autoload Relationships
@@ -34,7 +34,7 @@ class Special extends Model implements HasMediaConversions
      */
     protected $fillable = [
         'title',
-        'description'
+        'url'
     ];
 
     /**
@@ -43,9 +43,9 @@ class Special extends Model implements HasMediaConversions
     public function registerMediaConversions()
     {
 
-        $this->addMediaConversion('thumb')->setManipulations(['w' => 240, 'h' => 160])->performOnCollections('specials');
+        $this->addMediaConversion('thumb')->setManipulations(['w' => 240, 'h' => 160])->performOnCollections('sliders');
 
         $this->addMediaConversion('adminThumb')->setManipulations(['w' => 100, 'h' => 100, 'sharp' => 15])->performOnCollections('*');
     }
-    
+
 }

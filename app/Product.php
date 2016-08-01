@@ -51,6 +51,8 @@ class Product extends Model implements HasMediaConversions
 
         $this->addMediaConversion('thumb')->setManipulations(['w' => 240, 'h' => 160])->performOnCollections('products');
 
+        $this->addMediaConversion('medium')->setManipulations(['w' => 720])->performOnCollections('products');
+
         $this->addMediaConversion('full')->setManipulations(['w' => 730, 'h' => 486])->performOnCollections('products');
 
         $this->addMediaConversion('adminThumb')->setManipulations(['w' => 100, 'h' => 100, 'sharp' => 15])->performOnCollections('*');
@@ -72,6 +74,17 @@ class Product extends Model implements HasMediaConversions
     public function units()
     {
         return $this->hasMany(Unit::class);
+    }
+
+
+    /**
+     * @param $query
+     *
+     * @return mixed
+     */
+    public function scopeEnabled($query)
+    {
+        return $query->where('enabled', 1);
     }
 
 

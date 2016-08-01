@@ -13,31 +13,35 @@
                 </div>
 
                 @if($products->count() > 0)
-                    @foreach($products as $product)
-                        <div class="col-lg-4 col-sm-4 hero-feature text-center">
-                            <div class="thumbnail">
-                                <a href="{{route('product', [$category->slug, $product->slug])}}">
-                                    @if($product->getMedia('products')->count() > 0)
-                                        <img src="{{url('/')}}{{$product->media->first()->getUrl('thumb')}}"
-                                             alt="{{ $product->name }}"/>
-                                    @endif
-                                </a>
-
-                                <div class="caption prod-caption">
-                                    <h4><a href="{{route('product', [$category->slug, $product->slug])}}"
-                                           class="color_dark">
-                                            {{ $product->name }}
+                    @foreach($products->chunk(3) as $chunkedProducts)
+                        <div class="row">
+                            @foreach($chunkedProducts as $product)
+                                <div class="col-lg-4 col-sm-4 hero-feature text-center">
+                                    <div class="thumbnail">
+                                        <a href="{{route('product', [$category->slug, $product->slug])}}">
+                                            @if($product->getMedia('products')->count() > 0)
+                                                <img src="{{url('/')}}{{$product->media->first()->getUrl('thumb')}}"
+                                                     alt="{{ $product->name }}"/>
+                                            @endif
                                         </a>
-                                    </h4>
-                                    <p>{{$product->description}}</p>
-                                    <p>
-                                    <div class="btn-group">
-                                        <a href="{{route('product', [$category->slug, $product->slug])}}"
-                                           class="btn btn-primary">View</a>
+
+                                        <div class="caption prod-caption">
+                                            <h4><a href="{{route('product', [$category->slug, $product->slug])}}"
+                                                   class="color_dark">
+                                                    {{ $product->name }}
+                                                </a>
+                                            </h4>
+                                            <p>{{$product->description}}</p>
+                                            <p>
+                                            <div class="btn-group">
+                                                <a href="{{route('product', [$category->slug, $product->slug])}}"
+                                                   class="btn btn-primary">View</a>
+                                            </div>
+                                            </p>
+                                        </div>
                                     </div>
-                                    </p>
                                 </div>
-                            </div>
+                            @endforeach
                         </div>
                     @endforeach
                 @else

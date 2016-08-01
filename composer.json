@@ -26,7 +26,7 @@
     "radic/blade-extensions": "^6.2",
     "gloudemans/shoppingcart": "^2.1",
     "league/fractal": "^0.13.0",
-    "nicolaslopezj/searchable": "1.*"
+    "sofa/eloquence": "^5.2"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",

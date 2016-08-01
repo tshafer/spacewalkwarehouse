@@ -59,44 +59,49 @@
 
                 </div>
                 <div class="col-md-12">
-                    <div class="table-responsive">
-                        <table class="table table-bordered tbl-cart">
-                            <thead>
+                    <table class="table table-bordered cart tbl-cart table-hover table-condensed">
+                        <thead>
+                        <tr>
+                            <td>Product</td>
+                            <td>Price</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach(Cart::instance(session('cartId'))->content() as $unit)
                             <tr>
-                                <td class="hidden-xs">Image</td>
-                                <td>Product Name</td>
-                                <td>Price</td>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach(Cart::content() as $unit)
-                                <tr>
-                                    <td class="hidden-xs">
-                                        @if($unit->options->image)
-                                            <a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">
-                                                <img src="{{$unit->options->image}}"
-                                                     alt="{{$unit->options->product_name}}" title=""
-                                                     width="47" height="47"/>
-                                            </a>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        <a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">{{$unit->options->product_name}}</a>
-                                        - ({{$unit->options->width}} x {{$unit->options->length}}
-                                        x {{$unit->options->height}}) - ({{$unit->options->weight}} LBS)
-                                    </td>
-                                    <td>${{$unit->price}}</td>
-                                </tr>
-                            @endforeach
+                                <td data-th="Product">
+                                    <div class="row">
+                                        <div class="col-sm-2 hidden-xs">
+                                            @if($unit->options->image)
+                                                <a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">
+                                                    <img src="{{$unit->options->image}}"
+                                                         alt="{{$unit->options->product_name}}" title=""
+                                                         width="47" height="47"/>
+                                                </a>
+                                            @endif
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">{{$unit->options->product_name}}</a>
+                                            - ({{$unit->options->width}} x {{$unit->options->length}}
+                                            x {{$unit->options->height}}) - ({{$unit->options->weight}} LBS)
+                                        </div>
+                                    </div>
 
-                            <tr>
-                                <td colspan="2" align="right">Total</td>
-                                <td class="total" colspan="2"><b>${{Cart::subtotal()}}</b>
+                                </td>
+
+                                <td data-th="Price" class="text-center">
+                                    ${{$unit->price}}
                                 </td>
                             </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                        @endforeach
+                        </tbody>
+                        <tfoot>
+                        <tr>
+                            <td class="hidden-xs"></td>
+                            <td class="total text-center">Total <b>${{Cart::instance(session('cartId'))->subtotal()}}</b>
+                        </tr>
+                        </tfoot>
+                    </table>
                     <div class="row form-group">
                         <div class="col-md-12">
                             <div class="btn-group btns-cart pull-right">

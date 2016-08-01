@@ -63,9 +63,14 @@ $router->get('category/{category}', [
 ]);
 
 
-$router->get('/category/{category}/{product}', [
+$router->get('category/{category}/{product}', [
     'as'   => 'product',
     'uses' => 'ProductController@show',
+]);
+
+$router->post('search', [
+    'as'   => 'search',
+    'uses' => 'SiteController@search',
 ]);
 
 $router->resource('cart', 'CartController',  ['except' => ['create','edit', 'show','update']]);
@@ -79,6 +84,7 @@ $router->get('loggies', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index
  */
 $router->model('units', App\Unit::class);
 $router->model('users', App\User::class);
+$router->model('sliders', App\Slider::class);
 $router->model('products', App\Product::class);
 $router->model('specials', App\Special::class);
 $router->model('categories', App\Category::class);

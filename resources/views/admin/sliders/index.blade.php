@@ -1,14 +1,14 @@
 @extends('admin.layout')
 
-@section('title') Specials @stop
+@section('title') Sliders @stop
 
 @section('content')
     <div class="block">
         <div class="block-title">
             <div class="block-options pull-right">
-                {!! toolbar_link('admin.specials.create', 'fa-plus', 'New Special') !!}
+                {!! toolbar_link('admin.sliders.create', 'fa-plus', 'New Slider') !!}
             </div>
-            <h2>Specials</h2>
+            <h2>Sliders</h2>
         </div>
 
         <table class="table table-striped table-hover">
@@ -22,19 +22,19 @@
             </tr>
             </thead>
             <tbody>
-            @if($specials->count() > 0)
-                @foreach($specials as $special)
+            @if($sliders->count() > 0)
+                @foreach($sliders as $slider)
                     <tr>
-                        <td>{{$special->id}}</td>
-                        <td>{{$special->name}}</td>
-                        <td>{{$special->is_enabled}}</td>
+                        <td>{{$slider->id}}</td>
+                        <td>{{$slider->name}}</td>
+                        <td>{{$slider->is_enabled}}</td>
                         <td>
-                            @if($specials->media->count() > 0)
-                                <img src="{!! $special->media->first()->getUrl('adminThumb')!!}"/>
+                            @if($slider->media->count() > 0)
+                                <img src="{!! $slider->media->first()->getUrl('adminThumb')!!}"/>
                             @endif
                         </td>
                         <td class="min">
-                            {!!$special->getTableLinks()!!}
+                            {!!$slider->getTableLinks()!!}
                         </td>
 
                     </tr>
@@ -42,13 +42,13 @@
             @else
                 <tr>
                     <td colspan="5">
-                        There are no specials available
+                        There are no sliders available
                     </td>
                 </tr>
             @endif
 
             </tbody>
         </table>
-        {!! paginate($specials) !!}
+        {!! paginate($sliders) !!}
     </div>
 @stop

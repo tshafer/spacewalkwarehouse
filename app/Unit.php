@@ -6,14 +6,12 @@ use App\Support\Traits\Linkable;
 use App\Support\Traits\Sortable;
 use Gloudemans\Shoppingcart\Contracts\Buyable;
 use Illuminate\Database\Eloquent\Model;
-use MartinBean\Database\Eloquent\Sluggable;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
+use Sofa\Eloquence\Eloquence;
 
 class Unit extends Model implements Buyable
 {
 
-    use Linkable, Sortable, Attributes;
+    use Linkable, Sortable, Attributes, Eloquence;
 
     /**
      * The database table used by the model.
@@ -21,7 +19,6 @@ class Unit extends Model implements Buyable
      * @var string
      */
     protected $table = 'units';
-
 
     /**
      * The attributes that are mass assignable.
@@ -36,9 +33,22 @@ class Unit extends Model implements Buyable
         'length',
         'weight',
         'price',
-        'model'
+        'model',
     ];
 
+    /**
+     * Searchable rules.
+     *
+     * @var array
+     */
+    protected $searchableColumns = [
+        'description'         => 20,
+        'name'                => 10,
+        'model'               => 10,
+        'weight'              => 10,
+        'product.name'        => 10,
+        'product.description' => 5,
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
@@ -54,7 +64,7 @@ class Unit extends Model implements Buyable
      */
     public function unitRequests()
     {
-        return $this->belongsToMany(Product::class);
+        return $this->belongsToMany(UnitRequest::class);
     }
 
 
@@ -101,6 +111,7 @@ class Unit extends Model implements Buyable
         $this->attributes['price'] = number_format($price, 2);
     }
 
+
     /**
      * @param $price
      *
@@ -108,6 +119,6 @@ class Unit extends Model implements Buyable
      */
     public function getPriceAttribute($price)
     {
-        return number_format((float) $price, 2);
+        return number_format((float)$price, 2);
     }
 }

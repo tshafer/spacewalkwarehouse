@@ -15,8 +15,7 @@ class CategoryController extends Controller
      */
     public function index(Category $category)
     {
-
-        $products = $category->products()->paginate(40);
+        $products = $category->productsEnabled()->paginate(45);
 
         return view('category', compact('category', 'products'));
     }

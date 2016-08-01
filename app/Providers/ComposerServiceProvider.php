@@ -18,7 +18,7 @@ class ComposerServiceProvider extends ServiceProvider
     {
         //Cache::forget('categories');
         //$categories = Cache::remember('categories', 10080, function () {
-        $categories = Category::roots()->whereEnabled(1)->get();
+        $categories = Category::roots()->enabled()->get();
         //});
 
         // Using Closure based composers...

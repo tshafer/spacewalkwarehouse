@@ -30,15 +30,15 @@
                         <td>{{$product->name}}</td>
                         <td>{{$product->is_enabled}}</td>
                         <td>
-                            @if($product->categories()->count() > 0)
-                                @foreach($product->categories()->get() as $category)
+                            @if($product->categories->count() > 0)
+                                @foreach($product->categories as $category)
                                     <a href="{{route('admin.categories.show', $category->id)}}">{{ $category->name }}</a>
                                 @endforeach
                             @endif
                         </td>
                         <td>
-                            @if($product->getMedia()->count() > 0)
-                                <img src="{{url('/')}}{!! $product->getMedia('products')->first()->getUrl('adminThumb')!!}"/>
+                            @if($product->media->count() > 0)
+                                <img src="{{url('/')}}{!! $product->media->first()->getUrl('adminThumb')!!}"/>
                             @endif
                         </td>
                         <td class="min">

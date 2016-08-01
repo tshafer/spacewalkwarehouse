@@ -66,7 +66,16 @@ class Category extends Node implements HasMediaConversions
 
         $this->addMediaConversion('adminThumb')->setManipulations(['w' => 100, 'h' => 100, 'sharp' => 15])->performOnCollections('*');
     }
-    
+
+
+    /**
+     * @return mixed
+     */
+    public function productsEnabled()
+    {
+        return $this->products()->enabled();
+    }
+
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
@@ -74,6 +83,17 @@ class Category extends Node implements HasMediaConversions
     public function products()
     {
         return $this->belongsToMany(Product::class);
+    }
+
+
+    /**
+     * @param $query
+     *
+     * @return mixed
+     */
+    public function scopeEnabled($query)
+    {
+        return $query->where('enabled', 1);
     }
 
 

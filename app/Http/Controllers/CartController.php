@@ -31,7 +31,7 @@ class CartController extends Controller
 
         $media = ($unit->product->media->count() > 0) ? $unit->product->media->first()->getUrl('thumb') : null;
 
-        Cart::add($unit->id, $unit->description, 1, $unit->price, [
+            Cart::instance(session('cartId'))->add($unit->id, $unit->description, 1, $unit->price, [
                 'product_name' => $unit->product->name,
                 'image'        => $media,
                 'productSlug'  => $unit->product->slug,
@@ -41,6 +41,7 @@ class CartController extends Controller
                 'height'       => $unit->height,
                 'weight'       => $unit->weight,
             ]);
+
 
         Session::flash('backUrl', Previous::server('HTTP_REFERER'));
 
@@ -56,7 +57,7 @@ class CartController extends Controller
      */
     public function destroy(Request $request, $unitId)
     {
-        Cart::remove($unitId);
+        Cart::instance(session('cartId'))->remove($unitId);
 
         flash('Item has been removed from your cart.');
 

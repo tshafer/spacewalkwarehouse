@@ -19,7 +19,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::with(['categories', 'categories.media'])->paginate(45);
 
         return view('admin.products.index', compact('products'));
     }
@@ -206,10 +206,10 @@ class ProductController extends Controller
 
 
     /**
-     * @param \App\Product      $product
-     * @param                   $imageId
+     * @param \App\Product             $product
+     * @param \Illuminate\Http\Request $request
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return mixed
      */
     public function deleteImage(Product $product, Request $request)
     {

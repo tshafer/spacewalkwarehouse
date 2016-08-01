@@ -1,9 +1,9 @@
 @extends('admin.layout')
 
-@section('title') Special @stop
+@section('title') Slider @stop
 
 @section('subtitle')
-    {{$special->name}}
+    {{$slider->name}}
 @stop
 
 @section('content')
@@ -15,31 +15,31 @@
                     <h2>Slider Content</h2>
                     <div class="block-options pull-right">
 
-                        {!! toolbar_link(['admin.specials.edit', $special->id], 'fa-edit', 'Edit Special') !!}
-                        {!! toolbar_link('admin.specials.create', 'fa-plus', 'New Special') !!}
+                        {!! toolbar_link(['admin.sliders.edit', $slider->id], 'fa-edit', 'Edit Slider') !!}
+                        {!! toolbar_link('admin.sliders.create', 'fa-plus', 'New Slider') !!}
                     </div>
                 </div>
                 <table class="table table-striped table-hover">
 
                     <tr>
                         <td> Title</td>
-                        <td colspan=2">{!! $special->title!!}</td>
+                        <td colspan=2">{!! $slider->title!!}</td>
                     </tr>
 
                     <tr>
                         <td> Description</td>
-                        <td colspan=2">{!! $special->description!!}</td>
+                        <td colspan=2">{!! $slider->url!!}</td>
                     </tr>
 
 
-                    @if($special->getMedia('specials')->count() > 0)
+                    @if($slider->getMedia('sliders')->count() > 0)
                         <tr>
                             <td>Image</td>
                             <td>
-                                <img src="{{url('/')}}{!! $special->getMedia('specials')->first()->getUrl('adminThumb')!!}"/><br/>
+                                <img src="{{url('/')}}{!! $slider->getMedia('sliders')->first()->getUrl('adminThumb')!!}"/><br/>
                             </td>
                             <td>
-                                <a href="{{ route('admin.specials.removeimage',[$special->id, $special->getMedia('specials')->first()->id]) }}"
+                                <a href="{{ route('admin.sliders.removeimage',[$slider->id, $slider->getMedia('sliders')->first()->id]) }}"
                                    class="btn btn-warning btn-sm">Remove </a>
                             </td>
                         </tr>
@@ -55,8 +55,8 @@
                 <div class="block-title">
                     <h2>DANGER ZONE</h2>
                 </div>
-                {!! Form::open(['route' => ['admin.specials.destroy', $special->id], 'method' => 'delete']) !!}
-                {!! Form::submit('DELETE SPECIAL', ['class' => 'btn btn-block btn-danger']) !!}
+                {!! Form::open(['route' => ['admin.sliders.destroy', $slider->id], 'method' => 'delete']) !!}
+                {!! Form::submit('DELETE SLIDER', ['class' => 'btn btn-block btn-danger']) !!}
                 {!! Form::close() !!}
                 <br/>
             </div>

@@ -20,7 +20,7 @@
                                 @foreach ($product->media as $photo)
                                     <li data-thumb="{{$photo->getUrl('thumb') }}"
                                         data-src="{{$photo->getUrl('full') }}"><img
-                                                src="{{$photo->getUrl('thumb') }}"/></li>
+                                                src="{{$photo->getUrl('medium') }}"/></li>
                                 @endforeach
                             </ul>
                         </div>

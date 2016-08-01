@@ -4,28 +4,24 @@
 
 @section('content')
 
-
     <div class="container main-container">
         <div class="row">
 
             <div class="col-lg-12 col-md-12">
                 <div class="slider">
                     <ul class="bxslider">
-                        <li>
-                            <a href="index.html">
-                                <img src="http://herecomesfun.com/frontend/assets/img/about_us.jpg" alt=""/>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="index.html">
-                                <img src="http://herecomesfun.com/frontend/assets/img/about_us.jpg" alt=""/>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="index.html">
-                                <img src="http://herecomesfun.com/frontend/assets/img/about_us.jpg" alt=""/>
-                            </a>
-                        </li>
+                        @if($sliders->count() > 0)
+                            @foreach($sliders as $slider)
+                                @if($slider->getMedia('sliders')->count() > 0)
+                                    <li>
+                                        <a href="{{$slider->url}}">
+                                            <img src="{{url('/')}}{{$slider->media->first()->getUrl()}}"
+                                                 alt="{{ $slider->title }}" class="img-responsive"/>
+                                        </a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        @endif
                     </ul>
                 </div>
             </div>
@@ -35,16 +31,17 @@
         <div class="row">
             <div class="col-lg-12 col-md-12">
                 <div class="well">
-                    <form action="">
-                        <div class="input-group">
-                            <input type="text" class="form-control input-search"
-                                   placeholder="Enter something to search">
-	                            <span class="input-group-btn">
-	                                <button class="btn btn-default no-border-left" type="submit"><i
-                                                class="fa fa-search"></i></button>
-	                            </span>
-                        </div>
-                    </form>
+                    {{open(['route' => 'search'])}}
+                    <div class="input-group">
+
+                        {{ input('text', 'q', null, ['class' => 'form-control input-search', 'placeholder' => 'Enter Something to Search']) }}
+                        <span class="input-group-btn">
+                            <button class="btn btn-default no-border-left" type="submit"><i class="fa fa-search"></i>
+                            </button>
+                        </span>
+
+                    </div>
+                    {{close()}}
                 </div>
             </div>
         </div>
@@ -53,120 +50,40 @@
 
             <!-- Featured -->
             <div class="col-lg-12 col-md-12 col-sm-12">
-                <div class="col-lg-12 col-sm-12">
-                    <span class="title">FEATURED PRODUCTS</span>
-                </div>
-                <div class="col-lg-4 col-sm-4 hero-feature text-center">
-                    <div class="thumbnail">
-                        <a href="detail.html" class="link-p">
-                            <img src="http://res.cloudinary.com/spacewalk/image/upload/e_trim,w_650/7090c33058c01488dd52e717e943b8fe.jpg" alt="">
-                        </a>
-                        <div class="caption prod-caption">
-                            <h4><a href="detail.html">3 Lane Mega Thrill</a></h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, minima!</p>
-                            <p>
-                            <div class="btn-group">
-                                <a href="index.html#" class="btn btn-default">$ 122.51</a>
-                                <a href="index.html#" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>
-                                    Buy</a>
-                            </div>
-                            </p>
+                <span class="title">MOST RECENT PRODUCTS</span>
+                @if($products->count() > 0)
+                    @foreach($products->chunk(3) as $chunkedProducts)
+                        <div class="row">
+                            @foreach($chunkedProducts as $product)
+                                <div class="col-lg-4 col-sm-4 hero-feature text-center">
+                                    <div class="thumbnail">
+                                        <a href="{{route('product', [$product->categories->first()->slug, $product->slug])}}">
+                                            @if($product->getMedia('products')->count() > 0)
+                                                <img src="{{url('/')}}{{$product->media->first()->getUrl('thumb')}}"
+                                                     alt="{{ $product->name }}"/>
+                                            @endif
+                                        </a>
+
+                                        <div class="caption prod-caption">
+                                            <h4>
+                                                <a href="{{route('product', [$product->categories->first()->slug, $product->slug])}}"
+                                                   class="color_dark">
+                                                    {{ $product->name }}
+                                                </a>
+                                            </h4>
+                                            <p>{{$product->description}}</p>
+                                            <div class="btn-group">
+                                                <a href="{{route('product', [$product->categories->first()->slug, $product->slug])}}"
+                                                   class="btn btn-primary">View</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-4 hero-feature text-center">
-                    <div class="thumbnail">
-                        <a href="detail.html" class="link-p">
-                            <img src="http://res.cloudinary.com/spacewalk/image/upload/e_trim,w_650/7090c33058c01488dd52e717e943b8fe.jpg" alt="">
-                        </a>
-                        <div class="caption prod-caption">
-                            <h4><a href="detail.html">3 Lane Mega Thrill</a></h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, minima!</p>
-                            <p>
-                            <div class="btn-group">
-                                <a href="index.html#" class="btn btn-default">$ 122.51</a>
-                                <a href="index.html#" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>
-                                    Buy</a>
-                            </div>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-4 hero-feature text-center">
-                    <div class="thumbnail">
-                        <a href="detail.html" class="link-p">
-                            <img src="http://res.cloudinary.com/spacewalk/image/upload/e_trim,w_650/7090c33058c01488dd52e717e943b8fe.jpg" alt="">
-                        </a>
-                        <div class="caption prod-caption">
-                            <h4><a href="detail.html">3 Lane Mega Thrill</a></h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, minima!</p>
-                            <p>
-                            <div class="btn-group">
-                                <a href="index.html#" class="btn btn-default">$ 122.51</a>
-                                <a href="index.html#" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>
-                                    Buy</a>
-                            </div>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-4 hero-feature text-center">
-                    <div class="thumbnail">
-                        <a href="detail.html" class="link-p">
-                            <img src="http://res.cloudinary.com/spacewalk/image/upload/e_trim,w_650/7090c33058c01488dd52e717e943b8fe.jpg" alt="">
-                        </a>
-                        <div class="caption prod-caption">
-                            <h4><a href="detail.html">3 Lane Mega Thrill</a></h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, minima!</p>
-                            <p>
-                            <div class="btn-group">
-                                <a href="index.html#" class="btn btn-default">$ 122.51</a>
-                                <a href="index.html#" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>
-                                    Buy</a>
-                            </div>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-4 hero-feature text-center">
-                    <div class="thumbnail">
-                        <a href="detail.html" class="link-p">
-                            <img src="http://res.cloudinary.com/spacewalk/image/upload/e_trim,w_650/7090c33058c01488dd52e717e943b8fe.jpg" alt="">
-                        </a>
-                        <div class="caption prod-caption">
-                            <h4><a href="detail.html">3 Lane Mega Thrill</a></h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, minima!</p>
-                            <p>
-                            <div class="btn-group">
-                                <a href="index.html#" class="btn btn-default">$ 122.51</a>
-                                <a href="index.html#" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>
-                                    Buy</a>
-                            </div>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-4 hero-feature text-center">
-                    <div class="thumbnail">
-                        <a href="detail.html" class="link-p">
-                            <img src="http://res.cloudinary.com/spacewalk/image/upload/e_trim,w_650/7090c33058c01488dd52e717e943b8fe.jpg" alt="">
-                        </a>
-                        <div class="caption prod-caption">
-                            <h4><a href="detail.html">3 Lane Mega Thrill</a></h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, minima!</p>
-                            <p>
-                            <div class="btn-group">
-                                <a href="index.html#" class="btn btn-default">$ 122.51</a>
-                                <a href="index.html#" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>
-                                    Buy</a>
-                            </div>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>
-
-
 @stop

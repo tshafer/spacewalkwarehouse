@@ -22,6 +22,7 @@ class CreateRequestsTable extends Migration
             $table->string('phone');
             $table->string('email');
             $table->longText('message');
+            $table->longText('cart');
             $table->timestamps();
             $table->softDeletes();
         });

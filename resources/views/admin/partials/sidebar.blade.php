@@ -2,7 +2,7 @@
     <div class="sidebar-scroll">
         <div class="sidebar-content">
             <a href="/" class="sidebar-brand">
-                <strong>SpaceWalk Admin</strong>
+                <strong>Space Walk Admin</strong>
             </a>
             <ul class="sidebar-nav">
 
@@ -32,6 +32,11 @@
                 <li class="{{active_class('admin/specials*')}}">
                     <a href="{{route('admin.specials.index')}}">
                         <i class="sidebar-nav-icon"></i>Specials
+                    </a>
+                </li>
+                <li class="{{active_class('admin/slider*')}}">
+                    <a href="{{route('admin.sliders.index')}}">
+                        <i class="sidebar-nav-icon"></i>Sliders
                     </a>
                 </li>
                 <li class="{{active_class('admin/users*')}}">

@@ -16,6 +16,10 @@ class CheckoutController extends Controller
      */
     public function index()
     {
+
+        if(Cart::instance(session('cartId'))->count() == 0)
+            return redirect()->route('home');
+
         return view('checkout');
     }
 
@@ -33,15 +37,18 @@ class CheckoutController extends Controller
             'phone'           => 'required|regex:/^\+?[^a-zA-Z]{5,}$/',
             'company_website' => 'url',
         ]);
-        $unitRequest = UnitRequest::create($request->all());
 
-        foreach (Cart::content() as $unit) {
+        $unitRequest       = UnitRequest::create($request->all());
+        $unitRequest->cart =  Cart::instance(session('cartId'))->content()->toJson();
+        $unitRequest->save();
+
+        foreach (Cart::instance(session('cartId'))->content() as $unit) {
             $unitRequest->units()->attach($unit->id);
         }
 
         $data = $request->all();
 
-        Mail::send('emails.sendRequest', ['data' => $data], function ($message) {
+        Mail::send('emails.sendRequest', ['data' => $data, 'cart' => Cart::instance(session('cartId'))->content(), 'units' => $unitRequest], function ($message) {
 
             $message->subject('Space Walk Sales Requests Form');
             $message->from('sales@spacewalk.com', 'Space Walk Sales Request');
@@ -50,7 +57,8 @@ class CheckoutController extends Controller
 
         });
 
-        Cart::destroy();
+
+        //Cart::instance(session('cartId'))->destroy();
 
         return redirect()->route('thanks');
 

@@ -1,6 +1,9 @@
 <?php namespace App\Http\Controllers;
 
+use App\Product;
+use App\Slider;
 use App\Special;
+use App\Unit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -15,7 +18,11 @@ class SiteController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $sliders = Slider::all();
+
+        $products = Product::with('units')->take(15)->orderBy('created_at', 'desc')->enabled()->get();
+
+        return view('index', compact('sliders', 'products'));
     }
 
 
@@ -36,6 +43,7 @@ class SiteController extends Controller
         return view('privacy');
     }
 
+
     /**
      * @return mixed
      */
@@ -43,6 +51,7 @@ class SiteController extends Controller
     {
         return view('terms_conditions');
     }
+
 
     /**
      * @return mixed
@@ -54,6 +63,7 @@ class SiteController extends Controller
         return view('specials', compact('specials'));
     }
 
+
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -62,6 +72,7 @@ class SiteController extends Controller
         return view('contact');
     }
 
+
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -69,7 +80,6 @@ class SiteController extends Controller
     {
         return view('thanks');
     }
-
 
 
     /**
@@ -88,7 +98,7 @@ class SiteController extends Controller
         $data = $request->all();
 
         Mail::send('emails.send', ['data' => $data], function ($message) {
-            
+
             $message->subject('Space Walk Sales Contact Form');
             $message->from('sales@spacewalk.com', 'Space Walk Sales Contact Form');
 
@@ -101,4 +111,19 @@ class SiteController extends Controller
         return redirect()->route('contact');
     }
 
+
+    /**
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return mixed
+     */
+    public function search(Request $request)
+    {
+        $query = $request->get('q');
+
+        $results = Unit::search('*' . $query)->with(['product.categories'])->paginate();
+
+        return view('results', compact('results', 'query'));
+
+    }
 }

@@ -81,12 +81,12 @@
                 <div class="btn-group btn-group-cart">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                         <span class="pull-left"><i class="fa fa-shopping-cart icon-cart"></i></span>
-                        <span class="pull-left">Shopping Cart: {{Cart::count()}} item(s)</span>
+                        <span class="pull-left">Shopping Cart: {{Cart::instance(session('cartId'))->count()}} item(s)</span>
                         <span class="pull-right"><i class="fa fa-caret-down"></i></span>
                     </button>
                     <ul class="dropdown-menu cart-content" role="menu">
-                        @if(Cart::count() > 0)
-                            @foreach(Cart::content() as $unit)
+                        @if(Cart::instance(session('cartId'))->count() > 0)
+                            @foreach(Cart::instance(session('cartId'))->content() as $unit)
                                 <li>
                                     <a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">
                                         @if($unit->options->image)
@@ -100,7 +100,7 @@
                             @endforeach
 
                             <li class="divider"></li>
-                            <li><a href="{{route('cart.index')}}">Total: ${{Cart::total()}}</a></li>
+                            <li><a href="{{route('cart.index')}}">Total: ${{Cart::instance(session('cartId'))->total()}}</a></li>
                         @else
                             &nbsp;&nbsp;Your cart seems to be empty.
                         @endif
