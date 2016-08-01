@@ -17,7 +17,7 @@ class UnitController extends Controller
      */
     public function index()
     {
-        $units = Unit::with(['product', 'product.media'])->paginate(50);
+        $units = Unit::with(['product'])->paginate(100);
 
         return view('admin.units.index', compact('units'));
     }

@@ -32,11 +32,11 @@
                     </tr>
 
 
-                    @if($special->getMedia('specials')->count() > 0)
+                    @if($special->media->count() > 0)
                         <tr>
                             <td>Image</td>
                             <td>
-                                <img src="{{url('/')}}{!! $special->getMedia('specials')->first()->getUrl('adminThumb')!!}"/><br/>
+                                <img src="{{url('/')}}{!! $special->media->first()->getUrl('adminThumb')!!}"/><br/>
                             </td>
                             <td>
                                 <a href="{{ route('admin.specials.removeimage',[$special->id, $special->getMedia('specials')->first()->id]) }}"

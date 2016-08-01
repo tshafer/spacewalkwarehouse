@@ -58,7 +58,7 @@ class CheckoutController extends Controller
         });
 
 
-        //Cart::instance(session('cartId'))->destroy();
+        Cart::instance(session('cartId'))->destroy();
 
         return redirect()->route('thanks');
 

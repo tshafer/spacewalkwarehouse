@@ -6,12 +6,13 @@ use App\Support\Traits\Linkable;
 use App\Support\Traits\Sortable;
 use Gloudemans\Shoppingcart\Contracts\Buyable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Sofa\Eloquence\Eloquence;
 
 class Unit extends Model implements Buyable
 {
 
-    use Linkable, Sortable, Attributes, Eloquence;
+    use Linkable, Sortable, Attributes, Eloquence, SoftDeletes;
 
     /**
      * The database table used by the model.

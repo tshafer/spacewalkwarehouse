@@ -14,7 +14,7 @@ class RequestsController extends Controller
      */
     public function index()
     {
-        $unitRequests = UnitRequest::paginate(40);
+        $unitRequests = UnitRequest::paginate(50);
 
         return view('admin.requests.index', compact('unitRequests'));
     }
@@ -27,7 +27,11 @@ class RequestsController extends Controller
      */
     public function show(UnitRequest $unitRequest)
     {
-        return view('admin.requests.show', compact('unitRequest'));
+        $cart = collect(json_decode($unitRequest->cart));
+
+        $total = $cart->pluck('subtotal')->sum();
+
+        return view('admin.requests.show', compact('unitRequest', 'cart', 'total'));
     }
 
 

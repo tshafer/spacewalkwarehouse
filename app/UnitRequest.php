@@ -5,11 +5,12 @@ use App\Support\Traits\Attributes;
 use App\Support\Traits\Linkable;
 use App\Support\Traits\Sortable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class UnitRequest extends Model
 {
 
-    use Linkable, Sortable, Attributes;
+    use Linkable, Sortable, Attributes, SoftDeletes;
 
     /**
      * The database table used by the model.

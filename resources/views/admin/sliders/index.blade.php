@@ -15,8 +15,7 @@
             <thead>
             <tr>
                 <th class="min">ID</th>
-                <th>Name</th>
-                <th>Enabled</th>
+                <th>Title</th>
                 <th>Image</th>
                 <th>Action</th>
             </tr>
@@ -26,8 +25,7 @@
                 @foreach($sliders as $slider)
                     <tr>
                         <td>{{$slider->id}}</td>
-                        <td>{{$slider->name}}</td>
-                        <td>{{$slider->is_enabled}}</td>
+                        <td>{{$slider->title}}</td>
                         <td>
                             @if($slider->media->count() > 0)
                                 <img src="{!! $slider->media->first()->getUrl('adminThumb')!!}"/>

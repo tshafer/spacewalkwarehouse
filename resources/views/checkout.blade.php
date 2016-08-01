@@ -76,21 +76,21 @@
                                                 <a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">
                                                     <img src="{{$unit->options->image}}"
                                                          alt="{{$unit->options->product_name}}" title=""
-                                                         width="47" height="47"/>
+                                                         width="150"/>
                                                 </a>
                                             @endif
                                         </div>
-                                        <div class="col-sm-10">
+                                        <div class="col-sm-10 cart-product">
                                             <a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">{{$unit->options->product_name}}</a>
                                             - ({{$unit->options->width}} x {{$unit->options->length}}
-                                            x {{$unit->options->height}}) - ({{$unit->options->weight}} LBS)
+                                            x {{$unit->options->height}}) - ({{$unit->options->weight}} LBS) -(#{{$unit->options->model}})
                                         </div>
                                     </div>
 
                                 </td>
 
                                 <td data-th="Price" class="text-center">
-                                    ${{$unit->price}}
+                                    ${{number_format($unit->price,2)}}
                                 </td>
                             </tr>
                         @endforeach

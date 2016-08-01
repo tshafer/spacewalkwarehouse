@@ -8,9 +8,8 @@
         <div class="row">
 
             <div class="col-md-12">
-                <div class="col-lg-12 col-sm-12">
-                    <span class="title">{{$product->name}}</span>
-                </div>
+                <span class="title">{{$product->name}}</span>
+
                 <div class="col-lg-12 col-sm-12 hero-feature">
 
                     <div class="row">
@@ -32,36 +31,36 @@
                         <div class="col-md-4 col-sm-4">
                             <div class="well product-short-detail">
                                 <div class="row">
-                                        <div class="the-list">
-                                            <table class="table">
-                                                <thead>
+                                    <div class="the-list">
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>W x L x H</th>
+                                                <th>UNIT LB</th>
+                                                <th>PRICE</th>
+                                                <th>BUY</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach ($product->units as $unit)
                                                 <tr>
-                                                    <th>W x L x H</th>
-                                                    <th>UNIT LB</th>
-                                                    <th>PRICE</th>
-                                                    <th>BUY</th>
+                                                    <td>{{$unit->width}} x {{$unit->length}}
+                                                        x {{$unit->height}}</td>
+                                                    <td>{{$unit->weight}}</td>
+                                                    <td>${{$unit->price}}</td>
+                                                    <td>
+                                                        {{open(['route' => 'cart.store'])}}
+                                                        {{ hidden('unit', $unit->id) }}
+                                                        <button type="submit" class="btn btn-primary btn-xs pull-left">
+                                                            <i class="fa fa-shopping-cart"></i> Add to Cart
+                                                        </button>
+                                                        {{close()}}
+                                                    </td>
                                                 </tr>
-                                                </thead>
-                                                <tbody>
-                                                @foreach ($product->units as $unit)
-                                                    <tr>
-                                                        <td>{{$unit->width}} x {{$unit->length}}
-                                                            x {{$unit->height}}</td>
-                                                        <td>{{$unit->weight}}</td>
-                                                        <td>{{$unit->price}}</td>
-                                                        <td>
-                                                            {{open(['route' => 'cart.store'])}}
-                                                            {{ hidden('unit', $unit->id) }}
-                                                            <button type="submit" class="btn btn-primary btn-xs pull-left"><i
-                                                                        class="fa fa-shopping-cart"></i> Add to Cart
-                                                            </button>
-                                                            {{close()}}
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>

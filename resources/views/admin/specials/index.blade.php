@@ -15,8 +15,7 @@
             <thead>
             <tr>
                 <th class="min">ID</th>
-                <th>Name</th>
-                <th>Enabled</th>
+                <th>Title</th>
                 <th>Image</th>
                 <th>Action</th>
             </tr>
@@ -26,10 +25,9 @@
                 @foreach($specials as $special)
                     <tr>
                         <td>{{$special->id}}</td>
-                        <td>{{$special->name}}</td>
-                        <td>{{$special->is_enabled}}</td>
+                        <td>{{$special->title}}</td>
                         <td>
-                            @if($specials->media->count() > 0)
+                            @if($special->media->count() > 0)
                                 <img src="{!! $special->media->first()->getUrl('adminThumb')!!}"/>
                             @endif
                         </td>
@@ -42,7 +40,7 @@
             @else
                 <tr>
                     <td colspan="5">
-                        There are no specials available
+                        There are no specials available.
                     </td>
                 </tr>
             @endif

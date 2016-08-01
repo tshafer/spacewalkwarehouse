@@ -15,7 +15,7 @@ class SpecialsController extends Controller
      */
     public function index()
     {
-        $specials = Special::all();
+        $specials = Special::with('media')->paginate(50);
 
         return view('admin.specials.index', compact('specials'));
     }

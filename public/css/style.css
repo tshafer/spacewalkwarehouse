@@ -1,3 +1,7 @@
+.cart-product {
+    line-height: 85px;
+    padding-left: 40px;
+}
 
 .table > tbody > tr > td, .table > tfoot > tr > td {
     vertical-align: middle;

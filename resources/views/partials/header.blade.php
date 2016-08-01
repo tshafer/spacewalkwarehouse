@@ -62,8 +62,8 @@
                             <li>
                                 <a href="{{ route('category', $category->slug) }}"
                                    class="{{active_class('category/'.$category->slug.'/*')}}">
-                                    @if($category->getMedia('categories')->first())
-                                        <img src=" {{$category->getMedia('categories')->first()->getUrl('adminThumb')}}"
+                                    @if($category->media->first())
+                                        <img src=" {{$category->media->first()->getUrl('adminThumb')}}"
                                              class="menu-icon">
                                     @endif
                                     {{ $category->name }}</a>
@@ -94,7 +94,7 @@
                                                  title="" width="47" height="47"/>
                                         @endif
                                         <b>{{$unit->options->product_name}}</b>
-                                        <span>${{$unit->price}}</span>
+                                        <span>${{number_format($unit->price,2)}}</span>
                                     </a>
                                 </li>
                             @endforeach

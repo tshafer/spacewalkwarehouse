@@ -3,8 +3,8 @@
 use App\Unit;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Request as Previous;
+use Illuminate\Support\Facades\Session;
 
 /**
  * @package App\Http\Controllers
@@ -31,17 +31,17 @@ class CartController extends Controller
 
         $media = ($unit->product->media->count() > 0) ? $unit->product->media->first()->getUrl('thumb') : null;
 
-            Cart::instance(session('cartId'))->add($unit->id, $unit->description, 1, $unit->price, [
-                'product_name' => $unit->product->name,
-                'image'        => $media,
-                'productSlug'  => $unit->product->slug,
-                'categorySlug' => $unit->product->categories->first()->slug,
-                'width'        => $unit->width,
-                'length'       => $unit->length,
-                'height'       => $unit->height,
-                'weight'       => $unit->weight,
-            ]);
-
+        Cart::instance(session('cartId'))->add($unit->id, $unit->description, 1, $unit->price, [
+            'product_name' => $unit->product->name,
+            'image'        => $media,
+            'productSlug'  => $unit->product->slug,
+            'categorySlug' => $unit->product->categories->first()->slug,
+            'width'        => $unit->width,
+            'length'       => $unit->length,
+            'height'       => $unit->height,
+            'weight'       => $unit->weight,
+            'model'        => $unit->model,
+        ]);
 
         Session::flash('backUrl', Previous::server('HTTP_REFERER'));
 

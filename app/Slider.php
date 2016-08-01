@@ -5,13 +5,14 @@ use App\Support\Traits\Attributes;
 use App\Support\Traits\Linkable;
 use App\Support\Traits\Sortable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 
 class Slider extends Model implements HasMediaConversions
 {
 
-    use Linkable, Sortable, Attributes, HasMediaTrait;
+    use Linkable, Sortable, Attributes, HasMediaTrait, SoftDeletes;
 
     /**
      * The database table used by the model.

@@ -12,7 +12,7 @@
 
             <div class="block">
                 <div class="block-title">
-                    <h2>Unit Content</h2>
+                    <h2>Product Content</h2>
                     <div class="block-options pull-right">
 
                         {!! toolbar_link(['admin.products.edit', $product->id], 'fa-edit', 'Edit Product') !!}
@@ -55,25 +55,36 @@
                         </tr>
                     @endif
 
-                    {!! label('image') !!}
-
-
-                    {{--@if($product->getMedia()->count() > 0)--}}
+                    @if($product->units->count() > 0)
                         <tr>
-                            <td colspan="2">Images</td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                {!!open(['route' => 'admin.products.images.add', 'id' => 'qq-form', 'data-endpoint' => route('admin.products.images.show', $product->id), 'data-deletepoint' => route('admin.products.images.delete', $product->id), 'files' => true])!!}
-                                {{ hidden('productId', $product->id) }}
-                                <div id="fine-uploader-gallery"></div>
-{{--                                <img src="{{url('/')}}{!! $product->getMedia('products')->first()->getUrl('adminThumb')!!}"/><br/>--}}
-                                {!!submit('Save Images', ['class' => 'btn btn-block btn-primary'])!!}
-                                {!! close() !!}
+                            <td>Units</td>
+                            <td>
+                                @foreach($product->units as $unit)
+                                    <a href="{{route('admin.units.show', $unit->id)}}">{{ $unit->name }}</a>,
+                                @endforeach
                             </td>
 
                         </tr>
+                    @endif
+
+                    {{--@if($product->media->count() > 0)--}}
+                    <tr>
+                        <td colspan="2">Images</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            {!!open(['route' => 'admin.products.images.add', 'id' => 'qq-form', 'data-endpoint' => route('admin.products.images.show', $product->id), 'data-deletepoint' => route('admin.products.images.delete', $product->id), 'files' => true])!!}
+                            {{ hidden('productId', $product->id) }}
+                            <div id="fine-uploader-gallery"></div>
+                            {{--                                <img src="{{url('/')}}{!! $product->getMedia('products')->first()->getUrl('adminThumb')!!}"/><br/>--}}
+                            {!!submit('Save Images', ['class' => 'btn btn-block btn-primary'])!!}
+                            {!! close() !!}
+                        </td>
+
+                    </tr>
                     {{--@endif--}}
+
+
                 </table>
             </div>
 

@@ -18,8 +18,8 @@
             </div>
 
             <div class="form-group">
-                @if(isset($category) &&  $category->getMedia('specials')->first())
-                    <img src="{{url('/')}}{!! $category->getMedia('specials')->first()->getUrl('adminThumb')!!}"/><br/>
+                @if(isset($special) &&  $special->media->first())
+                    <img src="{{url('/')}}{!! $special->media->first()->getUrl('adminThumb')!!}"/><br/>
                 @endif
                 {!! label('image') !!}
                 {!! file_input('image',['class' => 'form-control']) !!}

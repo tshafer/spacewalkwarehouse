@@ -5,6 +5,7 @@ use App\Support\Traits\Attributes;
 use App\Support\Traits\Linkable;
 use App\Support\Traits\Sortable;
 use Baum\Node;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use MartinBean\Database\Eloquent\Sluggable;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
@@ -12,7 +13,7 @@ use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 class Category extends Node implements HasMediaConversions
 {
 
-    use Linkable, Sortable, Attributes, Sluggable, HasMediaTrait;
+    use Linkable, Sortable, Attributes, Sluggable, HasMediaTrait, SoftDeletes;
 
     /**
      * The database table used by the model.
