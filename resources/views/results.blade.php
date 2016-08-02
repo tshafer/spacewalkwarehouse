@@ -49,7 +49,7 @@
                     @endforeach
                 @else
                     <div class="col-md-12">
-                        Sorry, we have no products in this for this search.
+                        Sorry, we have no products for this search.
                     </div>
                 @endif
             </div>
