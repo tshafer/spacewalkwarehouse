@@ -242,11 +242,14 @@ class CategoryController extends Controller
      * @param \App\Category $category
      * @param               $imageId
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return mixed
+     * @throws \Spatie\MediaLibrary\Exceptions\MediaDoesNotBelongToModel
      */
-    public function removeImage(Category $category, $imageId)
+    public function deleteImage(Category $category, $imageId)
     {
         $category->deleteMedia($imageId);
+
+        flash('Image deleted!');
 
         return redirect()->back();
     }

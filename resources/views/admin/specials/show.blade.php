@@ -39,7 +39,7 @@
                                 <img src="{{url('/')}}{!! $special->media->first()->getUrl('adminThumb')!!}"/><br/>
                             </td>
                             <td>
-                                <a href="{{ route('admin.specials.removeimage',[$special->id, $special->getMedia('specials')->first()->id]) }}"
+                                <a href="{{ route('admin.specials.image.delete',[$special->id, $special->media->first()->id]) }}"
                                    class="btn btn-warning btn-sm">Remove </a>
                             </td>
                         </tr>

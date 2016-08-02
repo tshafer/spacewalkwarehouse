@@ -36,10 +36,10 @@
                         <tr>
                             <td>Image</td>
                             <td>
-                                <img src="{{url('/')}}{!! $slider->getMedia('sliders')->first()->getUrl('adminThumb')!!}"/><br/>
+                                <img src="{{url('/')}}{!! $slider->media->first()->getUrl('adminThumb')!!}"/><br/>
                             </td>
                             <td>
-                                <a href="{{ route('admin.sliders.removeimage',[$slider->id, $slider->getMedia('sliders')->first()->id]) }}"
+                                <a href="{{ route('admin.sliders.image.delete',[$slider->id, $slider->media->first()->id]) }}"
                                    class="btn btn-warning btn-sm">Remove </a>
                             </td>
                         </tr>

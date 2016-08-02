@@ -137,14 +137,17 @@ class SpecialsController extends Controller
 
 
     /**
-     * @param \App\Special  $special
-     * @param               $imageId
+     * @param \App\Special $special
+     * @param              $imageId
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return mixed
+     * @throws \Spatie\MediaLibrary\Exceptions\MediaDoesNotBelongToModel
      */
-    public function removeImage(Special $special, $imageId)
+    public function deleteImage(Special $special, $imageId)
     {
         $special->deleteMedia($imageId);
+
+        flash('Image deleted!');
 
         return redirect()->back();
     }

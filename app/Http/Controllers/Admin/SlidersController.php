@@ -139,14 +139,17 @@ class SlidersController extends Controller
 
 
     /**
-     * @param \App\Slider   $slider
-     * @param               $imageId
+     * @param \App\Slider $slider
+     * @param             $imageId
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return mixed
+     * @throws \Spatie\MediaLibrary\Exceptions\MediaDoesNotBelongToModel
      */
-    public function removeImage(Slider $slider, $imageId)
+    public function deleteImage(Slider $slider, $imageId)
     {
         $slider->deleteMedia($imageId);
+
+        flash('Image deleted!');
 
         return redirect()->back();
     }

@@ -17,10 +17,19 @@
                                 <div class="col-lg-4 col-sm-4 hero-feature text-center">
                                     <div class="thumbnail">
                                         <a href="{{route('product', [$category->slug, $product->slug])}}">
-                                            @if($product->getMedia('products')->count() > 0)
-                                                <img src="{{url('/')}}{{$product->media->first()->getUrl('thumb')}}"
-                                                     alt="{{ $product->name }}"/>
-                                            @endif
+
+                                            <?php
+                                            if ($product->media->count() > 0) {
+                                                $defaultItem = $product->media->reject(function ($item) {
+                                                    return array_get($item->custom_properties, 'default') == false;
+                                                });
+                                                if ($defaultItem->count() > 0) {
+                                                    echo '<img src="' . url('/') . $defaultItem->first()->getUrl('thumb') . '" alt="' . $product->name . '"/>';
+                                                } else {
+                                                    echo '<img src="' . url('/') . $product->media->first()->getUrl('thumb') . '" alt="' . $product->name . '"/>';
+                                                }
+                                            }
+                                            ?>
                                         </a>
 
                                         <div class="caption prod-caption">

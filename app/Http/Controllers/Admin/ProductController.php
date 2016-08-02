@@ -7,7 +7,6 @@ use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use League\Fractal;
-use League\Fractal\Manager;
 
 class ProductController extends Controller
 {
@@ -206,19 +205,46 @@ class ProductController extends Controller
 
 
     /**
-     * @param \App\Product             $product
-     * @param \Illuminate\Http\Request $request
+     * @param \App\Product $product
+     * @param              $imageId
      *
      * @return mixed
+     * @throws \Spatie\MediaLibrary\Exceptions\MediaDoesNotBelongToModel
      */
-    public function deleteImage(Product $product, Request $request)
+    public function defaultImage(Product $product, $imageId)
     {
-        dd($request->all());
-        //$product->deleteMedia($imageId);
+        $image = $product->media->all();
+        if (count($image) > 0) {
+            foreach ($image as $theImage) {
+                $theImage->custom_properties = ['default' => false];
+                $theImage->save();
+            }
+        }
 
-        return response()->json(['success' => 'true']);
+        $image                    = $product->media->find($imageId);
+        $image->custom_properties = ['default' => true];
+        $image->save();
+        flash('Image Set as Default!');
+
+        return redirect()->back();
     }
 
+
+    /**
+     * @param \App\Product $product
+     * @param              $imageId
+     *
+     * @return mixed
+     * @throws \Spatie\MediaLibrary\Exceptions\MediaDoesNotBelongToModel
+     */
+    public function deleteImage(Product $product, $imageId)
+    {
+        $product->deleteMedia($imageId);
+
+        flash('Image deleted!');
+
+        return redirect()->back();
+    }
 
 
     /**
@@ -235,30 +261,4 @@ class ProductController extends Controller
         return response()->json(['success' => 'true']);
     }
 
-
-    /**
-     * @param \App\Product $product
-     *
-     * @return \Illuminate\Support\Collection
-     */
-    public function loadImages(Product $product)
-    {
-        $images = $product->getMedia('products');
-
-        $fractal = new Manager();
-
-        $resource = new Fractal\Resource\Collection($images, function ($image) use ($product, $images) {
-            return [
-                'uuid'               => (int)$image->id,
-                'name'               => $image->file_name,
-                'size'               => $image->size,
-                'deleteFileEndpoint ' => route('admin.products.images.delete', [$product->id]),
-                'thumbnailUrl'       => $image->getUrl(),
-            ];
-        });
-
-        $array = $fractal->createData($resource)->toArray();
-
-        return json_encode($array['data']);
-    }
 }

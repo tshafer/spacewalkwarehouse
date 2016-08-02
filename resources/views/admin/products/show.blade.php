@@ -67,23 +67,35 @@
                         </tr>
                     @endif
 
-                    {{--@if($product->media->count() > 0)--}}
                     <tr>
                         <td colspan="2">Images</td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            {!!open(['route' => 'admin.products.images.add', 'id' => 'qq-form', 'data-endpoint' => route('admin.products.images.show', $product->id), 'data-deletepoint' => route('admin.products.images.delete', $product->id), 'files' => true])!!}
+                            {!!open(['route' => 'admin.products.images.add', 'id' => 'qq-form','files' => true])!!}
                             {{ hidden('productId', $product->id) }}
+                            <ul class="imageGallery">
+                                @foreach ($product->media as $photo)
+                                    <li>
+                                        <div>
+                                            <img src="{{$photo->getUrl('adminThumb') }}"/>
+                                        </div>
+                                        <div class="btn-group">
+                                            <a href="{{ route('admin.products.images.delete',[$product->id, $photo->id]) }}"
+                                               class="btn btn-danger btn-sm {{(array_get($photo->custom_properties, 'default') == 1) ? 'disabled' : null}}">Delete</a>
+                                            <a href="{{ route('admin.products.images.default',[$product->id, $photo->id]) }}"
+                                               class="btn btn-warning btn-sm {{(array_get($photo->custom_properties, 'default') == 1) ? 'disabled' : null}}">Default</a>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                            <br/><br/>
                             <div id="fine-uploader-gallery"></div>
-                            {{--                                <img src="{{url('/')}}{!! $product->getMedia('products')->first()->getUrl('adminThumb')!!}"/><br/>--}}
                             {!!submit('Save Images', ['class' => 'btn btn-block btn-primary'])!!}
                             {!! close() !!}
                         </td>
 
                     </tr>
-                    {{--@endif--}}
-
 
                 </table>
             </div>
@@ -131,7 +143,7 @@
                     <span class="qq-upload-spinner-selector qq-upload-spinner"></span>
                     <div class="qq-thumbnail-wrapper">
                         <img class="qq-thumbnail-selector" qq-max-size="120" qq-server-scale>
-                        <input type="checkbox">
+
                     </div>
                     <button type="button" class="qq-upload-cancel-selector qq-upload-cancel">X</button>
                     <button type="button" class="qq-upload-retry-selector qq-upload-retry">

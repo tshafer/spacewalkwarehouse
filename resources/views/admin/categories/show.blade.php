@@ -51,15 +51,15 @@
                     </tr>
 
 
-                    @if($category->getMedia()->count() > 0)
+                    @if($category->media->count() > 0)
                         <tr>
                             <td>Image</td>
                             <td>
-                                <img src="{{url('/')}}{!! $category->getMedia('categories')->first()->getUrl('adminThumb')!!}"/><br/>
+                                <img src="{{url('/')}}{!! $category->media->first()->getUrl('adminThumb')!!}"/><br/>
 
                             </td>
                             <td>
-                                <a href="{{ route('admin.categories.removeimage',[$category->id, $category->getMedia('categories')->first()->id]) }}"
+                                <a href="{{ route('admin.categories.image.delete',[$category->id, $category->media->first()->id]) }}"
                                    class="btn btn-warning btn-sm">Remove </a>
                             </td>
                         </tr>

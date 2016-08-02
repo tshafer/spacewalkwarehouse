@@ -36,7 +36,7 @@
 
 
             <div class="form-group">
-                {!! label('image') !!}<br/>
+                {!! label('images') !!}<br/>
                 @if(isset($product))
                     You can manage images <a href="{{route('admin.products.show', $product->id)}}">here</a>.
                 @else

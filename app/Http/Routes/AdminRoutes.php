@@ -6,10 +6,10 @@ $router->group(['middleware' => ['auth'], 'prefix' => 'admin'], function () use 
 
     $router->resource('users', 'Admin\UsersController');
 
-    $router->get('specials/removeimage/{specials}/{imageid}', ['uses' => 'Admin\SpecialsController@removeImage', 'as' => 'admin.specials.removeimage']);
+    $router->get('specials/{specials}/image/{imageid}/delete', ['uses' => 'Admin\SpecialsController@deleteImage', 'as' => 'admin.specials.image.delete']);
     $router->resource('specials', 'Admin\SpecialsController');
     
-    $router->get('sliders/removeimage/{sliders}/{imageid}', ['uses' => 'Admin\SlidersController@removeImage', 'as' => 'admin.sliders.removeimage']);
+    $router->get('sliders/removeimage/{sliders}/{imageid}', ['uses' => 'Admin\SlidersController@deleteImage', 'as' => 'admin.sliders.image.delete']);
     $router->resource('sliders', 'Admin\SlidersController');
 
 
@@ -17,16 +17,16 @@ $router->group(['middleware' => ['auth'], 'prefix' => 'admin'], function () use 
 
     $router->resource('unitrequests', 'Admin\RequestsController',  ['except' => ['create', 'edit', 'store', 'update']]);
 
-    $router->resource('categories', 'Admin\CategoryController');
+
     $router->get('categories/moveup/{categories}', ['uses' => 'Admin\CategoryController@moveUp', 'as' => 'admin.categories.moveup']);
     $router->get('categories/movedown/{categories}', ['uses' => 'Admin\CategoryController@moveDown', 'as' => 'admin.categories.movedown']);
-    $router->get('categories/removeimage/{categories}/{imageid}', ['uses' => 'Admin\CategoryController@removeImage', 'as' => 'admin.categories.removeimage']);
+    $router->get('categories/{categories}/images/{imageid}/delete', ['uses' => 'Admin\CategoryController@deleteImage', 'as' => 'admin.categories.image.delete']);
+    $router->resource('categories', 'Admin\CategoryController');
 
-
-    $router->get('products/{products}/images', ['uses' => 'Admin\ProductController@loadImages', 'as' => 'admin.products.images.show']);
-    $router->delete('products/{products}/deleteImage', ['uses' => 'Admin\ProductController@deleteImage', 'as' => 'admin.products.images.delete']);
-    $router->resource('products', 'Admin\ProductController');
+    $router->get('products/{products}/image/{imageid}/default', ['uses' => 'Admin\ProductController@defaultImage', 'as' => 'admin.products.images.default']);
+    $router->get('products/{products}/image/{imageid}/delete', ['uses' => 'Admin\ProductController@deleteImage', 'as' => 'admin.products.images.delete']);
     $router->post('products/images/add', ['uses' => 'Admin\ProductController@addImage', 'as' => 'admin.products.images.add']);
+    $router->resource('products', 'Admin\ProductController');
 
     $router->get('/', function () {
         return redirect()->route('admin.products.index');
