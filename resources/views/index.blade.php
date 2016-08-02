@@ -58,10 +58,7 @@
                                 <div class="col-lg-4 col-sm-4 hero-feature text-center">
                                     <div class="thumbnail">
                                         <a href="{{route('product', [$product->categories->first()->slug, $product->slug])}}">
-                                            @if($product->getMedia('products')->count() > 0)
-                                                <img src="{{url('/')}}{{$product->getMedia('products')->first()->getUrl('thumb')}}"
-                                                     alt="{{ $product->name }}"/>
-                                            @endif
+                                            {!! defaultProductImage($product) !!}
                                         </a>
 
                                         <div class="caption prod-caption">

@@ -37,9 +37,7 @@
                             @endif
                         </td>
                         <td>
-                            @if($product->getMedia('products')->count() > 0)
-                                <img src="{{url('/')}}{!! $product->getMedia('products')->first()->getUrl('adminThumb')!!}"/>
-                            @endif
+                            {!! defaultProductImage($product, 'adminThumb') !!}
                         </td>
                         <td class="min">
                             {!!$product->getTableLinks()!!}
