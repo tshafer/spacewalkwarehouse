@@ -40,7 +40,7 @@
                             </td>
                             <td>
                                 <a href="{{ route('admin.specials.image.delete',[$special->id, $special->media->first()->id]) }}"
-                                   class="btn btn-warning btn-sm">Remove </a>
+                                   class="btn btn-warning btn-sm del">Remove </a>
                             </td>
                         </tr>
                     @endif
@@ -56,7 +56,7 @@
                     <h2>DANGER ZONE</h2>
                 </div>
                 {!! Form::open(['route' => ['admin.specials.destroy', $special->id], 'method' => 'delete']) !!}
-                {!! Form::submit('DELETE SPECIAL', ['class' => 'btn btn-block btn-danger']) !!}
+                {!! Form::submit('DELETE SPECIAL', ['class' => 'btn btn-block btn-danger del']) !!}
                 {!! Form::close() !!}
                 <br/>
             </div>

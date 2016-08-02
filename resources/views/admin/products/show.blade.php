@@ -82,7 +82,7 @@
                                         </div>
                                         <div class="btn-group">
                                             <a href="{{ route('admin.products.images.delete',[$product->id, $photo->id]) }}"
-                                               class="btn btn-danger btn-sm {{(array_get($photo->custom_properties, 'default') == 1) ? 'disabled' : null}}">Delete</a>
+                                               class="btn btn-danger btn-sm del {{(array_get($photo->custom_properties, 'default') == 1) ? 'disabled' : null}}">Delete</a>
                                             <a href="{{ route('admin.products.images.default',[$product->id, $photo->id]) }}"
                                                class="btn btn-warning btn-sm {{(array_get($photo->custom_properties, 'default') == 1) ? 'disabled' : null}}">Default</a>
                                         </div>
@@ -110,7 +110,7 @@
                     <h2>DANGER ZONE</h2>
                 </div>
                 {!! Form::open(['route' => ['admin.products.destroy', $product->id], 'method' => 'delete']) !!}
-                {!! Form::submit('DELETE PRODUCT', ['class' => 'btn btn-block btn-danger']) !!}
+                {!! Form::submit('DELETE PRODUCT', ['class' => 'btn btn-block btn-danger del']) !!}
                 {!! Form::close() !!}
                 <br/>
             </div>

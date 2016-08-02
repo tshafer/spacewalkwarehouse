@@ -40,7 +40,7 @@
                             </td>
                             <td>
                                 <a href="{{ route('admin.sliders.image.delete',[$slider->id, $slider->media->first()->id]) }}"
-                                   class="btn btn-warning btn-sm">Remove </a>
+                                   class="btn btn-warning btn-sm del">Remove </a>
                             </td>
                         </tr>
                     @endif
@@ -56,7 +56,7 @@
                     <h2>DANGER ZONE</h2>
                 </div>
                 {!! Form::open(['route' => ['admin.sliders.destroy', $slider->id], 'method' => 'delete']) !!}
-                {!! Form::submit('DELETE SLIDER', ['class' => 'btn btn-block btn-danger']) !!}
+                {!! Form::submit('DELETE SLIDER', ['class' => 'btn btn-block btn-danger del']) !!}
                 {!! Form::close() !!}
                 <br/>
             </div>

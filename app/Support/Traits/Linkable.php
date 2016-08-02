@@ -71,7 +71,7 @@
                     'method' => 'delete',
                     'style'  => 'display: inline;'
                 ] )
-                       . Form::submit( 'Delete', [ 'class' => 'btn btn-xs btn-danger' ] )
+                       . Form::submit( 'Delete', [ 'class' => 'btn btn-xs btn-danger del' ] )
                        . Form::close();
             }
         }

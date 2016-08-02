@@ -104,7 +104,7 @@ class CategoryController extends Controller
     {
 
         $this->validate($request, array_merge([
-            'title' => 'required',
+            'name' => 'required',
         ], $rules));
 
         if ($request->get('parent_category') == 0) {
@@ -186,7 +186,7 @@ class CategoryController extends Controller
     protected function runUpdate(Request $request, array $rules, Category $category)
     {
         $this->validate($request, array_merge([
-            'title' => 'required',
+            'name' => 'required',
         ], $rules));
 
         if ($request->get('parent_category') == 0) {

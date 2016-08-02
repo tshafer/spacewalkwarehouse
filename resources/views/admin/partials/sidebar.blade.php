@@ -11,22 +11,19 @@
                         <i class="sidebar-nav-icon"></i>Categories
                     </a>
                 </li>
-
                 <li class="{{active_class('admin/products*')}}">
                     <a href="{{route('admin.products.index')}}">
                         <i class="sidebar-nav-icon"></i>Products
                     </a>
                 </li>
-
-                <li class="{{active_class('admin/units*')}}">
-                    <a href="{{route('admin.units.index')}}">
-                        <i class="sidebar-nav-icon"></i>Units
-                    </a>
-                </li>
-
                 <li class="{{active_class('admin/unitrequests*')}}">
                     <a href="{{route('admin.unitrequests.index')}}">
                         <i class="sidebar-nav-icon"></i>Requests
+                    </a>
+                </li>
+                <li class="{{active_class('admin/slider*')}}">
+                    <a href="{{route('admin.sliders.index')}}">
+                        <i class="sidebar-nav-icon"></i>Sliders
                     </a>
                 </li>
                 <li class="{{active_class('admin/specials*')}}">
@@ -34,9 +31,9 @@
                         <i class="sidebar-nav-icon"></i>Specials
                     </a>
                 </li>
-                <li class="{{active_class('admin/slider*')}}">
-                    <a href="{{route('admin.sliders.index')}}">
-                        <i class="sidebar-nav-icon"></i>Sliders
+                <li class="{{active_class('admin/units*')}}">
+                    <a href="{{route('admin.units.index')}}">
+                        <i class="sidebar-nav-icon"></i>Units
                     </a>
                 </li>
                 <li class="{{active_class('admin/users*')}}">

@@ -37,10 +37,6 @@
                             </td>
                         </tr>
                     @endif
-                    {{--<tr>--}}
-                        {{--<td> Title</td>--}}
-                        {{--<td colspan=2">{!! $category->title!!}</td>--}}
-                    {{--</tr>--}}
                     <tr>
                         <td>Enabled</td>
                         <td colspan=2">{!! $category->is_enabled!!}</td>
@@ -60,7 +56,7 @@
                             </td>
                             <td>
                                 <a href="{{ route('admin.categories.image.delete',[$category->id, $category->media->first()->id]) }}"
-                                   class="btn btn-warning btn-sm">Remove </a>
+                                   class="btn btn-warning btn-sm del"">Remove </a>
                             </td>
                         </tr>
                     @endif
@@ -68,62 +64,54 @@
             </div>
 
 
-
-            @if(!$category->isRoot())
-                @if($category->products->count() > 0)
-                    <div class="block">
-                        <div class="block-title">
-                            <h2>Products </h2>
-                            <div class="block-options pull-right">
-                                {!! toolbar_link(['admin.products.create', 'cat='.$category->id], 'fa-plus', 'New Product') !!}
-                            </div>
+            @if($category->products->count() > 0)
+                <div class="block">
+                    <div class="block-title">
+                        <h2>Products </h2>
+                        <div class="block-options pull-right">
+                            {!! toolbar_link(['admin.products.create', 'cat='.$category->id], 'fa-plus', 'New Product') !!}
                         </div>
-
-                        <table class="table table-striped table-hover">
-                            <thead>
-                            <tr>
-                                <th class="min">ID</th>
-                                <th>Name</th>
-                                <th>Enabled</th>
-                                <th>Image</th>
-                                <th>Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-
-                            @if($category->products->count() > 0)
-                                @foreach($category->products()->get() as $product)
-                                    <tr>
-                                        <td>{{$product->id}}</td>
-                                        <td>{{$product->name}}</td>
-                                        <td>{{$product->is_enabled}}</td>
-                                        <td>
-                                            @if($product->getMedia()->count() > 0)
-                                                <img src="{{url('/')}}{!! $product->getMedia('products')->first()->getUrl('adminThumb')!!}"/>
-                                            @endif
-                                        </td>
-                                        <td class="min">
-                                            {!!$product->getTableLinks()!!}
-                                            <a class="btn btn-xs btn-warning"
-                                               href="{{route('product', [$category->parent()->first()->slug, $category->slug, $product->slug])}}"
-                                               target="_blank">
-                                                <i class="fa fa-external-link" aria-hidden="true"></i>
-                                            </a>
-                                        </td>
-
-                                    </tr>
-                                @endforeach
-                            @else
-                                <tr>
-                                    <td colspan="5">
-                                        There are no Products Available
-                                    </td>
-                                </tr>
-                            @endif
-                            </tbody>
-                        </table>
                     </div>
-                @endif
+
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th class="min">ID</th>
+                            <th>Name</th>
+                            <th>Enabled</th>
+                            <th>Image</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        @if($category->products->count() > 0)
+                            @foreach($category->products as $product)
+                                <tr>
+                                    <td>{{$product->id}}</td>
+                                    <td>{{$product->name}}</td>
+                                    <td>{{$product->is_enabled}}</td>
+                                    <td>
+                                        @if($product->media->count() > 0)
+                                            <img src="{{url('/')}}{!! $product->media->first()->getUrl('adminThumb')!!}"/>
+                                        @endif
+                                    </td>
+                                    <td class="min">
+                                        {!!$product->getTableLinks()!!}
+                                    </td>
+
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr>
+                                <td colspan="5">
+                                    There are no Products Available
+                                </td>
+                            </tr>
+                        @endif
+                        </tbody>
+                    </table>
+                </div>
             @endif
         </div>
 
@@ -133,7 +121,7 @@
                     <h2>DANGER ZONE</h2>
                 </div>
                 {!! Form::open(['route' => ['admin.categories.destroy', $category->id], 'method' => 'delete']) !!}
-                {!! Form::submit('DELETE CATEGORY', ['class' => 'btn btn-block btn-danger']) !!}
+                {!! Form::submit('DELETE CATEGORY', ['class' => 'btn btn-block btn-danger del']) !!}
                 {!! Form::close() !!}
                 <br/>
             </div>
