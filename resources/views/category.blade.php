@@ -9,7 +9,6 @@
 
             <div class="col-md-12">
                 <span class="title">{{ $category->title }}</span>
-
                 @if($products->count() > 0)
                     @foreach($products->chunk(3) as $chunkedProducts)
                         <div class="row">

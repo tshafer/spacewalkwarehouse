@@ -6,8 +6,8 @@
 
     <div class="container main-container">
         <div class="row">
-            @include('flash::messages')
             <div class="col-md-12">
+                @include('flash::messages')
                 <span class="title">SHOPPING CART</span>
                 @if(Cart::instance(session('cartId'))->count() > 0)
                     <table class="table table-bordered tbl-cart cart table-hover table-condensed">
