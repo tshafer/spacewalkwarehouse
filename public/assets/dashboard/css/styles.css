@@ -22426,7 +22426,22 @@ THEME FIRE
     padding: 0;
     margin: 0;
 }
-.imageGallery li{
+
+.imageGallery li {
     display: inline-block;
     padding: 5px;
+}
+
+.product-image {
+    position: relative;
+}
+
+.product-image .product-img {
+    width: 100%;
+}
+
+.product-image .badge-overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }

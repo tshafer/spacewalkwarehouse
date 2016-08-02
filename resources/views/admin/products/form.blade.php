@@ -35,9 +35,9 @@
                 {!! radio('season', 'wet', null) !!}
                 {!! label('Dry') !!}
                 {!! radio('season', 'dry', null) !!}
+                {!! label('Both') !!}
+                {!! radio('season', 'both', null) !!}
             </div>
-
-
 
             <div class="form-group">
                 {!! label('images') !!}<br/>

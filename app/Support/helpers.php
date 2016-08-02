@@ -33,12 +33,27 @@ if ( ! function_exists('defaultProductImage')) {
             $defaultItem = $product->getMedia('products')->reject(function ($item) {
                 return array_get($item->custom_properties, 'default') == false;
             });
+
             if ($defaultItem->count() > 0) {
-                return '<img src="' . url('/') . $defaultItem->first()->getUrl($size) . '" alt="' . $product->name . '"/>';
-            } elseif($product->getMedia('products')->count() > 0) {
-                return '<img src="' . url('/') . $product->getMedia('products')->first()->getUrl($size) . '" alt="' . $product->name . '"/>';
+                return '<div class="product-image"><img src="' . url('/') . $defaultItem->first()->getUrl($size) . '" class="img-responsive product-img" alt="' . $product->name . '"/>' . wetDry($product) . '</div>';
+            } elseif ($product->getMedia('products')->count() > 0) {
+                return '<div class="product-image"><img src="' . url('/') . $product->getMedia('products')->first()->getUrl($size) . '" class="img-responsive product-img" alt="' . $product->name . '"/>' . wetDry($product) . '</div>';
             }
         }
+    }
+
+    /**
+     * @param $product
+     *
+     * @return string
+     */
+    function wetDry($product)
+    {
+        if ($product->season) {
+            return '<img class="badge-overlay" class="img-responsive" src="' . url('/') . '/images/' . $product->season . '_badge.png" alt="' . $product->name . '"/>';
+        }
+
+        return '';
     }
 }
 
