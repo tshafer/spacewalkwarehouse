@@ -221,7 +221,7 @@ class ProductController extends Controller
             }
         }
 
-        $image                    = $product->getMedia('products')->find($imageId);
+        $image                    = $product->media->find($imageId);
         $image->custom_properties = ['default' => true];
         $image->save();
         flash('Image Set as Default!');

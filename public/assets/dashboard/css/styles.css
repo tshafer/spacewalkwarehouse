@@ -22428,4 +22428,5 @@ THEME FIRE
 }
 .imageGallery li{
     display: inline-block;
+    padding: 5px;
 }

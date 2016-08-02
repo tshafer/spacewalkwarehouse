@@ -77,10 +77,12 @@
                                             <img src="{{$photo->getUrl('adminThumb') }}"/>
                                         </div>
                                         <div class="btn-group">
+                                            @if(array_get($photo->custom_properties, 'default') == null)
                                             <a href="{{ route('admin.products.images.delete',[$product->id, $photo->id]) }}"
-                                               class="btn btn-danger btn-sm del {{(array_get($photo->custom_properties, 'default') == 1) ? 'disabled' : null}}">Delete</a>
+                                               class="btn btn-danger btn-sm del">Delete</a>
+                                            @endif
                                             <a href="{{ route('admin.products.images.default',[$product->id, $photo->id]) }}"
-                                               class="btn btn-warning btn-sm {{(array_get($photo->custom_properties, 'default') == 1) ? 'disabled' : null}}">Default</a>
+                                               class="btn btn-sm {{(array_get($photo->custom_properties, 'default') == 1) ? 'disabled btn-success' : 'btn-warning'}}">Default</a>
                                         </div>
                                     </li>
                                 @endforeach

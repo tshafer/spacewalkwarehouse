@@ -16,9 +16,10 @@ if ($('#fine-uploader-gallery').length > 0) {
         resume: {
             enabled: true
         },
-        onAllComplete: function (e) {
-            console.debug(e);
-            location.reload();
+        callbacks: {
+            onAllComplete: function (e) {
+                location.reload();
+            }
         }
     });
 }
@@ -41,8 +42,10 @@ if ($('#accessory-uploader-gallery').length > 0) {
         resume: {
             enabled: true
         },
-        onAllComplete: function (e) {
-            location.reload();
+        callbacks: {
+            onAllComplete: function (e) {
+                location.reload();
+            }
         }
     });
 }
