@@ -92,8 +92,8 @@
                                     <td>{{$product->name}}</td>
                                     <td>{{$product->is_enabled}}</td>
                                     <td>
-                                        @if($product->media->count() > 0)
-                                            <img src="{{url('/')}}{!! $product->media->first()->getUrl('adminThumb')!!}"/>
+                                        @if($product->getMedia('products')->count() > 0)
+                                            <img src="{{url('/')}}{!! $product->getMedia('products')->first()->getUrl('adminThumb')!!}"/>
                                         @endif
                                     </td>
                                     <td class="min">

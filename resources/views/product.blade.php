@@ -16,7 +16,7 @@
                         <div class="col-md-8">
 
                             <ul id="imageGallery">
-                                @foreach ($product->media as $photo)
+                                @foreach ($product->getMedia('products') as $photo)
                                     <li data-thumb="{{$photo->getUrl('thumb') }}"
                                         data-src="{{$photo->getUrl('full') }}"><img
                                                 src="{{$photo->getUrl('medium') }}"/></li>
@@ -65,23 +65,21 @@
                             </div>
                         </div>
 
-                        <div class="clearfix"></div>
-                        <br clear="all"/>
 
-                        <div class="col-xs-12 product-detail-tab">
-                            <!-- Nav tabs -->
-                            <ul class="nav nav-tabs">
-                                <li class="active"><a href="detail.html#desc" data-toggle="tab">Description</a></li>
-                            </ul>
-
-                            <!-- Tab panes -->
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="desc">
-                                    <div class="well">
-                                        <p>{{$product->description}} </p>
-                                    </div>
-                                </div>
+                        <div class="col-md-12">
+                            <span class="title">Description</span>
+                            <div class="well">
+                                <p>{{$product->description}} </p>
                             </div>
+                        </div>
+
+                        <div class="col-md-12" style="margin-top:50px;">
+                            <span class="title">Accessories</span>
+                            <ul class="imageGallery">
+                                @foreach ($product->getMedia('accessories') as $photo)
+                                    <li><img src="{{$photo->getUrl('thumb') }}"/></li>
+                                @endforeach
+                            </ul>
                         </div>
                     </div>
                 </div>

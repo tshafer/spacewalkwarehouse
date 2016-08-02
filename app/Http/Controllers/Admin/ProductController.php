@@ -213,7 +213,7 @@ class ProductController extends Controller
      */
     public function defaultImage(Product $product, $imageId)
     {
-        $image = $product->media->all();
+        $image = $product->getMedia('products')->all();
         if (count($image) > 0) {
             foreach ($image as $theImage) {
                 $theImage->custom_properties = ['default' => false];
@@ -221,7 +221,7 @@ class ProductController extends Controller
             }
         }
 
-        $image                    = $product->media->find($imageId);
+        $image                    = $product->getMedia('products')->find($imageId);
         $image->custom_properties = ['default' => true];
         $image->save();
         flash('Image Set as Default!');
@@ -248,14 +248,50 @@ class ProductController extends Controller
 
 
     /**
-     * @param \Illuminate\Http\Request $request
+     * @param \App\Product $product
+     * @param              $imageId
+     *
+     * @return mixed
+     * @throws \Spatie\MediaLibrary\Exceptions\MediaDoesNotBelongToModel
      */
-    public function addImage(Request $request)
+    public function deleteAccessoryImage(Product $product, $imageId)
     {
-        $product = Product::find(Input::get('productId'));
+        $product->deleteMedia($imageId);
+
+        flash('Image deleted!');
+
+        return redirect()->back();
+    }
+
+
+    /**
+     * @param \App\Product             $product
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return mixed
+     */
+    public function addImage(Product $product, Request $request)
+    {
 
         if ($request->hasFile('qqfile')) {
             $product->addMedia($request->file('qqfile'))->preservingOriginal()->toCollection('products');
+        }
+
+        return response()->json(['success' => 'true']);
+    }
+
+
+    /**
+     * @param \App\Product             $product
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return mixed
+     */
+    public function addAccessoryImage(Product $product, Request $request)
+    {
+
+        if ($request->hasFile('qqfile')) {
+            $product->addMedia($request->file('qqfile'))->preservingOriginal()->toCollection('accessories');
         }
 
         return response()->json(['success' => 'true']);

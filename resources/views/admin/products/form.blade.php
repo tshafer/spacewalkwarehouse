@@ -22,8 +22,12 @@
             </div>
 
             <div class="form-group">
-                {!! label('accessories') !!}
-                {!! textarea('accessories', null, ['class' => 'form-control']) !!}
+                {!! label('accessories') !!}<br/>
+                @if(isset($product))
+                    You can manage accessories <a href="{{route('admin.products.show', $product->id)}}">here</a>.
+                @else
+                    You can add accessories once you you create a new product.
+                @endif
             </div>
 
             <div class="form-group">

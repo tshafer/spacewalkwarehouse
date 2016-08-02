@@ -20,7 +20,7 @@
                                     <div class="thumbnail">
                                         <a href="{{route('product', [$result->product->categories->first()->slug, $result->product->slug])}}">
                                             @if($result->product->getMedia('products')->count() > 0)
-                                                <img src="{{url('/')}}{{$result->product->media->first()->getUrl('thumb')}}"
+                                                <img src="{{url('/')}}{{$result->product->getMedia('products')->first()->getUrl('thumb')}}"
                                                      alt="{{ $result->product->name }}"/>
                                             @endif
                                         </a>

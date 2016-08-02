@@ -36,10 +36,6 @@
                         <td>{!! $product->is_enabled!!}</td>
                     </tr>
                     <tr>
-                        <td>Accessories</td>
-                        <td>{!! $product->accessories!!}</td>
-                    </tr>
-                    <tr>
                         <td>Season</td>
                         <td>{!! $product->season!!}</td>
                     </tr>
@@ -72,10 +68,10 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            {!!open(['route' => 'admin.products.images.add', 'id' => 'qq-form','files' => true])!!}
+                            {!!open(['route' => ['admin.products.images.add',$product->id],'files' => true])!!}
                             {{ hidden('productId', $product->id) }}
                             <ul class="imageGallery">
-                                @foreach ($product->media as $photo)
+                                @foreach ($product->getMedia('products') as $photo)
                                     <li>
                                         <div>
                                             <img src="{{$photo->getUrl('adminThumb') }}"/>
@@ -91,7 +87,32 @@
                             </ul>
                             <br/><br/>
                             <div id="fine-uploader-gallery"></div>
-                            {!!submit('Save Images', ['class' => 'btn btn-block btn-primary'])!!}
+                            {!! close() !!}
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td colspan="2">Accessories</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            {!!open(['route' => ['admin.products.images.accessories.add',$product->id],'files' => true])!!}
+                            {{ hidden('productId', $product->id) }}
+                            <ul class="imageGallery">
+                                @foreach ($product->getMedia('accessories') as $photo)
+                                    <li>
+                                        <div>
+                                            <img src="{{$photo->getUrl('adminThumb') }}"/>
+                                        </div>
+                                        <div class="btn-group">
+                                            <a href="{{ route('admin.products.images.accessories.delete',[$product->id, $photo->id]) }}"
+                                               class="btn btn-danger btn-sm del">Delete</a>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                            <br/><br/>
+                            <div id="accessory-uploader-gallery"></div>
                             {!! close() !!}
                         </td>
 

@@ -19,14 +19,14 @@
                                         <a href="{{route('product', [$category->slug, $product->slug])}}">
 
                                             <?php
-                                            if ($product->media->count() > 0) {
-                                                $defaultItem = $product->media->reject(function ($item) {
+                                            if ($product->getMedia('products')->count() > 0) {
+                                                $defaultItem = $product->getMedia('products')->reject(function ($item) {
                                                     return array_get($item->custom_properties, 'default') == false;
                                                 });
                                                 if ($defaultItem->count() > 0) {
                                                     echo '<img src="' . url('/') . $defaultItem->first()->getUrl('thumb') . '" alt="' . $product->name . '"/>';
                                                 } else {
-                                                    echo '<img src="' . url('/') . $product->media->first()->getUrl('thumb') . '" alt="' . $product->name . '"/>';
+                                                    echo '<img src="' . url('/') . $product->getMedia('products')->first()->getUrl('thumb') . '" alt="' . $product->name . '"/>';
                                                 }
                                             }
                                             ?>

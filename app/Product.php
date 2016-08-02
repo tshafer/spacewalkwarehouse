@@ -39,7 +39,6 @@ class Product extends Model implements HasMediaConversions
         'description',
         'enabled',
         'slug',
-        'accessories',
         'season',
     ];
 
@@ -50,11 +49,11 @@ class Product extends Model implements HasMediaConversions
     public function registerMediaConversions()
     {
 
-        $this->addMediaConversion('thumb')->setManipulations(['w' => 240, 'h' => 160])->performOnCollections('products');
+        $this->addMediaConversion('thumb')->setManipulations(['w' => 240, 'h' => 160])->performOnCollections('*');
 
-        $this->addMediaConversion('medium')->setManipulations(['w' => 700])->performOnCollections('products');
+        $this->addMediaConversion('medium')->setManipulations(['w' => 700])->performOnCollections('*');
 
-        $this->addMediaConversion('full')->setManipulations(['w' => 730, 'h' => 486])->performOnCollections('products');
+        $this->addMediaConversion('full')->setManipulations(['w' => 730, 'h' => 486])->performOnCollections('*');
 
         $this->addMediaConversion('adminThumb')->setManipulations(['w' => 100, 'h' => 100, 'sharp' => 15])->performOnCollections('*');
     }

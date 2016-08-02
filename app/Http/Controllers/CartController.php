@@ -29,7 +29,7 @@ class CartController extends Controller
 
         $unit = Unit::find($request->get('unit'));
 
-        $media = ($unit->product->media->count() > 0) ? $unit->product->media->first()->getUrl('thumb') : null;
+        $media = ($unit->product->getMedia('products')->count() > 0) ? $unit->product->getMedia('products')->first()->getUrl('thumb') : null;
 
         Cart::instance(session('cartId'))->add($unit->id, $unit->description, 1, $unit->price, [
             'product_name' => $unit->product->name,
