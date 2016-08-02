@@ -4,6 +4,7 @@ namespace App;
 use App\Support\Traits\Attributes;
 use App\Support\Traits\Linkable;
 use App\Support\Traits\Sortable;
+use Iatstuti\Database\Support\CascadeSoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use MartinBean\Database\Eloquent\Sluggable;
@@ -13,7 +14,7 @@ use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 class Product extends Model implements HasMediaConversions
 {
 
-    use Linkable, Sortable, Attributes, Sluggable, HasMediaTrait, SoftDeletes;
+    use Linkable, Sortable, Attributes, Sluggable, HasMediaTrait, SoftDeletes, CascadeSoftDeletes;
 
     /**
      * The database table used by the model.
@@ -21,6 +22,13 @@ class Product extends Model implements HasMediaConversions
      * @var string
      */
     protected $table = 'products';
+
+    /**
+     * Delete units when a product is deleted
+     *
+     * @var array
+     */
+    protected $cascadeDeletes = ['units', 'media'];
 
     /**
      * Autoload Relationships

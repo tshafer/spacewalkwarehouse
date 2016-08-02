@@ -29,6 +29,11 @@
                         </div>
 
                         <div class="col-md-4 col-sm-4">
+                            <div class="col-md-12"><br/>
+                                <span class="title">{{$product->name}}</span>
+                                    <p>{{$product->description}} </p>
+                            </div>
+
                             <div class="well product-short-detail">
                                 <div class="row">
                                     <div class="the-list">
@@ -66,21 +71,16 @@
                         </div>
 
 
-                        <div class="col-md-12">
-                            <span class="title">Description</span>
-                            <div class="well">
-                                <p>{{$product->description}} </p>
+                        @if($product->getMedia('accessories')->count() > 0)
+                            <div class="col-md-12" style="margin-top:50px;">
+                                <span class="title">Accessories</span>
+                                <ul class="imageGallery">
+                                    @foreach ($product->getMedia('accessories') as $photo)
+                                        <li><img src="{{$photo->getUrl('thumb') }}"/></li>
+                                    @endforeach
+                                </ul>
                             </div>
-                        </div>
-
-                        <div class="col-md-12" style="margin-top:50px;">
-                            <span class="title">Accessories</span>
-                            <ul class="imageGallery">
-                                @foreach ($product->getMedia('accessories') as $photo)
-                                    <li><img src="{{$photo->getUrl('thumb') }}"/></li>
-                                @endforeach
-                            </ul>
-                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
