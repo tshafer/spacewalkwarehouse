@@ -6,7 +6,7 @@ if ($('#fine-uploader-gallery').length > 0) {
 
         validation: {
             allowedExtensions: ['jpeg', 'jpg', 'gif', 'png'],
-            sizeLimit: 51200 // 50 kB = 50 * 1024 bytes
+            sizeLimit: 512000 // 50 kB = 50 * 1024 bytes
         },
         retry: {
             enableAuto: true
