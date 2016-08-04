@@ -59,15 +59,13 @@ class Product extends Model implements HasMediaConversions
 
         $this->addMediaConversion('thumb')->setManipulations(['w' => 240])->performOnCollections('*');
 
-        $this->addMediaConversion('category_page')->setManipulations(['w' => 300, 'h' => 277])->performOnCollections('*');
+        $this->addMediaConversion('category_page')->setManipulations(['w' => 300, 'h' => 277, 'fit' => 'fill'])->performOnCollections('*');
 
         $this->addMediaConversion('accessories')->setManipulations(['w' => 250])->performOnCollections('accessories');
 
         $this->addMediaConversion('medium')->setManipulations(['w' => 800])->performOnCollections('*');
 
         $this->addMediaConversion('full')->setManipulations(['w' => 1024])->performOnCollections('*');
-
-        $this->addMediaConversion('adminThumb')->setManipulations(['w' => 100, 'sharp' => 15])->performOnCollections('*');
 
     }
 
