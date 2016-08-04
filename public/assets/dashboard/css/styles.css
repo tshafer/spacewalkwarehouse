@@ -22436,6 +22436,12 @@ THEME FIRE
     position: relative;
 }
 
+.product-image img {
+    position: relative;
+    height: 180px;
+    margin: 0 auto;
+}
+
 .product-image .badge-overlay {
     position: absolute;
     bottom: 0;
