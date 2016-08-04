@@ -1017,3 +1017,10 @@ footer .copyright {
 .navbar-inverse .navbar-brand {
     color: #fff;
 }
+
+.cS-hidden {
+    height: 1px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    overflow: hidden;
+}

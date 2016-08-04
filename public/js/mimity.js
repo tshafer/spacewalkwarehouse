@@ -38,6 +38,7 @@ $(function(){
 		adaptiveHeight: true,
 		currentPagerPosition: 'left',
 		onSliderLoad: function (el) {
+			$('#imageGallery').removeClass('cS-hidden');
 			el.lightGallery({
 				selector: '#imageGallery .lslide'
 			});

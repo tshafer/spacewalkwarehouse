@@ -13,7 +13,7 @@
         <div class="row hero-feature">
 
             <div class="col-md-8 col-sm-12 col-xs-12">
-                <ul id="imageGallery">
+                <ul id="imageGallery" class="cS-hidden">
                     @foreach ($product->getMedia('products') as $photo)
                         <li data-thumb="{{$photo->getUrl('thumb') }}" data-src="{{$photo->getUrl('full') }}">
                             <img src="{{$photo->getUrl('medium') }}"/>
