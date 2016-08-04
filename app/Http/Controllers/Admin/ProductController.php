@@ -141,7 +141,7 @@ class ProductController extends Controller
         $rules = [
             'name' => 'bail|required|unique:products,id,:id',
         ];
-        dd($request->all());
+        
         $this->runUpdate($request, $rules, $product);
 
         flash('Product updated!');
