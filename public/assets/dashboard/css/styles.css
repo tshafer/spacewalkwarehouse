@@ -22436,7 +22436,7 @@ THEME FIRE
     position: relative;
 }
 
-.product-image img {
+.product-image > img {
     position: relative;
     height: 180px;
     margin: 0 auto;
