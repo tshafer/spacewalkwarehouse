@@ -25,13 +25,10 @@
                                                     {{ $product->name }}
                                                 </a>
                                             </h4>
-                                            <p>{{$product->description}}</p>
-                                            <p>
                                             <div class="btn-group">
                                                 <a href="{{route('product', [$category->slug, $product->slug])}}"
                                                    class="btn btn-primary">View</a>
                                             </div>
-                                            </p>
                                         </div>
                                     </div>
                                 </div>
