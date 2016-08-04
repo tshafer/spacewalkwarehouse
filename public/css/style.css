@@ -988,6 +988,9 @@ footer .copyright {
     padding: 5px;
 
 }
+.lSSlideOuter .lSPager.lSGallery {
+    width: 100% !important;
+}
 .lSSlideOuter .lSPager.lSGallery li  {
     min-width: 175px !important;
 }
