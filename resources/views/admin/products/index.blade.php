@@ -37,7 +37,7 @@
                             @endif
                         </td>
                         <td>
-                            {!! defaultProductImage($product, 'thumb') !!}
+                            {!! defaultProductImage($product, 'thumb', 'admin') !!}
                         </td>
                         <td class="min">
                             {!!$product->getTableLinks()!!}

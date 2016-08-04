@@ -22436,10 +22436,6 @@ THEME FIRE
     position: relative;
 }
 
-.product-image .product-img {
-    width: 100%;
-}
-
 .product-image .badge-overlay {
     position: absolute;
     bottom: 0;

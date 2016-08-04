@@ -23,11 +23,13 @@ if ( ! function_exists('toolbar_link')) {
 
 if ( ! function_exists('defaultProductImage')) {
     /**
-     * @param $product
+     * @param        $product
+     * @param string $size
+     * @param null   $page
      *
      * @return string
      */
-    function defaultProductImage($product, $size = 'category_page')
+    function defaultProductImage($product, $size = 'category_page', $page = null)
     {
         if ($product->getMedia('products')->count() > 0) {
             $defaultItem = $product->getMedia('products')->reject(function ($item) {
@@ -35,21 +37,25 @@ if ( ! function_exists('defaultProductImage')) {
             });
 
             if ($defaultItem->count() > 0) {
-                return '<div class="product-image"><img src="' . url('/') . $defaultItem->first()->getUrl($size) . '" class="img-responsive product-img" alt="' . $product->name . '"/>' . wetDry($product) . '</div>';
+                return '<div class="product-image"><img src="' . url('/') . $defaultItem->first()->getUrl($size) . '" class="img-responsive product-img" alt="' . $product->name . '"/>' . wetDry($product,
+                    $page) . '</div>';
             } elseif ($product->getMedia('products')->count() > 0) {
-                return '<div class="product-image"><img src="' . url('/') . $product->getMedia('products')->first()->getUrl($size) . '" class="img-responsive product-img" alt="' . $product->name . '"/>' . wetDry($product) . '</div>';
+                return '<div class="product-image"><img src="' . url('/') . $product->getMedia('products')->first()->getUrl($size) . '" class="img-responsive product-img" alt="' . $product->name . '"/>' . wetDry($product,
+                    $page) . '</div>';
             }
         }
     }
-
+}
+if ( ! function_exists('wetDry')) {
     /**
      * @param $product
+     * @param $page
      *
      * @return string
      */
-    function wetDry($product)
+    function wetDry($product, $page)
     {
-        if ($product->season) {
+        if ($product->season && ($page != 'admin')) {
             return '<img class="badge-overlay" src="' . url('/') . '/images/' . $product->season . '_badge.png" alt="' . $product->name . '"/>';
         }
 
