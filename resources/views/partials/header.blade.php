@@ -77,7 +77,7 @@
                 <li><a href="{{ route('contact') }}"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;Contact</a>
                 </li>
             </ul>
-            <div class="pull-right cart-menu">
+            <div class="pull-right cart-menu hidden-sm hidden-xs">
                 <div class="btn-group btn-group-cart">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                         <span class="pull-left"><i class="fa fa-shopping-cart icon-cart"></i></span>

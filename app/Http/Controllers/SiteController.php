@@ -20,7 +20,7 @@ class SiteController extends Controller
     {
         $sliders = Slider::all();
 
-        $products = Product::with('units', 'categories')->take(15)->orderBy('created_at', 'desc')->enabled()->get();
+        $products = Product::with('units', 'categories')->take(6)->orderBy('created_at', 'desc')->enabled()->get();
 
         return view('index', compact('sliders', 'products'));
     }

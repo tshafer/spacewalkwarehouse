@@ -68,7 +68,6 @@
                                                     {{ $product->name }}
                                                 </a>
                                             </h4>
-                                            <p>{{$product->description}}</p>
                                             <div class="btn-group">
                                                 <a href="{{route('product', [$product->categories->first()->slug, $product->slug])}}"
                                                    class="btn btn-primary">View</a>

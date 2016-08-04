@@ -1,21 +1,29 @@
-.cart-product {
-    line-height: 85px;
-    padding-left: 40px;
-}
-
 .table > tbody > tr > td, .table > tfoot > tr > td {
     vertical-align: middle;
 }
 
+.cart-info {
+    margin-top: 20px;
+}
+table.cart {
+    font-size: 16px;
+}
 @media screen and (max-width: 600px) {
+
+
     table.cart tbody td .form-control {
         width: 20%;
         display: inline !important;
     }
 
+    .cart-info {
+        text-align: center;
+    }
+
     .actions .btn {
         width: 36%;
-        margin: 1.5em 0;
+        font-size: 16px;
+        margin-bottom: 20px;
     }
 
     table.cart thead {
@@ -24,7 +32,6 @@
 
     table.cart tbody td {
         display: block;
-        padding: .6rem;
         min-width: 320px;
     }
 
@@ -37,7 +44,6 @@
         content: attr(data-th);
         font-weight: bold;
         display: inline-block;
-        width: 8rem;
     }
 
     table.cart tfoot td {
@@ -992,4 +998,12 @@ footer .copyright {
     position: absolute;
     bottom: 10px;
     right: 10px;
+}
+
+.mobile-spacing {
+    margin: 40px 0;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #fff;
 }
