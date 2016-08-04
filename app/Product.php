@@ -61,7 +61,7 @@ class Product extends Model implements HasMediaConversions
 
         $this->addMediaConversion('category_page')->setManipulations(['w' => 300, 'h' => 277, 'fit' => 'fill'])->performOnCollections('*');
 
-        $this->addMediaConversion('accessories')->setManipulations(['w' => 250])->performOnCollections('accessories');
+        $this->addMediaConversion('accessories')->setManipulations(['h' => 250])->performOnCollections('accessories');
 
         $this->addMediaConversion('medium')->setManipulations(['w' => 800])->performOnCollections('*');
 
