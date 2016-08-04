@@ -1024,3 +1024,10 @@ footer .copyright {
     filter: alpha(opacity=0);
     overflow: hidden;
 }
+
+
+.product-image > img {
+    position: relative;
+    height: 180px;
+    margin: 0 auto;
+}
