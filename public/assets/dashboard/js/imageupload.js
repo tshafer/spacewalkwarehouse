@@ -8,7 +8,7 @@ if ($('#fine-uploader-gallery').length > 0) {
         },
         validation: {
             allowedExtensions: ['jpeg', 'jpg', 'gif', 'png'],
-            sizeLimit: 512000 // 50 kB = 50 * 1024 bytes
+            sizeLimit: 1024000 // 50 kB = 50 * 1024 bytes
         },
         retry: {
             enableAuto: true
@@ -34,7 +34,7 @@ if ($('#accessory-uploader-gallery').length > 0) {
         },
         validation: {
             allowedExtensions: ['jpeg', 'jpg', 'gif', 'png'],
-            sizeLimit: 512000 // 50 kB = 50 * 1024 bytes
+            sizeLimit: 1024000 // 50 kB = 50 * 1024 bytes
         },
         retry: {
             enableAuto: true
