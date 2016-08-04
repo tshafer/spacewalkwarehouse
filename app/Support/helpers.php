@@ -27,7 +27,7 @@ if ( ! function_exists('defaultProductImage')) {
      *
      * @return string
      */
-    function defaultProductImage($product, $size = 'thumb')
+    function defaultProductImage($product, $size = 'medium')
     {
         if ($product->getMedia('products')->count() > 0) {
             $defaultItem = $product->getMedia('products')->reject(function ($item) {
@@ -50,7 +50,7 @@ if ( ! function_exists('defaultProductImage')) {
     function wetDry($product)
     {
         if ($product->season) {
-            return '<img class="badge-overlay" class="img-responsive" src="' . url('/') . '/images/' . $product->season . '_badge.png" alt="' . $product->name . '"/>';
+            return '<img class="badge-overlay" src="' . url('/') . '/images/' . $product->season . '_badge.png" alt="' . $product->name . '"/>';
         }
 
         return '';

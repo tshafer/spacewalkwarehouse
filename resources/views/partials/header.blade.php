@@ -4,7 +4,7 @@
 <!--[if (gt IE 9)|!(IE)]><!-->
 <html lang="en"><!--<![endif]-->
 <head>
-    <title>@yield('title')</title>
+    <title>Space Walk Sales - @yield('title')</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="keywords" content=""/>
@@ -23,8 +23,6 @@
 <header>
     <div class="container">
         <div class="row">
-
-            <!-- Logo -->
             <div class="col-md-3 hidden-sm hidden-xs">
                 <div class="well logo">
                     <img src="/images/swlogo.png" class="img-responsive">
@@ -50,8 +48,8 @@
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="{{route('home')}}" class="{{active_class('home')}}"><i class="fa fa-home"
-                                                                                    aria-hidden="true"></i>&nbsp;Home</a>
+                <li><a href="{{route('home')}}" class="{{active_class('home')}}">
+                        <i class="fa fa-home" aria-hidden="true"></i>&nbsp;Home</a>
                 </li>
                 <li class="nav-dropdown">
                     <a href="#" class="{{active_class('category/*')}} dropdown-toggle" data-toggle="dropdown">
@@ -81,7 +79,8 @@
                 <div class="btn-group btn-group-cart">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                         <span class="pull-left"><i class="fa fa-shopping-cart icon-cart"></i></span>
-                        <span class="pull-left">Shopping Cart: {{Cart::instance(session('cartId'))->count()}} item(s)</span>
+                        <span class="pull-left">Shopping Cart: {{Cart::instance(session('cartId'))->count()}}
+                            item(s)</span>
                         <span class="pull-right"><i class="fa fa-caret-down"></i></span>
                     </button>
                     <ul class="dropdown-menu cart-content" role="menu">
@@ -100,7 +99,9 @@
                             @endforeach
 
                             <li class="divider"></li>
-                            <li><a href="{{route('cart.index')}}">Total: ${{Cart::instance(session('cartId'))->total()}}</a></li>
+                            <li>
+                                <a href="{{route('cart.index')}}">Total: ${{Cart::instance(session('cartId'))->total()}}</a>
+                            </li>
                         @else
                             &nbsp;&nbsp;Your cart seems to be empty.
                         @endif

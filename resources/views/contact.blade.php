@@ -7,7 +7,6 @@
     <div class="container main-container">
         <div class="row">
             @include('flash::messages')
-
             <div class="col-lg-3 col-md-3 col-sm-12">
                 <div class="no-padding">
                     <span class="title">OUR LOCATION</span>
@@ -18,9 +17,10 @@
                 Phone:<br/>
                 Email: {{ mailto('sales@herecomesfun.com', 'sales@herecomesfun.com') }}<br/>
             </div>
-
             <div class="col-lg-9 col-md-9 col-sm-12">
+
                 <div class="visible-xs visible-sm mobile-spacing"></div>
+
                 <span class="title">CONTACT US</span>
                 <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut
                     labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -43,7 +43,6 @@
                     </div>
                 </div>
 
-
                 <div class="row form-group">
                     <div class="col-md-12">
                         {{ label('message', 'Message')}}
@@ -60,5 +59,4 @@
             </div>
         </div>
     </div>
-
 @stop

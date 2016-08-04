@@ -12,7 +12,7 @@
         </div>
         <div class="row hero-feature">
 
-            <div class="col-md-8 col-sm-8">
+            <div class="col-md-8 col-sm-12 col-xs-12">
                 <ul id="imageGallery">
                     @foreach ($product->getMedia('products') as $photo)
                         <li data-thumb="{{$photo->getUrl('thumb') }}" data-src="{{$photo->getUrl('full') }}">
@@ -22,7 +22,10 @@
                 </ul>
             </div>
 
-            <div class="col-md-4 col-sm-4">
+            <div class="col-md-4 col-sm-12 col-xs-12">
+
+                <div class="visible-xs visible-sm mobile-spacing"></div>
+
                 <span class="title">{{$product->name}}</span>
                 <p>{{$product->description}} </p>
                 <div class="well product-short-detail">

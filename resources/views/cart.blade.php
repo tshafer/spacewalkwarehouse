@@ -29,7 +29,7 @@
                                                 <a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">
                                                     <img src="{{$unit->options->image}}"
                                                          alt="{{$unit->options->product_name}}"
-                                                         title="{{$unit->options->product_name}}""/>
+                                                         title="{{$unit->options->product_name}}"/>
                                                 </a>
                                             @endif
                                         </div>
@@ -70,19 +70,20 @@
                     <div class="btn-group btns-cart">
                         @if ($url = Session::get('backUrl'))
                             <a class="btn btn-primary" href="{{$url}}">
-                                <i class="fa fa-arrow-circle-left"></i> Continue Shopping</a>
+                                <i class="fa fa-arrow-circle-left"></i> Continue Shopping
+                            </a>
                         @else
                             <a class="btn btn-primary" href="{{route('home')}}"><i
-                                        class="fa fa-arrow-circle-left"></i> Continue Shopping</a>
+                                        class="fa fa-arrow-circle-left"></i> Continue Shopping
+                            </a>
                         @endif
                         <a class="btn btn-primary" href="{{route('checkout.index')}}">Checkout
-                            <i class="fa fa-arrow-circle-right"></i></a>
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </a>
                     </div>
 
                 @else
-                    <div class="col-md-12">
-                        Your cart seems to be empty. Try adding some items.
-                    </div>
+                    Your cart seems to be empty. Try adding some items.
                 @endif
             </div>
         </div>

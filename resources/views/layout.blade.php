@@ -3,4 +3,5 @@
 @yield('content')
 
 @include('partials.footer')
+
 @yield('scripts')

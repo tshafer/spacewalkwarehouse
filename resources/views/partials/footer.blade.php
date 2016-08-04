@@ -46,4 +46,5 @@
 <script src="{{url('/')}}/js/lightslider.min.js"></script>
 <script src="{{url('/')}}/js/mimity.js"></script>
 <script src="{{url('/')}}/js/scripts.js"></script>
-</body></html>
+</body>
+</html>

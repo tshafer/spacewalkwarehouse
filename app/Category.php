@@ -65,7 +65,11 @@ class Category extends Node implements HasMediaConversions
 
         $this->addMediaConversion('thumb')->setManipulations(['w' => 240])->performOnCollections('categories');
 
-        $this->addMediaConversion('adminThumb')->setManipulations(['w' => 100, 'sharp' => 15])->performOnCollections('*');
+        $this->addMediaConversion('medium')->setManipulations(['w' => 800])->performOnCollections('categories');
+
+        $this->addMediaConversion('full')->setManipulations(['w' => 1024])->performOnCollections('categories');
+
+        $this->addMediaConversion('adminThumb')->setManipulations(['w' => 100, 'sharp' => 15])->performOnCollections('categories');
     }
 
 

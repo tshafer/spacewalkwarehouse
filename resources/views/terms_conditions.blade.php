@@ -5,7 +5,6 @@
 @section('content')
     <div class="container main-container">
         <div class="row">
-
             <div class="col-md-12 hero-feature">
                 <span class="title">Terms &amp; Conditions</span>
                 <h4>Lorem ipsum dolor sit amet conse ctetur adipisicing elit</h4>

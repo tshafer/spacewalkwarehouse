@@ -48,6 +48,8 @@ class Special extends Model implements HasMediaConversions
 
         $this->addMediaConversion('medium')->setManipulations(['w' => 800])->performOnCollections('specials');
 
+        $this->addMediaConversion('full')->setManipulations(['w' => 1024])->performOnCollections('specials');
+
         $this->addMediaConversion('adminThumb')->setManipulations(['w' => 100, 'h' => 100, 'sharp' => 15])->performOnCollections('*');
     }
     
