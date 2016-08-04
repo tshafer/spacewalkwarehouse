@@ -3,7 +3,6 @@
 use App\Unit;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Request as Previous;
 use Illuminate\Support\Facades\Session;
 
 /**
@@ -26,8 +25,9 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-
         $unit = Unit::find($request->get('unit'));
+
+        $category = $unit->product->categories->first();
 
         $media = ($unit->product->getMedia('products')->count() > 0) ? $unit->product->getMedia('products')->first()->getUrl('thumb') : null;
 
@@ -35,7 +35,7 @@ class CartController extends Controller
             'product_name' => $unit->product->name,
             'image'        => $media,
             'productSlug'  => $unit->product->slug,
-            'categorySlug' => $unit->product->categories->first()->slug,
+            'categorySlug' => $category->slug,
             'width'        => $unit->width,
             'length'       => $unit->length,
             'height'       => $unit->height,
@@ -43,7 +43,7 @@ class CartController extends Controller
             'model'        => $unit->model,
         ]);
 
-        Session::flash('backUrl', Previous::server('HTTP_REFERER'));
+        Session::flash('backUrl', route('category' ,  [$category->slug]));
 
         return redirect()->route('cart.index');
     }

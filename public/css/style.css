@@ -988,10 +988,6 @@ footer .copyright {
     position: relative;
 }
 
-.product-image .product-img {
-    /*width: 100%;*/
-}
-
 .product-image .badge-overlay {
     position: absolute;
     bottom: 10px;

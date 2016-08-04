@@ -44,7 +44,9 @@ class Special extends Model implements HasMediaConversions
     public function registerMediaConversions()
     {
 
-        $this->addMediaConversion('thumb')->setManipulations(['w' => 240, 'h' => 160])->performOnCollections('specials');
+        $this->addMediaConversion('thumb')->setManipulations(['w' => 240])->performOnCollections('specials');
+
+        $this->addMediaConversion('medium')->setManipulations(['w' => 800])->performOnCollections('specials');
 
         $this->addMediaConversion('adminThumb')->setManipulations(['w' => 100, 'h' => 100, 'sharp' => 15])->performOnCollections('*');
     }

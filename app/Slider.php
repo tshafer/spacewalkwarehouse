@@ -44,9 +44,11 @@ class Slider extends Model implements HasMediaConversions
     public function registerMediaConversions()
     {
 
-        $this->addMediaConversion('thumb')->setManipulations(['w' => 240, 'h' => 160])->performOnCollections('sliders');
+        $this->addMediaConversion('thumb')->setManipulations(['w' => 240])->performOnCollections('sliders');
 
-        $this->addMediaConversion('adminThumb')->setManipulations(['w' => 100, 'h' => 100, 'sharp' => 15])->performOnCollections('*');
+        $this->addMediaConversion('medium')->setManipulations(['w' => 1080])->performOnCollections('sliders');
+
+        $this->addMediaConversion('adminThumb')->setManipulations(['w' => 100, 'sharp' => 15])->performOnCollections('*');
     }
 
 }
