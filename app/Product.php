@@ -67,6 +67,8 @@ class Product extends Model implements HasMediaConversions
 
         $this->addMediaConversion('full')->setManipulations(['w' => 1024])->performOnCollections('*');
 
+        $this->addMediaConversion('adminThumb')->setManipulations(['w' => 240])->performOnCollections('*');
+
     }
 
 
