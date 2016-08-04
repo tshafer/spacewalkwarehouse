@@ -63,13 +63,13 @@ class Category extends Node implements HasMediaConversions
     public function registerMediaConversions()
     {
 
-        $this->addMediaConversion('thumb')->setManipulations(['w' => 240])->performOnCollections('categories');
+        $this->addMediaConversion('thumb')->setManipulations(['w' => 240])->performOnCollections('*');
 
-        $this->addMediaConversion('medium')->setManipulations(['w' => 800])->performOnCollections('categories');
+        $this->addMediaConversion('medium')->setManipulations(['w' => 800])->performOnCollections('*');
 
-        $this->addMediaConversion('full')->setManipulations(['w' => 1024])->performOnCollections('categories');
+        $this->addMediaConversion('full')->setManipulations(['w' => 1024])->performOnCollections('*');
 
-        $this->addMediaConversion('adminThumb')->setManipulations(['w' => 100, 'sharp' => 15])->performOnCollections('categories');
+        $this->addMediaConversion('adminThumb')->setManipulations(['w' => 100, 'sharp' => 15])->performOnCollections('*');
     }
 
 

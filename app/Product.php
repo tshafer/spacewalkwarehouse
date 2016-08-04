@@ -57,13 +57,14 @@ class Product extends Model implements HasMediaConversions
     public function registerMediaConversions()
     {
 
-        $this->addMediaConversion('thumb')->setManipulations(['w' => 240])->performOnCollections('product');
+        $this->addMediaConversion('thumb')->setManipulations(['w' => 240])->performOnCollections('*');
 
-        $this->addMediaConversion('medium')->setManipulations(['w' => 800])->performOnCollections('product');
+        $this->addMediaConversion('medium')->setManipulations(['w' => 800])->performOnCollections('*');
 
-        $this->addMediaConversion('full')->setManipulations(['w' => 1024])->performOnCollections('product');
+        $this->addMediaConversion('full')->setManipulations(['w' => 1024])->performOnCollections('*');
 
-        $this->addMediaConversion('adminThumb')->setManipulations(['w' => 100, 'sharp' => 15])->performOnCollections('product');
+        $this->addMediaConversion('adminThumb')->setManipulations(['w' => 100, 'sharp' => 15])->performOnCollections('*');
+
     }
 
 
