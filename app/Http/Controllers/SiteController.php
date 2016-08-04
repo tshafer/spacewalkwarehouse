@@ -119,7 +119,7 @@ class SiteController extends Controller
      */
     public function search(Request $request)
     {
-        $query = $request->get('q');
+        $query = rtrim(trim($request->get('q')));
 
         $results = Unit::search('*' . $query)->with(['product.categories'])->paginate();
 
