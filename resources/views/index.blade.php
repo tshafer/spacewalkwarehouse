@@ -14,7 +14,7 @@
                                 @if($slider->getMedia('sliders')->count() > 0)
                                     <li>
                                         <a href="{{$slider->url}}">
-                                            <img src="{{url('/')}}{{$slider->media->first()->getUrl('full')}}"
+                                            <img src="{{url('/')}}{{$slider->media->first()->getUrl('extralarge')}}"
                                                  alt="{{ $slider->title }}" class="img-responsive"/>
                                         </a>
                                     </li>
