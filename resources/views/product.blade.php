@@ -70,7 +70,7 @@
                     <span class="title">Accessories</span>
                     <ul class="imageGallery">
                         @foreach ($product->getMedia('accessories') as $photo)
-                            <li><img src="{{$photo->getUrl('accessory') }}"/></li>
+                            <li><img src="{{$photo->getUrl('accessories') }}"/></li>
                         @endforeach
                     </ul>
                 </div>
