@@ -27,7 +27,7 @@ if ( ! function_exists('defaultProductImage')) {
      *
      * @return string
      */
-    function defaultProductImage($product, $size = 'medium')
+    function defaultProductImage($product, $size = 'category_page')
     {
         if ($product->getMedia('products')->count() > 0) {
             $defaultItem = $product->getMedia('products')->reject(function ($item) {
