@@ -15,7 +15,6 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
         'description' => $faker->paragraph,
         'enabled'     => true,
         'slug'        => $faker->slug,
-        'accessories' => $faker->paragraph,
-        'season'      => $faker->randomElement(['dry', 'wet']),
+        'season'      => $faker->randomElement(['dry', 'wet', 'both']),
     ];
 });
