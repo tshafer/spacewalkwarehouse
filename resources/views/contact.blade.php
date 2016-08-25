@@ -22,11 +22,10 @@
                 <div class="visible-xs visible-sm mobile-spacing"></div>
 
                 <span class="title">CONTACT US</span>
-                <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                    voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Have any questions for our team? Contact us using the form below for any pricing inquiries, package
+                    deals, or product specifications you need! Interested in learning more about the inflatable
+                    industry? We have over 55 years of experience helping inflatable renters and operators around the
+                    country find success.</p>
                 {{ open(['route' => 'contact.post']) }}
 
                 <div class="row form-group">

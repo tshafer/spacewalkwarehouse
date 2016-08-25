@@ -17,11 +17,11 @@
 
                 <div class="row form-group">
                     <div class="col-md-6">
-                        {{ label('first_name')}}
+                        {{ label('first_name')}} <span class="red">*</span>
                         {{ input('first_name','first_name', old('first_name'), ['class' => 'form-control', 'required']) }}
                     </div>
                     <div class="col-md-6">
-                        {{ label('last_name')}}
+                        {{ label('last_name')}} <span class="red">*</span>
                         {{ input('last_name','last_name', old('company_website'), ['class' => 'form-control','required']) }}
                     </div>
                 </div>
@@ -39,12 +39,12 @@
 
                 <div class="row form-group">
                     <div class="col-md-6">
-                        {{ label('email') }}
+                        {{ label('email') }} <span class="red">*</span>
                         {{ input('email','email', old('email'), ['class' => 'form-control', 'required']) }}
                     </div>
                     <div class="col-md-6">
                         {{ label('Phone')}}
-                        {{ input('phone','phone', old('telephone'), ['class' => 'form-control', 'required']) }}
+                        {{ input('phone','phone', old('telephone'), ['class' => 'form-control']) }}
                     </div>
                 </div>
 
