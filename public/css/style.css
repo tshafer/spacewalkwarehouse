@@ -652,6 +652,7 @@ footer .copyright {
 
 .navbar li a:hover, .navbar li a.active {
     background-color: #009DDB !important;
+    color: #fff;
 }
 
 .navbar li.nav-dropdown .caret {
@@ -665,7 +666,7 @@ footer .copyright {
 
 @media (min-width: 768px) {
     .navbar li.nav-dropdown ul li a {
-        color: #333 !important;
+        color: #333;
         font-family: Arial;
         font-size: 18px;
         text-transform: inherit;
