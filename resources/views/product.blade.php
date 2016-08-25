@@ -28,40 +28,42 @@
 
                 <span class="title">{{$product->name}}</span>
                 <p>{{$product->description}} </p>
-                <div class="well product-short-detail">
-                    <div class="row">
-                        <div class="the-list">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>W x L x H</th>
-                                    <th>UNIT LB</th>
-                                    <th>PRICE</th>
-                                    <th>BUY</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach ($product->units as $unit)
+                @if($product->units->count())
+                    <div class="well product-short-detail">
+                        <div class="row">
+                            <div class="the-list">
+                                <table class="table">
+                                    <thead>
                                     <tr>
-                                        <td>{{$unit->width}} x {{$unit->length}}
-                                            x {{$unit->height}}</td>
-                                        <td>{{$unit->weight}}</td>
-                                        <td>${{$unit->price}}</td>
-                                        <td>
-                                            {{open(['route' => 'cart.store'])}}
-                                            {{ hidden('unit', $unit->id) }}
-                                            <button type="submit" class="btn btn-primary btn-xs pull-left">
-                                                <i class="fa fa-shopping-cart"></i> Add to Cart
-                                            </button>
-                                            {{close()}}
-                                        </td>
+                                        <th>W x L x H</th>
+                                        <th>UNIT LB</th>
+                                        <th>PRICE</th>
+                                        <th>BUY</th>
                                     </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                    @foreach ($product->units as $unit)
+                                        <tr>
+                                            <td>{{$unit->width}} x {{$unit->length}}
+                                                x {{$unit->height}}</td>
+                                            <td>{{$unit->weight}}</td>
+                                            <td>${{$unit->price}}</td>
+                                            <td>
+                                                {{open(['route' => 'cart.store'])}}
+                                                {{ hidden('unit', $unit->id) }}
+                                                <button type="submit" class="btn btn-primary btn-xs pull-left">
+                                                    <i class="fa fa-shopping-cart"></i> Add to Cart
+                                                </button>
+                                                {{close()}}
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
         <div class="row">
