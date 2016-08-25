@@ -652,9 +652,11 @@ footer .copyright {
 
 .navbar li a:hover, .navbar li a.active {
     background-color: #009DDB !important;
+
+}
+.navbar li a.active {
     color: #fff;
 }
-
 .navbar li.nav-dropdown .caret {
     border-bottom-color: #fff;
     border-top-color: #fff;
