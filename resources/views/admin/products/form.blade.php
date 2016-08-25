@@ -52,6 +52,11 @@
                 {!! label('enabled') !!}
                 {!! checkbox('enabled', true) !!}
             </div>
+
+            <div class=" form-group">
+                {!! label('featured') !!}
+                {!! checkbox('featured') !!}
+            </div>
         </div>
 
     </div>

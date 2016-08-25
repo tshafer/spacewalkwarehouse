@@ -5,20 +5,23 @@ use App\Category;
 use App\Http\Controllers\Controller;
 use App\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
 use League\Fractal;
 
 class ProductController extends Controller
 {
 
     /**
-     * Display a listing of the resource.
+     * @param \Illuminate\Http\Request $request
      *
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::with(['categories', 'categories.media'])->paginate(100);
+        if ($request->has('featured')) {
+            $products = Product::with(['categories', 'categories.media'])->whereFeatured(true)->paginate(100);
+        } else {
+            $products = Product::with(['categories', 'categories.media'])->paginate(100);
+        }
 
         return view('admin.products.index', compact('products'));
     }
@@ -114,6 +117,12 @@ class ProductController extends Controller
             $product->enabled = false;
         }
 
+        if ($request->has('featured')) {
+            $product->featured = true;
+        } else {
+            $product->featured = false;
+        }
+
         if ($request->has('categories')) {
             $product->categories()->detach();
             foreach ($request->get('categories') as $category) {
@@ -141,7 +150,7 @@ class ProductController extends Controller
         $rules = [
             'name' => 'bail|required|unique:products,id,:id',
         ];
-        
+
         $this->runUpdate($request, $rules, $product);
 
         flash('Product updated!');
@@ -169,6 +178,12 @@ class ProductController extends Controller
             $product->enabled = true;
         } else {
             $product->enabled = false;
+        }
+
+        if ($request->has('featured')) {
+            $product->featured = true;
+        } else {
+            $product->featured = false;
         }
 
         if ($request->has('categories')) {

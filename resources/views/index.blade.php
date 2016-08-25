@@ -48,7 +48,7 @@
             @if($products->count() > 0)
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12">
-                        <span class="title">MOST RECENT PRODUCTS</span>
+                        <span class="title">FEATURED PRODUCTS</span>
 
                         @foreach($products->chunk(3) as $chunkedProducts)
                             <div class="row">

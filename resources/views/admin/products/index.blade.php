@@ -8,7 +8,7 @@
             <div class="block-options pull-right">
                 {!! toolbar_link('admin.products.create', 'fa-plus', 'New Product') !!}
             </div>
-            <h2>Products</h2>
+            <h2>Products</h2> <a href="{{route('admin.products.index')}}">All</a> | <a href="{{route('admin.products.index', 'featured=true')}}">Featured</a>
         </div>
 
         <table class="table table-striped table-hover">
@@ -17,8 +17,9 @@
                 <th class="min">ID</th>
                 <th>Name</th>
                 <th>Enabled</th>
+                <th>Featured</th>
                 <th>Category</th>
-                <th>Image</th>
+                <th style="text-align:center;">Image</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -29,6 +30,7 @@
                         <td>{{$product->id}}</td>
                         <td>{{$product->name}}</td>
                         <td>{{$product->is_enabled}}</td>
+                        <td>{{$product->is_featured}}</td>
                         <td>
                             @if($product->categories->count() > 0)
                                 @foreach($product->categories as $category)

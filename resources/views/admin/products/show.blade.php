@@ -36,6 +36,10 @@
                         <td>{!! $product->is_enabled!!}</td>
                     </tr>
                     <tr>
+                        <td>Featured</td>
+                        <td>{!! $product->is_featured!!}</td>
+                    </tr>
+                    <tr>
                         <td>Season</td>
                         <td>{!! $product->season!!}</td>
                     </tr>

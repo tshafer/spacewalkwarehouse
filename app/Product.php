@@ -48,6 +48,7 @@ class Product extends Model implements HasMediaConversions
         'enabled',
         'slug',
         'season',
+        'featured'
     ];
 
 
@@ -107,6 +108,14 @@ class Product extends Model implements HasMediaConversions
     public function getIsEnabledAttribute()
     {
         return ($this->attributes['enabled'] == 0) ? 'No' : 'Yes';
+    }
+
+    /**
+     * @return string
+     */
+    public function getIsFeaturedAttribute()
+    {
+        return ($this->attributes['featured'] == 0) ? 'No' : 'Yes';
     }
 
 }

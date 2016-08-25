@@ -20,7 +20,11 @@ class SiteController extends Controller
     {
         $sliders = Slider::all();
 
-        $products = Product::with('units', 'categories')->take(6)->orderBy('created_at', 'desc')->enabled()->get();
+        $featured = Product::with('units', 'categories')->take(6)->orderBy('created_at', 'desc')->enabled()->whereFeatured(true)->get();
+
+        $products = Product::with('units', 'categories')->take(6 - $featured->count())->whereNotIn('id', $featured->pluck('id'))->orderBy('created_at', 'desc')->enabled()->get();
+
+        $products = $featured->merge($products);
 
         return view('index', compact('sliders', 'products'));
     }
