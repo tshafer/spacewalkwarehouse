@@ -655,7 +655,7 @@ footer .copyright {
 
 }
 .navbar li a.active {
-    color: #fff;
+    color: #fff !important;
 }
 .navbar li.nav-dropdown .caret {
     border-bottom-color: #fff;
