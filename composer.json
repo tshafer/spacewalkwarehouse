@@ -19,14 +19,14 @@
     "tshafer/laravel-support": "dev-master",
     "rap2hpoutre/laravel-log-viewer": "^0.4.3",
     "spatie/laravel-medialibrary": "^3.0",
-    "lookitsatravis/listify": "^1.2",
     "gurzhii/laravel-sluggable-trait": "^1.0",
     "baum/baum": "^1.1",
     "iatstuti/laravel-cascade-soft-deletes": "1.0.*",
     "radic/blade-extensions": "^6.2",
     "gloudemans/shoppingcart": "^2.1",
     "league/fractal": "^0.13.0",
-    "sofa/eloquence": "^5.2"
+    "sofa/eloquence": "^5.2",
+    "czim/laravel-listify": "^0.9.6"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",

@@ -87,7 +87,7 @@ class Category extends Node implements HasMediaConversions
      */
     public function products()
     {
-        return $this->belongsToMany(Product::class);
+        return $this->hasMany(Product::class, 'categories_id')->orderBy('position', 'asc');
     }
 
 

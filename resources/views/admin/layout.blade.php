@@ -69,5 +69,6 @@
     <script src="{{url('/')}}/assets/dashboard/js/imageupload.js"></script>
 
     @stack('scripts')
+    @yield('scripts')
 </body>
 </html>

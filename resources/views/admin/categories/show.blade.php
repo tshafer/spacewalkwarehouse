@@ -10,8 +10,9 @@
 @stop
 
 @section('content')
+
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
 
             <div class="block">
                 <div class="block-title">
@@ -63,57 +64,6 @@
                 </table>
             </div>
 
-
-            @if($category->products->count() > 0)
-                <div class="block">
-                    <div class="block-title">
-                        <h2>Products </h2>
-                        <div class="block-options pull-right">
-                            {!! toolbar_link(['admin.products.create', 'cat='.$category->id], 'fa-plus', 'New Product') !!}
-                        </div>
-                    </div>
-
-                    <table class="table table-striped table-hover">
-                        <thead>
-                        <tr>
-                            <th class="min">ID</th>
-                            <th>Name</th>
-                            <th>Enabled</th>
-                            <th>Image</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        @if($category->products->count() > 0)
-                            @foreach($category->products as $product)
-                                <tr>
-                                    <td>{{$product->id}}</td>
-                                    <td>{{$product->name}}</td>
-                                    <td>{{$product->is_enabled}}</td>
-                                    <td>
-                                        {!! defaultProductImage($product, 'adminThumb') !!}
-                                    </td>
-                                    <td class="min">
-                                        {!!$product->getTableLinks()!!}
-                                    </td>
-
-                                </tr>
-                            @endforeach
-                        @else
-                            <tr>
-                                <td colspan="5">
-                                    There are no Products Available
-                                </td>
-                            </tr>
-                        @endif
-                        </tbody>
-                    </table>
-                </div>
-            @endif
-        </div>
-
-        <div class="col-md-4">
             <div class="block">
                 <div class="block-title">
                     <h2>DANGER ZONE</h2>
@@ -123,6 +73,68 @@
                 {!! Form::close() !!}
                 <br/>
             </div>
-        </div>
+        @if($category->products->count() > 0)
+            <div class="block">
+                <div class="block-title">
+                    <h2>Products </h2>
+                    <div class="block-options pull-right">
+                        {!! toolbar_link(['admin.products.create', 'cat='.$category->id], 'fa-plus', 'New Product') !!}
+                    </div>
+                </div>
+
+                <table class="table table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th class="min">ID</th>
+                        <th>Name</th>
+                        <th>Enabled</th>
+                        <th>Image</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    @if($category->products->count() > 0)
+                        @foreach($category->products as $product)
+                            <tr>
+                                <td>{{$product->id}}</td>
+                                <td>{{$product->name}}</td>
+                                <td>{{$product->is_enabled}}</td>
+                                <td>
+                                    {!! defaultProductImage($product, 'adminThumb') !!}
+                                </td>
+                                <td class="min">
+                                    {!!$product->getTableLinks()!!}
+                                    @if($category->products()->count() > 1)
+                                        @if(!$loop->first)
+                                            <a class="btn btn-xs btn-warning"
+                                               href="{{route('admin.products.moveup', $product->id)}}">
+                                                <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                                            </a>
+                                        @endif
+                                        @if(!$loop->last)
+                                            <a class="btn btn-xs btn-warning"
+                                               href="{{route('admin.products.movedown', $product->id)}}"><i
+                                                        class="fa fa-arrow-down" aria-hidden="true"></i></a>
+                                        @endif
+                                    @endif
+                                </td>
+
+                            </tr>
+                        @endforeach
+                    @else
+                        <tr>
+                            <td colspan="5">
+                                There are no Products Available
+                            </td>
+                        </tr>
+                    @endif
+                    </tbody>
+                </table>
+            </div>
+        @endif
+    </div>
+
+
     </div>
 @stop

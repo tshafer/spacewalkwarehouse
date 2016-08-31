@@ -18,7 +18,7 @@
                         {!! toolbar_link(['admin.products.edit', $product->id], 'fa-edit', 'Edit Product') !!}
                         {!! toolbar_link('admin.products.create', 'fa-plus', 'New Product') !!}
                         <a class="btn btn-alt btn-sm btn-default"
-                           href="{{route('product', [$product->categories()->first()->slug, $product->slug])}}"
+                           href="{{route('product', [$product->categories->slug, $product->slug])}}"
                            target="_blank">
                             <i class="fa fa-external-link" aria-hidden="true"></i>
                         </a>
@@ -48,9 +48,7 @@
                         <tr>
                             <td>Categories</td>
                             <td>
-                                @foreach($product->categories()->get() as $category)
-                                    <a href="{{route('admin.categories.show', $category->id)}}">{{ $category->name }}</a>
-                                @endforeach
+                                    <a href="{{route('admin.categories.show', $product->categories->id)}}">{{ $product->categories->name }}</a>
                             </td>
                         </tr>
                     @endif

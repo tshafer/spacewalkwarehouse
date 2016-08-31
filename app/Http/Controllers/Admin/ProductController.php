@@ -23,7 +23,17 @@ class ProductController extends Controller
             $products = Product::with(['categories', 'categories.media'])->paginate(100);
         }
 
-        return view('admin.products.index', compact('products'));
+        if ($request->has('category')) {
+
+            $products = Product::with(['categories', 'categories.media'])->whereHas('categories', function ($query) use ($request) {
+                $query->where('categories.id', '=', $request->get('category'));
+            })->paginate(100);
+
+        }
+
+        $categories = Category::orderBy('name', 'desc')->get();
+
+        return view('admin.products.index', compact('products', 'categories'));
     }
 
 
@@ -122,13 +132,10 @@ class ProductController extends Controller
         } else {
             $product->featured = false;
         }
-
         if ($request->has('categories')) {
-            $product->categories()->detach();
-            foreach ($request->get('categories') as $category) {
-                $categoryModel = Category::whereId($category)->first();
-                $product->categories()->attach($categoryModel);
-            }
+            $product->categories()->dissociate();
+            $categoryModel = Category::whereId($request->get('categories'))->first();
+            $product->categories()->associate($categoryModel);
         }
 
         $product->save();
@@ -187,11 +194,9 @@ class ProductController extends Controller
         }
 
         if ($request->has('categories')) {
-            $product->categories()->detach();
-            foreach ($request->get('categories') as $category) {
-                $categoryModel = Category::whereId($category)->first();
-                $product->categories()->attach($categoryModel);
-            }
+            $product->categories()->dissociate();
+            $categoryModel = Category::whereId($request->get('categories'))->first();
+            $product->categories()->associate($categoryModel);
         }
 
         $product->save();
@@ -310,6 +315,36 @@ class ProductController extends Controller
         }
 
         return response()->json(['success' => 'true']);
+    }
+
+
+    /**
+     * @param \App\Product             $product
+     * @param \Illuminate\Http\Request $request
+     */
+    public function moveUp(Product $product, Request $request)
+    {
+
+        $product->moveHigher();
+
+        flash('Product ' . $product->name . ' Moved Higher!');
+
+        return redirect()->back();
+    }
+
+
+    /**
+     * @param \App\Product             $product
+     * @param \Illuminate\Http\Request $request
+     */
+    public function moveDown(Product $product, Request $request)
+    {
+
+        $product->moveLower();
+
+        flash('Product ' . $product->name . ' Moved Lower!');
+
+        return redirect()->back();
     }
 
 }

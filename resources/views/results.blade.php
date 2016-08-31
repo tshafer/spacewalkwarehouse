@@ -17,13 +17,13 @@
                     @foreach($chunkedResults as $result)
                         <div class="col-lg-4 col-sm-4 hero-feature text-center">
                             <div class="thumbnail">
-                                <a href="{{route('product', [$result->product->categories->first()->slug, $result->product->slug])}}">
+                                <a href="{{route('product', [$result->product->categories->slug, $result->product->slug])}}">
                                     {!! defaultProductImage($result->product) !!}
                                 </a>
 
                                 <div class="caption prod-caption">
                                     <h4>
-                                        <a href="{{route('product', [$result->product->categories->first()->slug, $result->product->slug])}}"
+                                        <a href="{{route('product', [$result->product->categories->slug, $result->product->slug])}}"
                                            class="color_dark">
                                             {{ $result->product->name }}
                                         </a>
@@ -36,7 +36,7 @@
                                         Model #: {{$result->model}}<br/>
                                     </p>
                                     <div class="btn-group">
-                                        <a href="{{route('product', [$result->product->categories->first()->slug, $result->product->slug])}}"
+                                        <a href="{{route('product', [$result->product->categories->slug, $result->product->slug])}}"
                                            class="btn btn-primary">View</a>
                                     </div>
                                 </div>

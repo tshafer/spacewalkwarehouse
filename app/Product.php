@@ -4,9 +4,11 @@ namespace App;
 use App\Support\Traits\Attributes;
 use App\Support\Traits\Linkable;
 use App\Support\Traits\Sortable;
+use Czim\Listify\Listify;
 use Iatstuti\Database\Support\CascadeSoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
 use MartinBean\Database\Eloquent\Sluggable;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
@@ -14,7 +16,7 @@ use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
 class Product extends Model implements HasMediaConversions
 {
 
-    use Linkable, Sortable, Attributes, Sluggable, HasMediaTrait, SoftDeletes, CascadeSoftDeletes;
+    use Linkable, Sortable, Attributes, Sluggable, HasMediaTrait, SoftDeletes, CascadeSoftDeletes, Listify;
 
     /**
      * The database table used by the model.
@@ -35,7 +37,7 @@ class Product extends Model implements HasMediaConversions
      *
      * @var array
      */
-    protected $with = ['media'];
+    protected $with = ['media', 'categories'];
 
     /**
      * The attributes that are mass assignable.
@@ -48,8 +50,19 @@ class Product extends Model implements HasMediaConversions
         'enabled',
         'slug',
         'season',
-        'featured'
+        'featured',
+        'position',
+        'categories_id'
     ];
+
+    public function __construct(array $attributes = array(), $exists = false) {
+
+        parent::__construct($attributes, $exists);
+
+        $this->initListify([
+            'scope' => $this->categories()
+        ]);
+    }
 
 
     /**
@@ -78,7 +91,7 @@ class Product extends Model implements HasMediaConversions
      */
     public function categories()
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsTo(Category::class);
     }
 
 
@@ -109,6 +122,7 @@ class Product extends Model implements HasMediaConversions
     {
         return ($this->attributes['enabled'] == 0) ? 'No' : 'Yes';
     }
+
 
     /**
      * @return string
