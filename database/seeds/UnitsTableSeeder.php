@@ -14,7 +14,7 @@ class UnitsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Unit::class, 100)->create()->each(function ($unit) {
+        factory(App\Unit::class, 2)->create()->each(function ($unit) {
             $product = Product::orderBy(DB::raw('RAND()'))->take(1)->first();
             $product->units()->save($unit);
         });

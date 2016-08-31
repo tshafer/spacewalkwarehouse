@@ -8,7 +8,9 @@
             <div class="block-options pull-right">
                 {!! toolbar_link('admin.products.create', 'fa-plus', 'New Product') !!}
             </div>
-            <h2>Products</h2> <a href="{{route('admin.products.index')}}">All</a> | <a href="{{route('admin.products.index', 'featured=true')}}">Featured</a>
+            <h2>Products</h2> <a href="{{route('admin.products.index')}}">All</a> | <a
+                    href="{{route('admin.products.index', 'featured=true')}}">Featured</a> |
+            {!! select('category',  $categories->pluck('name', 'id'), Request::has('category') ? Request::get('category') : null, ['id' => 'category', 'placeholder' => 'Choose']) !!}
         </div>
 
         <table class="table table-striped table-hover">
@@ -32,11 +34,7 @@
                         <td>{{$product->is_enabled}}</td>
                         <td>{{$product->is_featured}}</td>
                         <td>
-                            @if($product->categories->count() > 0)
-                                @foreach($product->categories as $category)
-                                    <a href="{{route('admin.categories.show', $category->id)}}">{{ $category->name }}</a>
-                                @endforeach
-                            @endif
+                            <a href="{{route('admin.categories.show', $product->categories->id)}}">{{ $product->categories->name }}</a>
                         </td>
                         <td>
                             {!! defaultProductImage($product, 'thumb', 'admin') !!}
@@ -60,3 +58,13 @@
         {!! paginate($products) !!}
     </div>
 @stop
+
+@section('scripts')
+    <script>
+        $(function () {
+            $("#category").change(function () {
+                window.location = '/admin/products/?category=' + this.value
+            });
+        });
+    </script>
+@endsection

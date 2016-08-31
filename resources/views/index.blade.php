@@ -55,19 +55,19 @@
                                 @foreach($chunkedProducts as $product)
                                     <div class="col-lg-4 col-sm-4 hero-feature text-center">
                                         <div class="thumbnail">
-                                            <a href="{{route('product', [$product->categories->first()->slug, $product->slug])}}">
+                                            <a href="{{route('product', [$product->categories->slug, $product->slug])}}">
                                                 {!! defaultProductImage($product) !!}
                                             </a>
 
                                             <div class="caption prod-caption">
                                                 <h4>
-                                                    <a href="{{route('product', [$product->categories->first()->slug, $product->slug])}}"
+                                                    <a href="{{route('product', [$product->categories->slug, $product->slug])}}"
                                                        class="color_dark">
                                                         {{ $product->name }}
                                                     </a>
                                                 </h4>
                                                 <div class="btn-group">
-                                                    <a href="{{route('product', [$product->categories->first()->slug, $product->slug])}}"
+                                                    <a href="{{route('product', [$product->categories->slug, $product->slug])}}"
                                                        class="btn btn-primary">View</a>
                                                 </div>
                                             </div>
