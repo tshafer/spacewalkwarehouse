@@ -938,12 +938,6 @@ footer .copyright {
     margin-left: 0
 }
 
-@media (max-width: 768px) {
-    .thumbnail img {
-        width: 100%
-    }
-}
-
 .blog-list-group-item {
     background: transparent;
     border: 0;
