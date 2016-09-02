@@ -22,7 +22,7 @@ class CreateUnitsTable extends Migration
             $table->text('length');
             $table->text('model');
             $table->text('width');
-            $table->decimal('price', 10, 2);
+            $table->text('price');
             $table->timestamps();
             $table->softDeletes();
         });

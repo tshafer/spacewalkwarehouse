@@ -16,8 +16,8 @@
                 <h4>Customer Service</h4>
                 <ul>
                     <li><a href="{{ route('contact') }}">Contact Us</a></li>
-                    <li><a>Phone: 111-111-1111</a></li>
-                    <li><a href="{{ route('contact') }}">Email: space@spacewalkonline.com</a></li>
+                    <li><a href="tel:800-622-6026">800-622-6026</a></li>
+                    <li><a href="{{ route('contact') }}">Email:  Info@spacewalksales.com</a></li>
                 </ul>
             </div>
         </div>
@@ -25,9 +25,9 @@
             <div class="column">
                 <h4>Follow Us</h4>
                 <ul class="social">
-                    <li><a href="index.html#">Google Plus</a></li>
-                    <li><a href="index.html#">Facebook</a></li>
-                    <li><a href="index.html#">Twitter</a></li>
+                    <li><a href="https://plus.google.com/100094190545606653988" target="_blank">Google Plus</a></li>
+                    <li><a href="https://www.facebook.com/Inflatablesales/" target="_blank">Facebook</a></li>
+                    <li><a href="https://twitter.com/spacewalk" target="_blank">Twitter</a></li>
                 </ul>
             </div>
         </div>
