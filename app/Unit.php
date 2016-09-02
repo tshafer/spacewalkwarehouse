@@ -107,10 +107,10 @@ class Unit extends Model implements Buyable
      *
      * @return mixed
      */
-    public function setPriceAttribute($price)
-    {
-        $this->attributes['price'] = number_format($price, 2);
-    }
+    //public function setPriceAttribute($price)
+    //{
+    //    $this->attributes['price'] = number_format($price, 2);
+    //}
 
 
     /**
@@ -118,8 +118,8 @@ class Unit extends Model implements Buyable
      *
      * @return mixed
      */
-    public function getPriceAttribute($price)
-    {
-        return number_format((float)$price, 2);
-    }
+    //public function getPriceAttribute($price)
+    //{
+    //    return number_format((float)$price, 2);
+    //}
 }
