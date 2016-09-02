@@ -3,8 +3,8 @@
 @section('title') Welcome @stop
 
 @section('content')
-    @if($sliders->count() > 0)
-        <div class="container main-container">
+    <div class="container main-container">
+        @if($sliders->count() > 0)
             <div class="row">
                 <div class="col-lg-12 col-md-12">
                     <div class="slider">
@@ -25,59 +25,59 @@
                     </div>
                 </div>
             </div>
-            @endif
+        @endif
 
-            <div class="row">
-                <div class="col-lg-12 col-md-12">
-                    <div class="well">
-                        {{open(['route' => 'search'])}}
-                        <div class="input-group">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="well">
+                    {{open(['route' => 'search'])}}
+                    <div class="input-group">
 
-                            {{ input('text', 'q', null, ['class' => 'form-control input-search', 'placeholder' => 'Enter Something to Search']) }}
-                            <span class="input-group-btn">
+                        {{ input('text', 'q', null, ['class' => 'form-control input-search', 'placeholder' => 'Enter Something to Search']) }}
+                        <span class="input-group-btn">
                             <button class="btn btn-default no-border-left" type="submit"><i class="fa fa-search"></i>
                             </button>
                         </span>
 
-                        </div>
-                        {{close()}}
                     </div>
+                    {{close()}}
                 </div>
             </div>
+        </div>
 
-            @if($products->count() > 0)
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <span class="title">FEATURED PRODUCTS</span>
+        @if($products->count() > 0)
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <span class="title">FEATURED PRODUCTS</span>
 
-                        @foreach($products->chunk(3) as $chunkedProducts)
-                            <div class="row">
-                                @foreach($chunkedProducts as $product)
-                                    <div class="col-lg-4 col-sm-4 hero-feature text-center">
-                                        <div class="thumbnail">
-                                            <a href="{{route('product', [$product->categories->slug, $product->slug])}}">
-                                                {!! defaultProductImage($product) !!}
-                                            </a>
+                    @foreach($products->chunk(3) as $chunkedProducts)
+                        <div class="row">
+                            @foreach($chunkedProducts as $product)
+                                <div class="col-lg-4 col-sm-4 hero-feature text-center">
+                                    <div class="thumbnail">
+                                        <a href="{{route('product', [$product->categories->slug, $product->slug])}}">
+                                            {!! defaultProductImage($product) !!}
+                                        </a>
 
-                                            <div class="caption prod-caption">
-                                                <h4>
-                                                    <a href="{{route('product', [$product->categories->slug, $product->slug])}}"
-                                                       class="color_dark">
-                                                        {{ $product->name }}
-                                                    </a>
-                                                </h4>
-                                                <div class="btn-group">
-                                                    <a href="{{route('product', [$product->categories->slug, $product->slug])}}"
-                                                       class="btn btn-primary">View</a>
-                                                </div>
+                                        <div class="caption prod-caption">
+                                            <h4>
+                                                <a href="{{route('product', [$product->categories->slug, $product->slug])}}"
+                                                   class="color_dark">
+                                                    {{ $product->name }}
+                                                </a>
+                                            </h4>
+                                            <div class="btn-group">
+                                                <a href="{{route('product', [$product->categories->slug, $product->slug])}}"
+                                                   class="btn btn-primary">View</a>
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
-                            </div>
-                        @endforeach
-                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    @endforeach
                 </div>
-            @endif
-        </div>
+            </div>
+        @endif
+    </div>
 @stop
