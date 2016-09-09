@@ -71,7 +71,7 @@ class Product extends Model implements HasMediaConversions
     public function registerMediaConversions()
     {
 
-        $this->addMediaConversion('thumb')->setManipulations(['h' => 240, 'w' => 240])->performOnCollections('*');
+        $this->addMediaConversion('thumb')->setManipulations(['h' => 240, 'w' => 240])->performOnCollections('products');
 
         $this->addMediaConversion('category_page')->setManipulations(['w' => 300, 'h' => 277, 'fit' => 'fill'])->performOnCollections('products');
 
