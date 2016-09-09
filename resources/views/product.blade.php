@@ -16,7 +16,7 @@
                 <ul id="imageGallery" class="cS-hidden">
                     @foreach ($product->getMedia('products') as $photo)
                         <li data-thumb="{{$photo->getUrl('thumb') }}" data-src="{{$photo->getUrl('full') }}">
-                            <img src="{{$photo->getUrl('medium') }}"/>
+                            <img src="{{$photo->getUrl('medium') }}" class="img-responsive"/>
                         </li>
                     @endforeach
                 </ul>
