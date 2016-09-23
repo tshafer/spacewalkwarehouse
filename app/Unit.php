@@ -4,6 +4,7 @@ namespace App;
 use App\Support\Traits\Attributes;
 use App\Support\Traits\Linkable;
 use App\Support\Traits\Sortable;
+use Gloudemans\Shoppingcart\CanBeBought;
 use Gloudemans\Shoppingcart\Contracts\Buyable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -12,7 +13,7 @@ use Sofa\Eloquence\Eloquence;
 class Unit extends Model implements Buyable
 {
 
-    use Linkable, Sortable, Attributes, Eloquence, SoftDeletes;
+    use Linkable, Sortable, Attributes, Eloquence, SoftDeletes, CanBeBought;
 
     /**
      * The database table used by the model.
@@ -68,38 +69,6 @@ class Unit extends Model implements Buyable
         return $this->belongsToMany(UnitRequest::class);
     }
 
-
-    /**
-     * Get the identifier of the Buyable item.
-     *
-     * @return int|string
-     */
-    public function getBuyableIdentifier()
-    {
-        return $this->id;
-    }
-
-
-    /**
-     * Get the description or title of the Buyable item.
-     *
-     * @return string
-     */
-    public function getBuyableDescription()
-    {
-        return $this->description;
-    }
-
-
-    /**
-     * Get the price of the Buyable item.
-     *
-     * @return float
-     */
-    public function getBuyablePrice()
-    {
-        return $this->price;
-    }
 
 
     /**
