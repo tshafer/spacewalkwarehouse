@@ -4,3 +4,4 @@
 /.idea
 /public/uploads
 public/.DS_Store
+composer.lock
