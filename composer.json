@@ -13,7 +13,6 @@
     "doctrine/dbal": "^2.5",
     "predis/predis": "1.1.*@dev",
     "torann/registry": "0.2.*@dev",
-    "tshafer/laravel-dev": "1.*",
     "laravelcollective/html": "5.2.*",
     "tshafer/laravel-flash": "1.*",
     "tshafer/laravel-support": "dev-master",

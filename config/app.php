@@ -143,7 +143,6 @@ return [
         /*
          * Custom Service Providers
          */
-        Tshafer\Laradev\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Tshafer\Flash\ServiceProvider::class,
         Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
