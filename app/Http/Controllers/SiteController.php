@@ -105,6 +105,7 @@ class SiteController extends Controller
 
             $message->subject('Space Walk Sales Contact Form');
             $message->from('sales@spacewalk.com', 'Space Walk Sales Contact Form');
+            $message->bcc('tj@tjshafer.com');
             $message->to('admin@spacewalksales.com');
 
         });

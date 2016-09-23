@@ -22,7 +22,7 @@ $(function(){
 	if ($('.bxslider').exist()) {
 	    $('.bxslider').bxSlider({
 	        auto: true,
-	        pause: 3000,
+	        pause: 4000,
 	        pager: false
 	    });
 	}
@@ -45,4 +45,4 @@ $(function(){
 		}
 	});
 
-})
+});
