@@ -35,7 +35,7 @@ return [
     | your application so that it is used when running Artisan tasks.
     |
     */
-    'url'             => env('APP_URL', 'http://www.spacewalksales.com'),
+    'url'             => env('APP_URL', 'http://spacewalksales.com'),
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
@@ -151,6 +151,7 @@ return [
         Radic\BladeExtensions\BladeExtensionsServiceProvider::class,
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
         Sofa\Eloquence\ServiceProvider::class,
+        Spatie\Backup\BackupServiceProvider::class,
     ],
     /*
     |--------------------------------------------------------------------------
