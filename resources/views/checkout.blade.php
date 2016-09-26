@@ -43,7 +43,7 @@
                         {{ input('email','email', old('email'), ['class' => 'form-control', 'required']) }}
                     </div>
                     <div class="col-md-6">
-                        {{ label('Phone')}}
+                        {{ label('Phone')}} <span class="red">*</span>
                         {{ input('phone','phone', old('telephone'), ['class' => 'form-control']) }}
                     </div>
                 </div>
