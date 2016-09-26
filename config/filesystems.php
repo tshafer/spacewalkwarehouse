@@ -35,20 +35,25 @@ return [
     |
     */
     'disks'   => [
-        'media' => [
+        'media'   => [
             'driver' => 'local',
-            'root'   => public_path().'/media',
+            'root'   => public_path() . '/media',
         ],
-        'local'  => [
+        'local'   => [
             'driver' => 'local',
             'root'   => storage_path('app'),
         ],
-        'public' => [
+        'dropbox' => [
+            'driver'      => 'dropbox',
+            'accessToken' => env('DROPBOX_ACCESS_TOKEN'),
+            'appSecret'   => env('DROPBOX_APP_SECRET'),
+        ],
+        'public'  => [
             'driver'     => 'local',
             'root'       => storage_path('app/public') . '/media/',
             'visibility' => 'public',
         ],
-        's3'     => [
+        's3'      => [
             'driver' => 's3',
             'key'    => 'your-key',
             'secret' => 'your-secret',

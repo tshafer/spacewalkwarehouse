@@ -6,3 +6,4 @@
 public/.DS_Store
 composer.lock
 .DS_Store
+storage/laravel-backups
