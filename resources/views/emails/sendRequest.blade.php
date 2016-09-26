@@ -65,7 +65,7 @@
                                         </td>
 
                                         <td style="border:1px solid #ccc">
-                                            ${{$unit->price}}
+                                            ${{number_format($unit->price,2)}}
                                         </td>
                                     </tr>
                                 @endforeach
