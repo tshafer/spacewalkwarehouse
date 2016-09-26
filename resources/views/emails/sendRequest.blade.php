@@ -49,7 +49,7 @@
                                                 <div class="col-sm-2 hidden-xs">
                                                     @if($unit->options->image)
                                                         <a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">
-                                                            <img src="{{$unit->options->image}}"
+                                                            <img src="{{config('APP_URL')}}/{{$unit->options->image}}"
                                                                  alt="{{$unit->options->product_name}}" title=""
                                                                  width="47" height="47"/>
                                                         </a>
