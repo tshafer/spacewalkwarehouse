@@ -25,7 +25,9 @@
     "gloudemans/shoppingcart": "^2.1",
     "league/fractal": "^0.13.0",
     "sofa/eloquence": "^5.2",
-    "czim/laravel-listify": "^0.9.6"
+    "czim/laravel-listify": "^0.9.6",
+    "guzzlehttp/guzzle": "^6.2",
+    "spatie/laravel-backup": "^3.0.0"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",
