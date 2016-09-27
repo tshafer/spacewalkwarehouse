@@ -51,7 +51,7 @@
 														<img src="{{getenv('APP_URL')}}/{{$unit->options->image}}" alt="{{$unit->options->product_name}}" title="{{$unit->options->product_name}}" width="47" height="47"/>
 													</a>
 												@endif
-												<a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">{{$unit->options->product_name}}</a>
+												<a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">{{$unit->options->product_name}}</a><br/>
 												({{$unit->options->width}} x {{$unit->options->length}}
 												x {{$unit->options->height}}) @if($unit->options->weight) - ({{$unit->options->weight}} LBS) @endif
 											</div>
