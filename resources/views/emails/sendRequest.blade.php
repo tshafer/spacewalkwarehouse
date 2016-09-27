@@ -56,8 +56,8 @@
                                                     @endif
                                                 </div>
                                                 <div class="col-sm-10">
-                                                    <a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">{{$unit->options->product_name}}</a>
-                                                    - ({{$unit->options->width}} x {{$unit->options->length}}
+                                                    <a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">{{$unit->options->product_name}}</a><br/>
+                                                    ({{$unit->options->width}} x {{$unit->options->length}}
                                                     x {{$unit->options->height}}) @if($unit->options->weight) - ({{$unit->options->weight}} LBS) @endif
                                                 </div>
                                             </div>

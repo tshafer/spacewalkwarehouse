@@ -47,7 +47,7 @@
                                             <td>{{$unit->width}} x {{$unit->length}}
                                                 x {{$unit->height}}</td>
                                             <td>{{$unit->weight}}</td>
-                                            <td>${{$unit->price}}</td>
+                                            <td>${{number_format($unit->price,2)}}</td>
                                             <td>
                                                 {{open(['route' => 'cart.store'])}}
                                                 {{ hidden('unit', $unit->id) }}
