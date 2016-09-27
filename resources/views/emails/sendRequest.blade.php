@@ -45,8 +45,8 @@
                                 @foreach($cart as $unit)
                                     <tr style="border:1px solid #ccc">
                                         <td style="border:1px solid #ccc">
-                                            <div >
-                                                <div class="col-sm-2 hidden-xs">
+                                            <div>
+
                                                     @if($unit->options->image)
                                                         <a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">
                                                             <img src="{{getenv('APP_URL')}}/{{$unit->options->image}}"
@@ -54,12 +54,9 @@
                                                                  width="47" height="47"/>
                                                         </a>
                                                     @endif
-                                                </div>
-                                                <div class="col-sm-10">
-                                                    <a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">{{$unit->options->product_name}}</a><br/>
+                                                    <a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">{{$unit->options->product_name}}</a>
                                                     ({{$unit->options->width}} x {{$unit->options->length}}
                                                     x {{$unit->options->height}}) @if($unit->options->weight) - ({{$unit->options->weight}} LBS) @endif
-                                                </div>
                                             </div>
 
                                         </td>
