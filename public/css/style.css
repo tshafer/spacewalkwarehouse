@@ -974,25 +974,11 @@ footer .copyright {
     background-color: #f1f1f1 !important;
 }
 
-.imageGallery {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
 
-.imageGallery li {
-    display: inline-block;
-    padding: 5px;
 
-}
-.lSSlideOuter .lSPager.lSGallery {
-    width: 100% !important;
-}
-.lSSlideOuter .lSPager.lSGallery li  {
-    min-width: 175px !important;
-}
-#imageGallery li img {
-    max-width: 100%;
+.lSSlideOuter .lSPager.lSGallery li, .lSSlideOuter .lSPager.lSGallery li.active, .lSSlideOuter .lSPager.lSGallery li:hover {
+    border-radius: 0 !important;
+    margin-right: 0 !important;
 }
 
 .product-image {

@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="keywords" content=""/>
-    <!--<link rel="icon" type="image/ico" href="images/fav.ico">-->
+    <link rel="icon" type="image/png" href="{{url('/')}}/apple-icon-152x152.png">
 
     <link rel="stylesheet" type="text/css" media="all" href="{{url('/')}}/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" media="all" href="{{url('/')}}/css/font-awesome.min.css">
