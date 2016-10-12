@@ -70,7 +70,7 @@
             @if($product->getMedia('accessories')->count() > 0)
                 <div class="col-md-12" style="margin-top:50px;">
                     <span class="title">Accessories</span>
-                    <ul class="imageGallery">
+                    <ul class="imageGallery" style="list-style-type: none">
                         @foreach ($product->getMedia('accessories') as $photo)
                             <li><img src="{{$photo->getUrl('accessories') }}" class="img-responsive"/></li>
                         @endforeach
