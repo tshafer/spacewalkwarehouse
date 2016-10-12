@@ -127,7 +127,7 @@ class UnitController extends Controller
     public function update(Unit $unit, Request $request)
     {
         $rules = [
-            'name'  => 'bail|required|unique:units,id,:id',
+            'name'  => 'bail|required',
             'price' => ['required', 'regex:/^\d*(\.\d{2})?$/'],
         ];
         $this->runUpdate($request, $rules, $unit);
