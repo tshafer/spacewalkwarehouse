@@ -155,7 +155,7 @@ class ProductController extends Controller
     public function update(Product $product, Request $request)
     {
         $rules = [
-            'name' => 'bail|required|unique:products,id,:id',
+            'name' => 'bail|required',
         ];
 
         $this->runUpdate($request, $rules, $product);
