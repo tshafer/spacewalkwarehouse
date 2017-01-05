@@ -34,7 +34,7 @@ class Unit extends Model implements Buyable
         'width',
         'length',
         'weight',
-        'price',
+        'grade',
         'model',
     ];
 
@@ -52,8 +52,9 @@ class Unit extends Model implements Buyable
         'product.description' => 5,
     ];
 
+
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function product()
     {
@@ -62,33 +63,11 @@ class Unit extends Model implements Buyable
 
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function unitRequests()
     {
         return $this->belongsToMany(UnitRequest::class);
     }
 
-
-
-    /**
-     * @param $price
-     *
-     * @return mixed
-     */
-    //public function setPriceAttribute($price)
-    //{
-    //    $this->attributes['price'] = number_format($price, 2);
-    //}
-
-
-    /**
-     * @param $price
-     *
-     * @return mixed
-     */
-    //public function getPriceAttribute($price)
-    //{
-    //    return number_format((float)$price, 2);
-    //}
 }

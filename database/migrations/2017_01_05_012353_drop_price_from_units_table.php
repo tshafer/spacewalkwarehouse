@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddFieldsToProductsTable extends Migration
+class DropPriceFromUnitsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,8 @@ class AddFieldsToProductsTable extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->text('accessories');
-            $table->text('season');
+        Schema::table('units', function (Blueprint $table) {
+            $table->dropColumn('price');
         });
     }
 
@@ -25,8 +24,8 @@ class AddFieldsToProductsTable extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            //
+        Schema::table('units', function (Blueprint $table) {
+            $table->text('price');
         });
     }
 }

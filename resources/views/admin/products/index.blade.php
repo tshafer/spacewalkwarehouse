@@ -47,7 +47,7 @@
                 @endforeach
             @else
                 <tr>
-                    <td colspan="5">
+                    <td colspan="7">
                         There are no Products Available
                     </td>
                 </tr>

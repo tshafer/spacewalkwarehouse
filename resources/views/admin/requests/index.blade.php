@@ -14,7 +14,7 @@
                 <th class="min">ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Company Name</th>
+                <th>Branch Name</th>
                 <th>Unit Count</th>
                 <th>Action</th>
             </tr>
@@ -25,8 +25,8 @@
                     <tr>
                         <td>{{$request->id}}</td>
                         <td>{{$request->first_name}}</td>
-                        <td>{{$request->company_name}}</td>
                         <td>{{$request->last_name}}</td>
+                        <td>{{$request->branch_name}}</td>
                         <td>{{$request->units()->count()}}</td>
                         <td class="min">
                             {!!$request->getTableLinks()!!}

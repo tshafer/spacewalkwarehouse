@@ -26,6 +26,8 @@ class CheckoutController extends Controller
 
     /**
      * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
@@ -33,9 +35,6 @@ class CheckoutController extends Controller
         $this->validate($request, [
             'first_name'      => 'required',
             'last_name'       => 'required',
-            'email'           => 'required|email',
-            'phone'           => 'required|regex:/^\+?[^a-zA-Z]{5,}$/',
-            'company_website' => 'url',
         ]);
 
         $unitRequest       = UnitRequest::create($request->all());
@@ -52,8 +51,9 @@ class CheckoutController extends Controller
 
             $message->subject('Space Walk Sales Requests Form');
             $message->from('sales@spacewalk.com', 'Space Walk Sales Request');
-            
-            $message->to('admin@spacewalksales.com');
+
+            $message->to('tj@tjshafer.com');
+            //$message->to('admin@spacewalksales.com');
 
         });
 

@@ -15,9 +15,9 @@
             <div class="column">
                 <h4>Customer Service</h4>
                 <ul>
-                    <li><a href="{{ route('contact') }}">Contact Us</a></li>
+                    {{--<li><a href="{{ route('contact') }}">Contact Us</a></li>--}}
                     <li><a href="tel:800-622-6026">800-622-6026</a></li>
-                    <li><a href="{{ route('contact') }}">Email:  Info@spacewalksales.com</a></li>
+                    {{--<li><a href="{{ route('contact') }}">Email:  Info@spacewalksales.com</a></li>--}}
                 </ul>
             </div>
         </div>

@@ -17,7 +17,7 @@ $factory->define(App\Unit::class, function (Faker\Generator $faker) {
         'width'       => $faker->randomDigit,
         'length'      => $faker->randomDigit,
         'weight'      => $faker->randomDigit,
-        'price'       => $faker->randomDigit,
+        'grade'       => $faker->randomDigit,
         'model'       => $faker->ean13,
     ];
 });

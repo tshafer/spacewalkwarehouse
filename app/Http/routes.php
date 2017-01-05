@@ -42,20 +42,20 @@ $router->get('thanks', [
     'uses' => 'SiteController@thanks',
 ]);
 
-$router->get('contact', [
-    'as'   => 'contact',
-    'uses' => 'SiteController@contact',
-]);
+//$router->get('contact', [
+//    'as'   => 'contact',
+//    'uses' => 'SiteController@contact',
+//]);
 
-$router->get('specials', [
-    'as'   => 'special',
-    'uses' => 'SiteController@special',
-]);
+//$router->get('specials', [
+//    'as'   => 'special',
+//    'uses' => 'SiteController@special',
+//]);
 
-$router->post('contact', [
-    'as'   => 'contact.post',
-    'uses' => 'SiteController@contactPost',
-]);
+//$router->post('contact', [
+//    'as'   => 'contact.post',
+//    'uses' => 'SiteController@contactPost',
+//]);
 
 $router->get('category/{category}', [
     'as'   => 'category',
@@ -86,8 +86,8 @@ $router->model('units', App\Unit::class);
 $router->model('users', App\User::class);
 $router->model('sliders', App\Slider::class);
 $router->model('products', App\Product::class);
-$router->model('specials', App\Special::class);
-$router->model('categories', App\Category::class);
+//$router->model('specials', App\Special::class);
+//$router->model('categories', App\Category::class);
 $router->model('unitrequests', App\UnitRequest::class);
 
 

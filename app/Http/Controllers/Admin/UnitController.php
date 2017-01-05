@@ -81,7 +81,6 @@ class UnitController extends Controller
         $rules = [
             'name'    => 'bail|required|unique:units',
             'product' => 'required',
-            'price'   => ['required', 'regex:/^\d*(\.\d{2})?$/'],
         ];
         $unit  = $this->runSave($request, $rules);
 
@@ -128,7 +127,7 @@ class UnitController extends Controller
     {
         $rules = [
             'name'  => 'bail|required',
-            'price' => ['required', 'regex:/^\d*(\.\d{2})?$/'],
+            'grade' => 'in:a,b,c,d,e,f,A,B,C,D,E,F',
         ];
         $this->runUpdate($request, $rules, $unit);
 
@@ -148,7 +147,7 @@ class UnitController extends Controller
     protected function runUpdate(Request $request, array $rules, Unit $unit)
     {
         $this->validate($request, array_merge([
-            //'intro_text' => 'required',
+            'grade' => 'in:a,b,c,d,e,f,A,B,C,D,E,F',
         ], $rules));
 
         if ($request->has('product')) {

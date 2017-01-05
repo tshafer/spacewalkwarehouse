@@ -43,8 +43,8 @@
             </div>
 
             <div class="form-group">
-                {!! label('price') !!}
-                {!! text('price', null, ['class' => 'form-control']) !!}
+                {!! label('grade') !!}
+                {!! text('grade', null, ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">

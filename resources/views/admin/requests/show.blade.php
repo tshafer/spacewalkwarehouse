@@ -18,23 +18,12 @@
                 <table class="table table-striped table-hover">
 
                     <tr>
-                        <td>Company Name</td>
-                        <td>{!! $unitRequest->company_name!!}</td>
+                        <td>Branch Name</td>
+                        <td>{!! $unitRequest->branch_name!!}</td>
                     </tr>
+
                     <tr>
-                        <td>Company Website</td>
-                        <td>{!! $unitRequest->company_website!!}</td>
-                    </tr>
-                    <tr>
-                        <td>Email</td>
-                        <td>{!! $unitRequest->email!!}</td>
-                    </tr>
-                    <tr>
-                        <td>Phone</td>
-                        <td>{!! $unitRequest->phone!!}</td>
-                    </tr>
-                    <tr>
-                        <td>Message</td>
+                        <td>Reason for Request</td>
                         <td>{!! $unitRequest->message!!}</td>
                     </tr>
                     @if($unitRequest->units->count() > 0)
@@ -58,7 +47,7 @@
                                     <thead>
                                     <tr>
                                         <td>Product</td>
-                                        <td>Price</td>
+                                        <td>Grade</td>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -80,24 +69,17 @@
                                                         <a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">{{$unit->options->product_name}}</a>
                                                         - ({{$unit->options->width}} x {{$unit->options->length}}
                                                         x {{$unit->options->height}}) - ({{$unit->options->weight}} LBS)
-                                                        -
-                                                        (#{{$unit->options->model}})
+                                                        - (#{{$unit->options->model}})
                                                     </div>
                                                 </div>
                                             </td>
-
-                                            <td data-th="Price" class="text-center">
-                                                ${{number_format($unit->price,2)}}</td>
+                                            <td>
+                                                {{$unit->options->grade}}
+                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
-                                    <tfoot>
-                                    <tr>
-                                        <td class="hidden-xs"></td>
-                                        <td class="total text-center">Total:
-                                            ${{number_format($total,2)}}
-                                    </tr>
-                                    </tfoot>
+
                                 </table>
                             </td>
                         </tr>

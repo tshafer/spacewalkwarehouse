@@ -28,29 +28,16 @@
 
                 <div class="row form-group">
                     <div class="col-md-6">
-                        {{ label('company_name')}}
-                        {{ input('company_name','company_name', old('company_name'), ['class' => 'form-control']) }}
+                        {{ label('branch_name')}}
+                        {{ input('branch_name','branch_name', old('branch_name'), ['class' => 'form-control']) }}
                     </div>
-                    <div class="col-md-6">
-                        {{ label('company_website')}}
-                        {{ input('company_website','company_website', old('company_website'), ['class' => 'form-control']) }}
-                    </div>
+
                 </div>
 
-                <div class="row form-group">
-                    <div class="col-md-6">
-                        {{ label('email') }} <span class="red">*</span>
-                        {{ input('email','email', old('email'), ['class' => 'form-control', 'required']) }}
-                    </div>
-                    <div class="col-md-6">
-                        {{ label('Phone')}} <span class="red">*</span>
-                        {{ input('phone','phone', old('telephone'), ['class' => 'form-control']) }}
-                    </div>
-                </div>
 
                 <div class="row form-group">
                     <div class="col-md-12">
-                        {{ label('message') }}
+                        {{ label('reason_for_request') }}
                         {{ textarea('message', old('message'), ['class' => 'form-control', 'rows' => 5, 'max-length' => 1000]) }}
                     </div>
                 </div>
@@ -63,7 +50,7 @@
                     <thead>
                     <tr>
                         <td>Product</td>
-                        <td>Price</td>
+                        <td>Grade</td>
                     </tr>
                     </thead>
                     <tbody>
@@ -74,9 +61,7 @@
                                     <div class="col-md-4 col-sm-12 col-xs-12 text-center">
                                         @if($unit->options->image)
                                             <a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">
-                                                <img src="{{$unit->options->image}}"
-                                                     alt="{{$unit->options->product_name}}"
-                                                     title="{{$unit->options->product_name}}"/>
+                                                <img src="{{$unit->options->image}}" alt="{{$unit->options->product_name}}" title="{{$unit->options->product_name}}"/>
                                             </a>
                                         @endif
                                     </div>
@@ -91,21 +76,14 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </td>
-
                             <td class="text-center">
-                                ${{number_format($unit->price,2)}}
+                                {{$unit->options->grade}}
                             </td>
                         </tr>
                     @endforeach
                     </tbody>
-                    <tfoot>
-                    <tr>
-                        <td class="hidden-xs"></td>
-                        <td class="total text-center">Total <b>${{Cart::instance(session('cartId'))->subtotal()}}</b>
-                    </tr>
-                    </tfoot>
+
                 </table>
                 <div class="row form-group">
                     <div class="col-md-12">

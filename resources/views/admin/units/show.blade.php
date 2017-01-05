@@ -43,8 +43,8 @@
                         <td>{!! $unit->weight!!}</td>
                     </tr>
                     <tr>
-                        <td>Price</td>
-                        <td>{!! $unit->price!!}</td>
+                        <td>Grade</td>
+                        <td>{!! $unit->grade!!}</td>
                     </tr>
                     <tr>
                         <td>Model</td>

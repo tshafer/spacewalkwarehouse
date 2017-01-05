@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use App\Category;
-use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
 class ComposerServiceProvider extends ServiceProvider
@@ -16,15 +16,14 @@ class ComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //Cache::forget('categories');
-        //$categories = Cache::remember('categories', 10080, function () {
-        $categories = Category::roots()->enabled()->get();
-        //});
+        if (Schema::hasTable('categories')) {
+            $categories = Category::roots()->enabled()->get();
 
-        // Using Closure based composers...
-        view()->composer('*', function ($view) use ($categories) {
-            $view->with('categories', $categories);
-        });
+            // Using Closure based composers...
+            view()->composer('*', function ($view) use ($categories) {
+                $view->with('categories', $categories);
+            });
+        }
     }
 
 

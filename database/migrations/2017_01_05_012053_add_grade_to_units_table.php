@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddPositionToProductsTable extends Migration
+class AddGradeToUnitsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,8 +12,8 @@ class AddPositionToProductsTable extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->integer('position');
+        Schema::table('units', function (Blueprint $table) {
+            $table->string('grade')->nullable();
         });
     }
 
@@ -24,8 +24,8 @@ class AddPositionToProductsTable extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('position');
+        Schema::table('units', function (Blueprint $table) {
+            $table->dropColumn('grade');
         });
     }
 }

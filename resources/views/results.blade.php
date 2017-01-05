@@ -32,7 +32,7 @@
                                         Size: {{$result->width}} x {{$result->length}} x {{$result->height}}
                                         <br/>
                                         Weight: {{$result->weight}}<br/>
-                                        Price: ${{number_format($result->price,2)}}<br/>
+                                        Grade: {{$result->grade}}<br/>
                                         Model #: {{$result->model}}<br/>
                                     </p>
                                     <div class="btn-group">
@@ -52,13 +52,14 @@
                 </div>
             </div>
         @endif
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="paginate">
-                {{$results->render()}}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="paginate">
+                    {{$results->render()}}
+                </div>
             </div>
         </div>
     </div>
+
 
 @stop

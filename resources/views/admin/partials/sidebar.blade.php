@@ -26,11 +26,11 @@
                         <i class="sidebar-nav-icon"></i>Sliders
                     </a>
                 </li>
-                <li class="{{active_class('admin/specials*')}}">
-                    <a href="{{route('admin.specials.index')}}">
-                        <i class="sidebar-nav-icon"></i>Specials
-                    </a>
-                </li>
+                {{--<li class="{{active_class('admin/specials*')}}">--}}
+                    {{--<a href="{{route('admin.specials.index')}}">--}}
+                        {{--<i class="sidebar-nav-icon"></i>Specials--}}
+                    {{--</a>--}}
+                {{--</li>--}}
                 <li class="{{active_class('admin/units*')}}">
                     <a href="{{route('admin.units.index')}}">
                         <i class="sidebar-nav-icon"></i>Units

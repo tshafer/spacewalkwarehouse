@@ -37,7 +37,7 @@
                                     <tr>
                                         <th>W x L x H</th>
                                         <th>UNIT LB</th>
-                                        <th>PRICE</th>
+                                        <th>GRADE</th>
                                         <th>BUY</th>
                                     </tr>
                                     </thead>
@@ -47,7 +47,7 @@
                                             <td>{{$unit->width}} x {{$unit->length}}
                                                 x {{$unit->height}}</td>
                                             <td>{{$unit->weight}}</td>
-                                            <td>${{number_format($unit->price,2)}}</td>
+                                            <td>{{$unit->grade}}</td>
                                             <td>
                                                 {{open(['route' => 'cart.store'])}}
                                                 {{ hidden('unit', $unit->id) }}

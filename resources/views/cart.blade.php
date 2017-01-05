@@ -14,7 +14,7 @@
                         <thead>
                         <tr>
                             <td>Product</td>
-                            <td>Price</td>
+                            <td>Grade</td>
                             <td></td>
                         </tr>
                         </thead>
@@ -45,8 +45,10 @@
                                         </div>
                                     </div>
                                 </td>
+                                <td class="text-center">
+                                    {{$unit->options->grade}}
+                                </td>
 
-                                <td class="text-center">${{number_format($unit->price,2)}}</td>
                                 <td class="actions text-center" data-th="">
                                     {{open(['route' => ['cart.destroy',$unit->rowId], 'method' => 'delete'])}}
                                     <button type="submit" class="remove_cart btn btn-danger btn-sm" rel="2">
@@ -57,14 +59,7 @@
                             </tr>
                         @endforeach
                         </tbody>
-                        <tfoot>
-                        <tr>
-                            <td class="hidden-xs"></td>
-                            <td class="total text-center">Total
-                                <b>${{Cart::instance(session('cartId'))->subtotal()}}</b>
-                            <td class="hidden-xs"></td>
-                        </tr>
-                        </tfoot>
+
                     </table>
 
                     <div class="btn-group btns-cart">

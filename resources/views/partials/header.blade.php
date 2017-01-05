@@ -69,11 +69,10 @@
                         @endforeach
                     </ul>
                 </li>
-                <li><a href="{{route('special')}}"><i class="fa fa-gift" aria-hidden="true"></i>&nbsp;Specials</a></li>
+                {{--<li><a href="{{route('special')}}"><i class="fa fa-gift" aria-hidden="true"></i>&nbsp;Specials</a></li>--}}
                 <li><a href="{{route('cart.index')}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;Checkout</a>
                 </li>
-                <li><a href="{{ route('contact') }}"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;Contact</a>
-                </li>
+                {{--<li><a href="{{ route('contact') }}"><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;Contact</a></li>--}}
             </ul>
             <div class="pull-right cart-menu hidden-sm hidden-xs">
                 <div class="btn-group btn-group-cart">
@@ -84,24 +83,19 @@
                         <span class="pull-right"><i class="fa fa-caret-down"></i></span>
                     </button>
                     <ul class="dropdown-menu cart-content" role="menu">
+
                         @if(Cart::instance(session('cartId'))->count() > 0)
                             @foreach(Cart::instance(session('cartId'))->content() as $unit)
+
                                 <li>
                                     <a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">
                                         @if($unit->options->image)
-                                            <img src="{{$unit->options->image}}" alt="{{$unit->options->product_name}}"
-                                                 title="" width="47" height="47"/>
+                                            <img src="{{$unit->options->image}}" alt="{{$unit->options->product_name}}" title="" width="47" height="47"/>
                                         @endif
                                         <b>{{$unit->options->product_name}}</b>
-                                        <span>${{number_format($unit->price,2)}}</span>
                                     </a>
                                 </li>
                             @endforeach
-
-                            <li class="divider"></li>
-                            <li>
-                                <a href="{{route('cart.index')}}">Total: ${{Cart::instance(session('cartId'))->total()}}</a>
-                            </li>
                         @else
                             &nbsp;&nbsp;Your cart seems to be empty.
                         @endif
