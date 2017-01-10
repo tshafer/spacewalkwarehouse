@@ -16,15 +16,7 @@
                 {!! label('intro_text') !!}
                 {!! textarea('intro_text', null, ['class' => 'form-control']) !!}
             </div>
-
-            <div class="form-group">
-                @if(isset($category) &&  $category->getMedia('categories')->first())
-                    <img src="{{url('/')}}{!! $category->getMedia('categories')->first()->getUrl('adminThumb')!!}"/><br/>
-                @endif
-                {!! label('image') !!}
-                {!! file_input('image',['class' => 'form-control']) !!}
-            </div>
-
+            
             <div class="form-group">
                 {!! label('enabled') !!}
                 {!! checkbox('enabled', true) !!}

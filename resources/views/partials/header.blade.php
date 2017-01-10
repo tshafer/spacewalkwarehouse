@@ -58,12 +58,7 @@
                     <ul class="dropdown-menu">
                         @foreach($categories as $category)
                             <li>
-                                <a href="{{ route('category', $category->slug) }}"
-                                   class="{{active_class('category/'.$category->slug.'/*')}}">
-                                    @if($category->media->first())
-                                        <img src=" {{$category->media->first()->getUrl('adminThumb')}}"
-                                             class="menu-icon">
-                                    @endif
+                                <a href="{{ route('category', $category->slug) }}" class="{{active_class('category/'.$category->slug.'/*')}}">
                                     {{ $category->name }}</a>
                             </li>
                         @endforeach

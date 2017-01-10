@@ -121,10 +121,6 @@ class CategoryController extends Controller
             $category->enabled = false;
         }
 
-        if ($request->hasFile('image')) {
-            $category->addMedia($request->file('image'))->preservingOriginal()->toCollection('categories');
-        }
-
         $category->save();
 
         $this->clearMenuCache();
@@ -206,9 +202,6 @@ class CategoryController extends Controller
         }
 
         $category->clearMediaCollection();
-        if ($request->hasFile('image')) {
-            $category->addMedia($request->file('image'))->preservingOriginal()->toCollection('categories');
-        }
 
         $category->save();
 

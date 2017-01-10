@@ -31,7 +31,7 @@ class CartController extends Controller
 
         $media = ($unit->product->getMedia('products')->count() > 0) ? $unit->product->getMedia('products')->first()->getUrl('thumb') : null;
 
-        Cart::instance(session('cartId'))->add($unit->id, $unit->description, 1, 0, [
+        Cart::instance(session('cartId'))->add($unit->id, $unit->name, 1, 0, [
             'product_name' => $unit->product->name,
             'image'        => $media,
             'productSlug'  => $unit->product->slug,
