@@ -47,10 +47,6 @@
                 {!! text('grade', null, ['class' => 'form-control']) !!}
             </div>
 
-            <div class="form-group">
-                {!! label('model') !!}
-                {!! text('model', null, ['class' => 'form-control']) !!}
-            </div>
         </div>
 
     </div>

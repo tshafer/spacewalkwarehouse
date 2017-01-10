@@ -33,7 +33,6 @@
                                         <br/>
                                         Weight: {{$result->weight}}<br/>
                                         Grade: {{$result->grade}}<br/>
-                                        Model #: {{$result->model}}<br/>
                                     </p>
                                     <div class="btn-group">
                                         <a href="{{route('product', [$result->product->categories->slug, $result->product->slug])}}"

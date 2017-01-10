@@ -35,7 +35,6 @@ class Unit extends Model implements Buyable
         'length',
         'weight',
         'grade',
-        'model',
     ];
 
     /**
@@ -46,7 +45,6 @@ class Unit extends Model implements Buyable
     protected $searchableColumns = [
         'description'         => 20,
         'name'                => 10,
-        'model'               => 10,
         'weight'              => 10,
         'product.name'        => 10,
         'product.description' => 5,

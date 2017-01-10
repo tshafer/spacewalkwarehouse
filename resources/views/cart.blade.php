@@ -38,8 +38,7 @@
                                                 <a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">{{$unit->options->product_name}}</a>
                                                 <div>
                                                     ({{$unit->options->width}} x {{$unit->options->length}}
-                                                    x {{$unit->options->height}}) - ({{$unit->options->weight}} LBS) -
-                                                    (#{{$unit->options->model}})
+                                                    x {{$unit->options->height}}) - ({{$unit->options->weight}} LBS)
                                                 </div>
                                             </div>
                                         </div>

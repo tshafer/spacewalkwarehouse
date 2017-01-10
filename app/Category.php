@@ -107,6 +107,8 @@ class Category extends Node implements HasMediaConversions
      */
     public function getIsEnabledAttribute()
     {
-        return ($this->attributes['enabled'] == 0) ? 'No' : 'Yes';
+        if (array_key_exists('enabled', $this->attributes)) {
+            return ($this->attributes['enabled'] == 0) ? 'No' : 'Yes';
+        }
     }
 }

@@ -46,10 +46,7 @@
                         <td>Grade</td>
                         <td>{!! $unit->grade!!}</td>
                     </tr>
-                    <tr>
-                        <td>Model</td>
-                        <td>{!! $unit->model!!}</td>
-                    </tr>
+
                     <tr>
                         <td>Product</td>
                         <td>

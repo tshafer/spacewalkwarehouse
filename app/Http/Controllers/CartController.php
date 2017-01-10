@@ -40,7 +40,6 @@ class CartController extends Controller
             'length'       => $unit->length,
             'height'       => $unit->height,
             'weight'       => $unit->weight,
-            'model'        => $unit->model,
             'grade'        => $unit->grade,
         ]);
 

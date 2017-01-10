@@ -71,7 +71,6 @@
                                             <div>
                                                 - ({{$unit->options->width}} x {{$unit->options->length}}
                                                 x {{$unit->options->height}}) - ({{$unit->options->weight}} LBS)
-                                                -(#{{$unit->options->model}})
                                             </div>
                                         </div>
                                     </div>
