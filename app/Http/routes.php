@@ -87,7 +87,7 @@ $router->model('users', App\User::class);
 $router->model('sliders', App\Slider::class);
 $router->model('products', App\Product::class);
 //$router->model('specials', App\Special::class);
-//$router->model('categories', App\Category::class);
+$router->model('categories', App\Category::class);
 $router->model('unitrequests', App\UnitRequest::class);
 
 
