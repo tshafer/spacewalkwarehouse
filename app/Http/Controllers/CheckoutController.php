@@ -52,7 +52,7 @@ class CheckoutController extends Controller
             $message->subject('Space Walk Sales Requests Form');
             $message->from('sales@spacewalk.com', 'Space Walk Sales Request');
 
-            $message->to('admin@spacewalksales.com');
+            $message->to('​paul@herecomesfun.com');
 
         });
 
