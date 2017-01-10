@@ -91,6 +91,47 @@ class UnitController extends Controller
 
 
     /**
+     * Update the specified resource in storage.
+     *
+     * @param \App\Unit                $unit
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(Unit $unit, Request $request)
+    {
+        $rules = [
+            'name'  => 'bail|required',
+            //'grade' => 'in:a,b,c,d,e,f,A,B,C,D,E,F,a-,b-,c-,d-,e-,f-,A+,B+,C,+D,E+,F,+a,b+,c,+d,e+,f+',
+        ];
+        $this->runUpdate($request, $rules, $unit);
+
+        flash('Unit updated!');
+
+        return redirect()->route('admin.units.show', $unit);
+    }
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param Unit $unit
+     *
+     * @internal param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Unit $unit)
+    {
+
+        $unit->delete();
+
+        flash('Unit deleted!');
+
+        return redirect()->route('admin.units.index');
+    }
+
+
+    /**
      * @param \Illuminate\Http\Request $request
      * @param array                    $rules
      *
@@ -116,28 +157,6 @@ class UnitController extends Controller
 
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param \App\Unit                $unit
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function update(Unit $unit, Request $request)
-    {
-        $rules = [
-            'name'  => 'bail|required',
-            'grade' => 'in:a,b,c,d,e,f,A,B,C,D,E,F',
-        ];
-        $this->runUpdate($request, $rules, $unit);
-
-        flash('Unit updated!');
-
-        return redirect()->route('admin.units.show', $unit);
-    }
-
-
-    /**
      * @param \Illuminate\Http\Request $request
      * @param array                    $rules
      * @param \App\Unit                $unit
@@ -147,7 +166,7 @@ class UnitController extends Controller
     protected function runUpdate(Request $request, array $rules, Unit $unit)
     {
         $this->validate($request, array_merge([
-            'grade' => 'in:a,b,c,d,e,f,A,B,C,D,E,F',
+            //'grade' => 'in:a,b,c,d,e,f,A,B,C,D,E,F,a-,b-,c-,d-,e-,f-,A+,B+,C,+D,E+,F,+a,b+,c,+d,e+,f+',
         ], $rules));
 
         if ($request->has('product')) {
@@ -160,25 +179,6 @@ class UnitController extends Controller
         $unit->save();
 
         return $unit;
-    }
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param Unit $unit
-     *
-     * @internal param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Unit $unit)
-    {
-
-        $unit->delete();
-
-        flash('Unit deleted!');
-
-        return redirect()->route('admin.units.index');
     }
 
 }
