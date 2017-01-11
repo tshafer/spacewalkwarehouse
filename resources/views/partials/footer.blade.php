@@ -21,13 +21,13 @@
                 </ul>
             </div>
         </div>
-        
+
         <div class="col-md-4">
             <div class="column">
                 <h4>Follow Us</h4>
                 <ul class="social">
                     <li><a href="https://plus.google.com/100094190545606653988" target="_blank">Google Plus</a></li>
-                    <li><a href="https://www.facebook.com/spacewalkinflatables​" target="_blank">Facebook</a></li>
+                    <li><a href="https://www.facebook.com/spacewalkinflatables" target="_blank">Facebook</a></li>
                     <li><a href="https://twitter.com/spacewalk" target="_blank">Twitter</a></li>
                 </ul>
             </div>
