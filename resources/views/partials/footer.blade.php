@@ -21,6 +21,7 @@
                 </ul>
             </div>
         </div>
+        
         <div class="col-md-4">
             <div class="column">
                 <h4>Follow Us</h4>
