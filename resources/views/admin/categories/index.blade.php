@@ -22,8 +22,8 @@
             </tr>
             </thead>
             <tbody>
-            @if($categories->count() > 0)
-                @foreach($categories as $category)
+            @if($cats->count() > 0)
+                @foreach($cats as $category)
                     <tr>
                         <td>{{$category->id}}</td>
                         <td>{{$category->name}}</td>
@@ -66,6 +66,6 @@
 
             </tbody>
         </table>
-        {!! paginate($categories) !!}
+        {!! paginate($cats) !!}
     </div>
 @stop
