@@ -12,6 +12,7 @@
             <thead>
             <tr>
                 <th class="min">ID</th>
+                <td>Date</td>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Branch Name</th>
@@ -24,6 +25,7 @@
                 @foreach($unitRequests as $request)
                     <tr>
                         <td>{{$request->id}}</td>
+                        <td>{{ $request->date_requested}}</td>
                         <td>{{$request->first_name}}</td>
                         <td>{{$request->last_name}}</td>
                         <td>{{$request->branch_name}}</td>
