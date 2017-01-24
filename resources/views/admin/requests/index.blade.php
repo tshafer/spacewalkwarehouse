@@ -25,7 +25,7 @@
                 @foreach($unitRequests as $request)
                     <tr>
                         <td>{{$request->id}}</td>
-                        <td>{{ $request->date_requested}}</td>
+                        <td>{{ $request->created_at}}</td>
                         <td>{{$request->first_name}}</td>
                         <td>{{$request->last_name}}</td>
                         <td>{{$request->branch_name}}</td>

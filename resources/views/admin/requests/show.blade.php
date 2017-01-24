@@ -19,7 +19,7 @@
 
                     <tr>
                         <td>Date</td>
-                        <td>{!! $unitRequest->date_requested!!}</td>
+                        <td>{!! $unitRequest->created_at!!}</td>
                     </tr>
                     <tr>
                         <td>Branch Name</td>
