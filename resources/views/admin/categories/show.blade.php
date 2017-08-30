@@ -111,11 +111,18 @@
                                                href="{{route('admin.products.moveup', $product->id)}}">
                                                 <i class="fa fa-arrow-up" aria-hidden="true"></i>
                                             </a>
+                                            <a class="btn btn-xs btn-info"
+                                               href="{{route('admin.products.movetop', $product->id)}}">
+                                                <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                                            </a>
                                         @endif
                                         @if(!$loop->last)
                                             <a class="btn btn-xs btn-warning"
                                                href="{{route('admin.products.movedown', $product->id)}}"><i
                                                         class="fa fa-arrow-down" aria-hidden="true"></i></a>
+                                                <a class="btn btn-xs btn-info"
+                                                   href="{{route('admin.products.movebottom', $product->id)}}"><i
+                                                            class="fa fa-arrow-circle-down" aria-hidden="true"></i></a>
                                         @endif
                                     @endif
                                 </td>

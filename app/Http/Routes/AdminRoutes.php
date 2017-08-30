@@ -30,6 +30,8 @@ $router->group(['middleware' => ['auth'], 'prefix' => 'admin'], function () use 
     $router->post('products/{products}/images/accessories/add', ['uses' => 'Admin\ProductController@addAccessoryImage', 'as' => 'admin.products.images.accessories.add']);
     $router->get('products/moveup/{products}', ['uses' => 'Admin\ProductController@moveUp', 'as' => 'admin.products.moveup']);
     $router->get('products/movedown/{products}', ['uses' => 'Admin\ProductController@moveDown', 'as' => 'admin.products.movedown']);
+    $router->get('products/movetop/{products}', ['uses' => 'Admin\ProductController@moveToTop', 'as' => 'admin.products.movetop']);
+    $router->get('products/movebottom/{products}', ['uses' => 'Admin\ProductController@moveToBottom', 'as' => 'admin.products.movebottom']);
     $router->resource('products', 'Admin\ProductController');
 
     $router->get('/', function () {

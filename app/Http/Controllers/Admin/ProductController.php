@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Admin;
 
 use App\Category;
@@ -328,6 +329,38 @@ class ProductController extends Controller
         $product->moveHigher();
 
         flash('Product ' . $product->name . ' Moved Higher!');
+
+        return redirect()->back();
+    }
+
+
+    /**
+     * @param \App\Product             $product
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function moveToTop(Product $product, Request $request)
+    {
+        $product->moveToTop();
+
+        flash('Product ' . $product->name . ' Moved to Top!');
+
+        return redirect()->back();
+    }
+
+
+    /**
+     * @param \App\Product             $product
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function moveToBottom(Product $product, Request $request)
+    {
+        $product->moveToBottom();
+
+        flash('Product ' . $product->name . ' Moved to Bottom!');
 
         return redirect()->back();
     }
