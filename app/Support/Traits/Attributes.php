@@ -53,7 +53,7 @@ trait Attributes
     }
 
     /**
-     * @param $column
+     * @param string $column
      *
      * @return null|string
      */
@@ -84,7 +84,7 @@ trait Attributes
     }
 
     /**
-     * @param $value
+     * @param string $value
      *
      * @return mixed|string
      */
@@ -94,7 +94,7 @@ trait Attributes
     }
 
     /**
-     * @param $value
+     * @param string $value
      *
      * @return mixed|string
      */
@@ -105,7 +105,7 @@ trait Attributes
 
 
     /**
-     * @param $value
+     * @param string $value
      *
      * @return mixed|string
      */

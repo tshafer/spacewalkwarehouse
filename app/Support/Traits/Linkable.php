@@ -45,7 +45,7 @@
         /**
          * Create a Edit Link
          *
-         * @return string
+         * @return string|null
          */
         public function getEditLInk()
         {
@@ -59,7 +59,7 @@
         /**
          * Create a Delete Link
          *
-         * @return string
+         * @return string|null
          */
         public function getDeleteLink()
         {

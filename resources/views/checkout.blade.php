@@ -5,9 +5,9 @@
 @section('content')
 
     <div class="container main-container">
-        {{open(['route' => 'checkout.store'])}}
+        {{Form::open(['route' => 'checkout.store'])}}
         <div class="row">
-            @include('flash::messages')
+            @include('partials.flash')
             <div class="col-md-12">
                 <span class="title">CHECKOUT</span>
             </div>
@@ -17,19 +17,19 @@
 
                 <div class="row form-group">
                     <div class="col-md-6">
-                        {{ label('first_name')}} <span class="red">*</span>
-                        {{ input('first_name','first_name', old('first_name'), ['class' => 'form-control', 'required']) }}
+                        {{ Form::label('first_name')}} <span class="red">*</span>
+                        {{ Form::input('first_name','first_name', old('first_name'), ['class' => 'form-control', 'required']) }}
                     </div>
                     <div class="col-md-6">
-                        {{ label('last_name')}} <span class="red">*</span>
-                        {{ input('last_name','last_name', old('company_website'), ['class' => 'form-control','required']) }}
+                        {{ Form::label('last_name')}} <span class="red">*</span>
+                        {{ Form::input('last_name','last_name', old('company_website'), ['class' => 'form-control','required']) }}
                     </div>
                 </div>
 
                 <div class="row form-group">
                     <div class="col-md-6">
-                        {{ label('branch_name')}}
-                        {{ input('branch_name','branch_name', old('branch_name'), ['class' => 'form-control']) }}
+                        {{ Form::label('branch_name')}}
+                        {{ Form::input('branch_name','branch_name', old('branch_name'), ['class' => 'form-control']) }}
                     </div>
 
                 </div>
@@ -37,8 +37,8 @@
 
                 <div class="row form-group">
                     <div class="col-md-12">
-                        {{ label('reason_for_request') }}
-                        {{ textarea('message', old('message'), ['class' => 'form-control', 'rows' => 5, 'max-length' => 1000]) }}
+                        {{ Form::label('reason_for_request') }}
+                        {{ Form::textarea('message', old('message'), ['class' => 'form-control', 'rows' => 5, 'max-length' => 1000]) }}
                     </div>
                 </div>
             </div>
@@ -93,6 +93,6 @@
                 </div>
             </div>
         </div>
-        {{close()}}
+        {{Form::close()}}
     </div>
 @stop

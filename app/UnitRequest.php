@@ -11,7 +11,6 @@ class UnitRequest extends Model
 {
 
     use Linkable, Sortable, Attributes, SoftDeletes;
-
     /**
      * The database table used by the model.
      *
@@ -30,7 +29,6 @@ class UnitRequest extends Model
         'branch_name',
         'message',
     ];
-
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany

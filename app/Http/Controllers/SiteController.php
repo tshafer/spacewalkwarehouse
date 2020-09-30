@@ -6,6 +6,7 @@ use App\Special;
 use App\Unit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Spatie\Searchable\Search;
 
 /**
  * @package App\Http\Controllers
@@ -109,9 +110,7 @@ class SiteController extends Controller
 
         });
 
-        flash('Thank you for contacting us. We will be in touch soon.');
-
-        return redirect()->route('contact');
+        return redirect()->route('contact')->withMessage("Thank you for contacting us. We will be in touch soon.");
     }
 
 
@@ -124,7 +123,10 @@ class SiteController extends Controller
     {
         $query = rtrim(trim($request->get('q')));
 
-        $results = Unit::search('*' . $query)->with(['product.categories'])->paginate();
+        $results = (new Search())
+            ->registerModel(Unit::class, 'name', 'description')
+            ->registerModel(Product::class, 'name', 'description')
+            ->search($query);
 
         return view('results', compact('results', 'query'));
 

@@ -47,6 +47,6 @@
 
             </tbody>
         </table>
-        {!! paginate($sliders) !!}
+        {!! $sliders->links() !!}
     </div>
 @stop

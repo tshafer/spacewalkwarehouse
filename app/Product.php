@@ -9,15 +9,18 @@ use Iatstuti\Database\Support\CascadeSoftDeletes;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
-use MartinBean\Database\Eloquent\Sluggable;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 
-class Product extends Model implements HasMediaConversions
+class Product extends Model implements HasMedia, Searchable
 {
 
-    use Linkable, Sortable, Attributes, Sluggable, HasMediaTrait, SoftDeletes, CascadeSoftDeletes, Listify;
-
+    use Linkable, Sortable, Attributes, HasSlug, InteractsWithMedia, SoftDeletes, Listify;
     /**
      * The database table used by the model.
      *
@@ -38,6 +41,7 @@ class Product extends Model implements HasMediaConversions
      * @var array
      */
     protected $with = ['media', 'categories'];
+
 
     /**
      * The attributes that are mass assignable.
@@ -65,23 +69,43 @@ class Product extends Model implements HasMediaConversions
     }
 
 
+    public function getSearchResult(): SearchResult
+    {
+        $url = route('product', [$this->categories->slug, $this->slug]);
+
+        return new \Spatie\Searchable\SearchResult(
+            $this,
+            $this->name,
+            $url
+        );
+    }
+
+    /**
+     * Get the options for generating the slug.
+     */
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('slug');
+    }
     /**
      * Convert Images
      */
-    public function registerMediaConversions()
+    public function registerMediaConversions(Media $media = null): void
     {
 
-        $this->addMediaConversion('thumb')->setManipulations(['h' => 150, 'w' => 150, 'fit' => 'crop'])->performOnCollections('products');
+        $this->addMediaConversion('thumb')->height(150)->width(50)->fit('crop', 150, 150)->performOnCollections('products');
 
-        $this->addMediaConversion('category_page')->setManipulations(['w' => 300, 'h' => 277, 'fit' => 'fill'])->performOnCollections('products');
+        $this->addMediaConversion('category_page')->height(277)->width(300)->fit('fill', 300, 277)->performOnCollections('products');
 
-        $this->addMediaConversion('accessories')->setManipulations(['h' => 250])->performOnCollections('accessories');
+        $this->addMediaConversion('accessories')->height(250)->performOnCollections('accessories');
 
-        $this->addMediaConversion('medium')->setManipulations(['w' => 800])->performOnCollections('*');
+        $this->addMediaConversion('medium')->width(800)->performOnCollections('*');
 
-        $this->addMediaConversion('full')->setManipulations(['w' => 1024])->performOnCollections('*');
+        $this->addMediaConversion('full')->width(1024)->performOnCollections('*');
 
-        $this->addMediaConversion('adminThumb')->setManipulations(['w' => 240])->performOnCollections('*');
+        $this->addMediaConversion('adminThumb')->width(240)->performOnCollections('*');
 
     }
 

@@ -18,7 +18,6 @@ class CategoryController extends Controller
     {
         $cats = Category::roots()->orderBy('name', 'desc')->paginate(50);
 
-
         return view('admin.categories.index', compact('cats'));
     }
 
@@ -89,9 +88,7 @@ class CategoryController extends Controller
 
         $category = $this->runSave($request, $rules);
 
-        flash('Category Added!');
-
-        return redirect()->route('admin.categories.show', [$category->id]);
+        return redirect()->route('admin.categories.show', [$category->id])->withMessage('Category Added!');
     }
 
 
@@ -154,22 +151,17 @@ class CategoryController extends Controller
         ];
 
         if ($request->get('parent_category') == $category->id) {
-            flash('You cant make a category a child of itself.');
-
-            return redirect()->back()->withInput();
+            return redirect()->back()->withInput()->withMessage('You cant make a category a child of itself.');
         }
 
         if ($request->get('parent_category') != 0 && $category->children()->count() > 0) {
-            flash('Sorry, this category isn\'t allowed to have any subcategories. It is already a subcategory');
 
-            return redirect()->back()->withInput();
+            return redirect()->back()->withInput()->withMessage('Sorry, this category isn\'t allowed to have any subcategories. It is already a subcategory');
         }
 
         $this->runUpdate($request, $rules, $category);
 
-        flash('Category updated!');
-
-        return redirect()->route('admin.categories.show', $category->id);
+        return redirect()->route('admin.categories.show', $category->id)->withMessage('Category updated!');
     }
 
 
@@ -226,9 +218,7 @@ class CategoryController extends Controller
 
         $this->clearMenuCache();
 
-        flash('Category deleted!');
-
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.categories.index')->withMessage('Category deleted!');
     }
 
 
@@ -243,9 +233,7 @@ class CategoryController extends Controller
     {
         $category->deleteMedia($imageId);
 
-        flash('Image deleted!');
-
-        return redirect()->back();
+        return redirect()->back()->withMessage('Image deleted!');
     }
 
 
@@ -260,9 +248,7 @@ class CategoryController extends Controller
 
         $this->clearMenuCache();
 
-        flash("Category $category->name moved!");
-
-        return redirect()->back();
+        return redirect()->back()->withMessage("Category $category->name moved!");
     }
 
 
@@ -277,8 +263,6 @@ class CategoryController extends Controller
 
         $this->clearMenuCache();
 
-        flash("Category $category->name moved!");
-
-        return redirect()->back();
+        return redirect()->back()->withMessage("Category $category->name moved!");
     }
 }

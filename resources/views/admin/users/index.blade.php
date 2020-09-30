@@ -40,6 +40,6 @@
       </tbody>
     </table>
 
-      {!! paginate($users) !!}
+      {!! $users->links() !!}
   </div>
 @stop

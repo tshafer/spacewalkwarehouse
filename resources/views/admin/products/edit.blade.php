@@ -6,10 +6,10 @@
 
 @section('content')
     <div class="row">
-        {!!model($product, ['route' => ['admin.products.update', $product->id], 'method' => 'patch', 'id' => 'qq-form','files' => true])!!}
+        {!!Form::model($product, ['route' => ['admin.products.update', $product->id], 'method' => 'patch', 'id' => 'qq-form','files' => true])!!}
 
         @include('admin.products.form')
 
-        {!!close()!!}
+        {!!Form::close()!!}
     </div>
 @stop

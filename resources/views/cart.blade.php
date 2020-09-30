@@ -7,7 +7,7 @@
     <div class="container main-container">
         <div class="row">
             <div class="col-md-12">
-                @include('flash::messages')
+                @include('partials.flash')
                 <span class="title">SHOPPING CART</span>
                 @if(Cart::instance(session('cartId'))->count() > 0)
                     <table class="table table-bordered tbl-cart cart table-hover table-condensed">
@@ -37,23 +37,23 @@
                                             <div class="cart-info">
                                                 <a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">{{$unit->options->product_name}}</a>
                                                 <div>
-                                                    ({{$unit->options->width}} x {{$unit->options->length}}
-                                                    x {{$unit->options->height}}) - ({{$unit->options->weight}} LBS)
+                                                    ({{$unit->options->width ?: 'N/A'}} x {{$unit->options->length ?: 'N/A'}}
+                                                    x {{$unit->options->height ?: 'N/A'}}) - ({{$unit->weight .' LBS' ?: 'N/A'}})
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </td>
                                 <td class="text-center">
-                                    {{$unit->options->grade}}
+                                    {{$unit->options->grade ?: 'N/A'}}
                                 </td>
 
-                                <td class="actions text-center" data-th="">
-                                    {{open(['route' => ['cart.destroy',$unit->rowId], 'method' => 'delete'])}}
+                                <td class="actions text-center">
+                                    {{Form::open(['route' => ['cart.destroy',$unit->rowId], 'method' => 'delete'])}}
                                     <button type="submit" class="remove_cart btn btn-danger btn-sm" rel="2">
                                         <i class="fa fa-trash-o"></i>
                                     </button>
-                                    {{close()}}
+                                    {{Form::close()}}
                                 </td>
                             </tr>
                         @endforeach

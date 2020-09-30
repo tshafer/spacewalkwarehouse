@@ -12,7 +12,7 @@ class CartController extends Controller
 {
 
     /**
-     * @return mixed
+     * @return view
      */
     public function index()
     {
@@ -31,7 +31,7 @@ class CartController extends Controller
 
         $media = ($unit->product->getMedia('products')->count() > 0) ? $unit->product->getMedia('products')->first()->getUrl('thumb') : null;
 
-        Cart::instance(session('cartId'))->add($unit->id, $unit->name, 1, 0, [
+        Cart::instance(session('cartId'))->add($unit->id, $unit->name, 1, $unit->price, $unit->weight, [
             'product_name' => $unit->product->name,
             'image'        => $media,
             'productSlug'  => $unit->product->slug,
@@ -39,13 +39,11 @@ class CartController extends Controller
             'width'        => $unit->width,
             'length'       => $unit->length,
             'height'       => $unit->height,
-            'weight'       => $unit->weight,
             'grade'        => $unit->grade,
         ]);
 
-        Session::flash('backUrl', route('category' ,  [$category->slug]));
 
-        return redirect()->route('cart.index');
+        return redirect()->route('cart.index')->withBackUrl(route('category' ,  [$category->slug]));
     }
 
 
@@ -59,9 +57,7 @@ class CartController extends Controller
     {
         Cart::instance(session('cartId'))->remove($unitId);
 
-        flash('Item has been removed from your cart.');
-
-        return redirect()->route('cart.index');
+        return redirect()->route('cart.index')->withMessage('Item has been removed from your cart.');
 
     }
 }

@@ -76,14 +76,12 @@ class SpecialsController extends Controller
         $special = Special::create($request->all());
 
         if ($request->hasFile('image')) {
-            $special->addMedia($request->file('image'))->preservingOriginal()->toCollection('specials');
+            $special->addMedia($request->file('image'))->preservingOriginal()->toMediaCollection('specials');
         }
 
         $special->save();
 
-        flash('Special Added!');
-
-        return redirect()->route('admin.specials.show', [$special->id]);
+        return redirect()->route('admin.specials.show', [$special->id])->withMessage("Special Added!");
     }
 
 
@@ -107,14 +105,12 @@ class SpecialsController extends Controller
         $special->clearMediaCollection();
 
         if ($request->hasFile('image')) {
-            $special->addMedia($request->file('image'))->preservingOriginal()->toCollection('specials');
+            $special->addMedia($request->file('image'))->preservingOriginal()->toMediaCollection('specials');
         }
 
         $special->save();
 
-        flash('Special updated!');
-
-        return redirect()->route('admin.specials.show', $special->id);
+        return redirect()->route('admin.specials.show', $special->id)->withMessage("Special updated!");
     }
 
 
@@ -130,9 +126,7 @@ class SpecialsController extends Controller
     {
         $special->delete();
 
-        flash('Special deleted!');
-
-        return redirect()->route('admin.specials.index');
+        return redirect()->route('admin.specials.index')->withMessage("Special deleted!");
     }
 
 
@@ -147,9 +141,7 @@ class SpecialsController extends Controller
     {
         $special->deleteMedia($imageId);
 
-        flash('Image deleted!');
-
-        return redirect()->back();
+        return redirect()->back()->withMessage("Image deleted!");
     }
 
 }

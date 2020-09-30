@@ -7,44 +7,44 @@
         <div class="form-bordered">
 
             <div class="form-group">
-                {!! label('product') !!}
-                {!! select('product', $products, $productId, ['class' => 'form-control']) !!}
+                {!! Form::label('product') !!}
+                {!! Form::select('product', $products, $productId, ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">
-                {!! label('name') !!}
-                {!! text('name', null, ['class' => 'form-control']) !!}
+                {!! Form::label('name') !!}
+                {!! Form::text('name', null, ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">
-                {!! label('description') !!}
-                {!! textarea('description', null, ['class' => 'form-control']) !!}
+                {!! Form::label('description') !!}
+                {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
             </div>
 
 
             <div class="form-group">
-                {!! label('height') !!}
-                {!! text('height', null, ['class' => 'form-control']) !!}
+                {!! Form::label('height') !!}
+                {!! Form::text('height', null, ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">
-                {!! label('width') !!}
-                {!! text('width', null, ['class' => 'form-control']) !!}
+                {!! Form::label('width') !!}
+                {!! Form::text('width', null, ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">
-                {!! label('length') !!}
-                {!! text('length', null, ['class' => 'form-control']) !!}
+                {!! Form::label('length') !!}
+                {!! Form::text('length', null, ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">
-                {!! label('weight') !!}
-                {!! text('weight', null, ['class' => 'form-control']) !!}
+                {!! Form::label('weight') !!}
+                {!! Form::text('weight', null, ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">
-                {!! label('grade') !!}
-                {!! text('grade', null, ['class' => 'form-control']) !!}
+                {!! Form::label('grade') !!}
+                {!! Form::text('grade', null, ['class' => 'form-control']) !!}
             </div>
 
         </div>
@@ -52,7 +52,7 @@
     </div>
 
     <div class="form-group form-actions">
-        {!!submit('Save Unit', ['class' => 'btn btn-block btn-primary'])!!}
+        {!!Form::submit('Save Unit', ['class' => 'btn btn-block btn-primary'])!!}
     </div>
 </div>
 

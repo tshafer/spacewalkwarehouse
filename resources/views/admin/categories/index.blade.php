@@ -66,6 +66,6 @@
 
             </tbody>
         </table>
-        {!! paginate($cats) !!}
+        {{-- {!! paginate($cats) !!} --}}
     </div>
 @stop

@@ -8,12 +8,14 @@ use Gloudemans\Shoppingcart\CanBeBought;
 use Gloudemans\Shoppingcart\Contracts\Buyable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Sofa\Eloquence\Eloquence;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 
-class Unit extends Model implements Buyable
+class Unit extends Model implements Buyable, Searchable
 {
 
-    use Linkable, Sortable, Attributes, Eloquence, SoftDeletes, CanBeBought;
+    use Linkable, Sortable, Attributes, SoftDeletes, CanBeBought;
+
 
     /**
      * The database table used by the model.
@@ -21,6 +23,16 @@ class Unit extends Model implements Buyable
      * @var string
      */
     protected $table = 'units';
+
+    /**
+     * The attributes that casted
+     *
+     * @var array
+     */
+    protected $casts = [
+        'price' => 'float',
+        'weight' => 'float'
+    ];
 
     /**
      * The attributes that are mass assignable.
@@ -37,19 +49,16 @@ class Unit extends Model implements Buyable
         'grade',
     ];
 
-    /**
-     * Searchable rules.
-     *
-     * @var array
-     */
-    protected $searchableColumns = [
-        'description'         => 20,
-        'name'                => 10,
-        'weight'              => 10,
-        'product.name'        => 10,
-        'product.description' => 5,
-    ];
+    public function getSearchResult(): SearchResult
+    {
+        $url = route('product', [$this->product->categories->slug, $this->product->slug]);
 
+        return new \Spatie\Searchable\SearchResult(
+            $this,
+            $this->name,
+            $url
+        );
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -58,7 +67,6 @@ class Unit extends Model implements Buyable
     {
         return $this->belongsTo(Product::class);
     }
-
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany

@@ -10,7 +10,7 @@
             </div>
             <h2>Products</h2> <a href="{{route('admin.products.index')}}">All</a> | <a
                     href="{{route('admin.products.index', 'featured=true')}}">Featured</a> |
-            {!! select('category',  $categories->pluck('name', 'id'), Request::has('category') ? Request::get('category') : null, ['id' => 'category', 'placeholder' => 'Choose']) !!}
+            {!! Form::select('category',  $categories->pluck('name', 'id'), Request::has('category') ? Request::get('category') : null, ['id' => 'category', 'placeholder' => 'Choose']) !!}
         </div>
 
         <table class="table table-striped table-hover">
@@ -37,7 +37,7 @@
                             <a href="{{route('admin.categories.show', $product->categories->id)}}">{{ $product->categories->name }}</a>
                         </td>
                         <td>
-                            {!! defaultProductImage($product, 'thumb', 'admin') !!}
+                            {!! defaultProductImage($product, 'adminThumb', 'admin') !!}
                         </td>
                         <td class="min">
                             {!!$product->getTableLinks()!!}
@@ -55,7 +55,7 @@
 
             </tbody>
         </table>
-        {!! paginate($products) !!}
+        {{ $products->links() }}
     </div>
 @stop
 

@@ -44,17 +44,17 @@
                                     <tbody>
                                     @foreach ($product->units as $unit)
                                         <tr>
-                                            <td>{{$unit->width}} x {{$unit->length}}
-                                                x {{$unit->height}}</td>
-                                            <td>{{$unit->weight}}</td>
-                                            <td>{{$unit->grade}}</td>
+                                            <td>{{$unit->width ?: 'N/A'}} x {{$unit->length ?: 'N/A'}}
+                                                x {{$unit->height ?: 'N/A'}}</td>
+                                            <td>{{$unit->weigh ?: 'N/A'}}</td>
+                                            <td>{{$unit->grade ?: 'N/A'}}</td>
                                             <td>
-                                                {{open(['route' => 'cart.store'])}}
-                                                {{ hidden('unit', $unit->id) }}
-                                                <button type="submit" class="btn btn-primary btn-xs pull-left">
-                                                    <i class="fa fa-shopping-cart"></i> Add to Cart
-                                                </button>
-                                                {{close()}}
+                                                {{Form::open(['route' => 'cart.store'])}}
+                                                    {{ Form::hidden('unit', $unit->id) }}
+                                                    <button type="submit" class="btn btn-primary btn-xs pull-left">
+                                                        <i class="fa fa-shopping-cart"></i> Add to Cart
+                                                    </button>
+                                                {{Form::close()}}
                                             </td>
                                         </tr>
                                     @endforeach

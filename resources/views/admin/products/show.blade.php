@@ -70,8 +70,8 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            {!!open(['route' => ['admin.products.images.add',$product->id],'files' => true])!!}
-                            {{ hidden('productId', $product->id) }}
+                            {!!Form::open(['route' => ['admin.products.images.add',$product->id],'files' => true])!!}
+                            {{ Form::hidden('productId', $product->id) }}
                             <ul class="imageGallery">
                                 @foreach ($product->getMedia('products') as $photo)
                                     <li>
@@ -91,7 +91,7 @@
                             </ul>
                             <br/><br/>
                             <div id="fine-uploader-gallery"></div>
-                            {!! close() !!}
+                            {!! Form::close() !!}
                         </td>
 
                     </tr>
@@ -100,8 +100,8 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            {!!open(['route' => ['admin.products.images.accessories.add',$product->id],'files' => true])!!}
-                            {{ hidden('productId', $product->id) }}
+                            {!!Form::open(['route' => ['admin.products.images.accessories.add',$product->id],'files' => true])!!}
+                            {{ Form::hidden('productId', $product->id) }}
                             <ul class="imageGallery">
                                 @foreach ($product->getMedia('accessories') as $photo)
                                     <li>
@@ -117,7 +117,7 @@
                             </ul>
                             <br/><br/>
                             <div id="accessory-uploader-gallery"></div>
-                            {!! close() !!}
+                            {!! Form::close() !!}
                         </td>
 
                     </tr>

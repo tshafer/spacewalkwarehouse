@@ -56,12 +56,14 @@
                         <i class="fa fa-list" aria-hidden="true"></i>&nbsp;Categories <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        @foreach($categories as $category)
-                            <li>
-                                <a href="{{ route('category', $category->slug) }}" class="{{active_class('category/'.$category->slug.'/*')}}">
-                                    {{ $category->name }}</a>
-                            </li>
-                        @endforeach
+                        @if(isset($categories))
+                            @foreach($categories as $category)
+                                <li>
+                                    <a href="{{ route('category', $category->slug) }}" class="{{active_class('category/'.$category->slug.'/*')}}">
+                                        {{ $category->name }}</a>
+                                </li>
+                            @endforeach
+                        @endif
                     </ul>
                 </li>
                 {{--<li><a href="{{route('special')}}"><i class="fa fa-gift" aria-hidden="true"></i>&nbsp;Specials</a></li>--}}
@@ -73,13 +75,13 @@
                 <div class="btn-group btn-group-cart">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                         <span class="pull-left"><i class="fa fa-shopping-cart icon-cart"></i></span>
-                        <span class="pull-left">Shopping Cart: {{Cart::instance(session('cartId'))->count()}}
-                            item(s)</span>
+                        <span class="pull-left">Shopping Cart: {{Cart::instance(session('cartId'))->countInstances()}}
+                            item(s)</span>&nbsp;
                         <span class="pull-right"><i class="fa fa-caret-down"></i></span>
                     </button>
                     <ul class="dropdown-menu cart-content" role="menu">
 
-                        @if(Cart::instance(session('cartId'))->count() > 0)
+                        @if(Cart::instance(session('cartId'))->countInstances() > 0)
                             @foreach(Cart::instance(session('cartId'))->content() as $unit)
 
                                 <li>

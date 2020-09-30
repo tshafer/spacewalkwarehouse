@@ -48,6 +48,6 @@
 
             </tbody>
         </table>
-        {!! paginate($units) !!}
+        {!! $units->links() !!}
     </div>
 @stop

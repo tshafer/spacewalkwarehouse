@@ -42,9 +42,10 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('auth.logout')}}">
-                        <i class="sidebar-nav-icon"></i>Logout
-                    </a>
+                    <form method="post" action="{{route('logout')}}" name="logout">
+                        {{ csrf_field() }}
+                        <a onClick="document.logout.submit()"><i class="sidebar-nav-icon"></i>Logout</a>
+                    </form>
                 </li>
             </ul>
         </div>

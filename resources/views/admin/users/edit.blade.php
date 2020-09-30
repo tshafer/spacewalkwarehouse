@@ -15,9 +15,9 @@
         <h2>User Details</h2>
       </div>
 
-      {!! model($user, ['route' => ['admin.users.update', $user->id], 'method' => 'patch']) !!}
+      {!! Form::model($user, ['route' => ['admin.users.update', $user->id], 'method' => 'patch']) !!}
         @include('admin.users.form')
-      {!! close() !!}
+      {!! Form::close() !!}
     </div>
   </div>
 

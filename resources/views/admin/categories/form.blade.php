@@ -8,24 +8,24 @@
 
 
             <div class="form-group">
-                {!! label('name') !!}
-                {!! text('name', null, ['class' => 'form-control']) !!}
+                {!! Form::label('name') !!}
+                {!! Form::text('name', null, ['class' => 'form-control']) !!}
             </div>
 
             <div class="form-group">
-                {!! label('intro_text') !!}
-                {!! textarea('intro_text', null, ['class' => 'form-control']) !!}
+                {!! Form::label('intro_text') !!}
+                {!! Form::textarea('intro_text', null, ['class' => 'form-control']) !!}
             </div>
             
             <div class="form-group">
-                {!! label('enabled') !!}
-                {!! checkbox('enabled', true) !!}
+                {!! Form::label('enabled') !!}
+                {!! Form::checkbox('enabled', true) !!}
             </div>
         </div>
 
     </div>
 
     <div class="form-group form-actions">
-        {!!submit('Save Category', ['class' => 'btn btn-block btn-primary'])!!}
+        {!!Form::submit('Save Category', ['class' => 'btn btn-block btn-primary'])!!}
     </div>
 </div>

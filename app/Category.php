@@ -6,14 +6,16 @@ use App\Support\Traits\Linkable;
 use App\Support\Traits\Sortable;
 use Baum\Node;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use MartinBean\Database\Eloquent\Sluggable;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\Interfaces\HasMediaConversions;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Category extends Node implements HasMediaConversions
+class Category extends Node implements HasMedia
 {
 
-    use Linkable, Sortable, Attributes, Sluggable, HasMediaTrait, SoftDeletes;
+    use Linkable, Sortable, Attributes, HasSlug, InteractsWithMedia, SoftDeletes;
 
     /**
      * The database table used by the model.
@@ -57,19 +59,29 @@ class Category extends Node implements HasMediaConversions
     protected $scoped = [];
 
 
+   /**
+     * Get the options for generating the slug.
+     */
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('slug');
+    }
+    
     /**
      * Convert Images
      */
-    public function registerMediaConversions()
+    public function registerMediaConversions(Media $media = null): void
     {
 
-        $this->addMediaConversion('thumb')->setManipulations(['w' => 240])->performOnCollections('*');
+        $this->addMediaConversion('thumb')->width(240)->performOnCollections('*');
 
-        $this->addMediaConversion('medium')->setManipulations(['w' => 800])->performOnCollections('*');
+        $this->addMediaConversion('medium')->width(800)->performOnCollections('*');
 
-        $this->addMediaConversion('full')->setManipulations(['w' => 1024])->performOnCollections('*');
+        $this->addMediaConversion('full')->width(1024)->performOnCollections('*');
 
-        $this->addMediaConversion('adminThumb')->setManipulations(['w' => 100, 'sharp' => 15])->performOnCollections('*');
+        $this->addMediaConversion('adminThumb')->width(100)->sharpen(15)->performOnCollections('*');
     }
 
 

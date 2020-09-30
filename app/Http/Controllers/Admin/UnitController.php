@@ -84,9 +84,7 @@ class UnitController extends Controller
         ];
         $unit  = $this->runSave($request, $rules);
 
-        flash('Unit Added!');
-
-        return redirect()->route('admin.units.show', [$unit->id]);
+        return redirect()->route('admin.units.show', [$unit->id])->withMessage("Unit Added!");
     }
 
 
@@ -106,9 +104,7 @@ class UnitController extends Controller
         ];
         $this->runUpdate($request, $rules, $unit);
 
-        flash('Unit updated!');
-
-        return redirect()->route('admin.units.show', $unit);
+        return redirect()->route('admin.units.show', $unit)->withMessage("Unit updated!");
     }
 
 
@@ -125,9 +121,7 @@ class UnitController extends Controller
 
         $unit->delete();
 
-        flash('Unit deleted!');
-
-        return redirect()->route('admin.units.index');
+        return redirect()->route('admin.units.index')->withMessage("Unit deleted!");
     }
 
 

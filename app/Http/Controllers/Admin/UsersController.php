@@ -18,7 +18,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::paginate();
 
         return view('admin.users.index', compact('users'));
     }
@@ -75,10 +75,8 @@ class UsersController extends Controller
         $user = User::create($request->all());
 
         $user->save();
-
-        flash('User Added!');
-
-        return redirect()->route('admin.users.show', [$user->id]);
+        
+        return redirect()->route('admin.users.show', [$user->id])->withMessage('User Added!');
     }
 
 
@@ -96,9 +94,7 @@ class UsersController extends Controller
 
         $user->save();
 
-        flash('User updated!');
-
-        return redirect()->route('admin.users.show', $user->id);
+        return redirect()->route('admin.users.show', $user->id)->withMessage('User updated!');
     }
 
     /**
@@ -114,14 +110,10 @@ class UsersController extends Controller
         if ($user->id != Auth::user()->id) {
             $user->delete();
 
-            flash('User deleted!');
-
-            return redirect()->route('admin.users.index');
+            return redirect()->route('admin.users.index')->withMessage('User deleted!');
         }
 
-        flash('You can not delete yourself.');
-
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.users.index')->withMessage('You can not delete yourself.');
     }
 
 }

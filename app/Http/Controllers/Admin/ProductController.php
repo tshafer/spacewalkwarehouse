@@ -102,9 +102,7 @@ class ProductController extends Controller
         ];
         $product = $this->runSave($request, $rules);
 
-        flash('Product Added!');
-
-        return redirect()->route('admin.products.show', [$product->id]);
+        return redirect()->route('admin.products.show', [$product->id])->withMessage("Product Added!");
     }
 
 
@@ -161,9 +159,7 @@ class ProductController extends Controller
 
         $this->runUpdate($request, $rules, $product);
 
-        flash('Product updated!');
-
-        return redirect()->route('admin.products.show', $product->id);
+        return redirect()->route('admin.products.show', $product->id)->withMessage("Product updated!");
     }
 
 
@@ -219,9 +215,7 @@ class ProductController extends Controller
 
         $product->delete();
 
-        flash('Product deleted!');
-
-        return redirect()->route('admin.products.index');
+        return redirect()->route('admin.products.index')->withMessage("Product deleted!");
     }
 
 
@@ -245,9 +239,8 @@ class ProductController extends Controller
         $image                    = $product->media->find($imageId);
         $image->custom_properties = ['default' => true];
         $image->save();
-        flash('Image Set as Default!');
 
-        return redirect()->back();
+        return redirect()->back()->withMessage("Image Set as Default!");
     }
 
 
@@ -262,9 +255,7 @@ class ProductController extends Controller
     {
         $product->deleteMedia($imageId);
 
-        flash('Image deleted!');
-
-        return redirect()->back();
+        return redirect()->back()->withMessage("Image deleted!");
     }
 
 
@@ -279,9 +270,7 @@ class ProductController extends Controller
     {
         $product->deleteMedia($imageId);
 
-        flash('Image deleted!');
-
-        return redirect()->back();
+        return redirect()->back()->withMessage("Image deleted!");
     }
 
 
@@ -295,7 +284,7 @@ class ProductController extends Controller
     {
 
         if ($request->hasFile('qqfile')) {
-            $product->addMedia($request->file('qqfile'))->preservingOriginal()->toCollection('products');
+            $product->addMedia($request->file('qqfile'))->preservingOriginal()->toMediaCollection('products');
         }
 
         return response()->json(['success' => 'true']);
@@ -312,7 +301,7 @@ class ProductController extends Controller
     {
 
         if ($request->hasFile('qqfile')) {
-            $product->addMedia($request->file('qqfile'))->preservingOriginal()->toCollection('accessories');
+            $product->addMedia($request->file('qqfile'))->preservingOriginal()->toMediaCollection('accessories');
         }
 
         return response()->json(['success' => 'true']);
@@ -328,9 +317,7 @@ class ProductController extends Controller
 
         $product->moveHigher();
 
-        flash('Product ' . $product->name . ' Moved Higher!');
-
-        return redirect()->back();
+        return redirect()->back()->withMessage("'Product  $product->name  Moved Higher!'");
     }
 
 
@@ -344,9 +331,7 @@ class ProductController extends Controller
     {
         $product->moveToTop();
 
-        flash('Product ' . $product->name . ' Moved to Top!');
-
-        return redirect()->back();
+        return redirect()->back()->withMessage("Product $product->name  Moved to Top!");
     }
 
 
@@ -360,9 +345,7 @@ class ProductController extends Controller
     {
         $product->moveToBottom();
 
-        flash('Product ' . $product->name . ' Moved to Bottom!');
-
-        return redirect()->back();
+        return redirect()->back()->withMessage("Product $product->name  Moved to Bottom!");
     }
 
 
@@ -375,9 +358,7 @@ class ProductController extends Controller
 
         $product->moveLower();
 
-        flash('Product ' . $product->name . ' Moved Lower!');
-
-        return redirect()->back();
+        return redirect()->back()->withMessage("Product $product->name  Moved Lower!");
     }
 
 }

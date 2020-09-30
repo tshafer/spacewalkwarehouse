@@ -77,14 +77,12 @@ class SlidersController extends Controller
         $slider = Slider::create($request->all());
 
         if ($request->hasFile('image')) {
-            $slider->addMedia($request->file('image'))->preservingOriginal()->toCollection('sliders');
+            $slider->addMedia($request->file('image'))->preservingOriginal()->toMediaCollection('sliders');
         }
 
         $slider->save();
 
-        flash('Slider Added!');
-
-        return redirect()->route('admin.sliders.show', [$slider->id]);
+        return redirect()->route('admin.sliders.show', [$slider->id])->withMessage('Slider Added!');
     }
 
 
@@ -109,14 +107,12 @@ class SlidersController extends Controller
         $slider->clearMediaCollection();
 
         if ($request->hasFile('image')) {
-            $slider->addMedia($request->file('image'))->preservingOriginal()->toCollection('sliders');
+            $slider->addMedia($request->file('image'))->preservingOriginal()->toMediaCollection('sliders');
         }
 
         $slider->save();
 
-        flash('Slider updated!');
-
-        return redirect()->route('admin.sliders.show', $slider->id);
+        return redirect()->route('admin.sliders.show', $slider->id)->withMessage('Slider updated!');
     }
 
 
@@ -132,9 +128,7 @@ class SlidersController extends Controller
     {
         $slider->delete();
 
-        flash('Slider deleted!');
-
-        return redirect()->route('admin.sliders.index');
+        return redirect()->route('admin.sliders.index')->withMessage("Slider deleted!");
     }
 
 
@@ -149,9 +143,7 @@ class SlidersController extends Controller
     {
         $slider->deleteMedia($imageId);
 
-        flash('Image deleted!');
-
-        return redirect()->back();
+        return redirect()->back()->withMessage("Slider deleted!");
     }
 
 }
