@@ -67,8 +67,7 @@
                                 <i class="fa fa-arrow-circle-left"></i> Continue Shopping
                             </a>
                         @else
-                            <a class="btn btn-primary" href="{{route('home')}}"><i
-                                        class="fa fa-arrow-circle-left"></i> Continue Shopping
+                            <a class="btn btn-primary" href="{{route('home')}}"><i class="fa fa-arrow-circle-left"></i> Continue Shopping
                             </a>
                         @endif
                         <a class="btn btn-primary" href="{{route('checkout.index')}}">Checkout

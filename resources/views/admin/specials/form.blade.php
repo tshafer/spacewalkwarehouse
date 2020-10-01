@@ -22,7 +22,7 @@
                     <img src="{{url('/')}}{!! $special->media->first()->getUrl('adminThumb')!!}"/><br/>
                 @endif
                 {!! Form::label('image') !!}
-                {!! file_Form::input('image',['class' => 'form-control']) !!}
+                {!! Form::file('image',['class' => 'form-control']) !!}
             </div>
 
         </div>

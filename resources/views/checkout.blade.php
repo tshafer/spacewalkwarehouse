@@ -69,15 +69,15 @@
                                         <div class="cart-info">
                                             <a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">{{$unit->options->product_name}}</a>
                                             <div>
-                                                - ({{$unit->options->width}} x {{$unit->options->length}}
-                                                x {{$unit->options->height}}) - ({{$unit->options->weight}} LBS)
+                                                - ({{$unit->options->width ?: 'N/A'}} x {{$unit->options->length ?: 'N/A'}}
+                                                x {{$unit->options->height ?: 'N/A'}}) - ({{$unit->options->weight . 'LBS' ?: 'N/A'}} )
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </td>
                             <td class="text-center">
-                                {{$unit->options->grade}}
+                                {{$unit->options->grade ?:'N/A'}}
                             </td>
                         </tr>
                     @endforeach

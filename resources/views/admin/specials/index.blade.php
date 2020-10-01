@@ -47,6 +47,6 @@
 
             </tbody>
         </table>
-        {!! paginate($specials) !!}
+        {!! $specials->links() !!}
     </div>
 @stop
