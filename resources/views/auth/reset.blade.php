@@ -5,6 +5,7 @@
 @section('content')
 
     <div class="col-md-6 col-md-offset-3">
+        @include('partials.flash')
         <h1 class="center">Reset Password</h1>
         {!! Form::open(['route' => 'auth.reset', 'method' => 'post']) !!}
 

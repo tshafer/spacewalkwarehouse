@@ -61,7 +61,7 @@
                                     <div class="col-md-4 col-sm-12 col-xs-12 text-center">
                                         @if($unit->options->image)
                                             <a href="{{route('product', [$unit->options->categorySlug, $unit->options->productSlug])}}">
-                                                <img src="{{$unit->options->image}}" alt="{{$unit->options->product_name}}" title="{{$unit->options->product_name}}"/>
+                                                <img src="{{$unit->options->image}}" alt="{{$unit->options->product_name}}" title="{{$unit->options->product_name}}" style="width: 100%;"/>
                                             </a>
                                         @endif
                                     </div>

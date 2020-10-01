@@ -5,6 +5,7 @@
 @section('content')
 
         <div class="container">
+            @include('partials.flash')
             <h1 class="center">Register with Us.</h1>
             <br/>
             {!! Form::open(['route' => 'auth.register']) !!}

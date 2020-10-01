@@ -4,6 +4,7 @@
 
 @section('content')
     <div class="container">
+        @include('partials.flash')
         <h1 class="center">Sign into Space Walk Online</h1>
         <br/>
         {!! Form::open(['route' => 'login', 'method' => 'post']) !!}
