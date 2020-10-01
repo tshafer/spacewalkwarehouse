@@ -15,7 +15,7 @@
                 450 31st St.<br/>
                 Kenner, LA 70065<br/>
                 Phone:<br/>
-                Email: {{ mailto('sales@herecomesfun.com', 'sales@herecomesfun.com') }}<br/>
+                Email: <a href="mailto:sales@herecomesfun.com">sales@herecomesfun.com</a><br/>
             </div>
             <div class="col-lg-9 col-md-9 col-sm-12">
 
