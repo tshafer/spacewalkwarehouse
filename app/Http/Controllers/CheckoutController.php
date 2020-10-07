@@ -48,11 +48,12 @@ class CheckoutController extends Controller
         $data = $request->all();
 
         Mail::send('emails.sendRequest', ['data' => $data, 'cart' => Cart::instance(session('cartId'))->content(), 'units' => $unitRequest], function ($message) {
-
+            $name = implode(' ', [array_get($data, 'first_name'), array_get($data, 'last_name')]);
+            $message->replyTo(array_get($data, 'email'), $name);
             $message->subject('Space Walk Sales Requests Form');
             $message->from('sales@spacewalk.com', 'Space Walk Sales Request');
 
-            $message->to('kelsey@herecomesfun.com');
+            $message->to('Kelsey@herecomesfun.com');
         });
 
 
