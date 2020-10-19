@@ -35,6 +35,7 @@ class CheckoutController extends Controller
         $this->validate($request, [
             'first_name'      => 'required',
             'last_name'       => 'required',
+            'email'           => 'email|required',
         ]);
 
         $unitRequest       = UnitRequest::create($request->all());
@@ -47,7 +48,9 @@ class CheckoutController extends Controller
 
         $data = $request->all();
 
-        Mail::send('emails.sendRequest', ['data' => $data, 'cart' => Cart::instance(session('cartId'))->content(), 'units' => $unitRequest], function ($message) {
+        $content = Cart::instance(session('cartId'))->content();
+
+        Mail::send('emails.sendRequest', ['data' => $data, 'cart' => $content, 'units' => $unitRequest], function ($message) use ($data) {
             $name = implode(' ', [array_get($data, 'first_name'), array_get($data, 'last_name')]);
             $message->replyTo(array_get($data, 'email'), $name);
             $message->subject('Space Walk Sales Requests Form');

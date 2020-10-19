@@ -31,6 +31,10 @@
                         {{ Form::label('branch_name')}}
                         {{ Form::input('branch_name','branch_name', old('branch_name'), ['class' => 'form-control']) }}
                     </div>
+                    <div class="col-md-6">
+                        {{ Form::label('email')}} <span class="red">*</span>
+                        {{ Form::input('email','email', old('email'), ['class' => 'form-control','required']) }}
+                    </div>
 
                 </div>
 
