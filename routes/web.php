@@ -84,7 +84,7 @@ Route::bind('category', function($value){
         return Category::whereSlug($value)->first();
     }
 
-    return Category::findOrFail($value)->first();
+    return Category::findOrFail($value);
 });
 
 Route::bind('subcategory', function($value){
@@ -92,7 +92,7 @@ Route::bind('subcategory', function($value){
         return Category::whereSlug($value)->first();
     }
 
-    return Category::findOrFail($value)->first();
+    return Category::findOrFail($value);
 });
 
 Route::bind('product', function($value){
@@ -100,7 +100,7 @@ Route::bind('product', function($value){
         return Product::whereSlug($value)->first();
     }
 
-    return Product::findOrFail($value)->first();
+    return Product::findOrFail($value);
 });
 
 /**
