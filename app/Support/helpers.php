@@ -42,18 +42,20 @@ if ( ! function_exists('defaultProductImage')) {
      *
      * @return string
      */
-    function defaultProductImage($product, $size = 'category_page', $page = null)
+    function defaultProductImage($product, $size = 'category_page', $page = null, $width = null)
     {
         if ($product->getMedia('products')->count() > 0) {
             $defaultItem = $product->getMedia('products')->reject(function ($item) {
                 return array_get($item->custom_properties, 'default') == false;
             });
 
+            $width = isset($width) ? $width = 'style="width:' . $width . 'px"' : null;
+
             if ($defaultItem->count() > 0) {
-                return '<div class="product-image"><img src="' . url('/') . $defaultItem->first()->getUrl($size) . '" class="img-responsive product-img" alt="' . $product->name . '"/>' . wetDry($product,
+                return '<div class="product-image"><img src="' . url('/') . $defaultItem->first()->getUrl($size) . '" ' . $width . 'class="img-responsive product-img" alt="' . $product->name . '"/>' . wetDry($product,
                     $page) . '</div>';
             } elseif ($product->getMedia('products')->count() > 0) {
-                return '<div class="product-image"><img src="' . url('/') . $product->getMedia('products')->first()->getUrl($size) . '" class="img-responsive product-img" alt="' . $product->name . '"/>' . wetDry($product,
+                return '<div class="product-image"><img src="' . url('/') . $product->getMedia('products')->first()->getUrl($size) . '" ' . $width . 'class="img-responsive product-img" alt="' . $product->name . '"/>' . wetDry($product,
                     $page) . '</div>';
             }
         }

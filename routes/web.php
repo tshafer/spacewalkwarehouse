@@ -78,16 +78,29 @@ Route::resource('checkout', 'CheckoutController',['except' => ['create','edit', 
 /**
  * Frontend Model Binding
  */
+
 Route::bind('category', function($value){
-    return Category::whereSlug($value)->orWhere('id', $value)->first();
+    if(!is_numeric($value)) {
+        return Category::whereSlug($value)->first();
+    }
+
+    return Category::findOrFail($value)->first();
 });
 
 Route::bind('subcategory', function($value){
-    return Category::whereSlug($value)->orWhere('id', $value)->first();
+    if(!is_numeric($value)) {
+        return Category::whereSlug($value)->first();
+    }
+
+    return Category::findOrFail($value)->first();
 });
 
 Route::bind('product', function($value){
-    return Product::whereSlug($value)->orWhere('id', $value)->first();
+    if(!is_numeric($value)) {
+        return Product::whereSlug($value)->first();
+    }
+
+    return Product::findOrFail($value)->first();
 });
 
 /**

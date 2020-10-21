@@ -28,7 +28,7 @@
                         <td>{{$special->title}}</td>
                         <td>
                             @if($special->media->count() > 0)
-                                <img src="{!! $special->media->first()->getUrl('adminThumb')!!}"/>
+                                <img src="{!! $special->media->first()->getUrl('adminThumb')!!}" style="width: 200px;"/>
                             @endif
                         </td>
                         <td class="min">

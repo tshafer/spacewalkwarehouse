@@ -36,7 +36,7 @@
                         <tr>
                             <td>Image</td>
                             <td>
-                                <img src="{{url('/')}}{!! $slider->media->first()->getUrl('adminThumb')!!}"/><br/>
+                                <img src="{{url('/')}}{!! $slider->media->first()->getUrl('adminThumb')!!}" style="width: 200px;"/><br/>
                             </td>
                             <td>
                                 <a href="{{ route('admin.sliders.image.delete',[$slider->id, $slider->media->first()->id]) }}"

@@ -76,7 +76,7 @@
                                 @foreach ($product->getMedia('products') as $photo)
                                     <li>
                                         <div>
-                                            <img src="{{$photo->getUrl('thumb') }}" class="img-responsive"/>
+                                            <img src="{{$photo->getUrl('thumb') }}" class="img-responsive" style="width: 200px;"/>
                                         </div>
                                         <div class="btn-group">
                                             @if(array_get($photo->custom_properties, 'default') == null)
@@ -106,7 +106,7 @@
                                 @foreach ($product->getMedia('accessories') as $photo)
                                     <li>
                                         <div>
-                                            <img src="{{$photo->getUrl('adminThumb') }}" class="img-responsive"/>
+                                            <img src="{{$photo->getUrl('adminThumb') }}" class="img-responsive" style="width: 200px;"/>
                                         </div>
                                         <div class="btn-group">
                                             <a href="{{ route('admin.products.images.accessories.delete',[$product->id, $photo->id]) }}"

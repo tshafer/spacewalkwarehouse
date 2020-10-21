@@ -52,7 +52,7 @@
                         <tr>
                             <td>Image</td>
                             <td>
-                                <img src="{{url('/')}}{!! $category->media->first()->getUrl('adminThumb')!!}"/><br/>
+                                <img src="{{url('/')}}{!! $category->media->first()->getUrl('adminThumb')!!}" style="width: 200px;"/><br/>
 
                             </td>
                             <td>

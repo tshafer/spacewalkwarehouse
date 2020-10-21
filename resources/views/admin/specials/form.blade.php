@@ -19,7 +19,7 @@
 
             <div class="form-group">
                 @if(isset($special) &&  $special->media->first())
-                    <img src="{{url('/')}}{!! $special->media->first()->getUrl('adminThumb')!!}"/><br/>
+                    <img src="{{url('/')}}{!! $special->media->first()->getUrl('adminThumb')!!}" style="width: 200px;"/><br/>
                 @endif
                 {!! Form::label('image') !!}
                 {!! Form::file('image',['class' => 'form-control']) !!}

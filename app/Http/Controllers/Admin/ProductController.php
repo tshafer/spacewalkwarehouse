@@ -60,7 +60,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
 
-        $nestedList = Category::allLeaves()->orderBy('name')->get()->pluck('name', 'id')->toArray();
+        $nestedList = Category::get()->pluck('name', 'id')->toArray();
 
         asort($nestedList);
 
@@ -78,7 +78,7 @@ class ProductController extends Controller
      */
     public function create(Request $request)
     {
-        $nestedList = Category::allLeaves()->orderBy('name')->get()->pluck('name', 'id')->toArray();
+        $nestedList = Category::get()->pluck('name', 'id')->toArray();
 
         asort($nestedList);
 
@@ -118,7 +118,7 @@ class ProductController extends Controller
         $this->validate($request, array_merge([
             //'intro_text' => 'required',
         ], $rules));
-        $product = Product::create($request->all());
+        $product = Product::create($request->except('categories'));
 
         if ($request->has('enabled')) {
             $product->enabled = true;

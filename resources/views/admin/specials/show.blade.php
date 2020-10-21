@@ -36,7 +36,7 @@
                         <tr>
                             <td>Image</td>
                             <td>
-                                <img src="{{url('/')}}{!! $special->media->first()->getUrl('adminThumb')!!}"/><br/>
+                                <img src="{{url('/')}}{!! $special->media->first()->getUrl('adminThumb')!!}" style="width: 200px;"/><br/>
                             </td>
                             <td>
                                 <a href="{{ route('admin.specials.image.delete',[$special->id, $special->media->first()->id]) }}"

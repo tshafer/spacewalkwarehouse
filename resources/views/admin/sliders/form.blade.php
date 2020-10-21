@@ -19,7 +19,7 @@
 
             <div class="form-group">
                 @if(isset($slider) && $slider->getMedia('sliders')->first())
-                    <img src="{{url('/')}}{!! $slider->getMedia('sliders')->first()->getUrl('adminThumb')!!}"/><br/>
+                    <img src="{{url('/')}}{!! $slider->getMedia('sliders')->first()->getUrl('adminThumb')!!}" style="width: 200px;"/><br/>
                 @endif
                 {!! Form::label('image') !!}
                 {!! Form::file('image',['class' => 'form-control']) !!}

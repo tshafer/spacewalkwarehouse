@@ -30,7 +30,7 @@
                         <td>{{$category->is_enabled}}</td>
                         <td>
                             @if($category->media->count() > 0)
-                                <img src="{!! $category->media->first()->getUrl('adminThumb')!!}"/>
+                                <img src="{!! $category->media->first()->getUrl('adminThumb')!!}" style="width: 200px;"/>
                             @endif
                         </td>
                         <td class="min">

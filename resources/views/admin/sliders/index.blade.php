@@ -28,7 +28,7 @@
                         <td>{{$slider->title}}</td>
                         <td>
                             @if($slider->media->count() > 0)
-                                <img src="{!! $slider->media->first()->getUrl('adminThumb')!!}"/>
+                                <img src="{!! $slider->media->first()->getUrl('adminThumb')!!}" style="width: 200px;"/>
                             @endif
                         </td>
                         <td class="min">

@@ -37,7 +37,7 @@
                             <a href="{{route('admin.categories.show', $product->categories->id)}}">{{ $product->categories->name }}</a>
                         </td>
                         <td>
-                            {!! defaultProductImage($product, 'adminThumb', 'admin') !!}
+                            {!! defaultProductImage($product, 'thumb', 'admin', 200) !!}
                         </td>
                         <td class="min">
                             {!!$product->getTableLinks()!!}
