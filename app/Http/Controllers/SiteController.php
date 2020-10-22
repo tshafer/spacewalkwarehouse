@@ -21,10 +21,22 @@ class SiteController extends Controller
     {
         $sliders = Slider::all();
 
-        $featured = Product::with('units', 'categories', 'media')->take(6)->orderBy('created_at', 'desc')->enabled()->whereFeatured(true)->get();
+        $featured = Product::with('units', 'categories', 'media')
+            ->take(6)
+            ->whereHas('categories')
+            ->orderBy('created_at', 'desc')
+            ->enabled()
+            ->whereFeatured(true)
+            ->get();
 
-        $products = Product::with('units', 'categories', 'media')->take(6 - $featured->count())->whereNotIn('id', $featured->pluck('id'))->orderBy('created_at', 'desc')->enabled()->get();
-
+        $products = Product::with('units', 'categories', 'media')
+            ->take(6 - $featured->count())
+            ->whereHas('categories')
+            ->whereNotIn('id', $featured->pluck('id'))
+            ->orderBy('created_at', 'desc')
+            ->enabled()
+            ->get();
+            
         $products = $featured->merge($products);
 
         return view('index', compact('sliders', 'products'));

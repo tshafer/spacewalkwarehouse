@@ -34,7 +34,9 @@
                         <td>{{$product->is_enabled}}</td>
                         <td>{{$product->is_featured}}</td>
                         <td>
-                            <a href="{{route('admin.categories.show', $product->categories->id)}}">{{ $product->categories->name }}</a>
+                            @if($product->categories)
+                                <a href="{{route('admin.categories.show', $product->categories->id)}}">{{ $product->categories->name }}</a>
+                            @endif
                         </td>
                         <td>
                             {!! defaultProductImage($product, 'thumb', 'admin', 200) !!}
