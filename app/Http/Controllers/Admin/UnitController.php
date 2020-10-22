@@ -80,11 +80,11 @@ class UnitController extends Controller
     {
         $rules = [
             'name'    => 'bail|required|unique:units',
-            'weight' => 'optional|integer',
-            'height' => 'optional|integer',
-            'length' => 'optional|integer',
-            'width' => 'optional|integer',
-            'price' => 'optional|integer',
+            'weight' => 'nullable|integer',
+            'height' => 'nullable|integer',
+            'length' => 'nullable|integer',
+            'width' => 'nullable|integer',
+            'price' => 'nullable|integer',
             'product' => 'required',
         ];
         $unit  = $this->runSave($request, $rules);
@@ -105,11 +105,11 @@ class UnitController extends Controller
     {
         $rules = [
             'name'  => 'bail|required',
-            'weight' => 'optional|integer',
-            'height' => 'optional|integer',
-            'length' => 'optional|integer',
-            'width' => 'optional|integer',
-            'price' => 'optional|integer',
+            'weight' => 'nullable|integer',
+            'height' => 'nullable|integer',
+            'length' => 'nullable|integer',
+            'width' => 'nullable|integer',
+            'price' => 'nullable|integer',
             //'grade' => 'in:a,b,c,d,e,f,A,B,C,D,E,F,a-,b-,c-,d-,e-,f-,A+,B+,C,+D,E+,F,+a,b+,c,+d,e+,f+',
         ];
         $this->runUpdate($request, $rules, $unit);
