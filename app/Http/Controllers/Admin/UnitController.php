@@ -80,11 +80,11 @@ class UnitController extends Controller
     {
         $rules = [
             'name'    => 'bail|required|unique:units',
-            'weight' => 'integer',
-            'height' => 'integer',
-            'length' => 'integer',
-            'width' => 'integer',
-            'price' => 'integer',
+            'weight' => 'sometimes|integer',
+            'height' => 'sometimes|integer',
+            'length' => 'sometimes|integer',
+            'width' => 'sometimes|integer',
+            'price' => 'sometimes|integer',
             'product' => 'required',
         ];
         $unit  = $this->runSave($request, $rules);
