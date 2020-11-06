@@ -22,7 +22,7 @@
 
 <header>
     <div class="container">
-        <div class="row">
+        <div class="row equal">
             <div class="col-md-3 hidden-sm hidden-xs">
                 <div class="well logo">
                     <a href="{{route('home')}}"><img src="/images/swlogo.png" class="img-responsive" /></a>
