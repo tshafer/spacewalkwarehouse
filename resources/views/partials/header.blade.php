@@ -22,13 +22,13 @@
 
 <header>
     <div class="container">
-        <div class="row equal"  style="align-items: flex-end; padding-right: 45px;">
+        <div class="row equal"  style="align-items: flex-end; padding-right: 26px;">
             <div class="col-md-3 hidden-sm hidden-xs">
                 <div class="well logo">
                     <a href="{{route('home')}}"><img src="/images/swlogo.png" class="img-responsive" /></a>
                 </div>
             </div>
-            <div class="col-md-9 text-right">Call Us! 800-622-6026</div>
+            <div class="col-md-9 text-right" style="font-size: 19px;">Call Us! 800-622-6026</div>
         </div>
     </div>
 </header>
