@@ -12,7 +12,7 @@
 
             <div class="block">
                 <div class="block-title">
-                    <h2>Slider Content</h2>
+                    <h2>Special Content</h2>
                     <div class="block-options pull-right">
 
                         {!! toolbar_link(['admin.specials.edit', $special->id], 'fa-edit', 'Edit Special') !!}

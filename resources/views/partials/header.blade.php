@@ -28,7 +28,7 @@
                     <a href="{{route('home')}}"><img src="/images/swlogo.png" class="img-responsive" /></a>
                 </div>
             </div>
-            <div class="col-md-9"></div>
+            <div class="col-md-9 text-right" style="align-items: flex-end; padding-right: 45px;">Call Us! 800-622-6026</div>
         </div>
     </div>
 </header>
